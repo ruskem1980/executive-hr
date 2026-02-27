@@ -1,0 +1,390 @@
+================================================================================
+  ОТРАСЛЕВЫЕ ОСОБЕННОСТИ ОЦЕНКИ ТОП-МЕНЕДЖЕРОВ
+  Industry-Specific Executive Assessment Requirements
+  Версия 3.0 | Axioma AI Executive Assessment System
+================================================================================
+
+ИНСТРУКЦИЯ: Каждая отрасль имеет специфические требования к лидерам.
+Данный справочник описывает ключевые отличия по отраслям:
+что искать, что проверять, какие компетенции критичны.
+
+================================================================================
+  1. ТЕХНОЛОГИИ / IT / SaaS
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Быстрые циклы изменений (6-18 месяцев)
+- War for talent (инженеры — дефицитный ресурс)
+- Культура: flat, неформальная, engineering-driven
+- Метрики: ARR, NDR, CAC, LTV, burn rate, runway
+- Инвесторы как стейкхолдеры (VC, PE)
+- Remote-first или hybrid — стандарт
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ (поверх стандартных):
+
+CEO:
+  + Fundraising ability (умение привлекать инвестиции)
+  + Product sense (даже если не CPO)
+  + Employer branding (привлечение талантов)
+  + Storytelling для инвесторов и рынка
+  - Корпоративный background может быть red flag для стартапа
+
+CTO:
+  + Hands-on credibility (команда не уважает "менеджера")
+  + Architecture vision (cloud, microservices, AI)
+  + Developer experience focus
+  + Open source community engagement
+  - Over-engineering (частый деструктор в tech)
+
+Специфические вопросы:
+- "Какой ваш tech stack? Почему именно он?"
+- "Как вы привлекаете и удерживаете инженеров?"
+- "Расскажите о вашем опыте fundraising."
+- "Как вы балансируете product development и technical debt?"
+- "Опишите ваш подход к metrics-driven management."
+
+RED FLAGS для IT:
+- Не понимает unit economics SaaS-бизнеса
+- Нет опыта работы с Board/инвесторами
+- Корпоративный стиль управления в стартапе
+- Не может объяснить продукт простыми словами
+- Отсутствие технического credibility (для CTO)
+
+================================================================================
+  2. ФИНАНСЫ / БАНКИНГ / FINTECH
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Тяжёлое регулирование (ЦБ, SEC, GDPR, AML/KYC)
+- Risk management как core capability
+- Compliance не опционален — это must-have
+- Доверие и репутация = главные активы
+- Цифровая трансформация vs legacy-системы
+- Высокие требования к integrity
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO:
+  + Regulatory navigation (умение работать с регуляторами)
+  + Risk appetite management (баланс роста и рисков)
+  + Stakeholder management (регуляторы, акционеры, клиенты)
+  + Crisis management (финансовые кризисы, bank runs)
+  - Слишком агрессивный growth mindset = опасно
+
+CFO:
+  + Capital adequacy management
+  + Regulatory reporting
+  + Stress testing и risk modeling
+  + Investor relations
+  - Отсутствие регуляторного опыта — дисквалифицирующий фактор
+
+Специфические вопросы:
+- "Расскажите о взаимодействии с регуляторами. Какие проверки проходили?"
+- "Как вы управляете compliance при быстром росте?"
+- "Опишите ваш опыт кризисного управления в финансовой сфере."
+- "Как вы балансируете innovation и regulatory requirements?"
+- "Расскажите о вашем подходе к AML/KYC compliance."
+
+RED FLAGS для финансов:
+- Пренебрежение compliance ("это замедляет бизнес")
+- Mischievous (Hogan) деструктор — CRITICAL для финансов
+- История проблем с регуляторами
+- Отсутствие fiduciary duty mindset
+- Непрозрачность в принятии решений
+
+MUST-HAVE ПРОВЕРКИ:
+- Background check (судимости, банкротства, санкции)
+- Regulatory records check
+- Credit history (для ключевых финансовых ролей)
+- Проверка конфликтов интересов
+
+================================================================================
+  3. ПРОИЗВОДСТВО / ПРОМЫШЛЕННОСТЬ
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Длинные производственные циклы
+- CAPEX-intensive бизнес
+- Профсоюзы и трудовые отношения
+- HSE (Health, Safety, Environment) — приоритет №1
+- Lean/Six Sigma/TPS — стандартные методологии
+- Сезонность и цикличность
+- Supply chain как конкурентное преимущество
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO:
+  + Operational excellence background
+  + Supply chain understanding
+  + Labor relations experience (профсоюзы)
+  + CAPEX planning и capital allocation
+  + ESG / sustainability awareness
+  - Чистый finance/consulting background без production floor time
+
+COO:
+  + Lean manufacturing / continuous improvement
+  + Plant management experience
+  + Quality management (ISO, TQM)
+  + Safety culture leadership
+  + Multi-site management
+  - IT-COO переход в производство — high risk
+
+Специфические вопросы:
+- "Расскажите о вашем опыте управления производством. Сколько заводов?"
+- "Как вы внедряли lean/continuous improvement? Конкретные результаты."
+- "Опишите ваш подход к управлению качеством и безопасностью."
+- "Как вы работали с профсоюзами? Были ли забастовки?"
+- "Расскажите о CAPEX-решении, которое вы обосновывали."
+
+RED FLAGS для производства:
+- Нет опыта на "полу" (никогда не управлял production)
+- Пренебрежение HSE ("это стоит денег")
+- Неспособность работать с blue-collar workforce
+- Теоретический подход (consulting без execution)
+- Отсутствие understanding of physical operations
+
+================================================================================
+  4. РИТЕЙЛ / E-COMMERCE
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Customer-centric бизнес
+- Omnichannel (offline + online)
+- Seasonal peaks (Black Friday, Новый Год)
+- Маржинальность давление
+- Last-mile logistics = конкурентное преимущество
+- Data-driven merchandising
+- Speed of execution — конкурентный фактор №1
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO:
+  + Customer obsession (personal experience in retail)
+  + Omnichannel strategy
+  + Brand management
+  + Vendor/supplier relationships
+  + Seasonal planning expertise
+  - "Чистый digital" без understanding of physical retail
+
+CMO:
+  + Retail marketing (in-store + digital)
+  + CRM и loyalty programs
+  + Merchandising analytics
+  + Category management understanding
+  + Influencer/social commerce
+  - B2B маркетолог в B2C ритейл — culture shock
+
+COO:
+  + Supply chain management
+  + Store operations (если offline)
+  + Fulfillment center management
+  + Returns management
+  + Peak season planning
+  - Manufacturing COO в ритейл — разные operational models
+
+Специфические вопросы:
+- "Как вы управляете customer experience across channels?"
+- "Расскажите о пиковом сезоне — как готовились, что пошло не так?"
+- "Как вы используете data для merchandising-решений?"
+- "Опишите ваш подход к ценообразованию и маржинальности."
+- "Как вы работаете с поставщиками? Были ли кризисы supply chain?"
+
+RED FLAGS для ритейла:
+- Нет customer-facing опыта
+- Медленное принятие решений (ритейл = скорость)
+- Нет понимания unit economics ритейла (маржа, shrinkage, turnover)
+- Отсутствие omnichannel-мышления
+
+================================================================================
+  5. ФАРМА / BIOTECH / МЕДИЦИНА
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Extreme regulation (FDA, EMA, Минздрав)
+- Длинные циклы разработки (7-15 лет)
+- R&D-intensive (15-25% от выручки)
+- IP protection — стратегический актив
+- Evidence-based decision making
+- Patient safety = абсолютный приоритет
+- Ethical considerations в каждом решении
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO:
+  + Scientific literacy (не обязательно PhD, но understanding)
+  + Regulatory strategy
+  + Pipeline management
+  + Partnership/licensing deals
+  + Patient advocacy
+  - "Чистый бизнесмен" без science appreciation = red flag
+
+CTO / CSO:
+  + Deep domain expertise (PhD уровень в своей области)
+  + Clinical trial design and management
+  + Regulatory submission experience
+  + Publication track record
+  + IP strategy
+  - Great scientist ≠ great leader (проверять people skills)
+
+Специфические вопросы:
+- "Расскажите о вашем опыте прохождения regulatory approval."
+- "Как вы принимаете решения go/no-go по pipeline projects?"
+- "Опишите ваш подход к управлению R&D pipeline и ресурсами."
+- "Как вы балансируете commercial pressure и patient safety?"
+- "Расскажите о deal/partnership, который вы структурировали."
+
+RED FLAGS для фармы:
+- Ставит коммерцию выше patient safety
+- Не понимает regulatory процесс
+- Нет терпения к длинным циклам разработки
+- Mischievous (Hogan) — CRITICAL (compliance-heavy industry)
+- Отсутствие integrity в R&D данных
+
+================================================================================
+  6. СТРОИТЕЛЬСТВО / ДЕВЕЛОПМЕНТ / НЕДВИЖИМОСТЬ
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Проектный бизнес (длительные циклы, 2-5 лет)
+- Capital-intensive, высокая leverage
+- Регуляция (разрешения, экология, безопасность)
+- Сезонность и зависимость от макро-факторов
+- Многоуровневая подрядная система
+- Коррупционные риски
+- HSE на строительных площадках
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO:
+  + Land bank management и deal sourcing
+  + Government relations
+  + Project finance и structuring
+  + Market cycle understanding
+  + Stakeholder management (банки, власти, покупатели)
+  - Только "строитель" без финансовой грамотности
+
+CFO:
+  + Project finance modeling
+  + Cash flow management (длинные циклы)
+  + Banking relationships
+  + Covenant management
+  + Tax optimization (легальная)
+  - Нет опыта с проектным финансированием — дисквалификация
+
+Специфические вопросы:
+- "Сколько проектов одновременно вели? Общий бюджет?"
+- "Как управляли cash flow при длительных циклах?"
+- "Опишите ваш опыт взаимодействия с властями и получения разрешений."
+- "Был ли кризис на проекте? Как разрешили?"
+- "Как вы управляете подрядчиками и обеспечиваете качество/сроки?"
+
+================================================================================
+  7. MEDIA / ENTERTAINMENT / GAMING
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- Content is king (креативный бизнес)
+- Hit-driven (непредсказуемость успеха)
+- Быстрые технологические изменения (streaming, AI)
+- Creator economy и talent management
+- IP monetization across platforms
+- Community-driven growth
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO:
+  + Creative leadership (vision для контента)
+  + Platform strategy (owned + distributed)
+  + Talent/creator management
+  + IP portfolio management
+  + Technology adoption (AI, VR, streaming)
+
+CPO / Creative Director:
+  + Creative vision с commercial awareness
+  + Audience insight и data-driven creativity
+  + Cross-platform storytelling
+  + Community building
+  + Ability to say "no" to bad projects
+
+Специфические вопросы:
+- "Как вы принимаете решения о greenlight/kill projects?"
+- "Расскажите о самом успешном и самом провальном проекте."
+- "Как вы балансируете creative vision и commercial viability?"
+- "Ваш подход к новым платформам и технологиям?"
+
+================================================================================
+  8. CONSULTING / PROFESSIONAL SERVICES
+================================================================================
+
+СПЕЦИФИКА ОТРАСЛИ:
+- People-intensive бизнес (люди = продукт)
+- Utilization и leverage — ключевые метрики
+- Partner/up-or-out модель
+- Relationship-based sales
+- Knowledge management
+- Brand = trust
+
+КЛЮЧЕВЫЕ КОМПЕТЕНЦИИ:
+
+CEO / Managing Partner:
+  + Client relationship management (personal book of business)
+  + Talent development pipeline
+  + Practice development
+  + Thought leadership
+  + Partner management (managing equals)
+  - Execution-focused leader в people business = misfit
+
+CHRO:
+  + Up-or-out framework management
+  + Learning & development at scale
+  + Campus recruiting excellence
+  + Alumni network management
+  + Wellbeing и burnout prevention
+
+Специфические вопросы:
+- "Какой ваш personal book of business? Top-3 клиента?"
+- "Как вы развиваете junior talent в senior professionals?"
+- "Ваш подход к knowledge management и IP sharing?"
+- "Как вы управляете utilization без burnout?"
+
+================================================================================
+  СВОДНАЯ МАТРИЦА: КРИТИЧНЫЕ ФАКТОРЫ ПО ОТРАСЛЯМ
+================================================================================
+
+Фактор                | IT  | Fin | Mfg | Ret | Pharma | RE  | Media
+-----------------------|-----|-----|-----|-----|--------|-----|------
+Регуляция              |  2  |  5  |  4  |  2  |   5    |  4  |  2
+Speed of decision      |  5  |  3  |  3  |  5  |   2    |  3  |  4
+Technical depth        |  5  |  3  |  4  |  3  |   5    |  3  |  4
+People/Talent focus    |  5  |  3  |  3  |  4  |   4    |  3  |  5
+Innovation             |  5  |  3  |  3  |  4  |   5    |  2  |  5
+Compliance/Ethics      |  3  |  5  |  4  |  3  |   5    |  4  |  2
+P&L complexity         |  3  |  4  |  4  |  4  |   4    |  5  |  3
+Stakeholder diversity  |  4  |  5  |  3  |  3  |   4    |  5  |  3
+Crisis management      |  3  |  5  |  4  |  3  |   3    |  3  |  3
+Customer centricity    |  4  |  3  |  2  |  5  |   4    |  4  |  5
+
+Шкала: 1 (не важно) — 5 (критически важно)
+
+================================================================================
+  ПРАВИЛО КРОСС-ИНДУСТРИАЛЬНОГО ПЕРЕХОДА
+================================================================================
+
+КОГДА КРОСС-ИНДУСТРИАЛЬНЫЙ ПЕРЕХОД РАБОТАЕТ:
++ Функция universal (CFO, CHRO, CMO — более transferable)
++ Компания в трансформации (нужна "свежая кровь")
++ Кандидат из более развитой/зрелой индустрии (best practices)
++ High Learning Agility (Egon Zehnder потенциал >= 4)
++ Structured onboarding (90-дневный immersion plan)
+
+КОГДА КРОСС-ИНДУСТРИАЛЬНЫЙ ПЕРЕХОД НЕ РАБОТАЕТ:
+- Функция industry-specific (CTO в pharma, COO в manufacturing)
+- Компания в стабильности (не нуждается в disruption)
+- Высокая регуляция (fintech, pharma — нужен regulatory опыт)
+- Кандидат overconfident ("я разберусь" без конкретного плана)
+- Культурная пропасть (стартап → госкорпорация или наоборот)
+
+ФОРМУЛА: Cross-industry risk = f(industry specificity, role specificity,
+         learning agility, support system, cultural distance)
+
+================================================================================

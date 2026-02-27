@@ -1,0 +1,1076 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║          E X E C V I S I O N   A I                                           ║
+║          Продуктовая концепция                                               ║
+║                                                                              ║
+║          AI-платформа подбора, оценки и развития                             ║
+║          топ-менеджеров для HR-директора                                     ║
+║                                                                              ║
+║          B2B SaaS · Enterprise · AI-Native                                   ║
+║                                                                              ║
+║          Версия 1.0 | Февраль 2026                                          ║
+║          Основано на исследовании 30+ продуктов рынка                        ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+================================================================================
+  СОДЕРЖАНИЕ
+================================================================================
+
+  1. EXECUTIVE SUMMARY
+  2. РЫНОЧНАЯ ВОЗМОЖНОСТЬ
+  3. КОНКУРЕНТНЫЙ ЛАНДШАФТ И GAPS
+  4. PRODUCT VISION
+  5. ЦЕЛЕВАЯ АУДИТОРИЯ И BUYER PERSONA
+  6. МОДУЛИ ПРОДУКТА (детальное описание)
+  7. AI-АРХИТЕКТУРА
+  8. UX/UI КОНЦЕПЦИЯ
+  9. ИНТЕГРАЦИОННАЯ ЭКОСИСТЕМА
+  10. БИЗНЕС-МОДЕЛЬ И PRICING
+  11. GO-TO-MARKET СТРАТЕГИЯ
+  12. ROADMAP
+  13. КОНКУРЕНТНЫЕ ПРЕИМУЩЕСТВА
+
+================================================================================
+  1. EXECUTIVE SUMMARY
+================================================================================
+
+ExecVision AI — первая AI-native платформа полного цикла подбора и оценки
+топ-менеджеров (C-level, VP, Director), созданная для интеграции
+в корпоративный блок HR-директора.
+
+ПРОБЛЕМА: Рынок executive assessment ($58-64 млрд) доминируется legacy
+consulting фирмами (Korn Ferry, Egon Zehnder, Spencer Stuart), которые
+только начинают productize свои услуги в SaaS. Существующие продукты
+закрывают отдельные этапы (assessment ИЛИ interview ИЛИ reference check),
+но НИ ОДИН не предлагает unified platform для полного lifecycle:
+от формирования профиля позиции до сравнения финалистов и онбординга.
+
+РЕШЕНИЕ: ExecVision AI объединяет:
+- Методологическую глубину лучших executive search фирм (Topgrading,
+  Egon Zehnder, Hogan, Korn Ferry 4D, Adizes PAEI)
+- AI-мощь современных платформ (Eightfold, HireVue, BrightHire)
+- Enterprise UX стандарты (Greenhouse, Ashby, Culture Amp)
+в единый продукт, который позволяет HR-директору самостоятельно
+проводить executive assessment уровня Spencer Stuart.
+
+КЛЮЧЕВАЯ МЕТАФОРА:
+"ExecVision AI — это ваш personal executive search consultant,
+доступный 24/7, с базой знаний лучших мировых фирм и памятью
+на все ваши предыдущие оценки."
+
+ЧТО ДЕЛАЕТ ПРОДУКТ:
+1. Формирует профиль позиции на основе контекста компании
+2. Генерирует персонализированные вопросы для интервью
+3. Анализирует проведённое собеседование (аудио/видео/текст)
+4. Скорит кандидатов по множеству методологий одновременно
+5. Проверяет соответствие кандидата вакансии
+6. Сравнивает группу кандидатов и рекомендует лучшего
+7. Автоматизирует reference check
+8. Формирует план онбординга
+
+ДИФФЕРЕНЦИАЦИЯ ОТ КОНКУРЕНТОВ:
+- Не просто assessment tool → полный executive hiring lifecycle
+- Не просто AI scoring → методологически обоснованная оценка
+- Не просто ATS → intelligence layer для принятия решений
+- Не consulting → self-serve SaaS с AI copilot
+
+================================================================================
+  2. РЫНОЧНАЯ ВОЗМОЖНОСТЬ
+================================================================================
+
+2.1 РАЗМЕР РЫНКА
+
+  TAM (Total Addressable Market):
+    Глобальный рынок HR-tech:             $62.6 млрд (2024) → $91.8 млрд (2029)
+    Talent Assessment:                     $7.2 млрд (2025) → $15.1 млрд (2030)
+    Executive Search & Assessment:         $18-22 млрд (2025)
+    Interview Intelligence:               $1.2 млрд (2025) → $4.8 млрд (2030)
+
+  SAM (Serviceable Addressable Market):
+    Enterprise компании с executive hiring: ~150,000 компаний глобально
+    Средний ACV: $50,000-200,000/год
+    SAM = $7.5-30 млрд
+
+  SOM (Serviceable Obtainable Market, 5 лет):
+    Первые 500 enterprise клиентов × $120K ACV = $60M ARR
+
+2.2 РЫНОЧНЫЕ ДРАЙВЕРЫ
+
+  ✓ 77% компаний испытывают острый дефицит leadership (DDI, 2025)
+  ✓ 40% новых C-level терпят неудачу в первые 18 месяцев
+  ✓ Стоимость ошибки найма C-level = 6-24x годовой компенсации
+  ✓ 90% HR-решений к 2025 поддерживаются AI/аналитикой
+  ✓ Переход от consulting к SaaS ускоряется (Korn Ferry Talent Suite, Jan 2026)
+  ✓ EU AI Act (июнь 2025) требует прозрачности AI в HR — создаёт барьер входа
+  ✓ Skills-based hiring тренд: 55% работодателей уже перешли (Workday, 2025)
+
+2.3 ОКНО ВОЗМОЖНОСТЕЙ
+
+  Korn Ferry запустил Talent Suite только в январе 2026 — рынок
+  executive assessment SaaS находится в начальной стадии.
+  Legacy фирмы медленно переходят в digital.
+  AI-native стартапы (Eightfold, iMocha) движутся снизу вверх,
+  но пока не закрывают executive-уровень полноценно.
+
+  → ОКНО: 18-24 месяца до того, как крупные игроки закроют gap.
+
+================================================================================
+  3. КОНКУРЕНТНЫЙ ЛАНДШАФТ И GAPS
+================================================================================
+
+3.1 КАРТА КОНКУРЕНТОВ
+
+                        Executive-Focused
+                              ↑
+                              |
+          Korn Ferry TS ●     |     ● Hogan
+                              |
+          DDI ●               |          ● SHL
+                              |
+  Consulting ←────────────────┼────────────────→ SaaS Product
+                              |
+          Spencer Stuart ●    |     ● HireVue
+                              |
+          Egon Zehnder ●      |     ● Eightfold
+                              |          ● BrightHire
+                              |
+                              ↓
+                        All-Level / Volume
+
+  ExecVision AI = верхний правый квадрант
+  (Executive-Focused + SaaS Product) — ПУСТОЙ СЕГМЕНТ
+
+3.2 ЧТО ЕСТЬ НА РЫНКЕ (по этапам executive hiring)
+
+  Этап                      | Существующие продукты       | Gap
+  --------------------------|-----------------------------|-----------------------
+  Профиль позиции           | Нет SaaS-продукта           | ПОЛНЫЙ GAP ★★★
+  Генерация вопросов        | BrightHire (general)        | Нет executive-specific
+  Structured Interview      | BrightHire, Metaview        | Нет Topgrading/Hogan
+  Video Assessment          | HireVue (volume)            | Нет C-level оптимизации
+  Psychometric Assessment   | Hogan, SHL, DDI             | Отдельные инструменты
+  AI Candidate Scoring      | Eightfold (skills-based)    | Нет executive scoring
+  Reference Check           | Crosschq, Searchlight       | Нет executive protocol
+  Candidate Comparison      | Greenhouse (basic)          | Нет multi-method scoring
+  Онбординг Executive       | Нет SaaS-продукта           | ПОЛНЫЙ GAP ★★★
+  Full Lifecycle Platform   | НЕТ НИКОГО                  | КЛЮЧЕВОЙ GAP ★★★★★
+
+3.3 КЛЮЧЕВЫЕ GAPS НА РЫНКЕ (где ExecVision AI побеждает)
+
+  GAP 1: НЕТ UNIFIED PLATFORM для executive assessment
+  → Сейчас: HR-директор использует 5-8 разных инструментов
+  → ExecVision: единая платформа, единый scoring, единый view
+
+  GAP 2: НЕТ AI-POWERED POSITION PROFILING
+  → Сейчас: профиль пишется консультантом за $20-50K
+  → ExecVision: AI генерирует профиль за 15 минут на основе
+    контекста компании, стадии, культуры, стратегии
+
+  GAP 3: НЕТ MULTI-METHODOLOGY SCORING
+  → Сейчас: один инструмент = одна методология (Hogan ИЛИ SHL ИЛИ DDI)
+  → ExecVision: одновременная оценка по Topgrading + Egon Zehnder +
+    Hogan + PAEI + Korn Ferry 4D = composite executive score
+
+  GAP 4: НЕТ INTERVIEW INTELLIGENCE ДЛЯ EXECUTIVE
+  → Сейчас: BrightHire/Metaview — general purpose, mass hiring
+  → ExecVision: анализ executive-интервью с Hogan derailer detection,
+    потенциал по Egon Zehnder, STAR-валидация
+
+  GAP 5: НЕТ EXECUTIVE-GRADE CANDIDATE COMPARISON
+  → Сейчас: Excel + интуиция
+  → ExecVision: multi-dimensional comparison с весами по позиции,
+    PAEI-fit, culture fit, Hogan risk matrix, reference convergence
+
+================================================================================
+  4. PRODUCT VISION
+================================================================================
+
+4.1 VISION STATEMENT
+
+  "ExecVision AI democratizes world-class executive assessment,
+  giving every HR Director the analytical power of Spencer Stuart,
+  the methodological depth of Egon Zehnder, and the AI capabilities
+  of Eightfold — in a single, intuitive platform."
+
+  «ExecVision AI демократизирует мировой executive assessment,
+  давая каждому HR-директору аналитическую мощь Spencer Stuart,
+  методологическую глубину Egon Zehnder и AI-возможности Eightfold —
+  в единой интуитивной платформе.»
+
+4.2 ПРИНЦИПЫ ПРОДУКТА
+
+  1. METHODOLOGY-FIRST, AI-POWERED
+     AI усиливает проверенные методологии, а не заменяет их.
+     Каждая рекомендация AI основана на Topgrading, Egon Zehnder,
+     Hogan, PAEI — с объяснением "почему".
+
+  2. DECISION SUPPORT, NOT DECISION MAKER
+     AI помогает HR-директору принять лучшее решение,
+     но финальный выбор всегда за человеком. Explainability first.
+
+  3. FULL LIFECYCLE IN ONE PLACE
+     От "нам нужен новый CFO" до "его 90-дневный план идёт по графику" —
+     весь процесс в одной платформе, единый data layer.
+
+  4. ENTERPRISE-GRADE FROM DAY ONE
+     SOC 2, GDPR, SAML/SCIM, RBAC, audit trail, WCAG 2.2 —
+     не доработки, а архитектурные принципы.
+
+  5. PROGRESSIVE DISCLOSURE
+     5 метрик на главном экране → drill-down в детали.
+     HR-директор видит "helicopter view", рекрутер — operational details.
+
+================================================================================
+  5. ЦЕЛЕВАЯ АУДИТОРИЯ И BUYER PERSONA
+================================================================================
+
+5.1 PRIMARY BUYER: HR DIRECTOR / CHRO
+
+  Профиль:
+  - Компания: 500-10,000+ сотрудников
+  - Отрасль: tech, финансы, production, retail, pharma, consulting
+  - Executive hiring: 5-50 позиций C-level/VP/Director в год
+  - Текущий процесс: комбинация executive search фирм + internal
+  - Бюджет на executive search: $500K-5M/год
+  - Pain: стоимость и скорость, зависимость от консультантов,
+    отсутствие данных для принятия решений
+
+  Jobs-to-be-Done:
+  1. "Мне нужно быстро понять, подходит ли кандидат на позицию"
+  2. "Мне нужно сравнить 3-5 финалистов объективно"
+  3. "Мне нужно обосновать выбор кандидата перед CEO/Board"
+  4. "Мне нужно снизить risk of bad hire на executive level"
+  5. "Мне нужно оценить качество проведённого интервью"
+
+5.2 SECONDARY USERS
+
+  | Роль              | Использование                          |
+  |-------------------|----------------------------------------|
+  | CEO / Собственник | Dashboard, финальные решения, Board view|
+  | Hiring Manager    | Оценка кандидатов в своей функции       |
+  | Internal Recruiter| Operational workflow, scheduling        |
+  | External Recruiter| Shared view, scorecard submission       |
+  | Board Member      | Succession planning dashboard           |
+
+5.3 IDEAL CUSTOMER PROFILE (ICP)
+
+  Tier 1 (initial focus):
+  - Tech/SaaS компании 500-5,000 человек
+  - 10+ executive hires/год
+  - Уже используют modern ATS (Greenhouse, Lever, Ashby)
+  - CHRO с digital mindset
+  - Region: US, EU, UK, UAE, СНГ
+
+  Tier 2 (expansion):
+  - Enterprise 5,000-50,000+ человек
+  - Executive search фирмы (как инструмент для их клиентов)
+  - PE/VC funds (assessment portfolio companies leadership)
+
+================================================================================
+  6. МОДУЛИ ПРОДУКТА (детальное описание)
+================================================================================
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                    E X E C V I S I O N   A I                    │
+  │                                                                 │
+  │  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐   │
+  │  │  PROFILE   │  │ INTERVIEW │  │  ASSESS   │  │  COMPARE  │   │
+  │  │  ARCHITECT │  │ NAVIGATOR │  │  ENGINE   │  │  MATRIX   │   │
+  │  └─────┬─────┘  └─────┬─────┘  └─────┬─────┘  └─────┬─────┘   │
+  │        │              │              │              │           │
+  │  ┌─────┴─────┐  ┌─────┴─────┐  ┌─────┴─────┐  ┌─────┴─────┐   │
+  │  │ REFERENCE  │  │ ONBOARD   │  │  TALENT   │  │    AI     │   │
+  │  │  VERIFIER  │  │  PLANNER  │  │   POOL    │  │  COPILOT  │   │
+  │  └───────────┘  └───────────┘  └───────────┘  └───────────┘   │
+  │                                                                 │
+  │  ┌─────────────────────────────────────────────────────────┐   │
+  │  │              EXECUTIVE INTELLIGENCE HUB                  │   │
+  │  │    (Dashboard · Analytics · Reporting · Succession)      │   │
+  │  └─────────────────────────────────────────────────────────┘   │
+  └─────────────────────────────────────────────────────────────────┘
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 1: PROFILE ARCHITECT
+  «Архитектор профиля позиции»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: AI-assisted формирование полного профиля позиции
+за 15-30 минут (vs 2-4 недели с консультантом).
+
+ФУНКЦИОНАЛ:
+
+1.1 SMART INTAKE WIZARD
+    - Пошаговый wizard: компания → стадия → стратегия → культура → роль
+    - AI подсказывает типичные параметры для отрасли/размера
+    - Адаптивные вопросы: ответ на один вопрос определяет следующие
+    - Импорт данных из HRIS (Workday, SAP) для автозаполнения
+
+1.2 AI PROFILE GENERATOR
+    - На основе input wizard AI генерирует полный профиль:
+      * Must-have и nice-to-have требования
+      * PAEI-профиль для позиции
+      * Уровень Jaques (Stratum)
+      * Ожидаемый Egon Zehnder потенциал
+      * Критические Hogan деструкторы для роли
+      * KPI / Scorecard Outcomes
+      * Anti-профиль (кого НЕ рассматривать)
+    - Учитывает стадию по Adizes: Go-Go требует PaEi CEO,
+      Turnaround — PAei, Prime — pAEI
+
+1.3 INDUSTRY BENCHMARKING
+    - Сравнение профиля с рыночными бенчмарками
+    - "В 78% tech-компаний вашего размера CTO имеет PAEI: PaEi"
+    - Compensation benchmarks для позиции/отрасли/региона
+    - Предупреждение о нереалистичных требованиях
+
+1.4 COLLABORATIVE EDITING
+    - Совместное редактирование с CEO/Board/Hiring Manager
+    - Comment threads на каждую секцию
+    - Version history, approval workflow
+    - Export в PDF для Board presentation
+
+ИСТОЧНИКИ МЕТОДОЛОГИЙ:
+  [Topgrading Scorecard] + [Egon Zehnder Potential] + [Adizes PAEI] +
+  [Korn Ferry 4D] + [Jaques SST] + [Industry Benchmarks]
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 2: INTERVIEW NAVIGATOR
+  «Навигатор собеседования»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Генерация персонализированных вопросов, real-time
+сопровождение интервью, анализ и оценка проведённого собеседования.
+
+ФУНКЦИОНАЛ:
+
+2.1 SMART QUESTION GENERATOR
+    - AI генерирует вопросы на основе:
+      * Профиля позиции (из Profile Architect)
+      * Роли кандидата (CEO, CFO, CTO и т.д.)
+      * Компетенций с весом 4-5 (из матрицы)
+      * Hogan деструкторов для проверки
+      * Резюме кандидата (gap analysis)
+    - Типы вопросов:
+      * STAR (поведенческие)
+      * Topgrading (хронологические)
+      * Hogan probe (деструкторы)
+      * Egon Zehnder (потенциал)
+      * Кейсовые (role-specific)
+    - Адаптивная генерация: follow-up вопросы на основе ответов
+    - 3 формата интервью: 60 мин / 90 мин / 2-3 часа (полный Topgrading)
+
+2.2 REAL-TIME INTERVIEW GUIDE
+    - Live view во время интервью:
+      * Текущий вопрос + suggested probing
+      * Таймер на каждый блок
+      * Quick-note для ключевых наблюдений
+      * Red/Yellow/Green flags в реальном времени
+    - Адаптивные подсказки:
+      "Кандидат говорит обобщённо — попросите конкретный пример"
+      "Нет упоминания цифр — уточните метрики"
+      "Возможный Bold derailer — задайте Q96"
+
+2.3 INTERVIEW ANALYSIS ENGINE
+    - Анализ проведённого собеседования:
+      * Транскрипция (audio/video → text)
+      * AI-разметка по компетенциям
+      * Выявление STAR-структуры в ответах
+      * Detection Hogan деструкторов по речевым паттернам
+      * Оценка конкретики vs обобщений
+      * Ratio "я" vs "мы" (Bold derailer indicator)
+      * Emotional analysis (Excitable indicators)
+      * Time distribution по темам
+    - Качество интервьюера:
+      * Ratio вопросы/ответы (70/30 = плохо, 30/70 = хорошо)
+      * Наводящие вопросы detection
+      * Coverage компетенций (что не спросили)
+      * Bias indicators
+
+2.4 POST-INTERVIEW SCORECARD
+    - Автоматическое заполнение scorecard из analysis:
+      * Suggested scores по каждой компетенции
+      * STAR-примеры подтянуты из транскрипции
+      * Hogan risk profile
+      * Egon Zehnder potential indicators
+    - Интервьюер review и корректирует AI-оценки
+    - One-click submit в систему
+
+ИСТОЧНИКИ: [Topgrading THREAT] + [STAR] + [Hogan HDS] +
+  [Egon Zehnder 4 indicators] + [BrightHire UX patterns]
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 3: ASSESS ENGINE
+  «Движок оценки»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Multi-methodology AI scoring кандидата.
+Единый composite score на основе 6+ методологий.
+
+ФУНКЦИОНАЛ:
+
+3.1 MULTI-METHODOLOGY SCORING
+
+    ┌─────────────────────────────────────────────────────────┐
+    │                 COMPOSITE EXECUTIVE SCORE                │
+    │                      ███████░░░ 4.2/5                    │
+    │                                                          │
+    │  Topgrading:        ████████░░ A-Player (4.0)           │
+    │  Egon Zehnder:      ███████░░░ High Potential (3.8)     │
+    │  Hogan Risk:        ██░░░░░░░░ Low Risk (1.8)           │
+    │  PAEI Fit:          █████████░ Strong Fit (4.5)          │
+    │  Korn Ferry 4D:     ████████░░ Above Expected (4.1)     │
+    │  Culture Fit:       ███████░░░ Moderate-Strong (3.7)     │
+    │  Competency Score:  ████████░░ Exceeds (4.2)            │
+    └─────────────────────────────────────────────────────────┘
+
+    Каждая методология = отдельный scoring engine:
+
+    a) TOPGRADING SCORER
+       - Грейдирование: A / A- / B / B- / C
+       - На основе: career chronology, achievements, references
+       - THREAT effect: коррекция за честность ответов
+
+    b) EGON ZEHNDER POTENTIAL
+       - 4 индикатора: Curiosity, Insight, Engagement, Determination
+       - Каждый 1-5, composite → High/Medium/Proven/Risk
+       - На основе: interview analysis + reference data
+
+    c) HOGAN RISK PROFILER
+       - 11 деструкторов: Excitable → Dutiful
+       - Уровень: Low / Medium / High
+       - Опасные комбинации: Bold+Mischievous, Excitable+Skeptical
+       - На основе: behavioral interview analysis + NLP
+
+    d) PAEI FIT ANALYZER
+       - Профиль кандидата (P/A/E/I) vs ожидаемый для позиции
+       - Fit score: Full / Partial / Mismatch
+       - Визуализация: radar chart overlay
+
+    e) KORN FERRY 4D
+       - Competencies, Experiences, Traits, Drivers
+       - Benchmark vs role requirements
+
+    f) CULTURE FIT SCORER
+       - Cameron/Quinn culture type matching
+       - Ценности alignment
+       - Management style compatibility
+
+3.2 VACANCY FIT CHECK
+    - Автоматическая проверка кандидата vs профиль позиции
+    - Must-have checklist: pass/fail
+    - Nice-to-have scoring
+    - Gap analysis с рекомендациями:
+      "Кандидат не имеет опыта IPO. Это must-have для данной
+       позиции CFO. Рекомендация: discuss waiver или reject."
+
+3.3 PREDICTIVE ANALYTICS
+    - Probability of success (на основе historical data)
+    - Risk of derailment (Hogan-based)
+    - Risk of flight (tenure patterns + motivation analysis)
+    - Counter-offer probability
+    - Time-to-productivity estimate
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 4: COMPARE MATRIX
+  «Матрица сравнения»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Multi-candidate comparison и рекомендация лучшего
+кандидата с обоснованием.
+
+ФУНКЦИОНАЛ:
+
+4.1 SIDE-BY-SIDE COMPARISON
+    - До 5 кандидатов одновременно
+    - Все метрики выровнены по единой шкале
+    - Цветовое кодирование: Red / Yellow / Green
+    - Фильтрация по конкретным критериям
+
+4.2 RADAR CHART OVERLAY
+    - Наложение компетенций всех кандидатов
+    - Мгновенная визуальная идентификация strengths/gaps
+    - Overlay с "идеальным профилем" позиции
+
+4.3 WEIGHTED SCORING MATRIX
+    - Веса определены в Profile Architect
+    - Автоматический расчёт взвешенного балла
+    - Sensitivity analysis: "если изменить вес culture fit
+      с 15% на 25%, кандидат Б поднимается на первое место"
+
+4.4 AI RECOMMENDATION ENGINE
+    - Алгоритм формирует ranking с обоснованием:
+      "Рекомендация: Кандидат А (4.2/5)
+       Причина 1: Наивысший Topgrading score (A-player)
+       Причина 2: PAEI-профиль полностью совпадает
+       Причина 3: Все references — 'would rehire'
+       Риск: Hogan Bold (Medium) — рекомендован executive coaching"
+    - Формирование short-list презентации для CEO/Board
+
+4.5 CALIBRATION TOOL
+    - Режим для командной калибровки:
+      * Каждый оценщик выставляет оценки НЕЗАВИСИМО
+      * Оценки скрыты до подачи всех (anti-bias)
+      * После submit — diverge/converge view
+      * Highlight расхождений для обсуждения
+      * Facilitation guide для калибровочной сессии
+
+4.6 DECISION DOCUMENTATION
+    - Автоматический отчёт для Board:
+      * Shortlist с обоснованием
+      * Сильные стороны / риски каждого кандидата
+      * Рекомендация с confidence level
+      * Compensation recommendation
+    - Export: PDF, PPT (Board-ready format)
+    - Audit trail всех решений (compliance)
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 5: REFERENCE VERIFIER
+  «Верификатор референсов»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Автоматизированный и структурированный reference check
+уровня executive search фирмы.
+
+ФУНКЦИОНАЛ:
+
+5.1 AUTOMATED REFERENCE COLLECTION
+    - Отправка структурированных опросников референсам
+    - Персонализация на основе роли референса (boss/peer/report)
+    - Multi-channel: email + SMS + LinkedIn
+    - Reminder workflow с escalation
+    - Средний response rate: целевой 85%+ (vs 40% manual)
+
+5.2 STRUCTURED REFERENCE QUESTIONNAIRE
+    - Блоки: результативность, лидерство, слабости, рекомендация
+    - Адаптация вопросов под Hogan-гипотезы с интервью
+    - "Would rehire" question (ключевой индикатор)
+    - Шкала 1-10 + свободный текст
+
+5.3 AI ANALYSIS
+    - Convergence analysis: все ли референсы говорят одно?
+    - Sentiment analysis свободного текста
+    - "Faint praise" detection (хвалит слабо = red flag)
+    - Сравнение с самооценкой кандидата на интервью
+    - Pattern detection через все references
+
+5.4 REFERENCE REPORT
+    - Автоматический отчёт:
+      * Scoring matrix по референсам
+      * Convergence assessment (High/Medium/Low)
+      * Verified claims vs interview data
+      * Risk assessment (подтверждённые/опровергнутые)
+      * Key quotes
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 6: ONBOARD PLANNER
+  «Планировщик онбординга»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Генерация персонализированного плана онбординга
+на основе профиля позиции, оценки кандидата и контекста компании.
+
+ФУНКЦИОНАЛ:
+
+6.1 PLAN GENERATOR (по Watkins "First 90 Days")
+    - STaRS model определяет тип ситуации
+    - Автоматический план 30-60-90-180 дней
+    - Персонализация на основе:
+      * PAEI-профиля кандидата
+      * Gap analysis (что нужно развивать)
+      * Hogan деструкторы (что мониторить)
+      * Организационный контекст
+
+6.2 STAKEHOLDER MAP
+    - Автоматическая карта стейкхолдеров
+    - Рекомендации по первым встречам
+    - Priority mapping: influence × support
+
+6.3 PROGRESS TRACKING
+    - Чеклист 30-60-90-180 дней
+    - Pulse surveys для нового лидера и команды
+    - Early warning система (red flags онбординга)
+    - 90-дневный review facilitation
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 7: TALENT POOL
+  «Пул талантов»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: CRM для executive-кандидатов.
+Долгосрочные отношения, succession planning.
+
+ФУНКЦИОНАЛ:
+- База оценённых кандидатов с полной историей
+- Tagging: skills, industries, PAEI, potential level
+- Nurturing campaigns для пассивных кандидатов
+- "Warm bench" для succession planning
+- AI matching: новая вакансия → кандидаты из пула
+- Internal talent assessment (действующие лидеры)
+
+────────────────────────────────────────────────────────────────────
+  МОДУЛЬ 8: AI COPILOT
+  «Ваш personal executive search consultant»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Conversational AI assistant для HR-директора.
+Доступен в любом модуле, понимает полный контекст.
+
+ФУНКЦИОНАЛ:
+
+8.1 CONVERSATIONAL INTERFACE
+    - Natural language запросы:
+      "Какой кандидат лучше подходит для роли COO?"
+      "Какие Hogan-риски у Кандидата А?"
+      "Сгенерируй вопросы для проверки Bold деструктора"
+      "Подготовь презентацию shortlist для Board"
+      "Сравни наших финалистов по culture fit"
+
+8.2 PROACTIVE INSIGHTS
+    - AI сам сообщает о важных findings:
+      "⚠️ Референс #3 оценил кандидата на 5/10 — это значительно
+       ниже остальных. Рекомендую back-channel reference."
+      "📊 Все 3 кандидата слабы в Change Management —
+       это ключевая компетенция для вашей позиции COO."
+      "✅ Кандидат Б полностью совпадает с PAEI-профилем
+       для CEO стартапа на стадии Go-Go."
+
+8.3 COACHING ASSISTANT
+    - Помощь интервьюерам:
+      "Ваш вопрос был наводящим. Попробуйте перефразировать..."
+      "Вы не проверили Engagement (Egon Zehnder). Рекомендую Q113."
+
+────────────────────────────────────────────────────────────────────
+  EXECUTIVE INTELLIGENCE HUB
+  «Центр аналитики»
+────────────────────────────────────────────────────────────────────
+
+НАЗНАЧЕНИЕ: Dashboard HR-директора. Аналитика,
+отчётность, succession planning.
+
+ФУНКЦИОНАЛ:
+- Executive hiring pipeline (Kanban view)
+- Time-to-fill, cost-per-hire, quality-of-hire метрики
+- Hiring funnel conversion analytics
+- DE&I reporting для executive hires
+- Succession planning heat map
+- Interviewer quality metrics (кто лучше оценивает)
+- Historical data: тренды, паттерны, insights
+- Board-ready reports (auto-generated)
+- Benchmarking vs market data
+
+================================================================================
+  7. AI-АРХИТЕКТУРА
+================================================================================
+
+7.1 AI TECHNOLOGY STACK
+
+  ┌─────────────────────────────────────────────┐
+  │          APPLICATION LAYER                    │
+  │  AI Copilot · Interview Analysis · Scoring   │
+  ├─────────────────────────────────────────────┤
+  │          AI ENGINE LAYER                      │
+  │  LLM (Claude/GPT) · NLP · Speech-to-Text    │
+  │  Sentiment Analysis · Behavioral NLP         │
+  ├─────────────────────────────────────────────┤
+  │          METHODOLOGY LAYER                    │
+  │  Topgrading · Egon Zehnder · Hogan · PAEI   │
+  │  Korn Ferry 4D · Spencer & Spencer · STAR    │
+  ├─────────────────────────────────────────────┤
+  │          DATA LAYER                           │
+  │  Assessment DB · Benchmark DB · Industry DB  │
+  │  Reference DB · Interview Transcripts        │
+  ├─────────────────────────────────────────────┤
+  │          INFRASTRUCTURE                       │
+  │  SOC 2 · GDPR · Encryption · Audit Trail    │
+  └─────────────────────────────────────────────┘
+
+7.2 AI MODELS
+
+  | Задача                    | Модель / Подход              |
+  |---------------------------|------------------------------|
+  | Question generation       | LLM + methodology templates  |
+  | Interview transcription   | Whisper / Deepgram           |
+  | Interview analysis        | LLM + custom NLP pipelines   |
+  | Hogan derailer detection  | Fine-tuned classifier        |
+  | STAR extraction           | Structured output parsing    |
+  | Sentiment analysis        | Transformer-based            |
+  | Candidate matching        | Embedding similarity         |
+  | Reference analysis        | LLM + pattern detection      |
+  | Predictive scoring        | Ensemble ML (XGBoost + NN)   |
+  | AI Copilot                | LLM with RAG over all data   |
+
+7.3 EXPLAINABILITY & ETHICS
+
+  - Каждая AI-рекомендация сопровождается объяснением
+  - Confidence level на всех predictions
+  - Bias audit: регулярная проверка на дискриминацию
+  - EU AI Act compliance: полная прозрачность алгоритмов
+  - Human-in-the-loop: AI предлагает, человек решает
+  - Audit trail: кто, когда, какое решение, на основе чего
+
+================================================================================
+  8. UX/UI КОНЦЕПЦИЯ
+================================================================================
+
+8.1 DESIGN PRINCIPLES
+
+  1. PROGRESSIVE DISCLOSURE: 5-7 карточек → drill-down → raw data
+  2. ROLE-BASED VIEWS: HR Director, CEO, Recruiter, Interviewer
+  3. MOBILE-FIRST: scorecards и approvals с телефона
+  4. DARK/LIGHT MODE: для длительной работы
+  5. ACCESSIBILITY: WCAG 2.2 с первого дня
+
+8.2 KEY VIEWS
+
+  HOME DASHBOARD (HR Director):
+  ┌─────────────────────────────────────────────────────────┐
+  │  ExecVision AI          [Search]  [Notifications] [👤]  │
+  ├─────────────────────────────────────────────────────────┤
+  │                                                         │
+  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │
+  │  │ Open     │ │ In       │ │ Avg Time │ │ Quality  │  │
+  │  │ Positions│ │ Pipeline │ │ to Fill  │ │ Score    │  │
+  │  │    7     │ │   23     │ │  45 days │ │  4.1/5   │  │
+  │  │  ↑ +2   │ │  ↓ -3   │ │  ↓ -8d  │ │  ↑ +0.3 │  │
+  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘  │
+  │                                                         │
+  │  ACTIVE POSITIONS                           [+ New]    │
+  │  ┌─────────────────────────────────────────────────┐   │
+  │  │ CFO          ████████░░ 4 candidates    Day 32  │   │
+  │  │ CTO          ██████░░░░ 3 candidates    Day 18  │   │
+  │  │ VP Sales     ██░░░░░░░░ 1 candidate     Day 7   │   │
+  │  │ COO          █████████░ 5 candidates    Day 45  │   │
+  │  └─────────────────────────────────────────────────┘   │
+  │                                                         │
+  │  AI INSIGHTS                                           │
+  │  ⚡ CFO search: Candidate A scored 4.3/5 — consider    │
+  │     scheduling final interview with CEO                 │
+  │  ⚠️ COO search: все 5 кандидатов слабы в P&L mgmt     │
+  │     — рекомендую расширить sourcing                     │
+  └─────────────────────────────────────────────────────────┘
+
+  CANDIDATE COMPARISON VIEW:
+  ┌─────────────────────────────────────────────────────────┐
+  │  CFO Position — Finalists Comparison                    │
+  │                                                         │
+  │              Candidate A    Candidate B    Candidate C   │
+  │  ────────────────────────────────────────────────────   │
+  │  Overall     ●●●●○ 4.2    ●●●●○ 3.8    ●●●○○ 3.3     │
+  │  Experience  ●●●●● 4.5    ●●●○○ 3.5    ●●●●○ 4.0     │
+  │  Competency  ●●●●○ 4.0    ●●●●○ 4.2    ●●●○○ 3.0     │
+  │  Potential   ●●●●○ 4.0    ●●●●○ 3.8    ●●●○○ 3.5     │
+  │  Culture Fit ●●●○○ 3.5    ●●●●○ 4.0    ●●●○○ 3.0     │
+  │  Hogan Risk  ●●○○○ LOW    ●●●○○ MED    ●●●●○ HIGH    │
+  │  PAEI Fit    ●●●●● FULL   ●●●●○ PART   ●●●○○ PART    │
+  │  Reference   ●●●●○ 8.5    ●●●●○ 8.0    ●●●○○ 6.5     │
+  │  ────────────────────────────────────────────────────   │
+  │  AI Rec:     ★ #1 HIRE    #2 HOLD       #3 NO HIRE    │
+  │                                                         │
+  │  [View Radar] [Export PDF] [Share with CEO] [Calibrate] │
+  └─────────────────────────────────────────────────────────┘
+
+8.3 NAVIGATION STRUCTURE
+
+  Sidebar:
+  ├── Dashboard (Executive Intelligence Hub)
+  ├── Positions
+  │   ├── Active
+  │   ├── Closed
+  │   └── + New Position (→ Profile Architect)
+  ├── Candidates
+  │   ├── Pipeline (Kanban)
+  │   ├── Talent Pool
+  │   └── Compare (→ Compare Matrix)
+  ├── Interviews
+  │   ├── Upcoming
+  │   ├── Completed
+  │   └── Question Bank
+  ├── Assessments
+  │   ├── In Progress
+  │   ├── Completed
+  │   └── Benchmarks
+  ├── References
+  │   ├── Pending
+  │   ├── Completed
+  │   └── Reports
+  ├── Onboarding
+  │   ├── Active Plans
+  │   └── 90-Day Reviews
+  ├── Analytics
+  │   ├── Hiring Metrics
+  │   ├── Quality of Hire
+  │   ├── DE&I
+  │   └── Succession Planning
+  ├── AI Copilot (floating)
+  └── Settings
+      ├── Team & Roles
+      ├── Integrations
+      ├── Methodology Config
+      └── Branding
+
+================================================================================
+  9. ИНТЕГРАЦИОННАЯ ЭКОСИСТЕМА
+================================================================================
+
+  TIER 1 — LAUNCH DAY (обязательно):
+  - ATS: Greenhouse, Lever, Ashby, Workday Recruiting
+  - HRIS: Workday, SAP SuccessFactors, BambooHR
+  - SSO: SAML 2.0, OIDC (Okta, Azure AD, Google)
+  - SCIM: автоматический user provisioning
+  - Calendar: Google Calendar, Outlook
+  - Video: Zoom, Teams, Google Meet
+  - Communication: Slack, Teams (notifications)
+
+  TIER 2 — 6 MONTHS:
+  - ATS: SmartRecruiters, iCIMS, Lever
+  - HRIS: Oracle HCM, UKG, Rippling
+  - Assessment: Hogan (API import), SHL (import)
+  - Reference: Crosschq, Xref (data exchange)
+  - Background: Sterling, Checkr
+  - LMS: Cornerstone, Degreed (for development plans)
+
+  TIER 3 — 12 MONTHS:
+  - LinkedIn Talent Insights
+  - Compensation: Pave, Carta, Radford
+  - Board management: Diligent, BoardEffect
+  - Unified API: Kombo, Merge (expand coverage)
+
+  INTEGRATION ARCHITECTURE:
+  - RESTful API (public, documented)
+  - Webhooks для real-time events
+  - Unified API layer через Kombo/Merge
+  - Bulk import/export (CSV, JSON)
+  - Embedded widgets (iFrame для ATS)
+
+================================================================================
+  10. БИЗНЕС-МОДЕЛЬ И PRICING
+================================================================================
+
+10.1 PRICING MODEL: PLATFORM + USAGE HYBRID
+
+  ┌──────────────────────────────────────────────────────────┐
+  │                    PRICING TIERS                          │
+  ├──────────────────────────────────────────────────────────┤
+  │                                                          │
+  │  PROFESSIONAL          ENTERPRISE          ENTERPRISE+   │
+  │  $2,500/мес            $8,000/мес           Custom       │
+  │                                                          │
+  │  До 10 позиций/год     До 30 позиций/год   Unlimited     │
+  │  3 users               15 users             Unlimited     │
+  │  Core modules          All modules          All + Custom  │
+  │  Email support         Priority support     Dedicated CSM │
+  │                        AI Copilot           White-label   │
+  │                        Custom integrations  On-premise opt│
+  │                        SSO/SCIM             SLA 99.9%     │
+  │                                             Custom AI     │
+  │                                                          │
+  │  ACV: $30,000          ACV: $96,000        ACV: $200K+   │
+  └──────────────────────────────────────────────────────────┘
+
+  USAGE-BASED COMPONENTS:
+  - Additional positions: $500/position (beyond tier limit)
+  - AI Interview Analysis: $200/interview (audio/video)
+  - Automated Reference Check: $150/candidate
+  - Additional users: $100/user/month
+
+10.2 UNIT ECONOMICS (TARGET, YEAR 3)
+
+  | Метрика           | Target        |
+  |--------------------|---------------|
+  | ACV (average)      | $120,000      |
+  | CAC                | $40,000       |
+  | CAC Payback        | 4 months      |
+  | Gross Margin       | 80%+          |
+  | NRR                | 120%+         |
+  | GRR                | 92%+          |
+  | LTV                | $480,000      |
+  | LTV/CAC            | 12x           |
+
+10.3 REVENUE MODEL (5 YEAR PROJECTION)
+
+  | Year | Customers | ACV     | ARR      |
+  |------|-----------|---------|----------|
+  | Y1   | 20        | $80K    | $1.6M    |
+  | Y2   | 80        | $100K   | $8M      |
+  | Y3   | 250       | $120K   | $30M     |
+  | Y4   | 500       | $140K   | $70M     |
+  | Y5   | 1,000     | $150K   | $150M    |
+
+================================================================================
+  11. GO-TO-MARKET СТРАТЕГИЯ
+================================================================================
+
+11.1 PHASE 1: DESIGN PARTNER (Month 1-6)
+  - 5-10 design partners (бесплатно или discounted)
+  - Совместная разработка с реальными HR-директорами
+  - Цель: product-market fit, case studies, testimonials
+
+11.2 PHASE 2: EARLY ADOPTERS (Month 7-12)
+  - 20-50 платящих клиентов
+  - Focus: tech/SaaS компании 500-5,000 человек
+  - Sales motion: founder-led sales + content marketing
+  - Key channel: CHRO communities, HR conferences
+
+11.3 PHASE 3: SCALE (Month 13-24)
+  - Enterprise sales team (5-10 AE)
+  - Channel partnerships: executive search фирмы
+  - ABM campaigns targeting CHRO
+  - Thought leadership: methodology publications
+
+11.4 GTM CHANNELS
+
+  | Channel                  | Cost    | Impact | Timeline |
+  |--------------------------|---------|--------|----------|
+  | Founder-led sales        | Low     | High   | Month 1  |
+  | Content/thought leader.  | Medium  | High   | Month 3  |
+  | CHRO community events    | Medium  | High   | Month 6  |
+  | Partnership (search firms)| Low    | Medium | Month 9  |
+  | Enterprise sales team    | High    | High   | Month 12 |
+  | ABM campaigns            | Medium  | Medium | Month 12 |
+  | Marketplace (ATS apps)   | Low     | Medium | Month 15 |
+
+================================================================================
+  12. ROADMAP
+================================================================================
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │  Q1-Q2 2026: MVP (FOUNDATION)                              │
+  │  ─────────────────────────────────────                      │
+  │  ✓ Profile Architect (basic)                                │
+  │  ✓ Interview Navigator (question generation + basic guide)  │
+  │  ✓ Assess Engine (Topgrading + PAEI scoring)                │
+  │  ✓ Compare Matrix (side-by-side, 3 candidates)              │
+  │  ✓ AI Copilot (basic conversational)                        │
+  │  ✓ Greenhouse + Workday integration                         │
+  │  ✓ SAML SSO                                                 │
+  │  → Target: 5 design partners                                │
+  ├─────────────────────────────────────────────────────────────┤
+  │  Q3-Q4 2026: GROWTH (FULL PLATFORM)                        │
+  │  ─────────────────────────────────────                      │
+  │  ✓ Interview Analysis Engine (audio/video)                  │
+  │  ✓ Hogan Derailer Detection AI                              │
+  │  ✓ Egon Zehnder Potential scoring                           │
+  │  ✓ Reference Verifier (automated)                           │
+  │  ✓ Compare Matrix (up to 5, radar charts)                   │
+  │  ✓ Calibration Tool                                         │
+  │  ✓ Extended integrations (Lever, Ashby, SAP)                │
+  │  ✓ SOC 2 Type II certification                              │
+  │  → Target: 50 paying customers, $4M ARR                     │
+  ├─────────────────────────────────────────────────────────────┤
+  │  Q1-Q2 2027: INTELLIGENCE (AI DEPTH)                       │
+  │  ─────────────────────────────────────                      │
+  │  ✓ Predictive Analytics (success probability)               │
+  │  ✓ Onboard Planner (Watkins-based)                          │
+  │  ✓ Talent Pool CRM                                          │
+  │  ✓ Succession Planning module                               │
+  │  ✓ AI Copilot (advanced, proactive insights)                │
+  │  ✓ Board-ready reporting                                    │
+  │  ✓ Multi-language (EN, RU, DE, FR, ES, AR)                  │
+  │  → Target: 150 customers, $15M ARR                          │
+  ├─────────────────────────────────────────────────────────────┤
+  │  Q3-Q4 2027: ENTERPRISE (SCALE)                            │
+  │  ─────────────────────────────────────                      │
+  │  ✓ Internal Talent Assessment (existing leaders)            │
+  │  ✓ Leadership Development plans (post-assessment)           │
+  │  ✓ Team Dynamics analysis                                   │
+  │  ✓ Culture Diagnostics                                      │
+  │  ✓ On-premise deployment option                             │
+  │  ✓ White-label for executive search firms                   │
+  │  ✓ ISO 27001 certification                                  │
+  │  → Target: 400 customers, $50M ARR                          │
+  └─────────────────────────────────────────────────────────────┘
+
+================================================================================
+  13. КОНКУРЕНТНЫЕ ПРЕИМУЩЕСТВА (MOATS)
+================================================================================
+
+  MOAT 1: METHODOLOGY DEPTH
+  Единственный продукт, который объединяет 6+ мировых методологий
+  в единый scoring engine. Это не просто "AI скорит кандидатов" —
+  это Topgrading + Egon Zehnder + Hogan + PAEI + Korn Ferry 4D
+  с научным обоснованием каждой оценки.
+
+  MOAT 2: FULL LIFECYCLE
+  Единственная платформа от Position Profile до 90-Day Review.
+  Каждый конкурент закрывает 1-2 этапа. ExecVision — все 10.
+
+  MOAT 3: COMPOUND DATA EFFECT
+  С каждым assessment продукт становится умнее:
+  - Более точные predictions (на основе outcomes)
+  - Более релевантные benchmarks
+  - Более качественные AI-рекомендации
+  → Чем больше данных, тем сильнее competitive moat.
+
+  MOAT 4: INTEGRATION DEPTH
+  Глубокая интеграция с ATS/HRIS создаёт switching costs.
+  Данные из ExecVision обогащают HRIS, и наоборот.
+
+  MOAT 5: EXECUTIVE-FOCUSED POSITIONING
+  В то время как конкуренты растут снизу вверх (volume → executive),
+  ExecVision начинает сверху (executive-only). Это создаёт premium
+  позиционирование и higher ACV.
+
+  MOAT 6: AI + HUMAN EXPERTISE
+  AI не заменяет human judgment — он его усиливает.
+  Explainability first: каждая рекомендация обоснована
+  и может быть проверена. EU AI Act compliant by design.
+
+================================================================================
+  ПРИЛОЖЕНИЕ A: КОНКУРЕНТНОЕ СРАВНЕНИЕ
+================================================================================
+
+Функция               | ExecVision | Korn Ferry | SHL  | Hogan | Eightfold | BrightHire
+-----------------------|------------|------------|------|-------|-----------|----------
+Position Profiling     | ●●●●●      | ●●●○○      | ○○○○○| ○○○○○ | ○○○○○     | ○○○○○
+Question Generation    | ●●●●●      | ○○○○○      | ○○○○○| ○○○○○ | ●●○○○     | ●●●●○
+Interview Analysis     | ●●●●●      | ○○○○○      | ○○○○○| ○○○○○ | ●●●○○     | ●●●●●
+Multi-Method Scoring   | ●●●●●      | ●●●●○      | ●●●○○| ●●●●○ | ●●○○○     | ○○○○○
+Hogan Detection        | ●●●●○      | ○○○○○      | ○○○○○| ●●●●● | ○○○○○     | ○○○○○
+Candidate Comparison   | ●●●●●      | ●●●○○      | ●●○○○| ●●○○○ | ●●●○○     | ●●●○○
+Reference Automation   | ●●●●○      | ○○○○○      | ○○○○○| ○○○○○ | ○○○○○     | ○○○○○
+Onboarding Planning    | ●●●●○      | ○○○○○      | ○○○○○| ○○○○○ | ○○○○○     | ○○○○○
+AI Copilot             | ●●●●●      | ●●○○○      | ○○○○○| ○○○○○ | ●●●●○     | ●●●○○
+Enterprise Integrations| ●●●●○      | ●●●○○      | ●●●○○| ●●○○○ | ●●●●○     | ●●●●○
+Self-Serve SaaS        | ●●●●●      | ●●●○○      | ●●●●○| ●●●●○ | ●●●●●     | ●●●●●
+Methodology Depth      | ●●●●●      | ●●●●●      | ●●●●○| ●●●●● | ●●○○○     | ●●○○○
+
+================================================================================
+  ПРИЛОЖЕНИЕ B: RISK ANALYSIS
+================================================================================
+
+  Риск                        | Вероятность | Impact | Митигация
+  ----------------------------|------------|--------|---------------------------
+  Korn Ferry TS gains traction| Medium     | High   | Speed to market, UX superiority
+  Enterprise sales cycle long | High       | Medium | Design partners, PLG component
+  AI accuracy concerns        | Medium     | High   | Explainability, human-in-loop
+  EU AI Act compliance cost   | Medium     | Medium | Compliance by design from day 1
+  Data privacy (executive)    | Medium     | High   | SOC2, GDPR, encryption, audit
+  Methodology IP concerns     | Low        | Medium | Custom frameworks, not copies
+  Talent (hiring AI/ML team)  | High       | High   | Remote-first, competitive comp
+
+================================================================================
+  ПРИЛОЖЕНИЕ C: ИНСТРУКЦИЯ ДЛЯ CLAUDE PROJECTS
+================================================================================
+
+  Данный файл является продуктовой концепцией ExecVision AI.
+  При загрузке в Claude Projects, AI должен использовать этот
+  документ как blueprint для:
+  - Формирования профилей позиций
+  - Генерации вопросов для интервью
+  - Оценки кандидатов по multiple методологиям
+  - Сравнения кандидатов
+  - Формирования рекомендаций
+  - Планирования онбординга
+
+  AI должен "играть роль" ExecVision AI — использовать
+  все описанные модули и методологии при ответе на запросы.
+
+================================================================================
+
+  Документ подготовлен: Axioma AI Research Team
+  Дата: 27 февраля 2026
+  Версия: 1.0
+  Статус: CONCEPT — для обсуждения и валидации
+
+================================================================================

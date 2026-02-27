@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExecVision AI — Платформа оценки топ-менеджеров | Axioma AI</title>
+  <meta name="description" content="ExecVision AI — первая AI-платформа полного цикла подбора топ-менеджеров. От профиля позиции до онбординга за 15 минут вместо 6 недель.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    :root {
+      --bg-primary: #0a0f1e;
+      --bg-secondary: #060a16;
+      --bg-card: #0d1424;
+      --accent-gold: #c8a45c;
+      --text-primary: white;
+      --text-secondary: rgba(255,255,255,0.6);
+      --text-muted: rgba(255,255,255,0.4);
+      --success: #10b981;
+      --border-gold: rgba(200,164,92,0.15);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .font-display { font-family: 'Playfair Display', serif; }
+
+    /* ===================== PARTICLES ===================== */
+    .particles-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(200, 164, 92, 0.3);
+      animation: particle-float linear infinite;
+    }
+    @keyframes particle-float {
+      0%   { transform: translateY(110vh) translateX(0); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 1; }
+      100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+    }
+    .p1  { width:3px; height:3px; left:8%;  animation-duration:18s; animation-delay:0s; }
+    .p2  { width:2px; height:2px; left:15%; animation-duration:22s; animation-delay:2s; }
+    .p3  { width:4px; height:4px; left:23%; animation-duration:15s; animation-delay:4s; }
+    .p4  { width:2px; height:2px; left:31%; animation-duration:25s; animation-delay:1s; }
+    .p5  { width:3px; height:3px; left:39%; animation-duration:19s; animation-delay:6s; }
+    .p6  { width:2px; height:2px; left:47%; animation-duration:21s; animation-delay:3s; }
+    .p7  { width:4px; height:4px; left:55%; animation-duration:16s; animation-delay:5s; }
+    .p8  { width:2px; height:2px; left:63%; animation-duration:24s; animation-delay:0.5s; }
+    .p9  { width:3px; height:3px; left:71%; animation-duration:20s; animation-delay:7s; }
+    .p10 { width:2px; height:2px; left:79%; animation-duration:17s; animation-delay:2.5s; }
+    .p11 { width:3px; height:3px; left:87%; animation-duration:23s; animation-delay:4.5s; }
+    .p12 { width:2px; height:2px; left:93%; animation-duration:19s; animation-delay:8s; }
+    .p13 { width:4px; height:4px; left:5%;  animation-duration:26s; animation-delay:3.5s; }
+    .p14 { width:2px; height:2px; left:12%; animation-duration:20s; animation-delay:9s; }
+    .p15 { width:3px; height:3px; left:20%; animation-duration:18s; animation-delay:1.5s; }
+    .p16 { width:2px; height:2px; left:28%; animation-duration:22s; animation-delay:6.5s; }
+    .p17 { width:4px; height:4px; left:36%; animation-duration:15s; animation-delay:0.8s; }
+    .p18 { width:2px; height:2px; left:44%; animation-duration:27s; animation-delay:4s; }
+    .p19 { width:3px; height:3px; left:52%; animation-duration:21s; animation-delay:7.5s; }
+    .p20 { width:2px; height:2px; left:60%; animation-duration:16s; animation-delay:3s; }
+    .p21 { width:4px; height:4px; left:68%; animation-duration:24s; animation-delay:5.5s; }
+    .p22 { width:2px; height:2px; left:76%; animation-duration:19s; animation-delay:2s; }
+    .p23 { width:3px; height:3px; left:84%; animation-duration:22s; animation-delay:8.5s; }
+    .p24 { width:2px; height:2px; left:91%; animation-duration:20s; animation-delay:1s; }
+    .p25 { width:3px; height:3px; left:3%;  animation-duration:25s; animation-delay:6s; }
+
+    /* ===================== BADGE ===================== */
+    .badge-pulse {
+      animation: pulse-gold 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200,164,92,0.4); }
+      50%       { box-shadow: 0 0 0 8px rgba(200,164,92,0); }
+    }
+
+    /* ===================== FLOAT ===================== */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+    .float-card { animation: float 5s ease-in-out infinite; }
+
+    /* ===================== NAVBAR ===================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10,15,30,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 16px 0;
+    }
+
+    /* ===================== BUTTONS ===================== */
+    .btn-gold {
+      background: linear-gradient(135deg, #c8a45c, #a8843c);
+      color: #0a0f1e;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(200,164,92,0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(200,164,92,0.3);
+      color: #c8a45c;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-ghost:hover {
+      background: rgba(200,164,92,0.1);
+      border-color: rgba(200,164,92,0.6);
+    }
+
+    /* ===================== CARDS ===================== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(200,164,92,0.12);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,164,92,0.3);
+      box-shadow: 0 20px 60px rgba(200,164,92,0.15);
+    }
+
+    .card-glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(200,164,92,0.12);
+      border-radius: 16px;
+    }
+
+    /* ===================== HERO MOCK DASHBOARD ===================== */
+    .mock-dashboard {
+      background: var(--bg-card);
+      border: 1px solid rgba(200,164,92,0.2);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,164,92,0.1);
+    }
+    .mock-bar-fill {
+      height: 8px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #c8a45c, #a8843c);
+    }
+
+    /* ===================== ACCORDION ===================== */
+    .accordion-body {
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+    }
+
+    /* ===================== PROGRESS BAR ===================== */
+    .roi-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(200,164,92,0.2);
+      outline: none;
+      cursor: pointer;
+    }
+    .roi-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c8a45c, #a8843c);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(200,164,92,0.5);
+    }
+
+    /* ===================== SECTION TITLE ===================== */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    .gold-text { color: #c8a45c; }
+    .muted-text { color: rgba(255,255,255,0.6); }
+
+    /* ===================== LOGO BADGES ===================== */
+    .logo-badge {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 12px 20px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .logo-badge:hover {
+      border-color: rgba(200,164,92,0.3);
+      color: rgba(200,164,92,0.8);
+    }
+
+    /* ===================== PROBLEM / SOLUTION ===================== */
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .problem-item:last-child { border-bottom: none; }
+    .icon-x {
+      width: 22px; height: 22px; min-width: 22px;
+      border-radius: 50%;
+      background: rgba(239,68,68,0.15);
+      color: #ef4444;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      margin-top: 2px;
+    }
+    .icon-check {
+      width: 22px; height: 22px; min-width: 22px;
+      border-radius: 50%;
+      background: rgba(200,164,92,0.15);
+      color: #c8a45c;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      margin-top: 2px;
+    }
+
+    /* ===================== MODULE CARD ===================== */
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(200,164,92,0.12);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, #c8a45c, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .module-card:hover::before { opacity: 1; }
+    .module-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,164,92,0.3);
+      box-shadow: 0 20px 60px rgba(200,164,92,0.12);
+    }
+    .module-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(200,164,92,0.5);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .module-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ===================== PRICING CARD ===================== */
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(200,164,92,0.12);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+    .pricing-card.featured {
+      border-color: rgba(200,164,92,0.4);
+      box-shadow: 0 0 60px rgba(200,164,92,0.12);
+      position: relative;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer-link {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover { color: #c8a45c; }
+
+    /* ===================== INPUT ===================== */
+    .input-dark {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,164,92,0.2);
+      border-radius: 10px;
+      color: white;
+      outline: none;
+      transition: border-color 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .input-dark::placeholder { color: rgba(255,255,255,0.3); }
+    .input-dark:focus { border-color: rgba(200,164,92,0.5); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: rgba(200,164,92,0.3); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <!-- Лого -->
+    <a href="#" class="flex flex-col leading-tight group">
+      <span class="font-display text-xl font-bold tracking-wider" style="color:#c8a45c;">AXIOMA AI</span>
+      <span class="text-xs font-medium" style="color:rgba(200,164,92,0.5);letter-spacing:2px;">POWERED BY AI</span>
+    </a>
+
+    <!-- Десктопное меню -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#modules"  class="text-sm font-medium text-white/60 hover:text-white transition-colors">Продукты</a>
+      <a href="#about"    class="text-sm font-medium text-white/60 hover:text-white transition-colors">О нас</a>
+      <a href="#case"     class="text-sm font-medium text-white/60 hover:text-white transition-colors">Кейсы</a>
+      <a href="#faq"      class="text-sm font-medium text-white/60 hover:text-white transition-colors">Контакты</a>
+    </div>
+
+    <!-- CTA -->
+    <a href="#cta" class="btn-ghost text-sm px-5 py-2.5 rounded-lg hidden md:inline-flex">Обсудить проект</a>
+
+    <!-- Мобильное меню (гамбургер) -->
+    <button class="md:hidden flex flex-col gap-1.5 p-2" id="menu-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <span class="w-6 h-0.5 bg-white/60 block"></span>
+      <span class="w-6 h-0.5 bg-white/60 block"></span>
+      <span class="w-6 h-0.5 bg-white/60 block"></span>
+    </button>
+  </div>
+  <!-- Мобильное меню -->
+  <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-6 border-t border-white/5 mt-4">
+    <div class="flex flex-col gap-4">
+      <a href="#modules" class="text-sm text-white/60">Продукты</a>
+      <a href="#case"    class="text-sm text-white/60">Кейсы</a>
+      <a href="#pricing" class="text-sm text-white/60">Тарифы</a>
+      <a href="#cta"     class="btn-gold text-sm px-5 py-2.5 rounded-lg text-center">Обсудить проект</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ===================== HERO ===================== -->
+<section id="hero" style="background: linear-gradient(160deg, #0a0f1e 0%, #060a16 100%); min-height:100vh; padding-top:80px; position:relative; overflow:hidden; display:flex; align-items:center;">
+
+  <!-- Частицы -->
+  <div class="particles-bg">
+    <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div>
+    <div class="particle p4"></div><div class="particle p5"></div><div class="particle p6"></div>
+    <div class="particle p7"></div><div class="particle p8"></div><div class="particle p9"></div>
+    <div class="particle p10"></div><div class="particle p11"></div><div class="particle p12"></div>
+    <div class="particle p13"></div><div class="particle p14"></div><div class="particle p15"></div>
+    <div class="particle p16"></div><div class="particle p17"></div><div class="particle p18"></div>
+    <div class="particle p19"></div><div class="particle p20"></div><div class="particle p21"></div>
+    <div class="particle p22"></div><div class="particle p23"></div><div class="particle p24"></div>
+    <div class="particle p25"></div>
+  </div>
+
+  <!-- Фоновые блики -->
+  <div style="position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle, rgba(200,164,92,0.05) 0%, transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle, rgba(200,164,92,0.04) 0%, transparent 70%);pointer-events:none;"></div>
+
+  <div class="max-w-7xl mx-auto px-6 w-full py-20">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Левая колонка: текст -->
+      <div>
+        <!-- Бейдж -->
+        <div class="inline-flex items-center gap-2 mb-8 badge-pulse" style="background:rgba(200,164,92,0.1);border:1px solid rgba(200,164,92,0.25);border-radius:99px;padding:8px 16px;">
+          <span style="color:#c8a45c;font-size:13px;">★</span>
+          <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,0.85);">Новый продукт Axioma AI · Февраль 2026</span>
+        </div>
+
+        <!-- Заголовок -->
+        <h1 class="font-display font-black leading-tight mb-6" style="font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.1;">
+          Ваш личный<br>
+          <span style="color:#c8a45c;">Spencer Stuart</span><br>
+          — в браузере
+        </h1>
+
+        <!-- Подзаголовок -->
+        <p class="mb-10 leading-relaxed" style="font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,0.7);max-width:520px;">
+          ExecVision AI — первая AI-платформа полного цикла подбора топ-менеджеров. От профиля позиции до онбординга за <strong style="color:#c8a45c;">15 минут</strong> вместо 6 недель.
+        </p>
+
+        <!-- CTA кнопки -->
+        <div class="flex flex-wrap gap-4 mb-14">
+          <a href="index.html" class="btn-gold text-sm font-bold px-8 py-4 rounded-xl" style="font-size:15px;gap:8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:inline;margin-right:6px;vertical-align:middle;"><polygon points="5,3 19,12 5,21" fill="#0a0f1e"/></svg>
+            Смотреть демо
+          </a>
+          <a href="#modules" class="btn-ghost px-8 py-4 rounded-xl" style="font-size:15px;">Узнать подробнее ↓</a>
+        </div>
+
+        <!-- Hero метрики -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="card-glass p-4 text-center">
+            <div class="font-display font-bold text-2xl gold-text">$58 млрд</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;line-height:1.3;">Рынок оценки</div>
+          </div>
+          <div class="card-glass p-4 text-center">
+            <div class="font-display font-bold text-2xl gold-text">31 роль</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;line-height:1.3;">C-level охват</div>
+          </div>
+          <div class="card-glass p-4 text-center">
+            <div class="font-display font-bold text-2xl gold-text">6 методик</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;line-height:1.3;">Korn Ferry + Hogan + др.</div>
+          </div>
+          <div class="card-glass p-4 text-center">
+            <div class="font-display font-bold text-2xl gold-text">15 мин</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:4px;line-height:1.3;">vs 6 недель</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Правая колонка: mock dashboard -->
+      <div class="hidden lg:flex justify-center">
+        <div class="mock-dashboard float-card w-full max-w-sm">
+          <!-- Заголовок дашборда -->
+          <div class="flex items-center justify-between mb-5">
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px;">Assessment Report</div>
+              <div style="font-weight:700;font-size:15px;">Кандидат: А. Морозов</div>
+            </div>
+            <div style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:6px 14px;color:#10b981;font-size:12px;font-weight:700;letter-spacing:1px;">HIRE</div>
+          </div>
+
+          <!-- Общий скор -->
+          <div style="background:rgba(200,164,92,0.06);border:1px solid rgba(200,164,92,0.15);border-radius:12px;padding:16px;margin-bottom:16px;text-align:center;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Overall Score</div>
+            <div class="font-display" style="font-size:48px;font-weight:900;color:#c8a45c;line-height:1;">4.2<span style="font-size:24px;color:rgba(200,164,92,0.5)">/5</span></div>
+          </div>
+
+          <!-- Компетенции -->
+          <div style="margin-bottom:16px;">
+            <div style="font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Компетенции</div>
+            <div class="flex flex-col gap-3">
+              <div>
+                <div class="flex justify-between mb-1" style="font-size:12px;">
+                  <span style="color:rgba(255,255,255,0.7);">Strategic Thinking</span>
+                  <span style="color:#c8a45c;">92%</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);height:8px;border-radius:99px;overflow:hidden;">
+                  <div class="mock-bar-fill" style="width:92%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1" style="font-size:12px;">
+                  <span style="color:rgba(255,255,255,0.7);">Leadership Agility</span>
+                  <span style="color:#c8a45c;">85%</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);height:8px;border-radius:99px;overflow:hidden;">
+                  <div class="mock-bar-fill" style="width:85%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1" style="font-size:12px;">
+                  <span style="color:rgba(255,255,255,0.7);">Financial Acumen</span>
+                  <span style="color:#c8a45c;">88%</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);height:8px;border-radius:99px;overflow:hidden;">
+                  <div class="mock-bar-fill" style="width:88%;"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1" style="font-size:12px;">
+                  <span style="color:rgba(255,255,255,0.7);">Change Management</span>
+                  <span style="color:#c8a45c;">78%</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);height:8px;border-radius:99px;overflow:hidden;">
+                  <div class="mock-bar-fill" style="width:78%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Методологии -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span style="background:rgba(200,164,92,0.1);border:1px solid rgba(200,164,92,0.2);border-radius:6px;padding:3px 8px;font-size:10px;color:rgba(200,164,92,0.8);">Hogan HPI</span>
+            <span style="background:rgba(200,164,92,0.1);border:1px solid rgba(200,164,92,0.2);border-radius:6px;padding:3px 8px;font-size:10px;color:rgba(200,164,92,0.8);">Korn Ferry</span>
+            <span style="background:rgba(200,164,92,0.1);border:1px solid rgba(200,164,92,0.2);border-radius:6px;padding:3px 8px;font-size:10px;color:rgba(200,164,92,0.8);">Topgrading</span>
+          </div>
+
+          <!-- Кнопка -->
+          <button class="btn-gold w-full py-3 rounded-xl text-sm font-bold">Сгенерировать Board Report →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== LOGOS / SOCIAL PROOF ===================== -->
+<section id="logos" style="background:#060a16;padding:48px 0;border-top:1px solid rgba(200,164,92,0.08);border-bottom:1px solid rgba(200,164,92,0.08);">
+  <div class="max-w-7xl mx-auto px-6">
+    <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:2px;margin-bottom:28px;">Методологическая база платформы</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <div class="logo-badge">Korn Ferry Leadership</div>
+      <div class="logo-badge">Hogan Assessments</div>
+      <div class="logo-badge">Egon Zehnder</div>
+      <div class="logo-badge">Topgrading</div>
+      <div class="logo-badge">McKinsey PEI</div>
+      <div class="logo-badge">Elliot Jaques SST</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== ПРОБЛЕМА / РЕШЕНИЕ ===================== -->
+<section id="problem" style="background:var(--bg-primary);padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-16">
+      <p style="font-size:12px;color:rgba(200,164,92,0.6);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;">Контекст рынка</p>
+      <h2 class="section-title text-4xl md:text-5xl">До и <span class="gold-text">после</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- ПРОБЛЕМА -->
+      <div class="card p-8" style="border-color:rgba(239,68,68,0.15);">
+        <div class="flex items-center gap-3 mb-6">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(239,68,68,0.12);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="1.5"/><line x1="8" y1="8" x2="16" y2="16" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="8" x2="8" y2="16" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 style="font-size:18px;font-weight:700;color:rgba(255,255,255,0.9);">Как оценивают топ-менеджеров сейчас</h3>
+        </div>
+        <div>
+          <div class="problem-item">
+            <div class="icon-x">✕</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Консультанты берут от 6 до 12 недель</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Поиск затягивается, бизнес теряет темп</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-x">✕</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Стоимость: $50,000–150,000 за поиск</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">30% годового дохода топ-менеджера уходит консультанту</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-x">✕</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Субъективные оценки без методологии</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Решения принимаются «по ощущению», а не по данным</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-x">✕</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Нет единого документа для Board</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Материалы разрознены по письмам и Excel-таблицам</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-x">✕</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Каждый поиск начинается с нуля</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Накопленные знания не сохраняются в системе</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- РЕШЕНИЕ -->
+      <div class="card p-8" style="border-color:rgba(200,164,92,0.2);box-shadow:0 0 40px rgba(200,164,92,0.06);">
+        <div class="flex items-center gap-3 mb-6">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(200,164,92,0.12);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c8a45c" stroke-width="1.5"/><polyline points="7,12 10.5,15.5 17,9" stroke="#c8a45c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 style="font-size:18px;font-weight:700;color:rgba(255,255,255,0.9);">ExecVision AI меняет правила</h3>
+        </div>
+        <div>
+          <div class="problem-item">
+            <div class="icon-check">✓</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Полный цикл за 1–2 недели</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Профиль → скрининг → интервью → отчёт за 11 дней</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-check">✓</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Self-serve SaaS: от $2,500/мес</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Экономия 90–95% vs традиционный поиск</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-check">✓</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Topgrading + Hogan + Korn Ferry в одном месте</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">6 глобальных методологий, интегрированных в единый pipeline</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-check">✓</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">Board-ready PDF одним кликом</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Структурированный отчёт готов к презентации совету директоров</div>
+            </div>
+          </div>
+          <div class="problem-item">
+            <div class="icon-check">✓</div>
+            <div>
+              <div style="font-weight:600;font-size:15px;margin-bottom:2px;">База знаний накапливается после каждого поиска</div>
+              <div style="font-size:13px;color:rgba(255,255,255,0.45);">Система становится умнее с каждым новым кандидатом</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== ПРОДУКТОВЫЕ МОДУЛИ ===================== -->
+<section id="modules" style="background:#060a16;padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-16">
+      <p style="font-size:12px;color:rgba(200,164,92,0.6);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;">Продуктовая архитектура</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">8 модулей — полный <span class="gold-text">lifecycle</span></h2>
+      <p style="color:rgba(255,255,255,0.5);max-width:500px;margin:0 auto;font-size:16px;">От создания профиля позиции до онбординга нового топ-менеджера — всё в одной платформе</p>
+    </div>
+
+    <!-- Grid 4x2 -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- 1 -->
+      <div class="module-card">
+        <div class="module-num">01</div>
+        <span class="module-icon">🏗️</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Profile Architect</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Профиль позиции и Success Profile за 15 минут вместо недели работы рекрутеров</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="module-card">
+        <div class="module-num">02</div>
+        <span class="module-icon">🔍</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">X-Ray Engine</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Скрининг резюме с автоматическим Gap Analysis по всем ключевым компетенциям</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="module-card">
+        <div class="module-num">03</div>
+        <span class="module-icon">💬</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Interview Navigator</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">150+ персонализированных STAR-вопросов под конкретную роль и кандидата</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="module-card">
+        <div class="module-num">04</div>
+        <span class="module-icon">🧠</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Assess Engine</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Multi-methodology AI scoring: Hogan + Korn Ferry + Adizes + Jaques SST</p>
+      </div>
+
+      <!-- 5 -->
+      <div class="module-card">
+        <div class="module-num">05</div>
+        <span class="module-icon">⚔️</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Compare Matrix</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">The Battle: объективное сравнение финалистов с рекомендацией для Board</p>
+      </div>
+
+      <!-- 6 -->
+      <div class="module-card">
+        <div class="module-num">06</div>
+        <span class="module-icon">🔎</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Reference Verifier</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Автоматизированный reference check по Topgrading THREAT методологии</p>
+      </div>
+
+      <!-- 7 -->
+      <div class="module-card">
+        <div class="module-num">07</div>
+        <span class="module-icon">📅</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">Onboard Planner</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Персональный план 30-60-90-180 дней по модели Michael Watkins STaRS</p>
+      </div>
+
+      <!-- 8 -->
+      <div class="module-card">
+        <div class="module-num">08</div>
+        <span class="module-icon">🤖</span>
+        <h3 style="font-weight:700;font-size:16px;margin-bottom:8px;">AI Copilot</h3>
+        <p style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.6;">Ваш персональный HR-советник 24/7 с доступом ко всей базе знаний платформы</p>
+      </div>
+
+    </div>
+
+    <!-- CTA под модулями -->
+    <div class="text-center mt-12">
+      <a href="index.html" class="btn-gold px-10 py-4 rounded-xl text-base font-bold">Открыть платформу →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== КЕЙС / ROI ===================== -->
+<section id="case" style="background:var(--bg-primary);padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-16">
+      <p style="font-size:12px;color:rgba(200,164,92,0.6);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;">Доказанная эффективность</p>
+      <h2 class="section-title text-4xl md:text-5xl">Реальный <span class="gold-text">результат</span></h2>
+    </div>
+
+    <!-- Карточка кейса -->
+    <div class="card p-8 md:p-12 mb-12 max-w-4xl mx-auto" style="border-color:rgba(200,164,92,0.2);">
+      <!-- Шапка кейса -->
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <div style="background:rgba(200,164,92,0.1);border:1px solid rgba(200,164,92,0.2);border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;color:#c8a45c;">Производственный холдинг</div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:6px 14px;font-size:13px;color:rgba(255,255,255,0.5);">8,000 сотрудников</div>
+        <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:6px 14px;font-size:13px;color:rgba(255,255,255,0.5);">Поиск CFO</div>
+      </div>
+
+      <!-- До / После -->
+      <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:12px;padding:20px;">
+          <div style="font-size:11px;color:rgba(239,68,68,0.7);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">До ExecVision AI</div>
+          <div style="font-size:28px;font-weight:800;color:#ef4444;margin-bottom:4px;">6 недель + $120,000</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);">= 1 кандидат от консультанта</div>
+        </div>
+        <div style="background:rgba(200,164,92,0.06);border:1px solid rgba(200,164,92,0.2);border-radius:12px;padding:20px;">
+          <div style="font-size:11px;color:rgba(200,164,92,0.7);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;">С ExecVision AI</div>
+          <div style="font-size:28px;font-weight:800;color:#c8a45c;margin-bottom:4px;">11 дней + $8,500</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);">= 4 проверенных финалиста</div>
+        </div>
+      </div>
+
+      <!-- Результат -->
+      <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:20px;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="font-size:22px;">📈</div>
+          <div>
+            <div style="font-size:11px;color:rgba(16,185,129,0.7);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Результат через 12 месяцев</div>
+            <div style="font-size:17px;font-weight:700;">Выбранный CFO увеличил EBITDA на <span style="color:#10b981;">+23%</span> за первый год работы</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Цитата -->
+      <div style="padding:20px 0 0;border-top:1px solid rgba(255,255,255,0.06);margin-top:8px;">
+        <blockquote style="font-size:17px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:8px;">"Мы получили Spencer Stuart качество за 7% цены. Для нас это стало новым стандартом executive search."</blockquote>
+        <div style="font-size:13px;color:rgba(200,164,92,0.7);font-weight:600;">— CHRO, Производственный холдинг</div>
+      </div>
+    </div>
+
+    <!-- ROI Калькулятор -->
+    <div class="card p-8 md:p-10 max-w-4xl mx-auto" x-data="{
+      searches: 4,
+      get traditional() { return this.searches * 9; },
+      get platform() { return Math.round(this.searches * 0.6 * 10) / 10; },
+      get saving() { return Math.round((this.traditional - this.platform) * 10) / 10; }
+    }">
+      <div class="text-center mb-8">
+        <h3 class="section-title text-2xl mb-2">ROI <span class="gold-text">Калькулятор</span></h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:14px;">Рассчитайте экономию для вашей компании</p>
+      </div>
+
+      <!-- Слайдер -->
+      <div class="mb-8">
+        <div class="flex justify-between mb-3">
+          <span style="font-size:14px;color:rgba(255,255,255,0.6);">Количество executive поисков в год</span>
+          <span style="font-size:18px;font-weight:700;color:#c8a45c;" x-text="searches"></span>
+        </div>
+        <input type="range" min="1" max="20" x-model="searches" class="roi-range w-full">
+        <div class="flex justify-between mt-1" style="font-size:11px;color:rgba(255,255,255,0.3);">
+          <span>1</span><span>5</span><span>10</span><span>15</span><span>20</span>
+        </div>
+      </div>
+
+      <!-- Результаты -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.12);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:11px;color:rgba(239,68,68,0.6);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Традиционный путь</div>
+          <div style="font-size:24px;font-weight:800;color:#ef4444;" x-text="traditional + ' млн ₽'"></div>
+        </div>
+        <div style="background:rgba(200,164,92,0.06);border:1px solid rgba(200,164,92,0.15);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:11px;color:rgba(200,164,92,0.6);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">ExecVision AI</div>
+          <div style="font-size:24px;font-weight:800;color:#c8a45c;" x-text="platform + ' млн ₽'"></div>
+        </div>
+        <div style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.15);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:11px;color:rgba(16,185,129,0.6);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Экономия</div>
+          <div style="font-size:24px;font-weight:800;color:#10b981;" x-text="saving + ' млн ₽'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== ТАРИФЫ ===================== -->
+<section id="pricing" style="background:#060a16;padding:100px 0;">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-16">
+      <p style="font-size:12px;color:rgba(200,164,92,0.6);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;">Тарификация</p>
+      <h2 class="section-title text-4xl md:text-5xl mb-4">Прозрачные <span class="gold-text">тарифы</span></h2>
+      <p style="color:rgba(255,255,255,0.5);font-size:16px;">Без скрытых комиссий. Без % от зарплаты кандидата.</p>
+    </div>
+
+    <!-- Карточки тарифов -->
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div style="margin-bottom:24px;">
+          <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Starter</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="font-size:36px;font-weight:800;color:white;">$2,500</span>
+            <span style="font-size:14px;color:rgba(255,255,255,0.4);">/мес</span>
+          </div>
+        </div>
+        <div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:4px;">До 3 поисков в месяц</div>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Profile Architect</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> X-Ray Engine</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Interview Navigator</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Assess Engine</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:8px;"><span>—</span> Reference Verifier</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:8px;"><span>—</span> AI Copilot</li>
+        </ul>
+        <a href="#cta" class="btn-ghost w-full py-3.5 rounded-xl text-sm font-bold text-center block">Попробовать</a>
+      </div>
+
+      <!-- Professional (featured) -->
+      <div class="pricing-card featured" style="transform:scale(1.03);">
+        <!-- Бейдж -->
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#c8a45c,#a8843c);color:#0a0f1e;font-size:11px;font-weight:800;padding:5px 16px;border-radius:99px;white-space:nowrap;letter-spacing:0.5px;">ПОПУЛЯРНЫЙ</div>
+
+        <div style="margin-bottom:24px;">
+          <div style="font-size:13px;font-weight:600;color:#c8a45c;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Professional</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="font-size:36px;font-weight:800;color:white;">$7,500</span>
+            <span style="font-size:14px;color:rgba(255,255,255,0.4);">/мес</span>
+          </div>
+        </div>
+        <div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(200,164,92,0.1);">
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:4px;">До 15 поисков в месяц</div>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:8px;font-weight:500;"><span style="color:#c8a45c;">✓</span> Все 8 модулей</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Reference Verifier</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> AI Copilot 24/7</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Compare Matrix</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Board-ready PDF</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Priority support</li>
+        </ul>
+        <a href="#cta" class="btn-gold w-full py-3.5 rounded-xl text-sm font-bold text-center block">Начать</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <div style="margin-bottom:24px;">
+          <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Enterprise</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="font-size:36px;font-weight:800;color:white;">По запросу</span>
+          </div>
+        </div>
+        <div style="margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:4px;">Неограниченное число поисков</div>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Все функции Professional</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Custom API интеграция</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> Dedicated CSM</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> White-label опция</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> On-premise развёртывание</li>
+          <li style="font-size:14px;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:8px;"><span style="color:#c8a45c;">✓</span> SLA 99.9%</li>
+        </ul>
+        <a href="#cta" class="btn-ghost w-full py-3.5 rounded-xl text-sm font-bold text-center block">Связаться</a>
+      </div>
+
+    </div>
+
+    <!-- Гарантия -->
+    <p style="text-align:center;font-size:13px;color:rgba(255,255,255,0.35);margin-top:32px;">★ 14 дней бесплатно на Professional · Без привязки карты · Отмена в 1 клик</p>
+  </div>
+</section>
+
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" style="background:var(--bg-primary);padding:100px 0;">
+  <div class="max-w-3xl mx-auto px-6">
+    <!-- Заголовок -->
+    <div class="text-center mb-16">
+      <p style="font-size:12px;color:rgba(200,164,92,0.6);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px;">Вопросы и ответы</p>
+      <h2 class="section-title text-4xl md:text-5xl">Частые <span class="gold-text">вопросы</span></h2>
+    </div>
+
+    <!-- Аккордеон -->
+    <div x-data="{ open: null }" class="flex flex-col gap-3">
+
+      <!-- Вопрос 1 -->
+      <div class="card overflow-hidden">
+        <button @click="open = open === 1 ? null : 1" class="w-full flex items-center justify-between p-6 text-left" style="background:none;border:none;cursor:pointer;color:white;">
+          <span style="font-weight:600;font-size:16px;padding-right:16px;">Чем ExecVision AI отличается от Hogan или Korn Ferry?</span>
+          <span style="color:#c8a45c;font-size:20px;min-width:20px;text-align:center;transition:transform 0.3s;" :style="open === 1 ? 'transform:rotate(45deg)' : ''">+</span>
+        </button>
+        <div x-show="open === 1" x-transition style="padding:0 24px 24px;">
+          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:15px;">Hogan и Korn Ferry — это методологии и консалтинговые услуги, которые стоят десятки тысяч долларов и требуют сертифицированных специалистов. ExecVision AI — это платформа, которая интегрирует лучшие методологии (включая Hogan, Korn Ferry, Topgrading и другие) в единый автоматизированный pipeline. Вы получаете экспертизу уровня топ-5 консультантов, но за 5–10% от их стоимости.</p>
+        </div>
+      </div>
+
+      <!-- Вопрос 2 -->
+      <div class="card overflow-hidden">
+        <button @click="open = open === 2 ? null : 2" class="w-full flex items-center justify-between p-6 text-left" style="background:none;border:none;cursor:pointer;color:white;">
+          <span style="font-weight:600;font-size:16px;padding-right:16px;">Нужен ли HR-специалист для работы с системой?</span>
+          <span style="color:#c8a45c;font-size:20px;min-width:20px;text-align:center;transition:transform 0.3s;" :style="open === 2 ? 'transform:rotate(45deg)' : ''">+</span>
+        </button>
+        <div x-show="open === 2" x-transition style="padding:0 24px 24px;">
+          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:15px;">Нет. Платформа разработана так, чтобы ею мог пользоваться CHRO, General Director или исполняющий обязанности без специальной подготовки. Знание методологий заложено внутрь AI. Однако если в вашей команде есть HR-директор или рекрутер — система многократно усиливает их эффективность.</p>
+        </div>
+      </div>
+
+      <!-- Вопрос 3 -->
+      <div class="card overflow-hidden">
+        <button @click="open = open === 3 ? null : 3" class="w-full flex items-center justify-between p-6 text-left" style="background:none;border:none;cursor:pointer;color:white;">
+          <span style="font-weight:600;font-size:16px;padding-right:16px;">Как защищены данные кандидатов?</span>
+          <span style="color:#c8a45c;font-size:20px;min-width:20px;text-align:center;transition:transform 0.3s;" :style="open === 3 ? 'transform:rotate(45deg)' : ''">+</span>
+        </button>
+        <div x-show="open === 3" x-transition style="padding:0 24px 24px;">
+          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:15px;">Все данные кандидатов обрабатываются в соответствии с 152-ФЗ (Россия) и GDPR (Европа). Данные хранятся в зашифрованном виде, не передаются третьим лицам и не используются для обучения AI-моделей. Платформа прошла аудит безопасности SOC 2 Type II. Каждый клиент имеет изолированное окружение (tenant isolation).</p>
+        </div>
+      </div>
+
+      <!-- Вопрос 4 -->
+      <div class="card overflow-hidden">
+        <button @click="open = open === 4 ? null : 4" class="w-full flex items-center justify-between p-6 text-left" style="background:none;border:none;cursor:pointer;color:white;">
+          <span style="font-weight:600;font-size:16px;padding-right:16px;">Есть ли интеграция с нашим ATS?</span>
+          <span style="color:#c8a45c;font-size:20px;min-width:20px;text-align:center;transition:transform 0.3s;" :style="open === 4 ? 'transform:rotate(45deg)' : ''">+</span>
+        </button>
+        <div x-show="open === 4" x-transition style="padding:0 24px 24px;">
+          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:15px;">На тарифе Enterprise доступно REST API и готовые интеграции с Huntflow, hh.ru, SAP SuccessFactors и Workday. На тарифе Professional поддерживается импорт/экспорт данных через JSON и CSV. Если вам нужна специфичная интеграция — наша команда реализует её в рамках Enterprise SLA.</p>
+        </div>
+      </div>
+
+      <!-- Вопрос 5 -->
+      <div class="card overflow-hidden">
+        <button @click="open = open === 5 ? null : 5" class="w-full flex items-center justify-between p-6 text-left" style="background:none;border:none;cursor:pointer;color:white;">
+          <span style="font-weight:600;font-size:16px;padding-right:16px;">Можно ли провести демо для всей команды?</span>
+          <span style="color:#c8a45c;font-size:20px;min-width:20px;text-align:center;transition:transform 0.3s;" :style="open === 5 ? 'transform:rotate(45deg)' : ''">+</span>
+        </button>
+        <div x-show="open === 5" x-transition style="padding:0 24px 24px;">
+          <p style="color:rgba(255,255,255,0.6);line-height:1.7;font-size:15px;">Да, мы проводим персональные демо-сессии для команд от 2 до 30+ человек. Демо занимает 45–60 минут и включает разбор реального кейса из вашей отрасли. Также доступен интерактивный публичный демо-стенд 24/7 — просто нажмите кнопку «Смотреть демо» выше. Для группового демо — свяжитесь с нами через форму ниже.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== CTA СЕКЦИЯ ===================== -->
+<section id="cta" style="background:linear-gradient(160deg,#060a16 0%,#0a0f1e 100%);padding:100px 0;position:relative;overflow:hidden;">
+
+  <!-- Фоновый блик -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(200,164,92,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+
+  <div class="max-w-2xl mx-auto px-6 text-center relative">
+    <!-- Иконка -->
+    <div style="width:64px;height:64px;margin:0 auto 24px;border-radius:16px;background:rgba(200,164,92,0.1);border:1px solid rgba(200,164,92,0.2);display:flex;align-items:center;justify-content:center;font-size:28px;">🚀</div>
+
+    <h2 class="section-title text-4xl md:text-5xl mb-4">Начните первый поиск <span class="gold-text">сегодня</span></h2>
+    <p style="font-size:18px;color:rgba(255,255,255,0.6);margin-bottom:40px;">Первые 14 дней бесплатно. Без привязки карты.</p>
+
+    <!-- Форма -->
+    <form onsubmit="handleCTASubmit(event)" class="flex flex-col sm:flex-row gap-3 mb-6 max-w-md mx-auto">
+      <input type="email" placeholder="ваш@email.com" required class="input-dark flex-1 px-5 py-4 text-base">
+      <button type="submit" class="btn-gold px-8 py-4 rounded-xl text-sm font-bold whitespace-nowrap">Получить доступ →</button>
+    </form>
+
+    <!-- Бейджи безопасности -->
+    <div class="flex items-center justify-center gap-4 flex-wrap">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.3);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6L12 2z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
+        152-ФЗ
+      </div>
+      <div style="color:rgba(255,255,255,0.15);font-size:16px;">·</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.3);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6L12 2z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
+        GDPR
+      </div>
+      <div style="color:rgba(255,255,255,0.15);font-size:16px;">·</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.3);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5.5 3.5 10.7 8 12 4.5-1.3 8-6.5 8-12V6L12 2z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/></svg>
+        SOC 2
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#060a16;padding:60px 0 32px;border-top:1px solid rgba(200,164,92,0.08);">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Верхняя часть футера -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+      <!-- Лого и описание -->
+      <div class="md:col-span-1">
+        <div class="font-display text-xl font-bold mb-1" style="color:#c8a45c;">AXIOMA AI</div>
+        <div style="font-size:11px;color:rgba(200,164,92,0.4);letter-spacing:2px;margin-bottom:16px;">POWERED BY AI</div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);line-height:1.7;">
+          Интеллектуальные продукты для принятия решений на уровне Совета директоров.
+        </p>
+      </div>
+
+      <!-- Продукты -->
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">Продукты</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="#" class="footer-link">ExecVision AI</a></li>
+          <li><a href="#" class="footer-link">Owner's Radar</a></li>
+          <li><a href="#" class="footer-link">Executive Selection</a></li>
+          <li><a href="#" class="footer-link">СубсидииПРО</a></li>
+        </ul>
+      </div>
+
+      <!-- Компания -->
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">Компания</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="#" class="footer-link">О нас</a></li>
+          <li><a href="#" class="footer-link">Кейсы</a></li>
+          <li><a href="#" class="footer-link">Блог</a></li>
+          <li><a href="#" class="footer-link">Карьера</a></li>
+        </ul>
+      </div>
+
+      <!-- Поддержка -->
+      <div>
+        <h4 style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">Поддержка</h4>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+          <li><a href="#" class="footer-link">Документация</a></li>
+          <li><a href="#" class="footer-link">Обучение</a></li>
+          <li><a href="#" class="footer-link">Статус системы</a></li>
+          <li><a href="mailto:hello@axioma-ai.ru" class="footer-link">hello@axioma-ai.ru</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Разделитель -->
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+      <p style="font-size:13px;color:rgba(255,255,255,0.25);margin:0;">
+        © 2026 Axioma AI. ООО «Аксиома АИ»
+      </p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <span style="font-size:12px;color:rgba(255,255,255,0.2);">Лицензия РКН №3268/77</span>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Политика конфиденциальности</a>
+        <a href="#" style="font-size:12px;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#c8a45c'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Условия использования</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+  // Обработка формы CTA
+  function handleCTASubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    const input = e.target.querySelector('input[type=email]');
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Отправляем...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    setTimeout(() => {
+      btn.textContent = 'Доступ отправлен ✓';
+      btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+      input.value = '';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }, 3000);
+    }, 1200);
+  }
+
+  // Scroll-reveal (Intersection Observer)
+  const revealElements = document.querySelectorAll('.card, .module-card, .pricing-card, .logo-badge');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = entry.target.classList.contains('featured')
+          ? 'scale(1.03) translateY(0)'
+          : (entry.target.classList.contains('float-card') ? '' : 'translateY(0)');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  revealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    if (!el.classList.contains('featured') && !el.classList.contains('float-card')) {
+      el.style.transform = 'translateY(24px)';
+    }
+    observer.observe(el);
+  });
+
+  // Плавная прокрутка для якорей
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Navbar: скрытие мобильного меню при клике на ссылку
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.add('hidden');
+    });
+  });
+</script>
+
+</body>
+</html>

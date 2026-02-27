@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExecVision AI — Стратегический кокпит CHRO</title>
+  <meta name="description" content="AI-платформа подбора и оценки топ-менеджеров. Аналог Spencer Stuart — в вашем браузере.">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#c8a45c',
+            'gold-dim': 'rgba(200,164,92,0.15)',
+            'gold-border': 'rgba(200,164,92,0.2)',
+            bg: '#0a0e1a',
+            sidebar: '#0d1220',
+            card: '#111827',
+            'card-2': '#0f172a',
+            text: '#e2e8f0',
+            muted: '#94a3b8',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #0a0e1a; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #0d1220; }
+    ::-webkit-scrollbar-thumb { background: rgba(200,164,92,0.3); border-radius: 2px; }
+
+    .glass-card {
+      background: rgba(17,24,39,0.8);
+      border: 1px solid rgba(200,164,92,0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      transition: all 0.25s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(200,164,92,0.3);
+      box-shadow: 0 8px 30px rgba(200,164,92,0.08);
+      transform: translateY(-1px);
+    }
+
+    .gold-glow { box-shadow: 0 0 20px rgba(200,164,92,0.2); }
+    .gold-text { color: #c8a45c; }
+    .gold-border { border-color: rgba(200,164,92,0.25); }
+
+    .nav-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px; border-radius: 8px;
+      cursor: pointer; transition: all 0.2s ease;
+      color: #94a3b8; font-size: 14px; font-weight: 500;
+    }
+    .nav-item:hover { background: rgba(200,164,92,0.08); color: #e2e8f0; }
+    .nav-item.active {
+      background: rgba(200,164,92,0.15);
+      color: #c8a45c;
+      border: 1px solid rgba(200,164,92,0.2);
+    }
+
+    .metric-card {
+      background: linear-gradient(135deg, rgba(17,24,39,0.9), rgba(15,23,42,0.9));
+      border: 1px solid rgba(200,164,92,0.12);
+      border-radius: 12px; padding: 20px;
+      transition: all 0.25s ease;
+    }
+    .metric-card:hover {
+      border-color: rgba(200,164,92,0.3);
+      box-shadow: 0 0 25px rgba(200,164,92,0.1);
+    }
+
+    .score-bar-bg { background: rgba(200,164,92,0.1); border-radius: 4px; height: 6px; }
+    .score-bar-fill { background: #c8a45c; border-radius: 4px; height: 6px; transition: width 0.6s ease; }
+
+    .badge-hire { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+    .badge-hold { background: rgba(245,158,11,0.15); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+    .badge-no-hire { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+    .badge-low { background: rgba(16,185,129,0.12); color: #10b981; }
+    .badge-med { background: rgba(245,158,11,0.12); color: #f59e0b; }
+    .badge-high { background: rgba(239,68,68,0.12); color: #ef4444; }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #c8a45c, #a8843c);
+      color: #0a0e1a; font-weight: 700; border-radius: 8px;
+      padding: 8px 20px; transition: all 0.2s ease;
+      border: none; cursor: pointer;
+    }
+    .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 4px 15px rgba(200,164,92,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(200,164,92,0.3);
+      color: #c8a45c; font-weight: 600; border-radius: 8px;
+      padding: 8px 20px; transition: all 0.2s ease; cursor: pointer;
+    }
+    .btn-outline:hover { background: rgba(200,164,92,0.08); }
+
+    .progress-ring { font-family: 'JetBrains Mono', monospace; }
+
+    .copilot-bubble {
+      background: rgba(17,24,39,0.95);
+      border: 1px solid rgba(200,164,92,0.2);
+      border-radius: 12px 12px 2px 12px;
+      padding: 10px 14px; margin: 6px 0;
+      font-size: 13px; line-height: 1.5;
+    }
+    .user-bubble {
+      background: rgba(200,164,92,0.1);
+      border: 1px solid rgba(200,164,92,0.2);
+      border-radius: 12px 12px 12px 2px;
+      padding: 10px 14px; margin: 6px 0;
+      font-size: 13px; color: #c8a45c;
+    }
+
+    .hogan-low { color: #10b981; }
+    .hogan-med { color: #f59e0b; }
+    .hogan-high { color: #ef4444; }
+
+    .tag { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+
+    .interview-q-card {
+      background: rgba(15,23,42,0.8);
+      border: 1px solid rgba(200,164,92,0.1);
+      border-radius: 10px; padding: 16px;
+      transition: all 0.2s ease;
+    }
+    .interview-q-card:hover { border-color: rgba(200,164,92,0.25); }
+
+    .timer-active { color: #10b981; font-family: 'JetBrains Mono', monospace; }
+    .timer-warn { color: #f59e0b; font-family: 'JetBrains Mono', monospace; }
+
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 10px rgba(200,164,92,0.2); }
+      50% { box-shadow: 0 0 20px rgba(200,164,92,0.4); }
+    }
+    .pulse-gold { animation: pulse-gold 2s infinite; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeIn 0.3s ease forwards; }
+
+    .sidebar-logo-text {
+      font-size: 18px; font-weight: 800;
+      background: linear-gradient(135deg, #c8a45c, #e8c47c);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .compare-best { border-left: 3px solid #10b981 !important; }
+    .compare-mid { border-left: 3px solid #f59e0b !important; }
+    .compare-low { border-left: 3px solid #ef4444 !important; }
+
+    .dot-score {
+      display: inline-block; width: 10px; height: 10px;
+      border-radius: 50%; margin: 0 1px;
+    }
+    .dot-filled { background: #c8a45c; }
+    .dot-empty { background: rgba(200,164,92,0.2); }
+
+    table.compare-table { border-collapse: separate; border-spacing: 0; width: 100%; }
+    .compare-table th { background: rgba(13,18,32,0.9); color: #94a3b8; font-size: 12px; font-weight: 600; padding: 10px 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .compare-table td { padding: 12px 16px; font-size: 13px; border-top: 1px solid rgba(200,164,92,0.06); }
+    .compare-table tr:hover td { background: rgba(200,164,92,0.03); }
+
+    /* Light Mode */
+    body.light-mode { background: #f8fafc; color: #1e293b; }
+    body.light-mode .glass-card { background: rgba(255,255,255,0.9); border-color: rgba(200,164,92,0.2); }
+    body.light-mode aside { background: #f1f5f9 !important; border-color: rgba(200,164,92,0.2) !important; }
+    body.light-mode header { background: rgba(248,250,252,0.95) !important; }
+    body.light-mode .metric-card { background: white; }
+    body.light-mode .nav-item { color: #475569; }
+    body.light-mode .nav-item:hover { background: rgba(200,164,92,0.1); color: #1e293b; }
+    body.light-mode .nav-item.active { color: #c8a45c; }
+
+    @media print {
+      body { background: white !important; color: #1e293b !important; }
+      aside, header, .copilot-bubble, [x-show="copilotOpen"], button { display: none !important; }
+      main { overflow: visible !important; }
+      .glass-card { background: white !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; }
+      .metric-card { background: #f8fafc !important; }
+      canvas { max-width: 100% !important; }
+      @page { margin: 1cm; }
+    }
+  </style>
+</head>
+
+<body class="h-screen overflow-hidden" x-data="app()" :class="darkMode ? '' : 'light-mode'">
+
+  <!-- ===== LAYOUT ===== -->
+  <div class="flex h-full">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="w-60 flex-shrink-0 flex flex-col h-full" style="background:#0d1220; border-right:1px solid rgba(200,164,92,0.1);">
+
+      <!-- Лого -->
+      <div class="p-5 border-b" style="border-color:rgba(200,164,92,0.1);">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center pulse-gold" style="background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <div class="sidebar-logo-text">ExecVision</div>
+            <div style="font-size:10px; color:#94a3b8; font-weight:500; letter-spacing:0.08em;">AI PLATFORM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Навигация -->
+      <nav class="flex-1 p-3 space-y-1 overflow-y-auto">
+        <div style="font-size:10px; color:#64748b; font-weight:600; letter-spacing:0.1em; padding:8px 14px 4px;">ПАНЕЛИ</div>
+
+        <div class="nav-item" :class="{active: view==='dashboard'}" @click="view='dashboard'; initCharts()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Пульс Найма
+          <span class="ml-auto text-xs font-mono" style="color:#c8a45c; background:rgba(200,164,92,0.1); padding:1px 6px; border-radius:4px;">7</span>
+        </div>
+
+        <div class="nav-item" :class="{active: view==='candidate'}" @click="view='candidate'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          X-Ray Engine
+        </div>
+
+        <div class="nav-item" :class="{active: view==='compare'}" @click="view='compare'; initCompareRadar()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          Compare Matrix
+        </div>
+
+        <div class="nav-item" :class="{active: view==='interview'}" @click="view='interview'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 19-9-9 19-2-8-8-2z"/></svg>
+          Interview Navigator
+        </div>
+
+        <div class="nav-item" :class="{active: view==='verdict'}" @click="view='verdict'; initRadar()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          The Verdict
+        </div>
+
+        <div style="font-size:10px; color:#64748b; font-weight:600; letter-spacing:0.1em; padding:12px 14px 4px;">УПРАВЛЕНИЕ</div>
+
+        <div class="nav-item" style="opacity:0.5; cursor:not-allowed;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Talent Pool
+          <span class="ml-auto text-xs" style="color:#64748b;">soon</span>
+        </div>
+
+        <div class="nav-item" style="opacity:0.5; cursor:not-allowed;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Reference Verifier
+          <span class="ml-auto text-xs" style="color:#64748b;">soon</span>
+        </div>
+
+        <div class="nav-item" style="opacity:0.5; cursor:not-allowed;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Onboard Planner
+          <span class="ml-auto text-xs" style="color:#64748b;">soon</span>
+        </div>
+      </nav>
+
+      <!-- Пользователь -->
+      <div class="p-4 border-t" style="border-color:rgba(200,164,92,0.1);">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style="background:rgba(200,164,92,0.2); color:#c8a45c; border:1px solid rgba(200,164,92,0.3);">ЕС</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color:#e2e8f0;">Елена Соколова</div>
+            <div style="font-size:11px; color:#94a3b8;">CHRO · ПАО МегаГрупп</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+
+      <!-- TOP BAR -->
+      <header class="flex items-center justify-between px-6 py-3 flex-shrink-0" style="background:rgba(13,18,32,0.8); border-bottom:1px solid rgba(200,164,92,0.08); backdrop-filter:blur(12px);">
+
+        <!-- Хлебные крошки -->
+        <div class="flex items-center gap-2 text-sm">
+          <span style="color:#64748b;">ExecVision AI</span>
+          <span style="color:#475569;">/</span>
+          <span style="color:#c8a45c; font-weight:600;" x-text="viewTitles[view]"></span>
+        </div>
+
+        <!-- Правая часть -->
+        <div class="flex items-center gap-4">
+          <!-- Дата -->
+          <span style="font-size:12px; color:#64748b; font-family:'JetBrains Mono', monospace;">28 февраля 2026</span>
+
+          <!-- Переключатель темы -->
+          <button @click="darkMode=!darkMode" class="p-2 rounded-lg transition-all"
+            style="background:rgba(200,164,92,0.08); border:1px solid rgba(200,164,92,0.15);"
+            :title="darkMode ? 'Светлая тема' : 'Тёмная тема'">
+            <span x-text="darkMode ? '☀️' : '🌙'" style="font-size:14px;"></span>
+          </button>
+
+          <!-- Уведомления -->
+          <div class="relative" x-data="{open:false}">
+            <button @click="open=!open" class="relative cursor-pointer p-1.5 rounded-lg hover:bg-gold-dim transition-all">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold"
+                style="background:#ef4444;color:white;font-size:9px;">3</span>
+            </button>
+
+            <!-- Popup уведомлений -->
+            <div x-show="open" @click.away="open=false" x-transition
+              class="absolute right-0 top-10 w-80 rounded-xl shadow-2xl z-50"
+              style="background:#0d1220;border:1px solid rgba(200,164,92,0.2);">
+              <div class="p-4 border-b" style="border-color:rgba(200,164,92,0.1);">
+                <div class="flex justify-between items-center">
+                  <span style="font-size:14px;font-weight:700;color:#e2e8f0;">Уведомления</span>
+                  <span class="text-xs" style="color:#c8a45c;cursor:pointer;">Прочитать все</span>
+                </div>
+              </div>
+              <div class="divide-y" style="border-color:rgba(200,164,92,0.06);">
+                <div class="p-4 flex gap-3">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(200,164,92,0.15);">⚡</div>
+                  <div>
+                    <p style="font-size:12px;color:#e2e8f0;line-height:1.4;">CFO: Андрей Волков прошёл Reference Check (8.7/10)</p>
+                    <p style="font-size:10px;color:#64748b;margin-top:2px;">5 минут назад</p>
+                  </div>
+                </div>
+                <div class="p-4 flex gap-3">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(245,158,11,0.15);">⚠️</div>
+                  <div>
+                    <p style="font-size:12px;color:#e2e8f0;line-height:1.4;">CTO поиск: новый кандидат требует проверки Hogan</p>
+                    <p style="font-size:10px;color:#64748b;margin-top:2px;">32 минуты назад</p>
+                  </div>
+                </div>
+                <div class="p-4 flex gap-3">
+                  <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(239,68,68,0.15);">🔴</div>
+                  <div>
+                    <p style="font-size:12px;color:#e2e8f0;line-height:1.4;">COO поиск: срок 45 дней — рекомендую пересмотр стратегии</p>
+                    <p style="font-size:10px;color:#64748b;margin-top:2px;">2 часа назад</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Copilot кнопка -->
+          <button @click="copilotOpen=!copilotOpen" class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all" style="background:rgba(200,164,92,0.12); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            AI Copilot
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTENT AREA -->
+      <main class="flex-1 overflow-y-auto relative">
+        <div class="p-6 fade-in" :key="view">
+
+          <!-- =================== ЭКРАН 1: DASHBOARD =================== -->
+          <div x-show="view==='dashboard'">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h1 class="text-2xl font-bold text-text">Пульс Найма</h1>
+                <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Данные на 28 января 2026 · 4 активных поиска · 13 кандидатов в работе</p>
+              </div>
+              <button class="btn-gold text-sm" @click="view='candidate'">+ Новый кандидат</button>
+            </div>
+
+            <!-- Метрики -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+              <template x-for="m in metrics" :key="m.label">
+                <div class="metric-card">
+                  <div class="flex items-start justify-between mb-3">
+                    <span style="font-size:12px; color:#94a3b8; font-weight:600; text-transform:uppercase; letter-spacing:0.06em;" x-text="m.label"></span>
+                    <span class="text-xs font-mono px-2 py-0.5 rounded" :style="m.trend > 0 ? 'background:rgba(16,185,129,0.1);color:#10b981' : 'background:rgba(239,68,68,0.1);color:#ef4444'" x-text="(m.trend > 0 ? '↑ +' : '↓ ') + Math.abs(m.trend) + m.trendUnit"></span>
+                  </div>
+                  <div class="font-mono text-3xl font-bold" style="color:#c8a45c;" x-text="m.value + m.unit"></div>
+                  <div style="font-size:11px; color:#64748b; margin-top:4px;" x-text="m.sub"></div>
+                </div>
+              </template>
+            </div>
+
+            <!-- Активные позиции -->
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <div class="col-span-2 glass-card p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Активные поиски</h3>
+                  <span style="font-size:12px; color:#94a3b8;">4 позиции открыты</span>
+                </div>
+
+                <div class="space-y-3">
+                  <template x-for="pos in positions" :key="pos.role">
+                    <div class="flex items-center gap-4 p-3 rounded-lg cursor-pointer transition-all" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);" @click="view='candidate'" @mouseover="$el.style.borderColor='rgba(200,164,92,0.2)'" @mouseout="$el.style.borderColor='rgba(200,164,92,0.06)'">
+                      <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" :style="'background:' + pos.color + '15; border:1px solid ' + pos.color + '30;'">
+                        <span style="font-size:13px; font-weight:700;" :style="'color:' + pos.color" x-text="pos.icon"></span>
+                      </div>
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-1">
+                          <span style="font-size:14px; font-weight:700; color:#e2e8f0;" x-text="pos.role"></span>
+                          <span class="tag" :style="'background:' + pos.color + '15; color:' + pos.color" x-text="pos.status"></span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                          <div class="score-bar-bg flex-1">
+                            <div class="score-bar-fill" :style="'width:' + pos.progress + '%'"></div>
+                          </div>
+                          <span style="font-size:12px; color:#94a3b8; font-family:'JetBrains Mono',monospace; white-space:nowrap;" x-text="pos.candidates + ' канд.'"></span>
+                        </div>
+                      </div>
+                      <div class="text-right flex-shrink-0">
+                        <div style="font-size:13px; font-family:'JetBrains Mono',monospace; color:#94a3b8;" x-text="'День ' + pos.day"></div>
+                        <div style="font-size:11px; color:#64748b;" x-text="pos.recruiter"></div>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+
+              <!-- AI Insights -->
+              <div class="glass-card p-5">
+                <div class="flex items-center gap-2 mb-4">
+                  <div class="w-2 h-2 rounded-full pulse-gold" style="background:#c8a45c;"></div>
+                  <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">AI Инсайты</h3>
+                </div>
+                <div class="space-y-3">
+                  <template x-for="ins in insights" :key="ins.text">
+                    <div class="p-3 rounded-lg" :style="'background:rgba(15,23,42,0.6); border:1px solid ' + (ins.type==='alert' ? 'rgba(239,68,68,0.2)' : ins.type==='warn' ? 'rgba(245,158,11,0.2)' : 'rgba(200,164,92,0.15)')">
+                      <div class="flex gap-2">
+                        <span x-text="ins.icon" style="font-size:14px; flex-shrink:0; margin-top:1px;"></span>
+                        <p style="font-size:12px; line-height:1.5; color:#e2e8f0;" x-text="ins.text"></p>
+                      </div>
+                      <button class="mt-2 text-xs" style="color:#c8a45c; font-weight:600;" @click="view=ins.action">→ Перейти</button>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+
+            <!-- Поведенческий анализ -->
+            <div class="glass-card p-5">
+              <div class="flex items-center justify-between mb-4">
+                <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Поведенческий анализ интервьюеров</h3>
+                <span style="font-size:12px; color:#94a3b8;">Последние 5 интервью</span>
+              </div>
+              <div class="grid grid-cols-4 gap-3">
+                <template x-for="int in interviewers" :key="int.name">
+                  <div class="p-4 rounded-xl" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.08);">
+                    <div class="flex items-center gap-2 mb-2">
+                      <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" :style="'background:' + int.color + '20; color:' + int.color + '; border:1px solid ' + int.color + '40;'" x-text="int.initials"></div>
+                      <div>
+                        <div style="font-size:12px; font-weight:700; color:#e2e8f0;" x-text="int.name"></div>
+                        <div style="font-size:10px; color:#94a3b8;" x-text="int.dept"></div>
+                      </div>
+                    </div>
+                    <div style="font-size:11px; color:#94a3b8; margin-bottom:4px;">Фактов:</div>
+                    <div class="score-bar-bg mb-2">
+                      <div class="score-bar-fill" :style="'width:' + int.facts + '%'"></div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="font-mono text-sm font-bold" :style="'color:' + int.color" x-text="int.facts + '%'"></span>
+                      <span class="tag" :class="int.tagClass" x-text="int.tag"></span>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <!-- Тренды -->
+            <div class="glass-card p-5 mt-4">
+              <div class="flex items-center justify-between mb-4">
+                <h3 style="font-size:15px;font-weight:700;color:#e2e8f0;">Тренды · 6 месяцев</h3>
+                <div class="flex gap-2">
+                  <button class="tag" style="background:rgba(200,164,92,0.15);color:#c8a45c;">Quality Score</button>
+                  <button class="tag" style="background:rgba(15,23,42,0.6);color:#64748b;">Time-to-Fill</button>
+                </div>
+              </div>
+              <canvas id="trendsChart" height="80"></canvas>
+            </div>
+          </div>
+
+          <!-- =================== ЭКРАН 2: X-RAY ENGINE =================== -->
+          <div x-show="view==='candidate'">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h1 class="text-2xl font-bold text-text">X-Ray Engine</h1>
+                <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Глубинный анализ кандидата · CFO · ПАО МегаГрупп</p>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn-outline text-sm" @click="view='compare'">Сравнить с финалистами →</button>
+                <button class="btn-gold text-sm" @click="view='verdict'">The Verdict →</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+
+              <!-- Левая колонка: профиль -->
+              <div class="space-y-4">
+
+                <!-- Карточка кандидата -->
+                <div class="glass-card p-5">
+                  <div class="text-center mb-4">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-3" style="background:linear-gradient(135deg,rgba(200,164,92,0.3),rgba(200,164,92,0.1)); color:#c8a45c; border:2px solid rgba(200,164,92,0.4);">АВ</div>
+                    <div style="font-size:17px; font-weight:800; color:#e2e8f0;">Андрей Волков</div>
+                    <div style="font-size:13px; color:#94a3b8; margin-top:2px;">CFO · ПАО «Металлинвест»</div>
+                    <div class="flex items-center justify-center gap-1 mt-1">
+                      <span style="width:6px;height:6px;background:#10b981;border-radius:50%;display:inline-block;"></span>
+                      <span style="font-size:11px; color:#10b981;">Финалист · День 32</span>
+                    </div>
+                  </div>
+
+                  <!-- Composite Score -->
+                  <div class="text-center p-4 rounded-xl mb-4" style="background:rgba(200,164,92,0.08); border:1px solid rgba(200,164,92,0.2);">
+                    <div style="font-size:11px; color:#94a3b8; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">Composite Score</div>
+                    <div class="font-mono text-4xl font-bold" style="color:#c8a45c;">4.2<span style="font-size:20px; color:#64748b;">/5</span></div>
+                    <div class="mt-2 flex justify-center gap-1">
+                      <template x-for="i in 5">
+                        <div class="w-6 h-1.5 rounded-full" :style="i <= 4 ? 'background:#c8a45c' : 'background:rgba(200,164,92,0.2)'"></div>
+                      </template>
+                    </div>
+                  </div>
+
+                  <div class="space-y-2 text-sm">
+                    <div class="flex justify-between"><span style="color:#94a3b8;">Опыт CFO:</span><span style="color:#e2e8f0; font-weight:600;">14 лет</span></div>
+                    <div class="flex justify-between"><span style="color:#94a3b8;">Последний P&L:</span><span style="color:#10b981; font-weight:600; font-family:'JetBrains Mono'">62.4 млрд ₽</span></div>
+                    <div class="flex justify-between"><span style="color:#94a3b8;">IPO опыт:</span><span style="color:#10b981; font-weight:600;">✓ Есть</span></div>
+                    <div class="flex justify-between"><span style="color:#94a3b8;">Языки:</span><span style="color:#e2e8f0;">RU / EN (C1)</span></div>
+                    <div class="flex justify-between"><span style="color:#94a3b8;">МВА:</span><span style="color:#e2e8f0;">INSEAD 2010</span></div>
+                  </div>
+                </div>
+
+                <!-- Multi-methodology Scoring -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:14px;">Методологический скоринг</h4>
+                  <div class="space-y-3">
+                    <template x-for="score in methodScores" :key="score.name">
+                      <div>
+                        <div class="flex justify-between items-center mb-1">
+                          <span style="font-size:12px; color:#94a3b8;" x-text="score.name"></span>
+                          <span class="font-mono text-xs font-bold" :style="'color:' + (score.val >= 4 ? '#10b981' : score.val >= 3 ? '#f59e0b' : '#ef4444')" x-text="score.label"></span>
+                        </div>
+                        <div class="score-bar-bg">
+                          <div class="score-bar-fill" :style="'width:' + (score.val / 5 * 100) + '%'"></div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Центральная колонка: карьера + gap analysis -->
+              <div class="space-y-4">
+
+                <!-- Карьерный трек -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:16px;">Карьерная траектория</h4>
+                  <div class="space-y-0 relative">
+                    <div style="position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:rgba(200,164,92,0.15);"></div>
+                    <template x-for="(job, idx) in career" :key="job.company">
+                      <div class="flex gap-4 pb-5 relative">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 z-10" :style="idx===0 ? 'background:rgba(200,164,92,0.2);border:2px solid #c8a45c;color:#c8a45c' : 'background:rgba(15,23,42,0.9);border:1px solid rgba(200,164,92,0.2);color:#94a3b8'" x-text="job.icon"></div>
+                        <div>
+                          <div style="font-size:13px; font-weight:700; color:#e2e8f0;" x-text="job.role"></div>
+                          <div style="font-size:12px; color:#94a3b8;" x-text="job.company"></div>
+                          <div style="font-size:11px; color:#64748b; font-family:'JetBrains Mono';" x-text="job.period"></div>
+                          <div v-if="job.result" style="font-size:11px; color:#10b981; margin-top:2px;" x-text="'↑ ' + job.result"></div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+
+                <!-- Gap Analysis -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:14px;">Gap Analysis vs профиль CFO</h4>
+                  <div class="space-y-2">
+                    <template x-for="gap in gapAnalysis" :key="gap.req">
+                      <div class="flex items-start gap-3 p-2 rounded-lg" :style="'background:' + (gap.status==='ok' ? 'rgba(16,185,129,0.05)' : gap.status==='warn' ? 'rgba(245,158,11,0.05)' : 'rgba(239,68,68,0.05)')">
+                        <span style="font-size:14px; flex-shrink:0;" x-text="gap.status==='ok' ? '✅' : gap.status==='warn' ? '⚠️' : '❌'"></span>
+                        <div>
+                          <div style="font-size:12px; font-weight:600; color:#e2e8f0;" x-text="gap.req"></div>
+                          <div style="font-size:11px; color:#94a3b8;" x-text="gap.detail"></div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Правая колонка: Hogan + Egon Zehnder -->
+              <div class="space-y-4">
+
+                <!-- Hogan Risk Profile -->
+                <div class="glass-card p-5">
+                  <div class="flex items-center gap-2 mb-4">
+                    <h4 style="font-size:13px; font-weight:700; color:#e2e8f0;">Hogan Dark Side</h4>
+                    <span class="tag badge-low" style="font-size:10px;">LOW RISK</span>
+                  </div>
+                  <div class="space-y-2">
+                    <template x-for="hog in hoganRisks" :key="hog.name">
+                      <div>
+                        <div class="flex justify-between items-center mb-1">
+                          <span style="font-size:11px; color:#94a3b8;" x-text="hog.name"></span>
+                          <span class="font-mono text-xs font-semibold" :class="hog.val >= 7 ? 'hogan-high' : hog.val >= 4 ? 'hogan-med' : 'hogan-low'" x-text="hog.val + '/10'"></span>
+                        </div>
+                        <div class="score-bar-bg">
+                          <div class="score-bar-fill" :style="'width:' + (hog.val * 10) + '%; background:' + (hog.val >= 7 ? '#ef4444' : hog.val >= 4 ? '#f59e0b' : '#10b981')"></div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                  <p style="font-size:11px; color:#94a3b8; margin-top:12px; line-height:1.4;">Профиль без критических деструкторов. Лёгкий уклон в Bold (уверенность) — контролируется опытом.</p>
+                </div>
+
+                <!-- Egon Zehnder Potential -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:4px;">Egon Zehnder Potential</h4>
+                  <div class="flex items-center gap-2 mb-4">
+                    <span class="tag" style="background:rgba(200,164,92,0.15); color:#c8a45c;">HIGH POTENTIAL</span>
+                    <span class="font-mono text-sm" style="color:#c8a45c;">3.8/5</span>
+                  </div>
+                  <div class="space-y-3">
+                    <template x-for="ez in egonZehnder" :key="ez.name">
+                      <div>
+                        <div class="flex justify-between mb-1">
+                          <span style="font-size:12px; color:#94a3b8;" x-text="ez.name"></span>
+                          <span class="font-mono text-xs font-bold" style="color:#c8a45c;" x-text="ez.val + '/5'"></span>
+                        </div>
+                        <div class="score-bar-bg">
+                          <div class="score-bar-fill" :style="'width:' + (ez.val / 5 * 100) + '%'"></div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+
+                <!-- Jaques Level -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:12px;">Elliot Jaques — Level of Work</h4>
+                  <div class="text-center p-4 rounded-xl" style="background:rgba(200,164,92,0.08); border:1px solid rgba(200,164,92,0.15);">
+                    <div class="font-mono text-4xl font-bold" style="color:#c8a45c;">L4</div>
+                    <div style="font-size:13px; color:#e2e8f0; font-weight:600; margin-top:4px;">Strategic</div>
+                    <div style="font-size:11px; color:#94a3b8;">Горизонт 2–5 лет</div>
+                  </div>
+                  <p style="font-size:11px; color:#94a3b8; margin-top:10px; line-height:1.5;">Способен проектировать бизнес-системы на 3–5 лет. Требуемый уровень для CFO ПАО — L4. <span style="color:#10b981;">✓ Совпадение.</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================== ЭКРАН 3: COMPARE MATRIX =================== -->
+          <div x-show="view==='compare'">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h1 class="text-2xl font-bold text-text">The Battle — Compare Matrix</h1>
+                <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Сравнение 3 финалистов · CFO · ПАО МегаГрупп</p>
+              </div>
+              <button class="btn-gold text-sm" @click="view='verdict'">Смотреть Вердикт →</button>
+            </div>
+
+            <!-- Шапка с кандидатами -->
+            <div class="grid grid-cols-3 gap-4 mb-4">
+              <template x-for="(cand, idx) in candidates" :key="cand.name">
+                <div class="glass-card p-5 text-center" :class="[idx===0?'compare-best':idx===1?'compare-mid':'compare-low']">
+                  <div class="w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3" :style="'background:' + cand.color + '20; color:' + cand.color + '; border:2px solid ' + cand.color + '50;'" x-text="cand.initials"></div>
+                  <div style="font-size:15px; font-weight:800; color:#e2e8f0;" x-text="cand.name"></div>
+                  <div style="font-size:12px; color:#94a3b8; margin-top:2px;" x-text="cand.current"></div>
+                  <div class="mt-3 font-mono text-2xl font-bold" :style="'color:' + cand.color" x-text="cand.composite + '/5'"></div>
+                  <div class="mt-2 inline-block px-3 py-1 rounded-full text-xs font-bold" :class="[idx===0?'badge-hire':idx===1?'badge-hold':'badge-no-hire']" x-text="cand.verdict"></div>
+                </div>
+              </template>
+            </div>
+
+            <!-- Таблица сравнения -->
+            <div class="glass-card overflow-hidden">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th style="width:180px;">Критерий</th>
+                    <template x-for="cand in candidates" :key="cand.name">
+                      <th x-text="cand.short"></th>
+                    </template>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template x-for="row in compareRows" :key="row.label">
+                    <tr>
+                      <td>
+                        <div style="font-size:13px; font-weight:600; color:#e2e8f0;" x-text="row.label"></div>
+                        <div style="font-size:10px; color:#64748b;" x-text="row.sub"></div>
+                      </td>
+                      <template x-for="(val, idx) in row.vals" :key="idx">
+                        <td>
+                          <template x-if="row.type==='score'">
+                            <div class="flex items-center gap-2">
+                              <div class="flex gap-0.5">
+                                <template x-for="d in 5" :key="d">
+                                  <div class="dot-score" :class="d <= Math.round(val) ? 'dot-filled' : 'dot-empty'"></div>
+                                </template>
+                              </div>
+                              <span class="font-mono text-xs" style="color:#94a3b8;" x-text="val"></span>
+                            </div>
+                          </template>
+                          <template x-if="row.type==='badge'">
+                            <span class="tag font-mono text-xs" :class="val==='LOW'?'badge-low':val==='MED'||val==='PART'?'badge-med':'badge-high'" x-text="val"></span>
+                          </template>
+                          <template x-if="row.type==='rank'">
+                            <span class="tag font-semibold" :class="val.startsWith('#1')?'badge-hire':val.startsWith('#2')?'badge-hold':'badge-no-hire'" x-text="val"></span>
+                          </template>
+                        </td>
+                      </template>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Radar Chart наложение профилей -->
+            <div class="glass-card p-5 mt-4 mb-4">
+              <div class="flex items-center justify-between mb-4">
+                <h3 style="font-size:15px;font-weight:700;color:#e2e8f0;">Radar — Наложение профилей</h3>
+                <span style="font-size:12px;color:#94a3b8;">Зелёный: Волков · Жёлтый: Белова · Красный: Козлов</span>
+              </div>
+              <div class="flex justify-center">
+                <canvas id="compareRadarChart" width="400" height="300"></canvas>
+              </div>
+            </div>
+
+            <!-- AI Рекомендация -->
+            <div class="glass-card p-5 mt-4" style="border-color:rgba(200,164,92,0.25);">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:14px; font-weight:700; color:#c8a45c; margin-bottom:6px;">AI Рекомендация</div>
+                  <p style="font-size:13px; color:#e2e8f0; line-height:1.6;">
+                    <strong style="color:#10b981;">Рекомендую: Андрей Волков (#1 HIRE)</strong> — единственный кандидат с полным соответствием must-have требованиям (IPO-опыт, P&L >50 млрд ₽, уровень Jaques L4).
+                    Ирина Белова (#2 HOLD) сильна в операционных компетенциях (4.2/5), но не имеет опыта IPO — критического требования данной позиции.
+                    Дмитрий Козлов (#3 NO HIRE) — профиль B-player, Hogan HIGH RISK (Bold + Mischievous комбинация), не рекомендую к найму на уровень CFO ПАО.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================== ЭКРАН 4: INTERVIEW NAVIGATOR =================== -->
+          <div x-show="view==='interview'">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h1 class="text-2xl font-bold text-text">Interview Navigator</h1>
+                <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Персонализированный гид · Андрей Волков · CFO · 90 мин</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 px-4 py-2 rounded-lg" style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2);">
+                  <div style="width:8px;height:8px;background:#10b981;border-radius:50%;"></div>
+                  <span class="font-mono text-sm font-bold" style="color:#10b981;" x-text="timerStr">01:27:14</span>
+                </div>
+                <button class="btn-gold text-sm" @click="view='verdict'">Завершить → Вердикт</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+
+              <!-- Блоки вопросов -->
+              <div class="col-span-2 space-y-4">
+                <template x-for="block in questionBlocks" :key="block.method">
+                  <div class="glass-card p-5">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center gap-2">
+                        <span class="tag" :style="'background:' + block.color + '15; color:' + block.color" x-text="block.method"></span>
+                        <span style="font-size:13px; font-weight:700; color:#e2e8f0;" x-text="block.title"></span>
+                      </div>
+                      <span style="font-size:11px; color:#94a3b8;" x-text="block.time"></span>
+                    </div>
+                    <div class="space-y-2">
+                      <template x-for="(q, qi) in block.questions" :key="qi">
+                        <div class="interview-q-card" :style="q.active ? 'border-color:rgba(200,164,92,0.3);background:rgba(200,164,92,0.05)' : ''">
+                          <div class="flex items-start gap-3">
+                            <span class="font-mono text-xs flex-shrink-0 mt-0.5" style="color:#64748b;" x-text="(qi + 1) + '.'"></span>
+                            <div class="flex-1">
+                              <p style="font-size:13px; color:#e2e8f0; line-height:1.5;" x-text="q.text"></p>
+                              <template x-if="q.probe">
+                                <p style="font-size:11px; color:#94a3b8; margin-top:4px;" x-text="'→ ' + q.probe"></p>
+                              </template>
+                            </div>
+                            <template x-if="q.flag">
+                              <span class="tag flex-shrink-0" :class="q.flag==='red'?'badge-high':'badge-med'" x-text="q.flag==='red'?'⚠ Risk':'👁 Key'"></span>
+                            </template>
+                          </div>
+                        </div>
+                      </template>
+                    </div>
+                  </div>
+                </template>
+              </div>
+
+              <!-- Правая панель: live-анализ -->
+              <div class="space-y-4">
+                <!-- Текущий вопрос -->
+                <div class="glass-card p-5" style="border-color:rgba(200,164,92,0.25);">
+                  <div style="font-size:11px; color:#c8a45c; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Активный блок</div>
+                  <div style="font-size:13px; font-weight:700; color:#e2e8f0;">STAR · Финансовое лидерство</div>
+                  <div style="font-size:12px; color:#94a3b8; margin-top:4px;">Вопрос 2 из 5 · 18 мин осталось</div>
+                  <div class="mt-3 p-3 rounded-lg" style="background:rgba(200,164,92,0.06); border:1px solid rgba(200,164,92,0.15);">
+                    <p style="font-size:12px; color:#e2e8f0; line-height:1.5;">AI-подсказка: кандидат говорит «мы» — уточните личный вклад: «Что именно сделали вы?»</p>
+                  </div>
+                </div>
+
+                <!-- Quick Notes -->
+                <div class="glass-card p-5">
+                  <div style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:10px;">Быстрые заметки</div>
+                  <div class="space-y-2 mb-3">
+                    <template x-for="note in notes" :key="note">
+                      <div class="flex items-start gap-2 p-2 rounded" style="background:rgba(15,23,42,0.6);">
+                        <span style="font-size:10px; color:#64748b; flex-shrink:0; margin-top:2px;">●</span>
+                        <p style="font-size:11px; color:#e2e8f0;" x-text="note"></p>
+                      </div>
+                    </template>
+                  </div>
+                  <textarea class="w-full rounded-lg p-2 text-xs resize-none" style="background:rgba(15,23,42,0.8); border:1px solid rgba(200,164,92,0.15); color:#e2e8f0; height:60px;" placeholder="Добавить наблюдение..." @keydown.enter.prevent="addNote($event)"></textarea>
+                </div>
+
+                <!-- Live анализ -->
+                <div class="glass-card p-5">
+                  <div style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:12px;">Живой анализ речи</div>
+                  <div class="space-y-3">
+                    <div>
+                      <div class="flex justify-between mb-1"><span style="font-size:11px;color:#94a3b8;">Я vs МЫ</span><span class="font-mono text-xs" style="color:#10b981;">38% / 62%</span></div>
+                      <div class="score-bar-bg"><div class="score-bar-fill" style="width:38%; background:#10b981;"></div></div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-1"><span style="font-size:11px;color:#94a3b8;">Факты vs Обобщения</span><span class="font-mono text-xs" style="color:#c8a45c;">72% / 28%</span></div>
+                      <div class="score-bar-bg"><div class="score-bar-fill" style="width:72%;"></div></div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-1"><span style="font-size:11px;color:#94a3b8;">STAR-структура</span><span class="font-mono text-xs" style="color:#10b981;">Высокая</span></div>
+                      <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%; background:#10b981;"></div></div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-1"><span style="font-size:11px;color:#94a3b8;">Bold markers</span><span class="font-mono text-xs" style="color:#f59e0b;">Умеренные</span></div>
+                      <div class="score-bar-bg"><div class="score-bar-fill" style="width:35%; background:#f59e0b;"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================== ЭКРАН 5: THE VERDICT =================== -->
+          <div x-show="view==='verdict'">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h1 class="text-2xl font-bold text-text">The Verdict — Assess Engine</h1>
+                <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Финальная оценка · Андрей Волков · CFO · 28 февраля 2026</p>
+              </div>
+              <div class="flex gap-2">
+                <button class="btn-outline text-sm">↗ Поделиться с CEO</button>
+                <button class="btn-gold text-sm" @click="window.print()">⬇ Экспорт PDF</button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4">
+
+              <!-- Радар-чарт -->
+              <div class="glass-card p-6 flex flex-col items-center justify-center">
+                <div style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:16px; text-align:center;">Профиль компетенций</div>
+                <canvas id="radarChart" width="250" height="250"></canvas>
+                <div class="mt-4 text-center">
+                  <div class="font-mono text-4xl font-bold" style="color:#c8a45c;">4.2</div>
+                  <div style="font-size:12px; color:#94a3b8;">Composite Executive Score</div>
+                </div>
+              </div>
+
+              <!-- Детали скоринга -->
+              <div class="space-y-3">
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:14px;">Методологии · Детализация</h4>
+                  <div class="space-y-4">
+                    <template x-for="s in verdictScores" :key="s.name">
+                      <div>
+                        <div class="flex justify-between items-center mb-1">
+                          <div>
+                            <span style="font-size:12px; font-weight:600; color:#e2e8f0;" x-text="s.name"></span>
+                            <div style="font-size:10px; color:#64748b;" x-text="s.sub"></div>
+                          </div>
+                          <span class="font-mono text-sm font-bold" :style="'color:' + (s.score >= 4 ? '#10b981' : s.score >= 3 ? '#f59e0b' : '#ef4444')" x-text="s.label"></span>
+                        </div>
+                        <div class="score-bar-bg">
+                          <div class="score-bar-fill" :style="'width:' + (s.score / 5 * 100) + '%; background:' + (s.score >= 4 ? '#10b981' : s.score >= 3 ? '#f59e0b' : '#ef4444')"></div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Predictive Analytics + Вердикт -->
+              <div class="space-y-4">
+
+                <!-- Вердикт -->
+                <div class="glass-card p-5 text-center" style="border-color:rgba(16,185,129,0.3); background:linear-gradient(135deg,rgba(16,185,129,0.06),rgba(17,24,39,0.9))">
+                  <div style="font-size:11px; color:#94a3b8; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">AI VERDICT</div>
+                  <div class="inline-block px-6 py-2 rounded-xl mb-3" style="background:rgba(16,185,129,0.15); border:2px solid rgba(16,185,129,0.4);">
+                    <span style="font-size:20px; font-weight:900; color:#10b981; letter-spacing:0.05em;">★ HIRE</span>
+                  </div>
+                  <p style="font-size:12px; color:#94a3b8; line-height:1.5;">Кандидат соответствует всем must-have требованиям. Рекомендую финальное интервью с CEO + Board approval.</p>
+                </div>
+
+                <!-- Predictive Analytics -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:14px;">Predictive Analytics</h4>
+                  <div class="space-y-4">
+                    <template x-for="pred in predictive" :key="pred.label">
+                      <div>
+                        <div class="flex justify-between items-center mb-1">
+                          <span style="font-size:12px; color:#94a3b8;" x-text="pred.label"></span>
+                          <span class="font-mono text-sm font-bold" :style="'color:' + pred.color" x-text="pred.value"></span>
+                        </div>
+                        <div class="score-bar-bg">
+                          <div class="score-bar-fill" :style="'width:' + pred.pct + '%; background:' + pred.color"></div>
+                        </div>
+                        <div style="font-size:10px; color:#64748b; margin-top:2px;" x-text="pred.note"></div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+
+                <!-- Следующие шаги -->
+                <div class="glass-card p-5">
+                  <h4 style="font-size:13px; font-weight:700; color:#e2e8f0; margin-bottom:12px;">Следующие шаги</h4>
+                  <div class="space-y-2">
+                    <div class="flex items-start gap-2 p-2 rounded" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15);">
+                      <span style="color:#10b981; flex-shrink:0;">1.</span>
+                      <span style="font-size:12px; color:#e2e8f0;">Финальное интервью с CEO (30 мин)</span>
+                    </div>
+                    <div class="flex items-start gap-2 p-2 rounded" style="background:rgba(200,164,92,0.06); border:1px solid rgba(200,164,92,0.1);">
+                      <span style="color:#c8a45c; flex-shrink:0;">2.</span>
+                      <span style="font-size:12px; color:#e2e8f0;">Reference check: 2 рекомендателя</span>
+                    </div>
+                    <div class="flex items-start gap-2 p-2 rounded" style="background:rgba(200,164,92,0.06); border:1px solid rgba(200,164,92,0.1);">
+                      <span style="color:#c8a45c; flex-shrink:0;">3.</span>
+                      <span style="font-size:12px; color:#e2e8f0;">Compensation offer: ~6.8 млн/мес</span>
+                    </div>
+                    <div class="flex items-start gap-2 p-2 rounded" style="background:rgba(200,164,92,0.06); border:1px solid rgba(200,164,92,0.1);">
+                      <span style="color:#c8a45c; flex-shrink:0;">4.</span>
+                      <span style="font-size:12px; color:#e2e8f0;">Onboard Plan 30-60-90 дней →</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /p-6 -->
+      </main>
+    </div><!-- /flex-1 -->
+
+    <!-- ===== AI COPILOT DRAWER ===== -->
+    <div x-show="copilotOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
+      class="w-80 flex-shrink-0 flex flex-col h-full"
+      style="background:#0d1220; border-left:1px solid rgba(200,164,92,0.15);">
+
+      <div class="flex items-center justify-between p-4 border-b" style="border-color:rgba(200,164,92,0.1);">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full pulse-gold" style="background:#c8a45c;"></div>
+          <span style="font-size:14px; font-weight:700; color:#e2e8f0;">AI Copilot</span>
+        </div>
+        <button @click="copilotOpen=false" style="color:#94a3b8; cursor:pointer;">✕</button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-4 space-y-3">
+        <template x-for="msg in chatHistory" :key="msg.id">
+          <div :class="msg.role==='user' ? 'user-bubble' : 'copilot-bubble'" x-text="msg.text"></div>
+        </template>
+      </div>
+
+      <!-- Быстрые вопросы -->
+      <div class="p-4 border-t" style="border-color:rgba(200,164,92,0.1);">
+        <div style="font-size:11px; color:#64748b; margin-bottom:8px; font-weight:600;">Быстрые вопросы:</div>
+        <div class="space-y-1 mb-3">
+          <template x-for="q in quickQuestions" :key="q.q">
+            <button class="w-full text-left text-xs px-3 py-1.5 rounded-lg transition-all" style="background:rgba(200,164,92,0.06); color:#94a3b8; border:1px solid rgba(200,164,92,0.1);" @click="askCopilot(q.q, q.a)" x-text="q.q" :style="''" @mouseover="$el.style.color='#c8a45c'" @mouseout="$el.style.color='#94a3b8'"></button>
+          </template>
+        </div>
+        <div class="flex gap-2">
+          <input x-model="chatInput" class="flex-1 px-3 py-2 rounded-lg text-sm" style="background:rgba(15,23,42,0.8); border:1px solid rgba(200,164,92,0.15); color:#e2e8f0;" placeholder="Спросите что угодно..." @keydown.enter="sendChat()">
+          <button class="px-3 py-2 rounded-lg" style="background:rgba(200,164,92,0.15); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);" @click="sendChat()">→</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /flex layout -->
+
+  <script>
+    function app() {
+      return {
+        darkMode: true,
+        view: 'dashboard',
+        copilotOpen: false,
+        chatInput: '',
+        timerStr: '01:27:14',
+        chatHistory: [
+          { id: 1, role: 'ai', text: 'Добрый день, Елена. Я готов помочь с анализом кандидатов на позицию CFO. По каким критериям начнём?' }
+        ],
+
+        viewTitles: {
+          dashboard: 'Пульс Найма',
+          candidate: 'X-Ray Engine',
+          compare: 'Compare Matrix',
+          interview: 'Interview Navigator',
+          verdict: 'The Verdict'
+        },
+
+        // ===== ДАННЫЕ ДАШБОРДА =====
+        metrics: [
+          { label: 'Open Positions', value: '7', unit: '', trend: 2, trendUnit: ' позиции', sub: 'vs прошлый квартал' },
+          { label: 'In Pipeline', value: '23', unit: '', trend: -3, trendUnit: ' канд.', sub: '13 активных · 4 hold' },
+          { label: 'Avg Time to Fill', value: '45', unit: ' дн', trend: -8, trendUnit: ' дней', sub: '↓ Оптимизация Q4' },
+          { label: 'Quality Score', value: '4.1', unit: '/5', trend: 0.3, trendUnit: ' балл', sub: 'Composite по методологиям' }
+        ],
+
+        positions: [
+          { role: 'CFO · ПАО МегаГрупп', icon: '₽', color: '#c8a45c', progress: 65, candidates: 4, day: 32, recruiter: 'Е. Соколова', status: 'Финал' },
+          { role: 'CTO · ЦифраТех', icon: '⚙', color: '#6366f1', progress: 40, candidates: 3, day: 18, recruiter: 'А. Петров', status: 'Интервью' },
+          { role: 'VP Sales · RetailMax', icon: '📈', color: '#10b981', progress: 15, candidates: 1, day: 7, recruiter: 'М. Иванова', status: 'Скрининг' },
+          { role: 'COO · АгроХолдинг', icon: '🏭', color: '#f59e0b', progress: 80, candidates: 5, day: 45, recruiter: 'Е. Соколова', status: 'Оффер' }
+        ],
+
+        insights: [
+          { icon: '⚡', type: 'gold', text: 'CFO: Андрей Волков получил 4.2/5 — рекомендую назначить финальное интервью с CEO на этой неделе.', action: 'verdict' },
+          { icon: '⚠️', type: 'warn', text: 'COO: Все 5 кандидатов показывают слабый P&L management (<3.0). Рекомендую расширить sourcing.', action: 'compare' },
+          { icon: '🔴', type: 'alert', text: 'CTO поиск: Иван Строев (кандидат) — Hogan HIGH RISK (Bold+Mischievous). Требует дополнительной проверки.', action: 'candidate' }
+        ],
+
+        interviewers: [
+          { name: 'Д. Морозов', initials: 'ДМ', dept: 'Финансы', facts: 95, color: '#10b981', tag: 'Лидер', tagClass: 'badge-low' },
+          { name: 'Е. Соколова', initials: 'ЕС', dept: 'HR', facts: 80, color: '#c8a45c', tag: 'Профи', tagClass: 'badge-low' },
+          { name: 'А. Петров', initials: 'АП', dept: 'Продажи', facts: 45, color: '#f59e0b', tag: 'Внимание', tagClass: 'badge-med' },
+          { name: 'К. Васютин', initials: 'КВ', dept: 'Логистика', facts: 25, color: '#ef4444', tag: 'Манипулятор', tagClass: 'badge-high' }
+        ],
+
+        // ===== ДАННЫЕ X-RAY =====
+        methodScores: [
+          { name: 'Topgrading', val: 4.0, label: 'A-Player' },
+          { name: 'Egon Zehnder', val: 3.8, label: 'High Pot.' },
+          { name: 'Hogan Risk', val: 1.8, label: 'Low Risk' },
+          { name: 'PAEI Fit', val: 4.5, label: 'Full Fit' },
+          { name: 'Korn Ferry 4D', val: 4.1, label: 'Above Exp.' },
+          { name: 'Culture Fit', val: 3.7, label: 'Mod-Strong' }
+        ],
+
+        career: [
+          { role: 'CFO', company: 'ПАО «Металлинвест»', period: '2020 — наст.', icon: '★', result: 'IPO на Мосбирже, P&L 62.4 млрд ₽' },
+          { role: 'VP Finance', company: 'ГК «Сталь»', period: '2015 — 2020', icon: '●', result: 'Оптимизация EBITDA +18%' },
+          { role: 'CFO', company: 'МКБ «Регион»', period: '2012 — 2015', icon: '●', result: null },
+          { role: 'MBA', company: 'INSEAD (Fontainebleau)', period: '2010 — 2012', icon: '◆', result: null }
+        ],
+
+        gapAnalysis: [
+          { req: 'Опыт CFO в публичной компании', status: 'ok', detail: 'ПАО Металлинвест — 5 лет' },
+          { req: 'P&L ответственность >30 млрд ₽', status: 'ok', detail: '62.4 млрд ₽ (подтверждено)' },
+          { req: 'Опыт IPO/SPO', status: 'ok', detail: 'IPO на Мосбирже, 2022' },
+          { req: 'МСФО / GAAP', status: 'ok', detail: 'Сертификат ACCA' },
+          { req: 'Знание английского (C1+)', status: 'warn', detail: 'C1 — требуется проверка на переговорах' },
+          { req: 'Опыт M&A >100M USD', status: 'ok', detail: '3 сделки M&A в роли CFO' }
+        ],
+
+        hoganRisks: [
+          { name: 'Bold (нарциссизм)', val: 5 },
+          { name: 'Mischievous (манипуляция)', val: 2 },
+          { name: 'Excitable (нестабильность)', val: 3 },
+          { name: 'Skeptical (паранойя)', val: 2 },
+          { name: 'Diligent (микроменеджмент)', val: 4 },
+          { name: 'Dutiful (зависимость)', val: 2 }
+        ],
+
+        egonZehnder: [
+          { name: 'Curiosity (любопытство)', val: 4.0 },
+          { name: 'Insight (прозрение)', val: 3.8 },
+          { name: 'Engagement (вовлечённость)', val: 4.2 },
+          { name: 'Determination (решимость)', val: 3.5 }
+        ],
+
+        // ===== ДАННЫЕ COMPARE MATRIX =====
+        candidates: [
+          { name: 'Андрей Волков', short: 'А. Волков', initials: 'АВ', current: 'CFO · ПАО «Металлинвест»', composite: 4.2, verdict: '#1 HIRE', color: '#10b981' },
+          { name: 'Ирина Белова', short: 'И. Белова', initials: 'ИБ', current: 'VP Finance · «Ростелеком»', composite: 3.8, verdict: '#2 HOLD', color: '#f59e0b' },
+          { name: 'Дмитрий Козлов', short: 'Д. Козлов', initials: 'ДК', current: 'CFO · АгроХолдинг', composite: 3.3, verdict: '#3 NO HIRE', color: '#ef4444' }
+        ],
+
+        compareRows: [
+          { label: 'Overall Score', sub: 'Composite', type: 'score', vals: [4.2, 3.8, 3.3] },
+          { label: 'Experience', sub: 'Опыт и достижения', type: 'score', vals: [4.5, 3.5, 4.0] },
+          { label: 'Competency', sub: 'Korn Ferry 4D', type: 'score', vals: [4.0, 4.2, 3.0] },
+          { label: 'Potential', sub: 'Egon Zehnder', type: 'score', vals: [4.0, 3.8, 3.5] },
+          { label: 'Culture Fit', sub: 'Cameron/Quinn', type: 'score', vals: [3.5, 4.0, 3.0] },
+          { label: 'Hogan Risk', sub: 'Dark Side', type: 'badge', vals: ['LOW', 'MED', 'HIGH'] },
+          { label: 'PAEI Fit', sub: 'Adizes', type: 'badge', vals: ['FULL', 'PART', 'PART'] },
+          { label: 'Reference', sub: 'Topgrading', type: 'score', vals: [4.3, 4.0, 3.3] },
+          { label: 'AI Verdict', sub: 'Рекомендация', type: 'rank', vals: ['#1 HIRE', '#2 HOLD', '#3 NO HIRE'] }
+        ],
+
+        // ===== ДАННЫЕ INTERVIEW NAVIGATOR =====
+        questionBlocks: [
+          {
+            method: 'STAR', title: 'Финансовое лидерство', color: '#c8a45c', time: '20 мин',
+            questions: [
+              { text: 'Расскажите о самом сложном финансовом решении в вашей карьере. Что именно было на кону? Какую роль сыграли лично вы?', probe: 'Уточните цифры: P&L, сроки, результат.', active: false },
+              { text: 'Опишите ситуацию, когда вам нужно было убедить Board принять финансовое решение, с которым они изначально не соглашались.', probe: 'Как именно вы выстраивали аргументацию?', active: true },
+              { text: 'Какой самый крупный финансовый риск вы приняли лично? Чем закончилось?', probe: null, flag: 'key' }
+            ]
+          },
+          {
+            method: 'Topgrading', title: 'Карьерная хронология', color: '#6366f1', time: '25 мин',
+            questions: [
+              { text: 'В ПАО «Металлинвест» вы работаете 5 лет. Почему вы рассматриваете переход именно сейчас?', probe: 'Топграйдинг-правило: что сказал бы ваш CEO про причины?', active: false },
+              { text: 'Назовите трёх людей, которые могут дать вам рекомендацию. Что они скажут о ваших главных слабостях?', probe: null, flag: 'red' }
+            ]
+          },
+          {
+            method: 'Hogan', title: 'Деструкторы тёмной стороны', color: '#ef4444', time: '15 мин',
+            questions: [
+              { text: 'Опишите ситуацию, когда вы были абсолютно уверены в своём решении, а оно оказалось неверным. Как вы отреагировали?', probe: 'Проверка: Bold (переуверенность в себе).', flag: 'red', active: false },
+              { text: 'Когда в последний раз вы меняли своё мнение под воздействием аргументов подчинённого? Конкретный пример.', probe: null, active: false }
+            ]
+          }
+        ],
+
+        notes: [
+          'Говорит "мы" при описании IPO — уточнить личный вклад',
+          'Сильная STAR-структура в ответе про M&A'
+        ],
+
+        addNote(e) {
+          if (e.target.value.trim()) {
+            this.notes.push(e.target.value.trim());
+            e.target.value = '';
+          }
+        },
+
+        // ===== ДАННЫЕ VERDICT =====
+        verdictScores: [
+          { name: 'Topgrading', sub: 'A-Player methodology', score: 4.0, label: 'A- (4.0)' },
+          { name: 'Egon Zehnder Potential', sub: '4 индикатора', score: 3.8, label: 'High (3.8)' },
+          { name: 'Hogan Risk Profile', sub: '11 деструкторов', score: 4.2, label: 'Low Risk' },
+          { name: 'PAEI Fit', sub: 'Adizes для CFO', score: 4.5, label: 'Full Fit' },
+          { name: 'Korn Ferry 4D', sub: 'Competency benchmark', score: 4.1, label: '4.1/5' },
+          { name: 'Culture Fit', sub: 'Cameron/Quinn', score: 3.7, label: '3.7/5' }
+        ],
+
+        predictive: [
+          { label: 'Probability of Success (1 год)', value: '78%', pct: 78, color: '#10b981', note: 'На основе профиля аналогичных CFO' },
+          { label: 'Risk of Derailment', value: 'Low · 18%', pct: 18, color: '#10b981', note: 'Hogan: нет критических деструкторов' },
+          { label: 'Risk of Flight (2 года)', value: 'Med · 35%', pct: 35, color: '#f59e0b', note: 'Мотивация: equity важнее cash' }
+        ],
+
+        // ===== AI COPILOT =====
+        quickQuestions: [
+          { q: 'Почему Волков лучше Беловой?', a: 'Андрей Волков имеет два критических преимущества: (1) опыт IPO на Мосбирже — прямое требование Board, (2) P&L ответственность 62 млрд vs 18 млрд у Беловой. По Topgrading: A- vs B+. Рекомендация однозначная.' },
+          { q: 'Какой Hogan профиль у Волкова?', a: 'Low Risk профиль. Умеренный Bold (5/10) — это уверенность без нарциссизма. Единственный риск: Diligent (4/10) может проявляться как контроль деталей. Для CFO это скорее плюс. Критических комбинаций (Bold+Mischievous) нет.' },
+          { q: 'Какой компенсационный пакет предложить?', a: 'Рыночный бенчмарк для CFO ПАО с P&L >50 млрд (Москва): Фикс 5.5–7.5 млн ₽/мес + KPI бонус 30-50% + LTI/опцион. Рекомендую: 6.8 млн фикс + 40% бонус + 2% акционерного пула. Это удержит его от конкурирующих офферов.' },
+          { q: 'Что проверить в reference check?', a: 'По Topgrading THREAT: спросить рекомендателей — (1) почему он ушёл из ГК «Сталь», (2) как принимал решения под давлением Board, (3) пример когда ошибся и как признал. Обязательно позвонить напрямую экс-CEO ПАО Металлинвест.' },
+          { q: 'Какой план онбординга?', a: '30 дней: аудит финансовых систем + знакомство с командой. 60 дней: презентация финансовой стратегии Board. 90 дней: первый CFO-отчёт + KPI согласованы. 180 дней: оптимизация оборотного капитала (первый Quick Win).' }
+        ],
+
+        askCopilot(q, a) {
+          this.chatHistory.push({ id: Date.now(), role: 'user', text: q });
+          setTimeout(() => {
+            this.chatHistory.push({ id: Date.now() + 1, role: 'ai', text: a });
+          }, 400);
+        },
+
+        sendChat() {
+          if (!this.chatInput.trim()) return;
+          const userMsg = this.chatInput.trim();
+          this.chatInput = '';
+          this.chatHistory.push({ id: Date.now(), role: 'user', text: userMsg });
+          setTimeout(() => {
+            this.chatHistory.push({ id: Date.now() + 1, role: 'ai', text: 'Анализирую данные кандидата... На основе методологий ExecVision AI: рекомендую обратить внимание на PAEI профиль кандидата и сравнить с требованиями позиции. Задайте более конкретный вопрос — и я дам точную аналитику.' });
+          }, 600);
+        },
+
+        initCharts() {
+          this.$nextTick(() => {
+            const tCanvas = document.getElementById('trendsChart');
+            if (tCanvas && !tCanvas._chartInstance) {
+              const tCtx = tCanvas.getContext('2d');
+              tCanvas._chartInstance = new Chart(tCtx, {
+                type: 'line',
+                data: {
+                  labels: ['Сент', 'Окт', 'Нояб', 'Дек', 'Янв', 'Февр'],
+                  datasets: [{
+                    label: 'Quality Score',
+                    data: [3.5, 3.6, 3.7, 3.8, 3.9, 4.1],
+                    borderColor: '#c8a45c', backgroundColor: 'rgba(200,164,92,0.08)',
+                    tension: 0.4, fill: true, pointBackgroundColor: '#c8a45c', pointRadius: 4
+                  }]
+                },
+                options: {
+                  scales: {
+                    x: { grid: { color: 'rgba(200,164,92,0.05)' }, ticks: { color: '#94a3b8', font: { size: 11, family: 'Inter' } } },
+                    y: { min: 3.0, max: 5.0, grid: { color: 'rgba(200,164,92,0.05)' }, ticks: { color: '#94a3b8', font: { size: 11 }, stepSize: 0.5 } }
+                  },
+                  plugins: { legend: { display: false } }
+                }
+              });
+            }
+          });
+        },
+
+        initCompareRadar() {
+          this.$nextTick(() => {
+            const canvas = document.getElementById('compareRadarChart');
+            if (!canvas || canvas._chartInstance) return;
+            const ctx = canvas.getContext('2d');
+            canvas._chartInstance = new Chart(ctx, {
+              type: 'radar',
+              data: {
+                labels: ['Опыт', 'Компетенции', 'Потенциал', 'Культура', 'Лидерство', 'Финансы'],
+                datasets: [
+                  { label: 'Волков', data: [4.5,4.0,4.0,3.5,4.2,4.5], backgroundColor:'rgba(16,185,129,0.12)', borderColor:'#10b981', borderWidth:2, pointBackgroundColor:'#10b981', pointRadius:3 },
+                  { label: 'Белова', data: [3.5,4.2,3.8,4.0,3.5,3.8], backgroundColor:'rgba(245,158,11,0.10)', borderColor:'#f59e0b', borderWidth:2, pointBackgroundColor:'#f59e0b', pointRadius:3 },
+                  { label: 'Козлов', data: [4.0,3.0,3.5,3.0,3.2,3.5], backgroundColor:'rgba(239,68,68,0.08)', borderColor:'#ef4444', borderWidth:2, pointBackgroundColor:'#ef4444', pointRadius:3 }
+                ]
+              },
+              options: {
+                scales: { r: { min:0, max:5, ticks:{stepSize:1,color:'#64748b',font:{size:9,family:'JetBrains Mono'}}, grid:{color:'rgba(200,164,92,0.08)'}, angleLines:{color:'rgba(200,164,92,0.06)'}, pointLabels:{color:'#94a3b8',font:{size:11,family:'Inter',weight:'600'}} } },
+                plugins: { legend: { labels: { color:'#94a3b8', font:{size:11,family:'Inter'}, boxWidth:12 } } }
+              }
+            });
+          });
+        },
+
+        initRadar() {
+          this.$nextTick(() => {
+            const canvas = document.getElementById('radarChart');
+            if (!canvas) return;
+            if (canvas._chartInstance) {
+              canvas._chartInstance.destroy();
+            }
+            const ctx = canvas.getContext('2d');
+            canvas._chartInstance = new Chart(ctx, {
+              type: 'radar',
+              data: {
+                labels: ['Стратегия', 'Лидерство', 'Финансы', 'Инновации', 'Команда', 'Культура'],
+                datasets: [{
+                  label: 'Волков А.',
+                  data: [4.2, 4.0, 4.5, 3.5, 3.8, 3.7],
+                  backgroundColor: 'rgba(200,164,92,0.15)',
+                  borderColor: '#c8a45c',
+                  borderWidth: 2,
+                  pointBackgroundColor: '#c8a45c',
+                  pointRadius: 4
+                }, {
+                  label: 'Эталон CFO',
+                  data: [4.0, 4.0, 4.5, 3.5, 4.0, 4.0],
+                  backgroundColor: 'rgba(99,102,241,0.08)',
+                  borderColor: 'rgba(99,102,241,0.4)',
+                  borderWidth: 1.5,
+                  pointBackgroundColor: 'rgba(99,102,241,0.5)',
+                  pointRadius: 3
+                }]
+              },
+              options: {
+                scales: {
+                  r: {
+                    min: 0, max: 5,
+                    ticks: { stepSize: 1, color: '#64748b', font: { size: 9, family: 'JetBrains Mono' } },
+                    grid: { color: 'rgba(200,164,92,0.08)' },
+                    angleLines: { color: 'rgba(200,164,92,0.06)' },
+                    pointLabels: { color: '#94a3b8', font: { size: 11, family: 'Inter', weight: '600' } }
+                  }
+                },
+                plugins: {
+                  legend: {
+                    labels: { color: '#94a3b8', font: { size: 11, family: 'Inter' }, boxWidth: 12 }
+                  }
+                }
+              }
+            });
+          });
+        },
+
+        init() {
+          // Таймер интервью
+          let secs = 5234;
+          setInterval(() => {
+            secs++;
+            const h = Math.floor(secs / 3600);
+            const m = Math.floor((secs % 3600) / 60);
+            const s = secs % 60;
+            this.timerStr = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+          }, 1000);
+
+          // Инициализировать радар если начинаем с verdict
+          if (this.view === 'verdict') this.initRadar();
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

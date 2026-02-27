@@ -1,0 +1,1064 @@
+<!-- =================== ЭКРАН: REFERENCE VERIFIER =================== -->
+<div x-show="view==='reference'" class="fade-in">
+
+  <!-- Заголовок -->
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h1 class="text-2xl font-bold" style="color:#e2e8f0;">Reference Verifier</h1>
+      <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Topgrading THREAT · Андрей Волков · CFO</p>
+    </div>
+    <div class="flex gap-2">
+      <button class="btn-outline text-sm" @click="view='verdict'">← Вернуться к Вердикту</button>
+      <button class="btn-gold text-sm">Завершить проверку</button>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 1: Три референса -->
+  <div class="grid grid-cols-3 gap-4 mb-5">
+
+    <!-- Референс 1: Михаил Борисов -->
+    <div class="glass-card p-5">
+      <div class="flex items-start gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+             style="background:rgba(200,164,92,0.2); color:#c8a45c; border:2px solid rgba(200,164,92,0.4);">МБ</div>
+        <div class="min-w-0">
+          <div style="font-size:14px; font-weight:700; color:#e2e8f0;">Михаил Борисов</div>
+          <div style="font-size:12px; color:#94a3b8;">CEO</div>
+          <div style="font-size:11px; color:#64748b;">ПАО «Металлинвест»</div>
+          <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981; margin-top:4px; display:inline-block;">Экс-руководитель</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-center justify-between p-2 rounded-lg" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15);">
+          <span style="font-size:12px; color:#94a3b8;">Статус</span>
+          <span style="font-size:12px; font-weight:600; color:#10b981;">Ответ получен ✓</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span style="font-size:12px; color:#94a3b8;">Would Rehire:</span>
+          <span class="font-mono text-sm font-bold" style="color:#10b981;">Да · <span style="color:#c8a45c;">10/10</span></span>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-1">
+            <span style="font-size:11px; color:#64748b;">Заполнение опросника</span>
+            <span class="font-mono text-xs" style="color:#c8a45c;">100%</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:100%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Референс 2: Ольга Семёнова -->
+    <div class="glass-card p-5">
+      <div class="flex items-start gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+             style="background:rgba(139,92,246,0.2); color:#a78bfa; border:2px solid rgba(139,92,246,0.3);">ОС</div>
+        <div class="min-w-0">
+          <div style="font-size:14px; font-weight:700; color:#e2e8f0;">Ольга Семёнова</div>
+          <div style="font-size:12px; color:#94a3b8;">CFO</div>
+          <div style="font-size:11px; color:#64748b;">«СтальГрупп»</div>
+          <span class="tag" style="background:rgba(139,92,246,0.1); color:#a78bfa; margin-top:4px; display:inline-block;">Коллега</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-center justify-between p-2 rounded-lg" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15);">
+          <span style="font-size:12px; color:#94a3b8;">Статус</span>
+          <span style="font-size:12px; font-weight:600; color:#10b981;">Ответ получен ✓</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span style="font-size:12px; color:#94a3b8;">Would Rehire:</span>
+          <span class="font-mono text-sm font-bold" style="color:#10b981;">Да · <span style="color:#c8a45c;">8/10</span></span>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-1">
+            <span style="font-size:11px; color:#64748b;">Заполнение опросника</span>
+            <span class="font-mono text-xs" style="color:#c8a45c;">85%</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:85%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Референс 3: Антон Крылов -->
+    <div class="glass-card p-5">
+      <div class="flex items-start gap-3 mb-4">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+             style="background:rgba(100,116,139,0.2); color:#94a3b8; border:2px solid rgba(100,116,139,0.3);">АК</div>
+        <div class="min-w-0">
+          <div style="font-size:14px; font-weight:700; color:#e2e8f0;">Антон Крылов</div>
+          <div style="font-size:12px; color:#94a3b8;">VP Finance</div>
+          <div style="font-size:11px; color:#64748b;">Металлинвест</div>
+          <span class="tag" style="background:rgba(100,116,139,0.1); color:#94a3b8; margin-top:4px; display:inline-block;">Подчинённый</span>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div class="flex items-center justify-between p-2 rounded-lg" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+          <span style="font-size:12px; color:#94a3b8;">Статус</span>
+          <span style="font-size:12px; font-weight:600; color:#f59e0b;">Опросник отправлен ✓</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span style="font-size:12px; color:#94a3b8;">Would Rehire:</span>
+          <span style="font-size:12px; color:#64748b; font-family:'JetBrains Mono',monospace;">Ожидание...</span>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-1">
+            <span style="font-size:11px; color:#64748b;">Заполнение опросника</span>
+            <span class="font-mono text-xs" style="color:#64748b;">0%</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:0%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 2: Convergence Analysis -->
+  <div class="grid grid-cols-2 gap-4 mb-5">
+
+    <!-- Левая: общий скор convergence -->
+    <div class="glass-card p-6">
+      <div class="flex items-center gap-2 mb-5">
+        <div class="w-2 h-2 rounded-full" style="background:#c8a45c;"></div>
+        <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Convergence Analysis</h3>
+      </div>
+
+      <!-- Главный скор -->
+      <div class="text-center p-5 rounded-xl mb-5" style="background:rgba(200,164,92,0.08); border:1px solid rgba(200,164,92,0.2);">
+        <div style="font-size:11px; color:#94a3b8; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:6px;">Convergence Score</div>
+        <div style="font-size:13px; font-weight:800; color:#c8a45c; letter-spacing:0.1em; margin-bottom:4px;">HIGH</div>
+        <div class="font-mono font-bold" style="font-size:44px; color:#c8a45c; line-height:1;">8.7<span style="font-size:22px; color:#64748b;">/10</span></div>
+        <div style="font-size:11px; color:#94a3b8; margin-top:6px;">2 из 3 рефери ответили</div>
+      </div>
+
+      <!-- 4 индикатора -->
+      <div class="space-y-3">
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <span style="font-size:12px; color:#94a3b8;">Результативность</span>
+            <span class="font-mono text-xs font-bold" style="color:#10b981;">9.2</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:92%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <span style="font-size:12px; color:#94a3b8;">Лидерство</span>
+            <span class="font-mono text-xs font-bold" style="color:#10b981;">8.8</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:88%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <span style="font-size:12px; color:#94a3b8;">Слабые стороны</span>
+            <span class="font-mono text-xs font-bold" style="color:#f59e0b;">8.1</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:81%;"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <span style="font-size:12px; color:#94a3b8;">Would Rehire</span>
+            <span class="font-mono text-xs font-bold" style="color:#10b981;">9.0</span>
+          </div>
+          <div class="score-bar-bg">
+            <div class="score-bar-fill" style="width:90%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Правая: AI анализ тем -->
+    <div class="glass-card p-6">
+      <div class="flex items-center gap-2 mb-5">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Ключевые паттерны из референсов</h3>
+      </div>
+
+      <!-- Positive themes -->
+      <div style="font-size:11px; font-weight:600; color:#10b981; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Сильные стороны</div>
+      <div class="space-y-2 mb-5">
+        <div class="flex items-start gap-2 p-3 rounded-lg" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.12);">
+          <span style="color:#10b981; font-size:14px; flex-shrink:0;">✓</span>
+          <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Исключительная финансовая дисциплина</span>
+        </div>
+        <div class="flex items-start gap-2 p-3 rounded-lg" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.12);">
+          <span style="color:#10b981; font-size:14px; flex-shrink:0;">✓</span>
+          <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Умеет работать с неопределённостью</span>
+        </div>
+        <div class="flex items-start gap-2 p-3 rounded-lg" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.12);">
+          <span style="color:#10b981; font-size:14px; flex-shrink:0;">✓</span>
+          <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Строит доверие с Board</span>
+        </div>
+      </div>
+
+      <!-- Watch themes -->
+      <div style="font-size:11px; font-weight:600; color:#f59e0b; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px;">Зоны наблюдения</div>
+      <div class="space-y-2 mb-5">
+        <div class="flex items-start gap-2 p-3 rounded-lg" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+          <span style="color:#f59e0b; font-size:14px; flex-shrink:0;">⚠</span>
+          <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Склонность к детальному контролю в стрессе</span>
+        </div>
+        <div class="flex items-start gap-2 p-3 rounded-lg" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+          <span style="color:#f59e0b; font-size:14px; flex-shrink:0;">⚠</span>
+          <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Высокие стандарты — давление на команду</span>
+        </div>
+      </div>
+
+      <!-- Faint Praise Detection -->
+      <div class="flex items-center justify-between p-3 rounded-lg" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.2);">
+        <div>
+          <div style="font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.06em;">Faint Praise Detection</div>
+          <div style="font-size:11px; color:#64748b; margin-top:2px;">Анализ скрытых негативных паттернов</div>
+        </div>
+        <span style="font-size:13px; font-weight:700; color:#10b981;">Не обнаружено ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 3: Ключевые цитаты -->
+  <div class="glass-card p-6 mb-5">
+    <h3 style="font-size:15px; font-weight:700; color:#e2e8f0; margin-bottom:16px;">Ключевые цитаты из референсов</h3>
+    <div class="grid grid-cols-3 gap-4">
+
+      <!-- Цитата 1 -->
+      <div class="p-4 rounded-xl" style="background:rgba(15,23,42,0.8); border:1px solid rgba(200,164,92,0.1); position:relative;">
+        <div style="font-size:36px; color:rgba(200,164,92,0.15); line-height:1; font-family:Georgia,serif; position:absolute; top:8px; left:14px;">"</div>
+        <div style="padding-top:20px;">
+          <p style="font-size:13px; color:#e2e8f0; line-height:1.6; font-style:italic;">
+            Андрей — лучший CFO, с которым я работал. Он провёл нас через IPO без единой ошибки в отчётности и выстроил отношения с инвесторами с нуля.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 mt-4 pt-3" style="border-top:1px solid rgba(200,164,92,0.08);">
+          <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
+               style="background:rgba(200,164,92,0.2); color:#c8a45c; flex-shrink:0;">МБ</div>
+          <div>
+            <div style="font-size:12px; font-weight:700; color:#c8a45c;">М. Борисов</div>
+            <div style="font-size:10px; color:#64748b;">CEO · ПАО «Металлинвест»</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Цитата 2 -->
+      <div class="p-4 rounded-xl" style="background:rgba(15,23,42,0.8); border:1px solid rgba(200,164,92,0.1); position:relative;">
+        <div style="font-size:36px; color:rgba(200,164,92,0.15); line-height:1; font-family:Georgia,serif; position:absolute; top:8px; left:14px;">"</div>
+        <div style="padding-top:20px;">
+          <p style="font-size:13px; color:#e2e8f0; line-height:1.6; font-style:italic;">
+            Принимал сложные решения под давлением — без паники, только факты. Команда ему доверяет, он никогда не перекладывал ответственность.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 mt-4 pt-3" style="border-top:1px solid rgba(200,164,92,0.08);">
+          <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
+               style="background:rgba(139,92,246,0.2); color:#a78bfa; flex-shrink:0;">ОС</div>
+          <div>
+            <div style="font-size:12px; font-weight:700; color:#a78bfa;">О. Семёнова</div>
+            <div style="font-size:10px; color:#64748b;">CFO · «СтальГрупп»</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Цитата 3: ожидание -->
+      <div class="p-4 rounded-xl flex flex-col items-center justify-center" style="background:rgba(15,23,42,0.5); border:1px dashed rgba(100,116,139,0.3); min-height:160px;">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center mb-3" style="background:rgba(100,116,139,0.1); border:1px solid rgba(100,116,139,0.2);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div style="font-size:13px; font-weight:600; color:#64748b;">Ожидание ответа</div>
+        <div style="font-size:11px; color:#475569; margin-top:4px;">А. Крылов · VP Finance</div>
+        <span class="tag" style="background:rgba(245,158,11,0.1); color:#f59e0b; margin-top:10px;">Опросник отправлен</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 4: THREAT Assessment -->
+  <div class="glass-card p-6" style="border-color:rgba(200,164,92,0.2);">
+    <div class="flex items-center justify-between mb-5">
+      <div>
+        <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">THREAT Assessment</h3>
+        <p style="font-size:12px; color:#94a3b8; margin-top:2px;">Topgrading · Truth · Honest · Realistic · Evaluative · Accurate · Transparent</p>
+      </div>
+      <div class="text-right">
+        <div class="font-mono font-bold" style="font-size:28px; color:#c8a45c;">4.3<span style="font-size:14px; color:#64748b;">/5</span></div>
+        <div style="font-size:12px; font-weight:700; color:#10b981;">A-Player подтверждён</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-6 gap-3">
+      <!-- T — Truthful -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15);">
+        <div class="font-mono font-bold text-2xl mb-1" style="color:#c8a45c;">T</div>
+        <div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">Truthful</div>
+        <span class="tag" style="background:rgba(16,185,129,0.12); color:#10b981; font-size:10px;">Высокая</span>
+        <div class="font-mono font-bold text-sm mt-2" style="color:#10b981;">4.5</div>
+      </div>
+      <!-- H — Honest -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15);">
+        <div class="font-mono font-bold text-2xl mb-1" style="color:#c8a45c;">H</div>
+        <div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">Honest</div>
+        <span class="tag" style="background:rgba(16,185,129,0.12); color:#10b981; font-size:10px;">Высокая</span>
+        <div class="font-mono font-bold text-sm mt-2" style="color:#10b981;">4.4</div>
+      </div>
+      <!-- R — Realistic -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+        <div class="font-mono font-bold text-2xl mb-1" style="color:#c8a45c;">R</div>
+        <div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">Realistic</div>
+        <span class="tag" style="background:rgba(245,158,11,0.12); color:#f59e0b; font-size:10px;">Умеренная</span>
+        <div class="font-mono font-bold text-sm mt-2" style="color:#f59e0b;">3.8</div>
+      </div>
+      <!-- E — Evaluative -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15);">
+        <div class="font-mono font-bold text-2xl mb-1" style="color:#c8a45c;">E</div>
+        <div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">Evaluative</div>
+        <span class="tag" style="background:rgba(16,185,129,0.12); color:#10b981; font-size:10px;">Высокая</span>
+        <div class="font-mono font-bold text-sm mt-2" style="color:#10b981;">4.5</div>
+      </div>
+      <!-- A — Accurate -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.15);">
+        <div class="font-mono font-bold text-2xl mb-1" style="color:#c8a45c;">A</div>
+        <div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">Accurate</div>
+        <span class="tag" style="background:rgba(16,185,129,0.12); color:#10b981; font-size:10px;">Высокая</span>
+        <div class="font-mono font-bold text-sm mt-2" style="color:#10b981;">4.3</div>
+      </div>
+      <!-- T — Transparent -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+        <div class="font-mono font-bold text-2xl mb-1" style="color:#c8a45c;">T</div>
+        <div style="font-size:11px; color:#94a3b8; margin-bottom:8px;">Transparent</div>
+        <span class="tag" style="background:rgba(245,158,11,0.12); color:#f59e0b; font-size:10px;">Умеренная</span>
+        <div class="font-mono font-bold text-sm mt-2" style="color:#f59e0b;">3.9</div>
+      </div>
+    </div>
+
+    <!-- Итоговая рекомендация -->
+    <div class="mt-5 flex items-start gap-4 p-4 rounded-xl" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.2);">
+      <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <div style="font-size:14px; font-weight:700; color:#10b981; margin-bottom:4px;">A-Player подтверждён — Рекомендую к найму</div>
+        <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
+          Все референсы демонстрируют высокую конвергентность (8.7/10). Faint Praise не обнаружен. THREAT score 4.3/5 — достоверность референсов не вызывает сомнений.
+          Две умеренных зоны (Realistic / Transparent) соответствуют профилю опытного CFO, привыкшего к корпоративной дипломатии.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /reference -->
+
+
+<!-- =================== ЭКРАН: ONBOARD PLANNER =================== -->
+<div x-show="view==='onboard'" class="fade-in">
+
+  <!-- Заголовок -->
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h1 class="text-2xl font-bold" style="color:#e2e8f0;">Onboard Planner</h1>
+      <p style="color:#94a3b8; font-size:14px; margin-top:2px;">План 30-60-90-180 дней · Андрей Волков · CFO · STaRS: Turnaround</p>
+    </div>
+    <div class="flex gap-2">
+      <button class="btn-outline text-sm" @click="view='verdict'">← Verdict</button>
+      <button class="btn-gold text-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Экспорт плана PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 1: STaRS Model -->
+  <div class="glass-card p-6 mb-5">
+    <div class="flex items-center justify-between mb-4">
+      <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">STaRS Model — Диагностика ситуации</h3>
+      <span class="tag" style="background:rgba(200,164,92,0.15); color:#c8a45c; font-size:11px;">Michael Watkins · First 90 Days</span>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4 mb-4">
+      <!-- Start-up -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(100,116,139,0.08); border:1px solid rgba(100,116,139,0.15);">
+        <div style="font-size:12px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Start-up</div>
+        <div class="font-mono font-bold text-2xl" style="color:#64748b; margin-bottom:8px;">0%</div>
+        <div class="score-bar-bg mb-3">
+          <div class="score-bar-fill" style="width:0%; background:#64748b;"></div>
+        </div>
+        <span class="tag" style="background:rgba(100,116,139,0.1); color:#64748b; font-size:10px;">Не применимо</span>
+      </div>
+
+      <!-- Turnaround — АКТИВНО -->
+      <div class="p-4 rounded-xl text-center pulse-gold" style="background:rgba(200,164,92,0.1); border:2px solid rgba(200,164,92,0.4);">
+        <div style="font-size:12px; font-weight:700; color:#c8a45c; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Turnaround</div>
+        <div class="font-mono font-bold text-2xl" style="color:#c8a45c; margin-bottom:8px;">85%</div>
+        <div class="score-bar-bg mb-3">
+          <div class="score-bar-fill" style="width:85%;"></div>
+        </div>
+        <span class="tag" style="background:rgba(200,164,92,0.2); color:#c8a45c; font-size:10px; font-weight:700;">АКТИВНО ★</span>
+      </div>
+
+      <!-- Realignment -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(139,92,246,0.06); border:1px solid rgba(139,92,246,0.15);">
+        <div style="font-size:12px; font-weight:700; color:#a78bfa; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Realignment</div>
+        <div class="font-mono font-bold text-2xl" style="color:#a78bfa; margin-bottom:8px;">40%</div>
+        <div class="score-bar-bg mb-3">
+          <div class="score-bar-fill" style="width:40%; background:#a78bfa;"></div>
+        </div>
+        <span class="tag" style="background:rgba(139,92,246,0.1); color:#a78bfa; font-size:10px;">Частично</span>
+      </div>
+
+      <!-- Sustaining Success -->
+      <div class="p-4 rounded-xl text-center" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.12);">
+        <div style="font-size:12px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Sustaining</div>
+        <div class="font-mono font-bold text-2xl" style="color:#10b981; margin-bottom:8px;">20%</div>
+        <div class="score-bar-bg mb-3">
+          <div class="score-bar-fill" style="width:20%; background:#10b981;"></div>
+        </div>
+        <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981; font-size:10px;">Слабо</span>
+      </div>
+    </div>
+
+    <!-- Объяснение -->
+    <div class="flex items-start gap-3 p-4 rounded-xl" style="background:rgba(200,164,92,0.05); border:1px solid rgba(200,164,92,0.12);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p style="font-size:13px; color:#94a3b8; line-height:1.5;">
+        <span style="color:#c8a45c; font-weight:600;">Ситуация:</span> компании нужен новый финансовый лидер для IPO-2 и M&A стратегии — типичный Turnaround сценарий.
+        Предыдущий CFO уходит, инфраструктура частично выстроена, но требует пересмотра под новые цели роста.
+      </p>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 2: Timeline 4 фазы -->
+  <div class="mb-5">
+    <div class="flex items-center gap-3 mb-4">
+      <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">План онбординга</h3>
+      <span class="tag" style="background:rgba(200,164,92,0.1); color:#c8a45c;">4 фазы · 180 дней</span>
+    </div>
+
+    <!-- Горизонтальная timeline -->
+    <div class="grid grid-cols-4 gap-0 relative">
+
+      <!-- Линия соединения -->
+      <div style="position:absolute; top:36px; left:12.5%; right:12.5%; height:2px; background:linear-gradient(90deg, rgba(200,164,92,0.6), rgba(200,164,92,0.3)); z-index:0;"></div>
+
+      <!-- 30 ДНЕЙ -->
+      <div class="glass-card p-5 mr-2" style="position:relative; z-index:1;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-mono font-bold flex-shrink-0"
+               style="background:rgba(200,164,92,0.2); border:2px solid #c8a45c; color:#c8a45c; font-size:11px;">30</div>
+          <div>
+            <div style="font-size:13px; font-weight:700; color:#c8a45c; text-transform:uppercase; letter-spacing:0.05em;">Дней</div>
+            <div style="font-size:12px; font-weight:600; color:#e2e8f0;">Аудит и ориентация</div>
+          </div>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Аудит финансовых систем и команды</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">1:1 с топ-менеджерами (8 встреч)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Изучение P&L последних 3 лет</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Встреча с аудитором и банкирами</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Знакомство с Board members</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Оценка команды финансов (12 чел)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Первый CFO-отчёт для CEO</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#c8a45c; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Настройка KPI дашборда</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 60 ДНЕЙ -->
+      <div class="glass-card p-5 mx-1" style="position:relative; z-index:1;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-mono font-bold flex-shrink-0"
+               style="background:rgba(139,92,246,0.2); border:2px solid rgba(139,92,246,0.5); color:#a78bfa; font-size:11px;">60</div>
+          <div>
+            <div style="font-size:13px; font-weight:700; color:#a78bfa; text-transform:uppercase; letter-spacing:0.05em;">Дней</div>
+            <div style="font-size:12px; font-weight:600; color:#e2e8f0;">Диагностика и стратегия</div>
+          </div>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <span style="color:#a78bfa; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Презентация финансовой диагностики Board</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#a78bfa; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">M&A pipeline review</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#a78bfa; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Treasury оптимизация (оборотный капитал)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#a78bfa; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Отношения с банками — пересмотр ковенантов</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#a78bfa; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">3-летняя финансовая модель (v1)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#a78bfa; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">IR стратегия для IPO-2</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 90 ДНЕЙ -->
+      <div class="glass-card p-5 mx-1" style="position:relative; z-index:1;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-mono font-bold flex-shrink-0"
+               style="background:rgba(16,185,129,0.2); border:2px solid rgba(16,185,129,0.4); color:#10b981; font-size:11px;">90</div>
+          <div>
+            <div style="font-size:13px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:0.05em;">Дней</div>
+            <div style="font-size:12px; font-weight:600; color:#e2e8f0;">Первые Quick Wins</div>
+          </div>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <span style="color:#10b981; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Экономия на финансировании: цель <span style="font-family:'JetBrains Mono',monospace; color:#10b981;">-15%</span> стоимость долга</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#10b981; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Внедрение cash flow forecasting</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#10b981; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Автоматизация 2 ключевых репортинга</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#10b981; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">KPI команды финансов согласованы и запущены</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#10b981; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Первый внешний investor day участие</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 180 ДНЕЙ -->
+      <div class="glass-card p-5 ml-2" style="position:relative; z-index:1;">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center font-mono font-bold flex-shrink-0"
+               style="background:rgba(245,158,11,0.2); border:2px solid rgba(245,158,11,0.4); color:#f59e0b; font-size:10px;">180</div>
+          <div>
+            <div style="font-size:13px; font-weight:700; color:#f59e0b; text-transform:uppercase; letter-spacing:0.05em;">Дней</div>
+            <div style="font-size:12px; font-weight:600; color:#e2e8f0;">Трансформация</div>
+          </div>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <span style="color:#f59e0b; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">IPO-2 подготовка запущена <span style="font-family:'JetBrains Mono',monospace; color:#f59e0b;">(H2 2026)</span></span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#f59e0b; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">EBITDA улучшение: <span style="font-family:'JetBrains Mono',monospace; color:#10b981;">+12%</span> vs plan</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#f59e0b; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Команда сформирована (3 новых найма)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#f59e0b; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Система финансового контроля 2.0</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span style="color:#f59e0b; font-size:10px; margin-top:3px; flex-shrink:0;">▶</span>
+            <span style="font-size:12px; color:#94a3b8; line-height:1.4;">Succession plan для VP Finance</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 3: Stakeholder Map -->
+  <div class="grid grid-cols-2 gap-4 mb-5">
+
+    <!-- Левая: матрица 2x2 -->
+    <div class="glass-card p-6">
+      <h3 style="font-size:15px; font-weight:700; color:#e2e8f0; margin-bottom:4px;">Stakeholder Map</h3>
+      <p style="font-size:11px; color:#94a3b8; margin-bottom:16px;">Влияние vs Поддержка</p>
+
+      <div class="grid grid-cols-2 gap-3" style="height:260px;">
+
+        <!-- High influence / High support -->
+        <div class="rounded-xl p-3 flex flex-col" style="background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.18);">
+          <div style="font-size:10px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">
+            Высокое влияние<br>Высокая поддержка
+          </div>
+          <div class="space-y-2 flex-1">
+            <div class="flex items-center gap-2 p-2 rounded-lg" style="background:rgba(16,185,129,0.08);">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                   style="background:rgba(16,185,129,0.2); color:#10b981;">ИИ</div>
+              <div>
+                <div style="font-size:11px; font-weight:600; color:#e2e8f0;">CEO Иванов</div>
+                <div style="font-size:10px; color:#64748b;">Стратегический союзник</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 p-2 rounded-lg" style="background:rgba(16,185,129,0.08);">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                   style="background:rgba(16,185,129,0.2); color:#10b981;">ПС</div>
+              <div>
+                <div style="font-size:11px; font-weight:600; color:#e2e8f0;">Chairman Board</div>
+                <div style="font-size:10px; color:#64748b;">Ключевой спонсор</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- High influence / Low support -->
+        <div class="rounded-xl p-3 flex flex-col" style="background:rgba(239,68,68,0.05); border:1px solid rgba(239,68,68,0.15);">
+          <div style="font-size:10px; font-weight:700; color:#ef4444; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">
+            Высокое влияние<br>Низкая поддержка
+          </div>
+          <div class="space-y-2 flex-1">
+            <div class="flex items-center gap-2 p-2 rounded-lg" style="background:rgba(239,68,68,0.06);">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                   style="background:rgba(239,68,68,0.15); color:#ef4444;">УЦ</div>
+              <div>
+                <div style="font-size:11px; font-weight:600; color:#e2e8f0;">CFO-предшественник</div>
+                <div style="font-size:10px; color:#64748b;">Уходящий · управлять</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Low influence / High support -->
+        <div class="rounded-xl p-3 flex flex-col" style="background:rgba(200,164,92,0.05); border:1px solid rgba(200,164,92,0.12);">
+          <div style="font-size:10px; font-weight:700; color:#c8a45c; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">
+            Низкое влияние<br>Высокая поддержка
+          </div>
+          <div class="space-y-2 flex-1">
+            <div class="flex items-center gap-2 p-2 rounded-lg" style="background:rgba(200,164,92,0.06);">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                   style="background:rgba(200,164,92,0.15); color:#c8a45c;">КФ</div>
+              <div>
+                <div style="font-size:11px; font-weight:600; color:#e2e8f0;">Команда финансов</div>
+                <div style="font-size:10px; color:#64748b;">Развивать · делегировать</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 p-2 rounded-lg" style="background:rgba(200,164,92,0.06);">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                   style="background:rgba(200,164,92,0.15); color:#c8a45c;">АУ</div>
+              <div>
+                <div style="font-size:11px; font-weight:600; color:#e2e8f0;">Аудитор</div>
+                <div style="font-size:10px; color:#64748b;">Рабочий союзник</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Low influence / Low support -->
+        <div class="rounded-xl p-3 flex flex-col" style="background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12);">
+          <div style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:8px;">
+            Низкое влияние<br>Низкая поддержка
+          </div>
+          <div class="space-y-2 flex-1">
+            <div class="flex items-center gap-2 p-2 rounded-lg" style="background:rgba(100,116,139,0.06);">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                   style="background:rgba(100,116,139,0.15); color:#94a3b8;">СБ</div>
+              <div>
+                <div style="font-size:11px; font-weight:600; color:#94a3b8;">Старые банкиры</div>
+                <div style="font-size:10px; color:#475569;">Нейтрализовать</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Правая: Рекомендации первых встреч -->
+    <div class="glass-card p-6">
+      <h3 style="font-size:15px; font-weight:700; color:#e2e8f0; margin-bottom:4px;">Рекомендации первых встреч</h3>
+      <p style="font-size:11px; color:#94a3b8; margin-bottom:16px;">Приоритизация контактов на первый месяц</p>
+
+      <div class="space-y-4">
+        <!-- Неделя 1 -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center font-mono font-bold text-xs flex-shrink-0"
+                 style="background:rgba(200,164,92,0.2); color:#c8a45c; border:1px solid rgba(200,164,92,0.4);">1</div>
+            <span style="font-size:12px; font-weight:700; color:#c8a45c; text-transform:uppercase; letter-spacing:0.05em;">Неделя 1</span>
+          </div>
+          <div class="space-y-1 ml-8">
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#c8a45c; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">CEO Иванов — стратегия и ожидания, mutual success criteria</span>
+            </div>
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#c8a45c; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">Board Chairman — политика Board, ожидания от CFO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Неделя 2 -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center font-mono font-bold text-xs flex-shrink-0"
+                 style="background:rgba(139,92,246,0.2); color:#a78bfa; border:1px solid rgba(139,92,246,0.3);">2</div>
+            <span style="font-size:12px; font-weight:700; color:#a78bfa; text-transform:uppercase; letter-spacing:0.05em;">Неделя 2</span>
+          </div>
+          <div class="space-y-1 ml-8">
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#a78bfa; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">Команда финансов — 1:1 × 12 чел, оценка потенциала</span>
+            </div>
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#a78bfa; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">Аудитор — история, замечания, риски</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Неделя 3 -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center font-mono font-bold text-xs flex-shrink-0"
+                 style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3);">3</div>
+            <span style="font-size:12px; font-weight:700; color:#10b981; text-transform:uppercase; letter-spacing:0.05em;">Неделя 3</span>
+          </div>
+          <div class="space-y-1 ml-8">
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#10b981; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">Ключевые банки — ковенанты, условия, пересмотр</span>
+            </div>
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#10b981; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">IR агентство — статус IPO-2, roadshow история</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Неделя 4 -->
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <div class="w-6 h-6 rounded-full flex items-center justify-center font-mono font-bold text-xs flex-shrink-0"
+                 style="background:rgba(245,158,11,0.15); color:#f59e0b; border:1px solid rgba(245,158,11,0.3);">4</div>
+            <span style="font-size:12px; font-weight:700; color:#f59e0b; text-transform:uppercase; letter-spacing:0.05em;">Неделя 4</span>
+          </div>
+          <div class="space-y-1 ml-8">
+            <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(15,23,42,0.6); border:1px solid rgba(200,164,92,0.06);">
+              <span style="font-size:11px; color:#f59e0b; flex-shrink:0;">→</span>
+              <span style="font-size:12px; color:#94a3b8;">Все топ-менеджеры — кросс-функциональные ожидания от CFO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- СЕКЦИЯ 4: Мониторинг Hogan рисков -->
+  <div class="glass-card p-6" style="border-color:rgba(245,158,11,0.2);">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+           style="background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.25);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div>
+        <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Мониторинг Hogan рисков в онбординге</h3>
+        <p style="font-size:12px; color:#94a3b8;">На основе Hogan профиля — наблюдать за:</p>
+      </div>
+      <span class="ml-auto tag" style="background:rgba(245,158,11,0.12); color:#f59e0b;">Hogan HDS</span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Bold -->
+      <div class="p-5 rounded-xl" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex-shrink-0">
+            <span class="tag" style="background:rgba(245,158,11,0.15); color:#f59e0b; font-size:12px; font-family:'JetBrains Mono',monospace; font-weight:700;">Bold</span>
+          </div>
+          <div style="font-size:12px; color:#94a3b8;">Самоуверенность под давлением</div>
+          <span class="ml-auto font-mono text-xs font-bold" style="color:#f59e0b;">6/10</span>
+        </div>
+        <div class="score-bar-bg mb-3">
+          <div class="score-bar-fill" style="width:60%; background:#f59e0b;"></div>
+        </div>
+        <div class="p-3 rounded-lg" style="background:rgba(245,158,11,0.05); border-left:3px solid rgba(245,158,11,0.4);">
+          <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
+            <span style="color:#f59e0b; font-weight:600;">Риск:</span> Под давлением Board может переуверовать в своих решениях, избегать обратной связи.
+          </p>
+          <p style="font-size:12px; color:#c8a45c; margin-top:6px; line-height:1.5;">
+            <span style="font-weight:600;">Рекомендация:</span> Weekly check-in с CEO первые 90 дней. Ввести формат "что пошло не так" в отчётность.
+          </p>
+        </div>
+      </div>
+
+      <!-- Diligent -->
+      <div class="p-5 rounded-xl" style="background:rgba(245,158,11,0.05); border:1px solid rgba(245,158,11,0.15);">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="flex-shrink-0">
+            <span class="tag" style="background:rgba(245,158,11,0.15); color:#f59e0b; font-size:12px; font-family:'JetBrains Mono',monospace; font-weight:700;">Diligent</span>
+          </div>
+          <div style="font-size:12px; color:#94a3b8;">Контроль и перфекционизм</div>
+          <span class="ml-auto font-mono text-xs font-bold" style="color:#f59e0b;">5/10</span>
+        </div>
+        <div class="score-bar-bg mb-3">
+          <div class="score-bar-fill" style="width:50%; background:#f59e0b;"></div>
+        </div>
+        <div class="p-3 rounded-lg" style="background:rgba(245,158,11,0.05); border-left:3px solid rgba(245,158,11,0.4);">
+          <p style="font-size:12px; color:#94a3b8; line-height:1.5;">
+            <span style="color:#f59e0b; font-weight:600;">Риск:</span> Микроменеджмент команды при сжатых дедлайнах, потеря доверия у сильных подчинённых.
+          </p>
+          <p style="font-size:12px; color:#c8a45c; margin-top:6px; line-height:1.5;">
+            <span style="font-weight:600;">Рекомендация:</span> KPI делегирования в Q1. Ежемесячный трекинг автономности VP Finance.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Нижняя плашка -->
+    <div class="flex items-center gap-3 mt-4 p-3 rounded-xl" style="background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.12);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <p style="font-size:12px; color:#94a3b8; line-height:1.4;">
+        Остальные 9 деструкторов Hogan HDS — в пределах нормы (1–3/10). Критических рисков личности не выявлено.
+        <span style="color:#10b981; font-weight:600;">Профиль совместим с ролью CFO публичной компании.</span>
+      </p>
+    </div>
+  </div>
+
+</div><!-- /onboard -->
+
+
+<!-- ===== ALPINE DATA для _sections_1 ===== -->
+<script>
+// Данные для Reference Verifier
+const referenceData = {
+  referees: [
+    {
+      initials: 'МБ',
+      name: 'Михаил Борисов',
+      role: 'CEO',
+      company: 'ПАО «Металлинвест»',
+      type: 'Экс-руководитель',
+      status: 'received',       // 'received' | 'sent' | 'pending'
+      wouldRehire: 'Да',
+      rehireScore: 10,
+      questProgress: 100
+    },
+    {
+      initials: 'ОС',
+      name: 'Ольга Семёнова',
+      role: 'CFO',
+      company: '«СтальГрупп»',
+      type: 'Коллега',
+      status: 'received',
+      wouldRehire: 'Да',
+      rehireScore: 8,
+      questProgress: 85
+    },
+    {
+      initials: 'АК',
+      name: 'Антон Крылов',
+      role: 'VP Finance',
+      company: 'Металлинвест',
+      type: 'Подчинённый',
+      status: 'sent',
+      wouldRehire: null,
+      rehireScore: null,
+      questProgress: 0
+    }
+  ],
+  convergence: {
+    label: 'HIGH',
+    score: 8.7,
+    indicators: [
+      { name: 'Результативность', val: 9.2 },
+      { name: 'Лидерство',        val: 8.8 },
+      { name: 'Слабые стороны',   val: 8.1 },
+      { name: 'Would Rehire',     val: 9.0 }
+    ],
+    positiveThemes: [
+      'Исключительная финансовая дисциплина',
+      'Умеет работать с неопределённостью',
+      'Строит доверие с Board'
+    ],
+    watchThemes: [
+      'Склонность к детальному контролю в стрессе',
+      'Высокие стандарты — давление на команду'
+    ],
+    faintPraise: false
+  },
+  quotes: [
+    {
+      text: 'Андрей — лучший CFO, с которым я работал. Он провёл нас через IPO без единой ошибки в отчётности и выстроил отношения с инвесторами с нуля.',
+      author: 'М. Борисов',
+      role: 'CEO · ПАО «Металлинвест»',
+      initials: 'МБ',
+      available: true
+    },
+    {
+      text: 'Принимал сложные решения под давлением — без паники, только факты. Команда ему доверяет, он никогда не перекладывал ответственность.',
+      author: 'О. Семёнова',
+      role: 'CFO · «СтальГрупп»',
+      initials: 'ОС',
+      available: true
+    },
+    {
+      author: 'А. Крылов',
+      role: 'VP Finance · Металлинвест',
+      initials: 'АК',
+      available: false
+    }
+  ],
+  threat: {
+    totalScore: 4.3,
+    verdict: 'A-Player подтверждён',
+    dimensions: [
+      { letter: 'T', name: 'Truthful',    level: 'Высокая',   score: 4.5, color: '#10b981' },
+      { letter: 'H', name: 'Honest',      level: 'Высокая',   score: 4.4, color: '#10b981' },
+      { letter: 'R', name: 'Realistic',   level: 'Умеренная', score: 3.8, color: '#f59e0b' },
+      { letter: 'E', name: 'Evaluative',  level: 'Высокая',   score: 4.5, color: '#10b981' },
+      { letter: 'A', name: 'Accurate',    level: 'Высокая',   score: 4.3, color: '#10b981' },
+      { letter: 'T', name: 'Transparent', level: 'Умеренная', score: 3.9, color: '#f59e0b' }
+    ]
+  }
+};
+
+// Данные для Onboard Planner
+const onboardData = {
+  stars: [
+    { type: 'Start-up',          score: 0,  status: 'Не применимо', active: false, color: '#64748b' },
+    { type: 'Turnaround',        score: 85, status: 'АКТИВНО',      active: true,  color: '#c8a45c' },
+    { type: 'Realignment',       score: 40, status: 'Частично',     active: false, color: '#a78bfa' },
+    { type: 'Sustaining Success', score: 20, status: 'Слабо',       active: false, color: '#10b981' }
+  ],
+  phases: [
+    {
+      days: 30,
+      label: 'Аудит и ориентация',
+      color: '#c8a45c',
+      tasks: [
+        'Аудит финансовых систем и команды',
+        '1:1 с топ-менеджерами (8 встреч)',
+        'Изучение P&L последних 3 лет',
+        'Встреча с аудитором и банкирами',
+        'Знакомство с Board members',
+        'Оценка команды финансов (12 чел)',
+        'Первый CFO-отчёт для CEO',
+        'Настройка KPI дашборда'
+      ]
+    },
+    {
+      days: 60,
+      label: 'Диагностика и стратегия',
+      color: '#a78bfa',
+      tasks: [
+        'Презентация финансовой диагностики Board',
+        'M&A pipeline review',
+        'Treasury оптимизация (оборотный капитал)',
+        'Отношения с банками — пересмотр ковенантов',
+        '3-летняя финансовая модель (v1)',
+        'IR стратегия для IPO-2'
+      ]
+    },
+    {
+      days: 90,
+      label: 'Первые Quick Wins',
+      color: '#10b981',
+      tasks: [
+        'Экономия на финансировании: цель -15% стоимость долга',
+        'Внедрение cash flow forecasting',
+        'Автоматизация 2 ключевых репортинга',
+        'KPI команды финансов согласованы и запущены',
+        'Первый внешний investor day участие'
+      ]
+    },
+    {
+      days: 180,
+      label: 'Трансформация',
+      color: '#f59e0b',
+      tasks: [
+        'IPO-2 подготовка запущена (H2 2026)',
+        'EBITDA улучшение: +12% vs plan',
+        'Команда сформирована (3 новых найма)',
+        'Система финансового контроля 2.0',
+        'Succession plan для VP Finance'
+      ]
+    }
+  ],
+  stakeholders: [
+    {
+      quadrant: 'high-high',
+      label: 'Высокое влияние · Высокая поддержка',
+      items: [
+        { initials: 'ИИ', name: 'CEO Иванов',    desc: 'Стратегический союзник' },
+        { initials: 'ПС', name: 'Chairman Board', desc: 'Ключевой спонсор' }
+      ]
+    },
+    {
+      quadrant: 'high-low',
+      label: 'Высокое влияние · Низкая поддержка',
+      items: [
+        { initials: 'УЦ', name: 'CFO-предшественник', desc: 'Уходящий · управлять' }
+      ]
+    },
+    {
+      quadrant: 'low-high',
+      label: 'Низкое влияние · Высокая поддержка',
+      items: [
+        { initials: 'КФ', name: 'Команда финансов', desc: 'Развивать · делегировать' },
+        { initials: 'АУ', name: 'Аудитор',          desc: 'Рабочий союзник' }
+      ]
+    },
+    {
+      quadrant: 'low-low',
+      label: 'Низкое влияние · Низкая поддержка',
+      items: [
+        { initials: 'СБ', name: 'Старые банкиры', desc: 'Нейтрализовать' }
+      ]
+    }
+  ],
+  hoganRisks: [
+    {
+      scale: 'Bold',
+      description: 'Самоуверенность под давлением',
+      score: 6,
+      risk: 'Под давлением Board может переуверовать в своих решениях, избегать обратной связи.',
+      recommendation: 'Weekly check-in с CEO первые 90 дней. Ввести формат "что пошло не так" в отчётность.'
+    },
+    {
+      scale: 'Diligent',
+      description: 'Контроль и перфекционизм',
+      score: 5,
+      risk: 'Микроменеджмент команды при сжатых дедлайнах, потеря доверия у сильных подчинённых.',
+      recommendation: 'KPI делегирования в Q1. Ежемесячный трекинг автономности VP Finance.'
+    }
+  ]
+};
+</script>

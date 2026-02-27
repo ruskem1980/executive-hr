@@ -1,0 +1,935 @@
+<!-- =================== ЭКРАН: TALENT POOL =================== -->
+<!-- Подключение: вставить внутри <main> после последнего x-show блока -->
+<!-- Для навигации добавить в sidebar: @click="view='talent'" -->
+<!-- Для viewTitles добавить: talent: 'Talent Pool · Pipeline' -->
+
+<div x-show="view==='talent'" style="animation: fadeIn 0.3s ease forwards;">
+
+  <!-- Шапка секции -->
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h1 class="text-2xl font-bold" style="color:#e2e8f0;">Talent Pool <span style="color:#94a3b8; font-weight:400;">·</span> Pipeline</h1>
+      <p style="font-size:14px; color:#94a3b8; margin-top:4px;">
+        <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:600;">23</span>
+        кандидата в работе
+        <span style="margin:0 8px; color:#475569;">·</span>
+        <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:600;">4</span>
+        позиции
+      </p>
+    </div>
+    <button class="btn-gold flex items-center gap-2" style="font-size:14px;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      Добавить кандидата
+    </button>
+  </div>
+
+  <!-- Фильтры позиций -->
+  <div class="flex items-center gap-2 mb-5" style="flex-wrap:wrap;">
+    <button
+      style="padding:6px 16px; border-radius:8px; font-size:13px; font-weight:600; transition:all 0.2s; background:rgba(200,164,92,0.15); color:#c8a45c; border:1px solid rgba(200,164,92,0.3); cursor:pointer;">
+      Все позиции
+    </button>
+    <button
+      style="padding:6px 16px; border-radius:8px; font-size:13px; font-weight:500; transition:all 0.2s; background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,0.2); cursor:pointer;"
+      onmouseover="this.style.borderColor='rgba(200,164,92,0.3)'; this.style.color='#c8a45c';"
+      onmouseout="this.style.borderColor='rgba(148,163,184,0.2)'; this.style.color='#94a3b8';">
+      CFO
+    </button>
+    <button
+      style="padding:6px 16px; border-radius:8px; font-size:13px; font-weight:500; transition:all 0.2s; background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,0.2); cursor:pointer;"
+      onmouseover="this.style.borderColor='rgba(200,164,92,0.3)'; this.style.color='#c8a45c';"
+      onmouseout="this.style.borderColor='rgba(148,163,184,0.2)'; this.style.color='#94a3b8';">
+      CTO
+    </button>
+    <button
+      style="padding:6px 16px; border-radius:8px; font-size:13px; font-weight:500; transition:all 0.2s; background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,0.2); cursor:pointer;"
+      onmouseover="this.style.borderColor='rgba(200,164,92,0.3)'; this.style.color='#c8a45c';"
+      onmouseout="this.style.borderColor='rgba(148,163,184,0.2)'; this.style.color='#94a3b8';">
+      VP Sales
+    </button>
+    <button
+      style="padding:6px 16px; border-radius:8px; font-size:13px; font-weight:500; transition:all 0.2s; background:transparent; color:#94a3b8; border:1px solid rgba(148,163,184,0.2); cursor:pointer;"
+      onmouseover="this.style.borderColor='rgba(200,164,92,0.3)'; this.style.color='#c8a45c';"
+      onmouseout="this.style.borderColor='rgba(148,163,184,0.2)'; this.style.color='#94a3b8';">
+      COO
+    </button>
+  </div>
+
+  <!-- Kanban доска -->
+  <div style="display:flex; gap:0; overflow-x:auto; padding-bottom:12px; min-height:520px;">
+
+    <!-- ===== КОЛОНКА 1: СКРИНИНГ ===== -->
+    <div style="flex:1; min-width:220px; border-right:1px solid rgba(200,164,92,0.08); padding:0 14px 0 0;">
+      <!-- Заголовок колонки -->
+      <div class="flex items-center gap-2 mb-4" style="padding-bottom:12px; border-bottom:1px solid rgba(200,164,92,0.06);">
+        <div style="width:10px; height:10px; border-radius:50%; background:#6366f1; flex-shrink:0;"></div>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#94a3b8; text-transform:uppercase;">Скрининг</span>
+        <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; background:rgba(99,102,241,0.15); color:#6366f1; padding:1px 7px; border-radius:4px;">3</span>
+      </div>
+      <!-- Карточки -->
+      <div style="display:flex; flex-direction:column; gap:10px; overflow-y:auto; max-height:420px;">
+
+        <!-- Карточка: Юлия Петрова -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(99,102,241,0.2); border:1px solid rgba(99,102,241,0.4); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#6366f1; flex-shrink:0;">ЮП</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Юлия Петрова</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">VP Finance · Газпром</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(99,102,241,0.12); color:#6366f1; border:1px solid rgba(99,102,241,0.2);">CTO поиск</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#64748b;">скор: —</span>
+            <span style="font-size:11px; color:#475569;">24 фев</span>
+          </div>
+        </div>
+
+        <!-- Карточка: Роман Волков -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(99,102,241,0.2); border:1px solid rgba(99,102,241,0.4); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#6366f1; flex-shrink:0;">РВ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Роман Волков</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Tech Lead · Яндекс</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(99,102,241,0.12); color:#6366f1; border:1px solid rgba(99,102,241,0.2);">CTO поиск</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#64748b;">скор: —</span>
+            <span style="font-size:11px; color:#475569;">25 фев</span>
+          </div>
+        </div>
+
+        <!-- Карточка: Наталья Борисова -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(99,102,241,0.2); border:1px solid rgba(99,102,241,0.4); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#6366f1; flex-shrink:0;">НБ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Наталья Борисова</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">CFO · Агрохолдинг</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981; border:1px solid rgba(16,185,129,0.2);">COO поиск</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#64748b;">скор: —</span>
+            <span style="font-size:11px; color:#475569;">26 фев</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== КОЛОНКА 2: ИНТЕРВЬЮ ===== -->
+    <div style="flex:1; min-width:220px; border-right:1px solid rgba(200,164,92,0.08); padding:0 14px;">
+      <div class="flex items-center gap-2 mb-4" style="padding-bottom:12px; border-bottom:1px solid rgba(200,164,92,0.06);">
+        <div style="width:10px; height:10px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#94a3b8; text-transform:uppercase;">Интервью</span>
+        <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; background:rgba(245,158,11,0.15); color:#f59e0b; padding:1px 7px; border-radius:4px;">6</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; overflow-y:auto; max-height:420px;">
+
+        <!-- Андрей Волков: HIRE -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#c8a45c; flex-shrink:0;">АВ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Андрей Волков</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">CFO · Металлинвест</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(200,164,92,0.1); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);">CFO поиск</span>
+            <span class="tag badge-hire">HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c8a45c; font-weight:600;">4.2 / 5</span>
+            <span style="font-size:11px; color:#475569;">20 фев</span>
+          </div>
+        </div>
+
+        <!-- Ирина Белова: HOLD -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#c8a45c; flex-shrink:0;">ИБ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Ирина Белова</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">VP Finance · Ростелеком</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(200,164,92,0.1); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);">CFO поиск</span>
+            <span class="tag badge-hold">HOLD</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#f59e0b; font-weight:600;">3.8 / 5</span>
+            <span style="font-size:11px; color:#475569;">19 фев</span>
+          </div>
+        </div>
+
+        <!-- Дмитрий Козлов: NO-HIRE -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#ef4444; flex-shrink:0;">ДК</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Дмитрий Козлов</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">CFO · АгроХолдинг</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(200,164,92,0.1); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);">CFO поиск</span>
+            <span class="tag badge-no-hire">NO HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#ef4444; font-weight:600;">3.3 / 5</span>
+            <span style="font-size:11px; color:#475569;">17 фев</span>
+          </div>
+        </div>
+
+        <!-- Сергей Новиков: CTO -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#8b5cf6; flex-shrink:0;">СН</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Сергей Новиков</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">CTO · Mail.ru</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(139,92,246,0.12); color:#8b5cf6; border:1px solid rgba(139,92,246,0.2);">CTO поиск</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c8a45c; font-weight:600;">4.0 / 5</span>
+            <span style="font-size:11px; color:#475569;">22 фев</span>
+          </div>
+        </div>
+
+        <!-- Алексей Трофимов: CTO -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#8b5cf6; flex-shrink:0;">АТ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Алексей Трофимов</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">VP Eng · Сбербанк</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(139,92,246,0.12); color:#8b5cf6; border:1px solid rgba(139,92,246,0.2);">CTO поиск</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#f59e0b; font-weight:600;">3.7 / 5</span>
+            <span style="font-size:11px; color:#475569;">21 фев</span>
+          </div>
+        </div>
+
+        <!-- Карина Соловьёва: VP Sales -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(236,72,153,0.12); border:1px solid rgba(236,72,153,0.25); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#ec4899; flex-shrink:0;">КС</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Карина Соловьёва</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Sales Dir · МТС</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(236,72,153,0.1); color:#ec4899; border:1px solid rgba(236,72,153,0.2);">VP Sales поиск</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c8a45c; font-weight:600;">3.9 / 5</span>
+            <span style="font-size:11px; color:#475569;">23 фев</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== КОЛОНКА 3: ФИНАЛ ===== -->
+    <div style="flex:1; min-width:220px; border-right:1px solid rgba(200,164,92,0.08); padding:0 14px;">
+      <div class="flex items-center gap-2 mb-4" style="padding-bottom:12px; border-bottom:1px solid rgba(200,164,92,0.06);">
+        <div style="width:10px; height:10px; border-radius:50%; background:#c8a45c; flex-shrink:0;"></div>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#94a3b8; text-transform:uppercase;">Финал</span>
+        <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; background:rgba(200,164,92,0.15); color:#c8a45c; padding:1px 7px; border-radius:4px;">5</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; overflow-y:auto; max-height:420px;">
+
+        <!-- CFO финалист 1 -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; border-color:rgba(200,164,92,0.2); transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.45)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.2)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(200,164,92,0.2); border:1px solid rgba(200,164,92,0.4); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#c8a45c; flex-shrink:0;">МС</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Михаил Степанов</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">CFO · Норникель</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(200,164,92,0.1); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);">CFO поиск</span>
+            <span class="tag badge-hire">HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c8a45c; font-weight:600;">4.6 / 5</span>
+            <span style="font-size:11px; color:#475569;">15 фев</span>
+          </div>
+        </div>
+
+        <!-- CFO финалист 2 (Белова переведена) -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; border-color:rgba(200,164,92,0.15); transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.4)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.15)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#c8a45c; flex-shrink:0;">ИБ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Ирина Белова</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">VP Finance · Ростелеком</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(200,164,92,0.1); color:#c8a45c; border:1px solid rgba(200,164,92,0.2);">CFO поиск</span>
+            <span class="tag badge-hold">HOLD</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#f59e0b; font-weight:600;">3.8 / 5</span>
+            <span style="font-size:11px; color:#475569;">18 фев</span>
+          </div>
+        </div>
+
+        <!-- COO финалист 1 -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.25); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#10b981; flex-shrink:0;">ОК</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Олег Курилов</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">COO · X5 Retail</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981; border:1px solid rgba(16,185,129,0.2);">COO поиск</span>
+            <span class="tag badge-hire">HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c8a45c; font-weight:600;">4.3 / 5</span>
+            <span style="font-size:11px; color:#475569;">14 фев</span>
+          </div>
+        </div>
+
+        <!-- COO финалист 2 -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.25); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#10b981; flex-shrink:0;">ВЗ</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Виктор Зайцев</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Dir Operations · Северсталь</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981; border:1px solid rgba(16,185,129,0.2);">COO поиск</span>
+            <span class="tag badge-hold">HOLD</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#f59e0b; font-weight:600;">4.0 / 5</span>
+            <span style="font-size:11px; color:#475569;">16 фев</span>
+          </div>
+        </div>
+
+        <!-- CTO финалист -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; transition:all 0.2s ease;"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(200,164,92,0.35)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(200,164,92,0.12)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#8b5cf6; flex-shrink:0;">ПА</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Павел Андреев</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">VP Eng · VK Tech</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(139,92,246,0.12); color:#8b5cf6; border:1px solid rgba(139,92,246,0.2);">CTO поиск</span>
+            <span class="tag badge-hire">HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#c8a45c; font-weight:600;">4.5 / 5</span>
+            <span style="font-size:11px; color:#475569;">13 фев</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== КОЛОНКА 4: ОФФЕР ===== -->
+    <div style="flex:1; min-width:220px; border-right:1px solid rgba(200,164,92,0.08); padding:0 14px;">
+      <div class="flex items-center gap-2 mb-4" style="padding-bottom:12px; border-bottom:1px solid rgba(200,164,92,0.06);">
+        <div style="width:10px; height:10px; border-radius:50%; background:#10b981; flex-shrink:0;"></div>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#94a3b8; text-transform:uppercase;">Оффер</span>
+        <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; background:rgba(16,185,129,0.15); color:#10b981; padding:1px 7px; border-radius:4px;">2</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; overflow-y:auto; max-height:420px;">
+
+        <!-- Сергей Косоуров -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; border-color:rgba(16,185,129,0.2); transition:all 0.2s ease; box-shadow:0 0 15px rgba(16,185,129,0.05);"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(16,185,129,0.4)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(16,185,129,0.2)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.35); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#10b981; flex-shrink:0;">СК</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Сергей Косоуров</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">COO · ГК Ашан</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981; border:1px solid rgba(16,185,129,0.25);">COO поиск</span>
+            <span class="tag badge-hire">HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#10b981; font-weight:700;">4.4 / 5</span>
+            <span style="font-size:11px; color:#475569;">10 фев</span>
+          </div>
+          <!-- Статус оффера -->
+          <div style="margin-top:8px; padding:5px 8px; border-radius:6px; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.15);">
+            <span style="font-size:11px; color:#10b981; font-weight:600;">Оффер выслан · ожидает ответа</span>
+          </div>
+        </div>
+
+        <!-- Карина Соловьёва (moved from Финал) -->
+        <div class="glass-card" style="padding:14px; cursor:pointer; border-color:rgba(16,185,129,0.2); transition:all 0.2s ease; box-shadow:0 0 15px rgba(16,185,129,0.05);"
+          onmouseover="this.style.transform='translateY(-2px)'; this.style.borderColor='rgba(16,185,129,0.4)';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(16,185,129,0.2)';">
+          <div class="flex items-center gap-2 mb-2">
+            <div style="width:32px; height:32px; border-radius:50%; background:rgba(236,72,153,0.12); border:1px solid rgba(236,72,153,0.25); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#ec4899; flex-shrink:0;">КС</div>
+            <div style="flex:1; min-width:0;">
+              <div style="font-size:13px; font-weight:600; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Карина Соловьёва</div>
+              <div style="font-size:11px; color:#94a3b8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Sales Dir · МТС</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-1 flex-wrap mb-2">
+            <span class="tag" style="background:rgba(236,72,153,0.1); color:#ec4899; border:1px solid rgba(236,72,153,0.2);">VP Sales поиск</span>
+            <span class="tag badge-hire">HIRE</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#10b981; font-weight:700;">4.1 / 5</span>
+            <span style="font-size:11px; color:#475569;">12 фев</span>
+          </div>
+          <div style="margin-top:8px; padding:5px 8px; border-radius:6px; background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.15);">
+            <span style="font-size:11px; color:#f59e0b; font-weight:600;">Переговоры по условиям</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== КОЛОНКА 5: ЗАКРЫТО ===== -->
+    <div style="flex:1; min-width:200px; padding:0 0 0 14px;">
+      <div class="flex items-center gap-2 mb-4" style="padding-bottom:12px; border-bottom:1px solid rgba(200,164,92,0.06);">
+        <div style="width:10px; height:10px; border-radius:50%; background:#64748b; flex-shrink:0;"></div>
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:#64748b; text-transform:uppercase;">Закрыто</span>
+        <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; background:rgba(100,116,139,0.12); color:#64748b; padding:1px 7px; border-radius:4px;">7</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; overflow-y:auto; max-height:420px; opacity:0.65;">
+
+        <!-- Закрытые позиции - минималистично -->
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Антон Рябов</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">CFO · нанят 18 янв</div>
+        </div>
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Мария Ефимова</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">VP HR · нанята 05 янв</div>
+        </div>
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Игорь Семёнов</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">CIO · отказ 22 дек</div>
+        </div>
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Светлана Орлова</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">CMO · нанята 14 дек</div>
+        </div>
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Евгений Попов</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">VP Ops · нанят 01 дек</div>
+        </div>
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Наталья Гусева</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">CDO · нанята 20 ноя</div>
+        </div>
+        <div style="padding:10px 12px; border-radius:8px; background:rgba(100,116,139,0.06); border:1px solid rgba(100,116,139,0.12); cursor:default;">
+          <div style="font-size:12px; font-weight:600; color:#64748b;">Тимур Азаров</div>
+          <div style="font-size:11px; color:#475569; margin-top:2px;">CRO · отказ 10 ноя</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /kanban -->
+
+  <!-- Итоги воронки -->
+  <div class="grid grid-cols-3 gap-4 mt-5">
+
+    <div class="metric-card" style="padding:16px 20px;">
+      <div style="font-size:11px; font-weight:600; color:#64748b; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;">Conversion Скрининг → Финал</div>
+      <div style="display:flex; align-items:baseline; gap:4px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; color:#c8a45c;">21</span>
+        <span style="font-size:16px; color:#94a3b8; font-weight:500;">%</span>
+      </div>
+      <div class="score-bar-bg mt-2">
+        <div class="score-bar-fill" style="width:21%;"></div>
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:6px;">Бенчмарк отрасли: 18–25%</div>
+    </div>
+
+    <div class="metric-card" style="padding:16px 20px;">
+      <div style="font-size:11px; font-weight:600; color:#64748b; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;">Avg Days в воронке</div>
+      <div style="display:flex; align-items:baseline; gap:4px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; color:#c8a45c;">34</span>
+        <span style="font-size:16px; color:#94a3b8; font-weight:500;">дня</span>
+      </div>
+      <div class="score-bar-bg mt-2">
+        <div class="score-bar-fill" style="width:56%;"></div>
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:6px;">Целевой показатель: &lt;45 дней</div>
+    </div>
+
+    <div class="metric-card" style="padding:16px 20px;">
+      <div style="font-size:11px; font-weight:600; color:#64748b; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;">Avg Quality Score</div>
+      <div style="display:flex; align-items:baseline; gap:4px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; color:#c8a45c;">3.8</span>
+        <span style="font-size:16px; color:#94a3b8; font-weight:500;">/ 5</span>
+      </div>
+      <div class="score-bar-bg mt-2">
+        <div class="score-bar-fill" style="width:76%;"></div>
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:6px;">Целевой показатель: &gt;4.0</div>
+    </div>
+
+  </div>
+
+</div>
+<!-- ===== КОНЕЦ ЭКРАНА TALENT POOL ===== -->
+
+
+<!-- =================== ЭКРАН: PROFILE ARCHITECT — WIZARD =================== -->
+
+<div x-show="view==='profile'" style="animation: fadeIn 0.3s ease forwards;">
+
+  <!-- Шапка секции -->
+  <div class="flex items-center justify-between mb-5">
+    <div>
+      <h1 class="text-2xl font-bold" style="color:#e2e8f0;">
+        Profile Architect
+        <span style="color:#94a3b8; font-weight:400; font-size:18px;">— Wizard</span>
+      </h1>
+      <p style="font-size:13px; color:#94a3b8; margin-top:4px;">
+        Создание профиля позиции
+        <span style="color:#c8a45c; font-weight:600;">CFO</span>
+        <span style="color:#475569; margin:0 4px;">·</span>
+        <span style="color:#e2e8f0;">ПАО МегаГрупп</span>
+      </p>
+    </div>
+    <!-- Прогресс шага -->
+    <div style="text-align:right; min-width:200px;">
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:6px;">
+        Шаг <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:700;">3</span> из
+        <span style="font-family:'JetBrains Mono',monospace; color:#64748b; font-weight:600;">5</span>
+        <span style="color:#64748b; margin-left:6px;">· Роль и компетенции</span>
+      </div>
+      <div style="height:6px; background:rgba(200,164,92,0.1); border-radius:4px; overflow:hidden; width:200px; margin-left:auto;">
+        <div style="height:100%; width:50%; background:linear-gradient(90deg, #c8a45c, #e8c47c); border-radius:4px; transition:width 0.6s ease;"></div>
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:4px; font-family:'JetBrains Mono',monospace;">50%</div>
+    </div>
+  </div>
+
+  <!-- Stepper горизонтальный -->
+  <div class="glass-card mb-6" style="padding:20px 24px;">
+    <div style="display:flex; align-items:center; gap:0; position:relative;">
+
+      <!-- Линия прогресса (под шагами) -->
+      <div style="position:absolute; top:18px; left:32px; right:32px; height:2px; background:rgba(200,164,92,0.1); z-index:0; border-radius:2px;">
+        <div style="height:100%; width:60%; background:linear-gradient(90deg, #c8a45c, rgba(200,164,92,0.5)); border-radius:2px;"></div>
+      </div>
+
+      <!-- Шаг 1: Компания (completed) -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; z-index:1;">
+        <div style="width:36px; height:36px; border-radius:50%; background:rgba(16,185,129,0.15); border:2px solid #10b981; display:flex; align-items:center; justify-content:center; color:#10b981; font-weight:700; font-size:13px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div style="font-size:11px; font-weight:600; color:#10b981; text-align:center; white-space:nowrap;">Компания</div>
+      </div>
+
+      <!-- Шаг 2: Контекст (completed) -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; z-index:1;">
+        <div style="width:36px; height:36px; border-radius:50%; background:rgba(16,185,129,0.15); border:2px solid #10b981; display:flex; align-items:center; justify-content:center; color:#10b981; font-weight:700; font-size:13px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div style="font-size:11px; font-weight:600; color:#10b981; text-align:center; white-space:nowrap;">Контекст</div>
+      </div>
+
+      <!-- Шаг 3: Роль (ACTIVE) -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; z-index:1;">
+        <div style="width:36px; height:36px; border-radius:50%; background:rgba(200,164,92,0.2); border:2px solid #c8a45c; display:flex; align-items:center; justify-content:center; color:#c8a45c; font-weight:800; font-size:14px; box-shadow:0 0 14px rgba(200,164,92,0.3);">3</div>
+        <div style="font-size:11px; font-weight:700; color:#c8a45c; text-align:center; white-space:nowrap;">Роль</div>
+      </div>
+
+      <!-- Шаг 4: Культура (pending) -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; z-index:1;">
+        <div style="width:36px; height:36px; border-radius:50%; background:rgba(100,116,139,0.1); border:2px solid rgba(100,116,139,0.25); display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:700; font-size:14px;">4</div>
+        <div style="font-size:11px; font-weight:500; color:#64748b; text-align:center; white-space:nowrap;">Культура</div>
+      </div>
+
+      <!-- Шаг 5: Генерация (pending) -->
+      <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; z-index:1;">
+        <div style="width:36px; height:36px; border-radius:50%; background:rgba(100,116,139,0.1); border:2px solid rgba(100,116,139,0.25); display:flex; align-items:center; justify-content:center; color:#64748b; font-weight:700; font-size:14px;">5</div>
+        <div style="font-size:11px; font-weight:500; color:#64748b; text-align:center; white-space:nowrap;">Генерация</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Основной контент: 2/3 + 1/3 -->
+  <div style="display:grid; grid-template-columns:2fr 1fr; gap:20px; align-items:start;">
+
+    <!-- Левая панель -->
+    <div style="display:flex; flex-direction:column; gap:16px;">
+
+      <!-- Карточка: Параметры роли -->
+      <div class="glass-card" style="padding:22px;">
+        <div class="flex items-center gap-2 mb-5">
+          <div style="width:4px; height:20px; border-radius:2px; background:#c8a45c;"></div>
+          <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Параметры роли</h3>
+        </div>
+
+        <!-- Роль dropdown -->
+        <div class="mb-4">
+          <label style="display:block; font-size:12px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:8px;">Позиция</label>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-radius:8px; background:rgba(15,23,42,0.8); border:1px solid rgba(200,164,92,0.2); cursor:pointer;">
+            <span style="font-size:14px; font-weight:600; color:#e2e8f0;">CFO — Chief Financial Officer</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+
+        <!-- Jaques Level dropdown -->
+        <div class="mb-5">
+          <label style="display:block; font-size:12px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:8px;">Уровень Jaques (SST)</label>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-radius:8px; background:rgba(15,23,42,0.8); border:1px solid rgba(200,164,92,0.2); cursor:pointer;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; color:#c8a45c; background:rgba(200,164,92,0.1); padding:2px 8px; border-radius:4px;">L4</span>
+              <span style="font-size:14px; color:#e2e8f0;">Strategic</span>
+              <span style="font-size:12px; color:#64748b;">(2–5 лет горизонт)</span>
+            </div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+
+        <!-- PAEI профиль -->
+        <div class="mb-5">
+          <div class="flex items-center justify-between mb-3">
+            <label style="font-size:12px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.07em;">PAEI профиль (Adizes)</label>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#64748b; background:rgba(200,164,92,0.06); padding:2px 8px; border-radius:4px;">PAei — Turnaround CFO</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <!-- P: Producer -->
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:#c8a45c; flex-shrink:0;">P</div>
+              <div style="flex:1;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <span style="font-size:12px; color:#94a3b8;">Producer · Результат</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#c8a45c;">8 / 10</span>
+                </div>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width:80%;"></div></div>
+              </div>
+            </div>
+
+            <!-- A: Administrator -->
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.25); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:#6366f1; flex-shrink:0;">A</div>
+              <div style="flex:1;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <span style="font-size:12px; color:#94a3b8;">Administrator · Порядок</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#6366f1;">7 / 10</span>
+                </div>
+                <div style="height:6px; border-radius:4px; background:rgba(99,102,241,0.1);">
+                  <div style="width:70%; height:100%; background:#6366f1; border-radius:4px; transition:width 0.6s ease;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- E: Entrepreneur -->
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:#f59e0b; flex-shrink:0;">E</div>
+              <div style="flex:1;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <span style="font-size:12px; color:#94a3b8;">Entrepreneur · Инновация</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#f59e0b;">5 / 10</span>
+                </div>
+                <div style="height:6px; border-radius:4px; background:rgba(245,158,11,0.1);">
+                  <div style="width:50%; height:100%; background:#f59e0b; border-radius:4px; transition:width 0.6s ease;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- I: Integrator -->
+            <div style="display:flex; align-items:center; gap:12px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; color:#10b981; flex-shrink:0;">I</div>
+              <div style="flex:1;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <span style="font-size:12px; color:#94a3b8;">Integrator · Синергия</span>
+                  <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; color:#10b981;">6 / 10</span>
+                </div>
+                <div style="height:6px; border-radius:4px; background:rgba(16,185,129,0.1);">
+                  <div style="width:60%; height:100%; background:#10b981; border-radius:4px; transition:width 0.6s ease;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Топ-3 компетенции Korn Ferry -->
+        <div>
+          <label style="display:block; font-size:12px; font-weight:600; color:#94a3b8; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px;">Топ-3 компетенции Korn Ferry</label>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <div style="width:18px; height:18px; border-radius:4px; background:rgba(200,164,92,0.2); border:1.5px solid #c8a45c; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px; color:#e2e8f0; font-weight:500;">Financial Acumen</span>
+              <span style="margin-left:auto; font-size:11px; color:#64748b; font-family:'JetBrains Mono',monospace;">KF #1</span>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <div style="width:18px; height:18px; border-radius:4px; background:rgba(200,164,92,0.2); border:1.5px solid #c8a45c; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px; color:#e2e8f0; font-weight:500;">Strategic Vision</span>
+              <span style="margin-left:auto; font-size:11px; color:#64748b; font-family:'JetBrains Mono',monospace;">KF #2</span>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <div style="width:18px; height:18px; border-radius:4px; background:rgba(200,164,92,0.2); border:1.5px solid #c8a45c; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px; color:#e2e8f0; font-weight:500;">Driving Results</span>
+              <span style="margin-left:auto; font-size:11px; color:#64748b; font-family:'JetBrains Mono',monospace;">KF #3</span>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer; opacity:0.5;">
+              <div style="width:18px; height:18px; border-radius:4px; background:transparent; border:1.5px solid rgba(100,116,139,0.3); flex-shrink:0;"></div>
+              <span style="font-size:13px; color:#64748b; font-weight:400;">Organizational Agility</span>
+              <span style="margin-left:auto; font-size:11px; color:#475569; font-family:'JetBrains Mono',monospace;">KF #4</span>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer; opacity:0.5;">
+              <div style="width:18px; height:18px; border-radius:4px; background:transparent; border:1.5px solid rgba(100,116,139,0.3); flex-shrink:0;"></div>
+              <span style="font-size:13px; color:#64748b; font-weight:400;">Managing Vision and Purpose</span>
+              <span style="margin-left:auto; font-size:11px; color:#475569; font-family:'JetBrains Mono',monospace;">KF #5</span>
+            </label>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Карточка: Must-Have требования -->
+      <div class="glass-card" style="padding:22px;">
+        <div class="flex items-center gap-2 mb-5">
+          <div style="width:4px; height:20px; border-radius:2px; background:#c8a45c;"></div>
+          <h3 style="font-size:15px; font-weight:700; color:#e2e8f0;">Must-Have требования</h3>
+          <span style="margin-left:auto; font-size:12px; color:#64748b; font-family:'JetBrains Mono',monospace;">4 / 6</span>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:14px;">
+
+          <!-- Требование 1 -->
+          <div style="display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.12);">
+            <div style="width:18px; height:18px; border-radius:4px; background:rgba(16,185,129,0.15); border:1.5px solid #10b981; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Опыт CFO в публичной компании <span style="color:#c8a45c; font-family:'JetBrains Mono',monospace;">(5+ лет)</span></span>
+          </div>
+
+          <!-- Требование 2 -->
+          <div style="display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.12);">
+            <div style="width:18px; height:18px; border-radius:4px; background:rgba(16,185,129,0.15); border:1.5px solid #10b981; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">P&L ответственность <span style="color:#c8a45c; font-family:'JetBrains Mono',monospace;">&gt;30 млрд ₽</span></span>
+          </div>
+
+          <!-- Требование 3 -->
+          <div style="display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.12);">
+            <div style="width:18px; height:18px; border-radius:4px; background:rgba(16,185,129,0.15); border:1.5px solid #10b981; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">Опыт IPO/SPO как lead CFO</span>
+          </div>
+
+          <!-- Требование 4 -->
+          <div style="display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; background:rgba(16,185,129,0.04); border:1px solid rgba(16,185,129,0.12);">
+            <div style="width:18px; height:18px; border-radius:4px; background:rgba(16,185,129,0.15); border:1.5px solid #10b981; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span style="font-size:13px; color:#e2e8f0; line-height:1.4;">МСФО / GAAP сертификация</span>
+          </div>
+
+          <!-- Требование 5 (пустое) -->
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; background:transparent; border:1px dashed rgba(200,164,92,0.15);">
+            <div style="width:18px; height:18px; border-radius:4px; background:transparent; border:1.5px dashed rgba(100,116,139,0.3); flex-shrink:0;"></div>
+            <span style="font-size:13px; color:#475569; font-style:italic;">Не заполнено</span>
+          </div>
+
+          <!-- Требование 6 (пустое) -->
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; background:transparent; border:1px dashed rgba(200,164,92,0.15);">
+            <div style="width:18px; height:18px; border-radius:4px; background:transparent; border:1.5px dashed rgba(100,116,139,0.3); flex-shrink:0;"></div>
+            <span style="font-size:13px; color:#475569; font-style:italic;">Не заполнено</span>
+          </div>
+
+        </div>
+
+        <!-- Кнопка добавить -->
+        <button style="display:flex; align-items:center; gap:6px; padding:8px 14px; border-radius:8px; background:transparent; border:1px dashed rgba(200,164,92,0.25); color:#94a3b8; font-size:13px; cursor:pointer; transition:all 0.2s; width:100%;"
+          onmouseover="this.style.borderColor='rgba(200,164,92,0.45)'; this.style.color='#c8a45c';"
+          onmouseout="this.style.borderColor='rgba(200,164,92,0.25)'; this.style.color='#94a3b8';">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Добавить требование
+        </button>
+
+      </div>
+
+      <!-- Навигация wizard -->
+      <div class="flex items-center justify-between" style="padding-top:4px;">
+        <button class="btn-outline flex items-center gap-2" style="font-size:14px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Назад
+        </button>
+        <div style="display:flex; align-items:center; gap:4px;">
+          <div style="width:8px; height:8px; border-radius:50%; background:rgba(16,185,129,0.5);"></div>
+          <div style="width:8px; height:8px; border-radius:50%; background:rgba(16,185,129,0.5);"></div>
+          <div style="width:10px; height:10px; border-radius:50%; background:#c8a45c;"></div>
+          <div style="width:8px; height:8px; border-radius:50%; background:rgba(100,116,139,0.3);"></div>
+          <div style="width:8px; height:8px; border-radius:50%; background:rgba(100,116,139,0.3);"></div>
+        </div>
+        <button class="btn-gold flex items-center gap-2" style="font-size:14px;">
+          Далее: Культура
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Правая панель: AI Industry Benchmarking -->
+    <div style="display:flex; flex-direction:column; gap:16px; position:sticky; top:0;">
+
+      <!-- Карточка: AI Benchmarking -->
+      <div class="glass-card" style="padding:20px; border-color:rgba(200,164,92,0.2);">
+        <div class="flex items-center gap-2 mb-1">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          <h3 style="font-size:14px; font-weight:700; color:#e2e8f0;">AI Benchmarking</h3>
+        </div>
+        <p style="font-size:11px; color:#64748b; margin-bottom:14px; font-family:'JetBrains Mono',monospace;">Анализирует <span style="color:#c8a45c; font-weight:700;">847</span> CFO профилей</p>
+
+        <!-- Теги отрасли -->
+        <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:14px; padding:8px 10px; border-radius:8px; background:rgba(200,164,92,0.05); border:1px solid rgba(200,164,92,0.1);">
+          <span class="tag" style="background:rgba(200,164,92,0.12); color:#c8a45c;">Металлургия</span>
+          <span class="tag" style="background:rgba(99,102,241,0.1); color:#6366f1;">ПАО</span>
+          <span class="tag" style="background:rgba(16,185,129,0.1); color:#10b981;">&gt;50 млрд ₽</span>
+        </div>
+
+        <!-- Инсайты -->
+        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;">
+
+          <div style="padding:10px 12px; border-radius:8px; background:rgba(16,185,129,0.05); border:1px solid rgba(16,185,129,0.15);">
+            <div style="display:flex; align-items:flex-start; gap:8px;">
+              <span style="color:#10b981; flex-shrink:0; margin-top:1px; font-size:14px;">✓</span>
+              <p style="font-size:12px; color:#94a3b8; line-height:1.5; margin:0;">
+                <span style="font-family:'JetBrains Mono',monospace; color:#10b981; font-weight:700;">78%</span> CFO в аналогичных компаниях имеют опыт IPO → ваш профиль корректен
+              </p>
+            </div>
+          </div>
+
+          <div style="padding:10px 12px; border-radius:8px; background:rgba(200,164,92,0.04); border:1px solid rgba(200,164,92,0.12);">
+            <div style="display:flex; align-items:flex-start; gap:8px;">
+              <span style="color:#c8a45c; flex-shrink:0; margin-top:1px; font-size:14px;">≈</span>
+              <p style="font-size:12px; color:#94a3b8; line-height:1.5; margin:0;">
+                Средний Jaques <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:700;">L4.2</span> → ваша настройка L4 в норме
+              </p>
+            </div>
+          </div>
+
+          <div style="padding:10px 12px; border-radius:8px; background:rgba(200,164,92,0.04); border:1px solid rgba(200,164,92,0.12);">
+            <div style="display:flex; align-items:flex-start; gap:8px;">
+              <span style="color:#c8a45c; flex-shrink:0; margin-top:1px; font-size:14px;">≈</span>
+              <p style="font-size:12px; color:#94a3b8; line-height:1.5; margin:0;">
+                PAEI <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:700;">PAei</span> типично для CFO в Turnaround → совпадает
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Compensation Benchmark -->
+        <div style="padding:12px 14px; border-radius:10px; background:rgba(200,164,92,0.08); border:1px solid rgba(200,164,92,0.2);">
+          <div style="font-size:11px; font-weight:600; color:#64748b; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px;">Compensation Benchmark</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; color:#c8a45c; line-height:1.2;">6.2 – 8.5 млн ₽</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:3px;">в месяц · фикс · медиана рынка</div>
+        </div>
+
+      </div>
+
+      <!-- AI Подсказка -->
+      <div style="padding:16px; border-radius:12px; background:rgba(200,164,92,0.06); border:1px solid rgba(200,164,92,0.18); position:relative; overflow:hidden;">
+        <!-- Декоративная полоска -->
+        <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg, #c8a45c, rgba(200,164,92,0.3)); border-radius:0 2px 2px 0;"></div>
+        <div style="padding-left:10px;">
+          <div style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span style="font-size:11px; font-weight:700; color:#c8a45c; text-transform:uppercase; letter-spacing:0.07em;">AI Подсказка</span>
+          </div>
+          <p style="font-size:12px; color:#94a3b8; line-height:1.6; margin:0;">
+            Для Turnaround CFO рекомендую поднять вес
+            <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:700;">P (Producer)</span> до 9 и снизить
+            <span style="font-family:'JetBrains Mono',monospace; color:#f59e0b; font-weight:700;">E (Entrepreneur)</span> до 3. Данные из
+            <span style="font-family:'JetBrains Mono',monospace; color:#c8a45c; font-weight:600;">234</span> успешных Turnaround наймов.
+          </p>
+          <button style="margin-top:10px; font-size:11px; color:#c8a45c; background:rgba(200,164,92,0.1); border:1px solid rgba(200,164,92,0.2); padding:4px 10px; border-radius:6px; cursor:pointer; transition:all 0.2s;"
+            onmouseover="this.style.background='rgba(200,164,92,0.2)';"
+            onmouseout="this.style.background='rgba(200,164,92,0.1)';">
+            Применить рекомендацию →
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /grid -->
+
+</div>
+<!-- ===== КОНЕЦ ЭКРАНА PROFILE ARCHITECT ===== -->
