@@ -1,0 +1,122 @@
+# Конфигурация интеграций PT_Standart_Agents
+# Каждый компонент может быть включён/выключен независимо
+
+# LiteLLM Gateway — единый API для LLM провайдеров
+gateway:
+  enabled: true
+  default_model: flash
+  models:
+    flash:
+      provider: gemini
+      model_id: gemini/gemini-2.0-flash
+      cost_input: 0.50   # $/1M токенов
+      cost_output: 3.00
+      max_tokens: 8192
+      temperature: 0.7
+    pro:
+      provider: gemini
+      model_id: gemini/gemini-2.0-pro
+      cost_input: 2.00
+      cost_output: 12.00
+      max_tokens: 8192
+      temperature: 0.5
+    sonnet:
+      provider: anthropic
+      model_id: claude-sonnet-4-5-20250929
+      cost_input: 3.00
+      cost_output: 15.00
+      max_tokens: 4096
+      temperature: 0.7
+    opus:
+      provider: anthropic
+      model_id: claude-opus-4-6
+      cost_input: 15.00
+      cost_output: 75.00
+      max_tokens: 4096
+      temperature: 0.5
+  retry:
+    max_retries: 3
+    backoff_factor: 2
+    initial_delay: 1.0
+  fallback_chain: [flash, pro, sonnet, opus]
+
+# Семантический кеш
+cache:
+  enabled: true
+  similarity_threshold: 0.85
+  cache_dir: data/semantic_cache
+  max_size: 10000
+  ttl: 3600  # 1 час
+  embedding_model: all-MiniLM-L6-v2
+
+# Валидация (Guardrails)
+validation:
+  enabled: true
+  validate_input: true
+  validate_output: true
+  rules:
+    no_pii: true
+    no_injection: true
+    no_secrets: true
+    valid_python: true
+    max_length: 50000
+    no_placeholder: false  # Отключить для dev-режима
+
+# Observability (Langfuse)
+observability:
+  enabled: true
+  backend: local  # local | langfuse
+  project_name: pt_standart_agents
+  db_path: data/traces.db
+  # Для Langfuse:
+  # langfuse_host: https://cloud.langfuse.com
+  # langfuse_public_key: pk-...
+  # langfuse_secret_key: sk-...
+
+# Оптимизация промптов (DSPy)
+prompt_optimization:
+  enabled: true
+  examples_db: data/prompt_examples.db
+  n_few_shot_examples: 3
+  use_chain_of_thought: true
+  teacher_model: opus
+  student_model: flash
+
+# Авто-тюнинг промптов
+prompt_tuning:
+  enabled: true
+  db_path: data/prompt_tuning.db
+  ab_testing: true
+  min_samples_for_analysis: 10
+
+# Learned Router (BEST-Route)
+routing:
+  enabled: true
+  db_path: data/routing_history.db
+  min_samples_for_ml: 50
+  strategies:
+    simple: single_shot
+    medium: multi_sample
+    complex: cascade
+  cost_weight: 0.4      # Вес стоимости в решении
+  quality_weight: 0.4   # Вес качества
+  speed_weight: 0.2     # Вес скорости
+
+# Оркестрация (CrewAI)
+orchestration:
+  enabled: true
+  default_topology: sequential
+  max_agents: 8
+  templates:
+    - bug_fix
+    - feature
+    - refactor
+    - security
+    - docs
+
+# Общие настройки
+general:
+  language: ru  # Язык комментариев и промптов
+  log_level: INFO
+  data_dir: data
+  graceful_degradation: true  # Работать даже если компоненты недоступны

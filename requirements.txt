@@ -1,0 +1,81 @@
+# PT_Standart - Intelligent Testing System
+# Core dependencies for LLM-optimized code analysis
+
+# === Testing Framework ===
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+pytest-asyncio>=0.21.0
+pytest-xdist>=3.3.0
+pytest-json-report>=1.5.0
+
+# === Static Analysis Tools ===
+
+# Security scanners
+bandit>=1.7.5
+safety>=2.3.0
+semgrep>=1.40.0
+
+# Code quality
+pylint>=3.0.0
+flake8>=6.1.0
+prospector>=1.10.0
+
+# Complexity metrics
+radon>=5.1.0,<5.2  # Constrained for wily compatibility
+cognitive-complexity>=1.3.0
+wily>=1.25.0
+
+# Type checking
+mypy>=1.5.0
+
+# === Coverage Analysis ===
+coverage>=7.3.0
+diff-cover>=8.0.0
+
+# === Performance Profiling ===
+memory-profiler>=0.61.0
+py-spy>=0.3.14
+scalene>=1.5.0
+
+# === Dependency Analysis ===
+pipdeptree>=2.13.0
+pydeps>=1.12.0
+pip-audit>=2.6.0
+
+# === Architecture Analysis ===
+vulture>=2.9.0  # Dead code detection
+
+# === Utilities ===
+tiktoken>=0.5.0  # Token counting for LLM optimization
+
+# === Web Interface ===
+fastapi>=0.104.0
+uvicorn>=0.24.0
+jinja2>=3.1.0
+python-multipart>=0.0.6
+pyyaml>=6.0.0
+
+# === E2E Testing ===
+playwright>=1.40.0
+
+# === Development ===
+black>=23.9.0  # Code formatter
+isort>=5.12.0  # Import sorter
+pre-commit>=3.4.0  # Git hooks
+
+# === Machine Learning ===
+scikit-learn>=1.3.0  # ML классификаторы и регрессоры
+chromadb>=0.4.0  # Векторная база данных для паттернов
+sentence-transformers>=2.2.2  # Sentence embeddings для семантического поиска
+
+# === Интеграции (Open-Source) ===
+litellm>=1.40.0              # Универсальный шлюз LLM (OpenAI-совместимый)
+# gptcache>=0.1.43           # Семантический кеш (заменён на src/cache/semantic_cache.py)
+# guardrails-ai>=0.5.0       # Валидация LLM (заменён на src/validation/guardrails_validator.py)
+# langfuse>=2.40.0           # Observability (fallback на SQLite в src/observability/)
+# dspy-ai>=2.5.0             # Prompt optimization (реализовано в src/prompts/)
+# crewai>=0.80.0             # Multi-agent orchestration (реализовано в src/orchestration/)
+rich>=13.0.0                 # Красивый вывод в терминал
+numpy>=1.24.0                # Числовые вычисления для ML-роутера
+pyyaml>=6.0.0                # Парсинг YAML-конфигурации

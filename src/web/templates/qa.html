@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% set active_page = 'qa' %}
+
+{% block title %}PT_Standart — QA{% endblock %}
+
+{% block content %}
+<h1>QA — Автотесты</h1>
+<p class="text-muted mb-16">Автоматический прогон всех функций системы</p>
+
+{% if error %}
+<div class="alert alert-error" data-testid="qa-error">{{ error }}</div>
+{% endif %}
+
+<div class="card mb-16">
+    <form method="post" action="/qa/run" data-testid="form-qa">
+        <p class="text-muted mb-8">Запустить полный прогон QA-тестов ({{ '9' }} модулей)</p>
+        <button type="submit" class="btn" data-testid="btn-run-tests">Запустить тесты</button>
+    </form>
+</div>
+
+{% if report %}
+<div class="summary" data-testid="qa-summary">
+    <div class="summary-card">
+        <div class="value" style="color:#58a6ff;">{{ report.total_tests }}</div>
+        <div class="label">Всего тестов</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:#3fb950;">{{ report.total_passed }}</div>
+        <div class="label">Пройдено</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:#f85149;">{{ report.total_failed }}</div>
+        <div class="label">Провалено</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:{% if report.pass_rate >= 95 %}#3fb950{% elif report.pass_rate >= 70 %}#d29922{% else %}#f85149{% endif %};">
+            {{ '%.0f' % report.pass_rate }}%
+        </div>
+        <div class="label">Pass Rate</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:#d29922;">{{ '%.1f' % report.duration }}с</div>
+        <div class="label">Время</div>
+    </div>
+</div>
+
+{% for mod in report.modules %}
+<div class="card mb-16" data-testid="qa-module-{{ mod.name }}">
+    <div class="flex-between">
+        <h2>{{ mod.name }}</h2>
+        <span class="badge {% if mod.failed == 0 %}badge-pass{% else %}badge-fail{% endif %}">
+            {{ mod.passed }}/{{ mod.total }} ({{ '%.0f' % mod.pass_rate }}%)
+        </span>
+    </div>
+
+    <div class="progress mt-8 mb-8">
+        <div class="progress-fill {% if mod.failed == 0 %}progress-green{% else %}progress-yellow{% endif %}"
+             style="width:{{ mod.pass_rate }}%;"></div>
+    </div>
+
+    <table>
+        <thead><tr><th>Статус</th><th>Тест</th><th>Время</th><th>Ошибка</th></tr></thead>
+        <tbody>
+        {% for t in mod.tests %}
+        <tr>
+            <td>
+                {% if t.passed %}
+                <span class="badge badge-pass">PASS</span>
+                {% else %}
+                <span class="badge badge-fail">FAIL</span>
+                {% endif %}
+            </td>
+            <td>{{ t.name }}</td>
+            <td class="text-muted">{{ '%.3f' % t.duration }}с</td>
+            <td>
+                {% if t.error %}
+                <pre class="error">{{ t.error }}</pre>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

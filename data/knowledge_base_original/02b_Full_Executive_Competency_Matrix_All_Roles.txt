@@ -1,0 +1,871 @@
+================================================================================
+  ПОЛНАЯ МАТРИЦА КОМПЕТЕНЦИЙ: ВСЕ РОЛИ УПРАВЛЕНИЯ БИЗНЕСОМ
+  Complete Executive Competency Matrix — 30+ Business Leadership Roles
+  Версия 3.0 | Axioma AI Executive Assessment System
+================================================================================
+
+ИНСТРУКЦИЯ: Расширенная матрица покрывает ВСЕ управленческие роли,
+встречающиеся в современном бизнесе: от C-Suite до Director-level,
+включая специализированные и emerging роли.
+
+Шкала важности: 5 = критическая, 4 = высокая, 3 = средняя,
+2 = базовая, 1 = не важна.
+
+================================================================================
+  ЧАСТЬ I: КЛАССИЧЕСКИЙ C-SUITE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  1. CEO — CHIEF EXECUTIVE OFFICER
+  Генеральный директор
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Определение стратегии, обеспечение устойчивого роста,
+формирование культуры, управление ключевыми стейкхолдерами.
+
+Уровень Jaques: V-VII  |  PAEI: PaEI (рост) / pAEI (зрелость)
+Подчинение: Board / Собственник  |  Scope: вся компания
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Визионерское лидерство             |  5/5  | Compelling vision, вдохновение организации
+Стратегическое позиционирование    |  5/5  | Конкурентная стратегия, бизнес-модель
+Управление стейкхолдерами          |  5/5  | Board, инвесторы, партнёры, регуляторы
+Построение топ-команды             |  5/5  | Найм и развитие C-level лидеров
+Управление культурой               |  5/5  | Формирование ценностей, ролевая модель
+Capital allocation                 |  4/5  | Распределение ресурсов, M&A
+Управление в кризисе               |  4/5  | Антикризисное управление, anti-fragile
+P&L management                     |  4/5  | Финансовые рычаги бизнеса
+Публичные коммуникации             |  4/5  | Media, конференции, IR
+Цифровая трансформация             |  3/5  | Технологические тренды, AI, data
+
+RED FLAGS: микроменеджмент, нарциссизм (Bold без self-awareness),
+конфликты с Board, неспособность нанимать A-players.
+
+────────────────────────────────────────────────────────────────────────────────
+  2. COO — CHIEF OPERATING OFFICER
+  Операционный директор
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Операционная эффективность, масштабирование, исполнение стратегии,
+кросс-функциональная координация.
+
+Уровень Jaques: IV-V  |  PAEI: PAei (execution) / PaEi (transformation)
+Подчинение: CEO  |  Scope: все операции
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Операционное совершенство          |  5/5  | Масштабируемые процессы, continuous improv.
+Execution и accountability         |  5/5  | OKR/KPI каскадирование, performance mgmt
+Кросс-функциональное управление    |  5/5  | Координация между функциями, alignment
+Масштабирование                    |  5/5  | Рост компании 2-10x без потери качества
+Управление изменениями             |  4/5  | Change management, transformation
+Построение команды                 |  4/5  | Структурирование организации
+Supply chain management            |  4/5  | Логистика, закупки, производство
+Технологическая грамотность        |  3/5  | Автоматизация, ERP, data analytics
+P&L management                     |  3/5  | Себестоимость, маржа, OpEx
+Качество и безопасность            |  3/5  | Quality, HSE, regulatory compliance
+
+RED FLAGS: перфекционизм, микроменеджмент, отсутствие стратегического
+мышления, неспособность делегировать.
+
+────────────────────────────────────────────────────────────────────────────────
+  3. CFO — CHIEF FINANCIAL OFFICER
+  Финансовый директор
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Финансовая стратегия, управление рисками, прозрачность,
+поддержка принятия решений через данные.
+
+Уровень Jaques: IV-VI  |  PAEI: pAei (классический) / PAei (strategic)
+Подчинение: CEO + Audit Committee  |  Scope: финансы, IR, legal (иногда)
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Финансовая стратегия               |  5/5  | Финансовая модель, structure капитала
+Управление рисками                 |  5/5  | Идентификация, оценка, митигация рисков
+Аналитическое мышление             |  5/5  | Data-driven decision making, forecasting
+Операционная дисциплина            |  5/5  | Процессы, контроли, отчётность, audit
+Стратегическое партнёрство с CEO   |  4/5  | Business advisor, не только accounting
+Investor Relations                 |  4/5  | Коммуникация с инвесторами, аналитиками
+Казначейство                       |  4/5  | Cash, liquidity, working capital, FX
+Digital Finance / FP&A             |  4/5  | Автоматизация, BI, predictive analytics
+M&A Due Diligence                  |  3/5  | Финансовый анализ сделок, integration
+ESG Reporting                      |  3/5  | Sustainability отчётность
+
+RED FLAGS: чрезмерный консерватизм, отсутствие бизнес-чутья,
+Dutiful (не challenge CEO), compliance issues в истории.
+
+────────────────────────────────────────────────────────────────────────────────
+  4. CTO — CHIEF TECHNOLOGY OFFICER
+  Технический директор
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Технологическая стратегия, архитектура, R&D, инновации,
+инженерная команда и культура.
+
+Уровень Jaques: IV-VI  |  PAEI: PaEi (innovation) / PAEi (scale)
+Подчинение: CEO  |  Scope: технология, R&D, инженерия
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Технологическое видение            |  5/5  | Tech strategy 3-5 лет, build vs buy
+Инженерное лидерство               |  5/5  | Команда, культура, standards, practices
+Инновации и R&D                    |  5/5  | R&D pipeline, innovation vs delivery
+Архитектурное мышление             |  5/5  | Scalability, security, reliability
+Бизнес-ориентация                  |  4/5  | Технология как enabler бизнеса, ROI
+Управление delivery                |  4/5  | Agile at scale, DevOps, CI/CD
+Кибербезопасность                  |  4/5  | Security by design, compliance
+Tech debt management               |  4/5  | Speed vs quality баланс
+AI / Data Strategy                 |  4/5  | ML/AI, data platform, analytics
+Vendor Management                  |  3/5  | Cloud, SaaS, outsourcing
+
+RED FLAGS: over-engineering, технология ради технологии, не может
+объяснить решения бизнесу, единая точка отказа.
+
+────────────────────────────────────────────────────────────────────────────────
+  5. CMO — CHIEF MARKETING OFFICER
+  Директор по маркетингу
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Стратегия бренда и роста, customer acquisition,
+data-driven маркетинг, управление ROI маркетинга.
+
+Уровень Jaques: IV-V  |  PAEI: paEI (brand) / PaEi (growth)
+Подчинение: CEO  |  Scope: маркетинг, бренд, коммуникации
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Стратегия бренда                   |  5/5  | Positioning, storytelling, репутация
+Growth / Performance Marketing     |  5/5  | CAC/LTV, funnel, digital marketing
+Customer Insight                   |  5/5  | Research, segmentation, voice of customer
+Data & Analytics                   |  5/5  | Attribution, A/B testing, predictive
+Креативное лидерство               |  4/5  | Креативный процесс, agencies, content
+Product Marketing                  |  4/5  | Go-to-market, positioning, launches
+Revenue Partnership (с Sales)      |  4/5  | RevOps alignment, pipeline contribution
+PR и корпоративные коммуникации    |  3/5  | Media, crisis comms, thought leadership
+Международные рынки                |  3/5  | Локализация, multi-market campaigns
+MarTech stack                      |  3/5  | CRM, CDP, automation, AI tools
+
+RED FLAGS: креативность без метрик, нет partnership с Sales,
+частая смена работ (tenure < 1.5 года), раздувание бюджетов.
+
+────────────────────────────────────────────────────────────────────────────────
+  6. CHRO — CHIEF HUMAN RESOURCES OFFICER
+  Директор по персоналу
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: People strategy, organizational design, talent management,
+культура и вовлечённость, HR-трансформация.
+
+Уровень Jaques: IV-V  |  PAEI: paEI (strategic) / pAeI (operational)
+Подчинение: CEO + Compensation Committee  |  Scope: HR, OD, культура
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Стратегическое HR-партнёрство      |  5/5  | HR как бизнес-функция, seat at the table
+Talent Management                  |  5/5  | Acquisition, development, succession
+Организационное проектирование     |  5/5  | Org design, spans & layers, restructuring
+Культура и вовлечённость           |  5/5  | Culture design, engagement, EVP
+Change Management                  |  4/5  | Трансформация через людей
+Compensation & Benefits            |  4/5  | Total rewards, executive comp, equity
+HR Analytics                       |  4/5  | People analytics, workforce planning
+Трудовое право                     |  4/5  | Labor law, DE&I, employee relations
+Leadership Development             |  4/5  | Программы развития лидеров, coaching
+HR Technology                      |  3/5  | HRIS, ATS, LMS, AI in HR
+
+RED FLAGS: административный HR, неспособность challenge CEO,
+отсутствие бизнес-грамотности, избыточная "мягкость".
+
+================================================================================
+  ЧАСТЬ II: РАСШИРЕННЫЙ C-SUITE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  7. CRO — CHIEF REVENUE OFFICER
+  Директор по доходам
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Объединение Sales, Marketing, Customer Success для
+максимизации revenue. Полный revenue lifecycle.
+
+Уровень Jaques: IV-V  |  PAEI: PAei
+Подчинение: CEO  |  Scope: sales + marketing + CS
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Revenue Strategy                   |  5/5  | Revenue model, pricing, go-to-market
+Sales Leadership                   |  5/5  | Pipeline, forecasting, deal management
+Go-to-Market Execution             |  5/5  | Product-market fit, channel strategy
+Revenue Operations (RevOps)        |  5/5  | Data, process, technology alignment
+Customer Success                   |  4/5  | Retention, expansion, NRR/NDR
+Marketing-Sales Alignment          |  4/5  | Unified funnel, shared metrics
+Sales Team Development             |  4/5  | Hiring, coaching, quota management
+Pricing Strategy                   |  4/5  | Value-based pricing, packaging
+Partnership Development            |  3/5  | Channel partners, strategic alliances
+International Expansion            |  3/5  | New market entry, localization
+
+RED FLAGS: "героический продавец" без системы, отсутствие
+аналитического подхода, конфликт с Product.
+
+────────────────────────────────────────────────────────────────────────────────
+  8. CSO — CHIEF STRATEGY OFFICER
+  Директор по стратегии
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Корпоративная стратегия, M&A, competitive intelligence,
+новые направления бизнеса.
+
+Уровень Jaques: V-VI  |  PAEI: paEi
+Подчинение: CEO  |  Scope: стратегия, M&A, business development
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Стратегический анализ              |  5/5  | Frameworks, scenario planning, trends
+M&A и Corporate Development        |  5/5  | Deal sourcing, DD, integration planning
+Competitive Intelligence           |  5/5  | Market monitoring, competitor analysis
+Business Development               |  4/5  | Новые рынки, партнёрства, ventures
+Board/CEO Advisory                 |  4/5  | Стратегический советник, presentations
+Financial Modeling                 |  4/5  | Бизнес-кейсы, ROI, valuation
+Innovation Strategy                |  4/5  | Adjacent markets, disruption, ventures
+Cross-functional Leadership        |  3/5  | Influence without authority
+Change Management                  |  3/5  | Strategy execution, transformation
+Regulatory / Geopolitical Awareness|  3/5  | Макро-факторы, регуляция
+
+RED FLAGS: теоретик без execution, "вечный аналитик",
+не может влиять без прямой власти.
+
+────────────────────────────────────────────────────────────────────────────────
+  9. CPO — CHIEF PRODUCT OFFICER
+  Директор по продукту
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Продуктовая стратегия, product-market fit, UX, roadmap,
+alignment продукта с бизнес-целями.
+
+Уровень Jaques: IV-V  |  PAEI: PaEi
+Подчинение: CEO  |  Scope: продукт, UX, product analytics
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Product Strategy                   |  5/5  | Vision, roadmap, product-market fit
+Customer Insight & Empathy         |  5/5  | User research, jobs-to-be-done, design
+Data-Driven Product Decisions      |  5/5  | Metrics, A/B testing, analytics
+UX / Design Leadership             |  4/5  | Design thinking, user experience
+Technical Understanding            |  4/5  | Architecture awareness, trade-offs
+Go-to-Market Partnership           |  4/5  | Launch strategy, positioning, messaging
+Prioritization & Roadmapping       |  4/5  | Opportunity sizing, RICE, MoSCoW
+Competitive Analysis               |  4/5  | Feature parity, differentiation
+Platform Thinking                  |  3/5  | API, ecosystem, marketplace dynamics
+AI / ML in Product                 |  3/5  | AI-powered features, personalization
+
+RED FLAGS: feature factory без стратегии, не слышит пользователей,
+конфликт с Engineering, over-design.
+
+────────────────────────────────────────────────────────────────────────────────
+  10. CDO — CHIEF DIGITAL OFFICER
+  Директор по цифровой трансформации
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Цифровая трансформация бизнеса, digital strategy,
+новые digital-каналы и бизнес-модели.
+
+Уровень Jaques: IV-V  |  PAEI: PaEI
+Подчинение: CEO  |  Scope: digital transformation, innovation
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Digital Strategy                   |  5/5  | Трансформация бизнес-модели через digital
+Technology Vision                  |  5/5  | AI, IoT, cloud, automation trends
+Change Management                  |  5/5  | Digital adoption, resistance management
+Innovation & Experimentation       |  4/5  | Lean startup, pilots, MVPs
+Stakeholder Management             |  4/5  | Работа с traditional business leaders
+Data Strategy                      |  4/5  | Data governance, analytics, AI readiness
+Customer Experience Design         |  4/5  | Omnichannel, digital customer journey
+Vendor & Partner Ecosystem         |  3/5  | Digital vendors, startups, partnerships
+Cybersecurity Awareness            |  3/5  | Security в digital-инициативах
+Digital P&L                        |  3/5  | ROI digital-инвестиций
+
+RED FLAGS: technology-first без бизнес-результатов,
+не может работать с legacy-организацией.
+
+────────────────────────────────────────────────────────────────────────────────
+  11. CIO — CHIEF INFORMATION OFFICER
+  Директор по информационным технологиям
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: IT-инфраструктура, enterprise systems, IT governance,
+обеспечение бизнеса технологиями.
+
+Уровень Jaques: IV-V  |  PAEI: pAei (operations) / PAei (transformation)
+Подчинение: CEO или COO  |  Scope: IT, инфраструктура, enterprise systems
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+IT Strategy & Architecture         |  5/5  | Enterprise architecture, IT roadmap
+IT Governance                      |  5/5  | ITIL, COBIT, IT risk management
+Vendor Management                  |  5/5  | Enterprise vendor relationships, SLA
+Infrastructure & Operations        |  5/5  | Uptime, DR, cloud migration
+Cybersecurity                      |  4/5  | Security policy, incident response
+Budget Management                  |  4/5  | IT CapEx/OpEx, TCO optimization
+Business Partnership               |  4/5  | IT как enabler бизнес-процессов
+Project / Program Management       |  4/5  | Large-scale IT projects, PMO
+Data Management                    |  3/5  | Master data, data quality, governance
+Emerging Technologies              |  3/5  | AI, RPA, cloud native, low-code
+
+RED FLAGS: "department of IT" mentality, не может говорить
+на языке бизнеса, сопротивление cloud/modern tech.
+
+────────────────────────────────────────────────────────────────────────────────
+  12. CISO — CHIEF INFORMATION SECURITY OFFICER
+  Директор по информационной безопасности
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Защита информационных активов, кибербезопасность,
+compliance, incident response.
+
+Уровень Jaques: IV-V  |  PAEI: pAei
+Подчинение: CEO / CTO / CIO (зависит от организации)
+Scope: ИБ, compliance, risk
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Security Architecture              |  5/5  | Defense in depth, zero trust
+Risk Assessment & Management       |  5/5  | Threat modeling, risk frameworks
+Compliance & Regulatory            |  5/5  | GDPR, SOC2, ISO 27001, PCI DSS
+Incident Response                  |  5/5  | Breach management, forensics, recovery
+Security Operations                |  4/5  | SOC, SIEM, threat intelligence
+Security Culture Building          |  4/5  | Awareness, training, human firewall
+Vendor Security Assessment         |  4/5  | Third-party risk, supply chain security
+Business Enablement                |  4/5  | Security без блокирования бизнеса
+Cloud Security                     |  3/5  | Cloud-native security, CSPM
+AppSec / DevSecOps                 |  3/5  | SAST, DAST, secure SDLC
+
+RED FLAGS: "department of NO", паранойя без pragmatism,
+не может объяснить риски бизнесу на их языке.
+
+────────────────────────────────────────────────────────────────────────────────
+  13. CLO / GC — CHIEF LEGAL OFFICER / GENERAL COUNSEL
+  Директор юридического департамента
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Правовая защита, compliance, корпоративное управление,
+управление юридическими рисками.
+
+Уровень Jaques: IV-V  |  PAEI: pAeI
+Подчинение: CEO + Board  |  Scope: legal, compliance, governance
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Corporate Governance               |  5/5  | Board governance, corporate secretary
+Contract Management                |  5/5  | Коммерческие контракты, negotiation
+Regulatory Compliance              |  5/5  | Industry-specific regulation
+Litigation Management              |  5/5  | Dispute resolution, litigation strategy
+M&A Legal Support                  |  4/5  | Due diligence, deal structuring
+IP Protection                      |  4/5  | Patents, trademarks, trade secrets
+Employment Law                     |  4/5  | Labor law, HR legal support
+Business Advisory                  |  4/5  | Стратегический legal advisor, not blocker
+Risk Management                    |  3/5  | Legal risk assessment, insurance
+Data Privacy                       |  3/5  | GDPR, data protection, privacy
+
+RED FLAGS: чрезмерная осторожность (блокирует бизнес),
+"вечный адвокат" без бизнес-мышления, Dutiful.
+
+────────────────────────────────────────────────────────────────────────────────
+  14. CCO — CHIEF COMMUNICATIONS OFFICER
+  Директор по коммуникациям
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Корпоративные коммуникации, PR, репутация, internal comms,
+crisis communication.
+
+Уровень Jaques: IV  |  PAEI: paEI
+Подчинение: CEO или CMO  |  Scope: PR, internal comms, GR
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Media Relations                    |  5/5  | Журналисты, СМИ, editorial strategy
+Crisis Communications              |  5/5  | Crisis playbook, spokesperson, speed
+Corporate Narrative                |  5/5  | Storytelling, positioning, messaging
+Internal Communications            |  4/5  | Employee engagement через коммуникации
+Executive Communications           |  4/5  | Speechwriting, CEO communications
+Reputation Management              |  4/5  | Brand reputation, social listening
+Government Relations (GR)          |  3/5  | Lobbying, regulatory communications
+Employer Branding                  |  3/5  | EVP communication, recruitment marketing
+Social Media & Digital Comms       |  3/5  | Corporate social media, thought leadership
+Investor Communications            |  3/5  | IR support, annual reports
+
+RED FLAGS: реактивный подход (только тушит пожары),
+не имеет стратегического мышления, Colorful деструктор.
+
+================================================================================
+  ЧАСТЬ III: СПЕЦИАЛИЗИРОВАННЫЕ C-LEVEL РОЛИ
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  15. CDatO — CHIEF DATA OFFICER
+  Директор по данным
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Data strategy, governance, analytics capability building,
+data-driven culture.
+
+PAEI: pAEi  |  Подчинение: CEO / CTO / CDO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Data Strategy & Governance         |  5/5  | Data management, quality, master data
+Advanced Analytics & AI/ML         |  5/5  | Predictive, prescriptive analytics
+Data Architecture                  |  5/5  | Data lake, warehouse, mesh, pipelines
+Business Intelligence              |  4/5  | Dashboards, reporting, self-service BI
+Data Privacy & Ethics              |  4/5  | GDPR, responsible AI, data ethics
+Cross-functional Partnership       |  4/5  | Data democratization, literacy programs
+Data Engineering                   |  4/5  | ETL, streaming, data infrastructure
+Data Culture Building              |  3/5  | Data literacy, self-service adoption
+Vendor Management (data tools)     |  3/5  | Snowflake, Databricks, cloud tools
+
+────────────────────────────────────────────────────────────────────────────────
+  16. CAIO — CHIEF AI OFFICER
+  Директор по искусственному интеллекту
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: AI strategy, internal AI adoption, AI product development,
+responsible AI governance. Emerging role (с 2023+).
+
+PAEI: PaEi  |  Подчинение: CEO / CTO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+AI/ML Strategy                     |  5/5  | Enterprise AI roadmap, use case portfolio
+Deep Technical ML Understanding    |  5/5  | LLM, computer vision, NLP, MLOps
+AI Ethics & Governance             |  5/5  | Responsible AI, bias, transparency
+Business Case for AI               |  5/5  | ROI, prioritization of AI initiatives
+AI Product Development             |  4/5  | AI-powered products and features
+Talent & Team Building             |  4/5  | Hiring ML engineers, data scientists
+Vendor Evaluation                  |  4/5  | AI platforms, API providers, build vs buy
+Change Management for AI           |  4/5  | AI adoption, workforce transformation
+Research to Production             |  3/5  | Transition from research to deployment
+Regulatory Awareness               |  3/5  | EU AI Act, AI regulation trends
+
+────────────────────────────────────────────────────────────────────────────────
+  17. CSuO — CHIEF SUSTAINABILITY OFFICER
+  Директор по устойчивому развитию / ESG
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: ESG стратегия, sustainability reporting, carbon neutrality,
+social responsibility, corporate governance.
+
+PAEI: paEI  |  Подчинение: CEO / Board
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+ESG Strategy                       |  5/5  | Environmental, Social, Governance roadmap
+Sustainability Reporting           |  5/5  | GRI, SASB, TCFD, CDP frameworks
+Regulatory Compliance (ESG)        |  5/5  | EU Taxonomy, CSRD, carbon regulation
+Stakeholder Engagement             |  4/5  | Investors, NGOs, community relations
+Carbon Management                  |  4/5  | Carbon footprint, net-zero strategy
+Supply Chain Sustainability        |  4/5  | Responsible sourcing, circular economy
+Corporate Social Responsibility    |  4/5  | Community programs, philanthropy
+Green Innovation                   |  3/5  | Sustainable products, clean tech
+Board & Investor Communication     |  3/5  | ESG reporting для Board и инвесторов
+
+────────────────────────────────────────────────────────────────────────────────
+  18. CXO — CHIEF EXPERIENCE OFFICER
+  Директор по клиентскому опыту
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: End-to-end customer experience, CX strategy,
+voice of customer, journey optimization.
+
+PAEI: paEI  |  Подчинение: CEO / CMO / COO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Customer Journey Design            |  5/5  | Journey mapping, touchpoint optimization
+Voice of Customer                  |  5/5  | NPS, CSAT, CES, feedback loops
+CX Strategy                        |  5/5  | Experience vision, competitive diff.
+Cross-functional CX Orchestration  |  5/5  | Alignment sales, product, support
+Service Design                     |  4/5  | Service blueprinting, pain point removal
+CX Analytics                       |  4/5  | Customer analytics, segmentation
+Digital Experience                 |  4/5  | Digital CX, app, web, omnichannel
+Employee Experience (EX)           |  3/5  | EX → CX connection, engaged employees
+Community Building                 |  3/5  | Customer communities, advocacy
+
+────────────────────────────────────────────────────────────────────────────────
+  19. CECO — CHIEF ETHICS & COMPLIANCE OFFICER
+  Директор по этике и комплаенсу
+────────────────────────────────────────────────────────────────────────────────
+
+Миссия: Compliance program, anti-corruption, ethics culture,
+regulatory compliance, whistleblower management.
+
+PAEI: pAeI  |  Подчинение: CEO + Audit Committee / Board
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Compliance Program Design          |  5/5  | Policies, procedures, controls
+Anti-Corruption / AML              |  5/5  | FCPA, UK Bribery Act, AML/KYC
+Ethics Culture Building            |  5/5  | Code of conduct, training, tone at top
+Investigation Management           |  5/5  | Whistleblower, internal investigations
+Regulatory Engagement              |  4/5  | Regulator relationships, filings
+Risk Assessment                    |  4/5  | Compliance risk mapping, monitoring
+Third-Party Due Diligence          |  4/5  | Vendor, partner compliance checks
+Board Reporting                    |  4/5  | Compliance reporting, escalation
+Data Privacy                       |  3/5  | GDPR, privacy program
+Industry-Specific Regulation       |  3/5  | Banking, pharma, energy regulations
+
+================================================================================
+  ЧАСТЬ IV: VP / DIRECTOR LEVEL (функциональные лидеры)
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  20. VP SALES / КОММЕРЧЕСКИЙ ДИРЕКТОР
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PAei  |  Подчинение: CRO / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Sales Strategy & Execution         |  5/5  | Territory, account, channel strategy
+Pipeline & Forecast Management     |  5/5  | CRM discipline, accuracy, coverage
+Sales Team Leadership              |  5/5  | Hiring, coaching, quota setting
+Key Account Management             |  5/5  | Enterprise selling, C-level relationships
+Negotiations & Deal Closing        |  4/5  | Complex deal structuring, pricing
+Sales Operations / RevOps          |  4/5  | Process, tools, analytics
+Channel Partnership                |  3/5  | Indirect sales, partner programs
+International Sales                |  3/5  | Cross-border selling, localization
+
+────────────────────────────────────────────────────────────────────────────────
+  21. VP ENGINEERING / ТЕХНИЧЕСКИЙ VP
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PAei  |  Подчинение: CTO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Engineering Team Management        |  5/5  | Hiring, retention, team structure
+Delivery Excellence                |  5/5  | Sprint planning, velocity, quality
+Architecture Decision-Making       |  4/5  | Technical trade-offs, pragmatism
+Process & Methodology              |  4/5  | Agile, Scrum, Kanban at scale
+Code Quality & Standards           |  4/5  | Reviews, testing, CI/CD culture
+Technical Mentorship               |  4/5  | Developing senior engineers → leads
+Cross-team Coordination            |  3/5  | Dependencies, shared services
+Security Engineering               |  3/5  | Secure development practices
+
+────────────────────────────────────────────────────────────────────────────────
+  22. VP PRODUCT / ДИРЕКТОР ПО ПРОДУКТУ
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PaEi  |  Подчинение: CPO / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Product Vision & Roadmap           |  5/5  | Multi-product strategy, sequencing
+User Research & Customer Insight   |  5/5  | Qualitative + quantitative research
+Product Analytics                  |  5/5  | Metrics, funnels, cohort analysis
+PM Team Development                |  4/5  | Hiring and developing product managers
+Stakeholder Alignment              |  4/5  | Engineering, sales, marketing partnership
+Competitive Positioning            |  4/5  | Feature strategy, differentiation
+Experimentation Framework          |  3/5  | A/B testing, feature flags, rollouts
+Pricing & Packaging                |  3/5  | Monetization strategy
+
+────────────────────────────────────────────────────────────────────────────────
+  23. VP FINANCE / ФИНАНСОВЫЙ VP
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: pAei  |  Подчинение: CFO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Financial Planning & Analysis      |  5/5  | Budgeting, forecasting, variance analysis
+Management Reporting               |  5/5  | Board decks, executive dashboards
+Accounting & Compliance            |  5/5  | GAAP/IFRS, audit, internal controls
+Cash Flow Management               |  4/5  | Working capital, treasury
+Team Management                    |  4/5  | Finance team, shared services
+Business Partnering                |  4/5  | Support business units with data
+Systems & Automation               |  3/5  | ERP, financial tools, automation
+Tax & Legal                        |  3/5  | Tax optimization, transfer pricing
+
+────────────────────────────────────────────────────────────────────────────────
+  24. VP PEOPLE / HR DIRECTOR / ДИРЕКТОР ПО HR
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: pAeI  |  Подчинение: CHRO / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Talent Acquisition Strategy        |  5/5  | Recruitment at scale, employer brand
+Performance Management             |  5/5  | OKR/KPI, reviews, calibration
+Employee Relations                 |  4/5  | Conflict resolution, investigations
+Learning & Development             |  4/5  | Training programs, leadership dev
+Compensation & Benefits Admin      |  4/5  | Salary reviews, benefits management
+HR Operations                      |  4/5  | HRIS, policies, compliance
+Culture Programs                   |  3/5  | Engagement initiatives, diversity
+Workforce Planning                 |  3/5  | Headcount planning, analytics
+
+────────────────────────────────────────────────────────────────────────────────
+  25. VP CUSTOMER SUCCESS / ДИРЕКТОР ПО КЛИЕНТСКОМУ УСПЕХУ
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PaeI  |  Подчинение: CRO / CCO / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Customer Retention Strategy        |  5/5  | Churn prevention, health scoring
+Expansion Revenue                  |  5/5  | Upsell, cross-sell through success
+CS Operations & Playbooks          |  5/5  | Onboarding, QBR, escalation processes
+Customer Health Analytics          |  4/5  | Health scores, predictive churn
+Team Leadership                    |  4/5  | CSM hiring, coaching, capacity
+Executive Relationship Mgmt        |  4/5  | C-level customer relationships
+Product Feedback Loop              |  3/5  | Voice of customer → product roadmap
+Community & Advocacy               |  3/5  | Customer advisory boards, references
+
+────────────────────────────────────────────────────────────────────────────────
+  26. VP SUPPLY CHAIN / ДИРЕКТОР ПО ЦЕПОЧКАМ ПОСТАВОК
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PAei  |  Подчинение: COO / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Supply Chain Strategy              |  5/5  | Network design, sourcing strategy
+Procurement & Vendor Management    |  5/5  | Negotiation, SRM, cost optimization
+Logistics & Distribution           |  5/5  | Transportation, warehousing, last-mile
+Demand Planning & Forecasting      |  5/5  | S&OP, demand sensing, inventory mgmt
+Quality Management                 |  4/5  | Supplier quality, incoming inspection
+Sustainability in Supply Chain     |  4/5  | Responsible sourcing, circular economy
+Technology & Digitalization        |  3/5  | SCM systems, IoT, digital twin
+Risk & Resilience                  |  3/5  | Disruption planning, dual sourcing
+
+────────────────────────────────────────────────────────────────────────────────
+  27. VP BUSINESS DEVELOPMENT / ДИРЕКТОР ПО РАЗВИТИЮ БИЗНЕСА
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PaEi  |  Подчинение: CEO / CSO / CRO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Partnership Strategy               |  5/5  | Strategic alliances, JV, licensing
+Deal Origination & Structuring     |  5/5  | Pipeline of opportunities, term sheets
+Market Analysis & Opportunity ID   |  5/5  | New markets, segments, use cases
+Relationship Building (C-level)    |  5/5  | Executive networking, trust building
+Negotiation                        |  4/5  | Complex multi-party negotiations
+Cross-functional Coordination      |  4/5  | Legal, finance, product alignment
+Revenue Impact                     |  4/5  | Tracking BD contribution to revenue
+Innovation & Ventures              |  3/5  | Corporate ventures, startups
+
+────────────────────────────────────────────────────────────────────────────────
+  28. HEAD OF INVESTOR RELATIONS / ДИРЕКТОР ПО РАБОТЕ С ИНВЕСТОРАМИ
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: pAeI  |  Подчинение: CFO / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Investor Communication             |  5/5  | Earnings calls, investor presentations
+Financial Storytelling             |  5/5  | Translating numbers into narrative
+Market Intelligence                |  4/5  | Analyst expectations, peer benchmarking
+Regulatory Filings                 |  4/5  | SEC filings, proxy statements
+Shareholder Engagement             |  4/5  | Activist defense, ESG investors
+Crisis Communication (financial)   |  4/5  | Guidance revisions, negative events
+Financial Modeling                 |  3/5  | Understanding sell-side models
+
+================================================================================
+  ЧАСТЬ V: ОПЕРАЦИОННЫЙ МЕНЕДЖМЕНТ И РЕГИОНАЛЬНЫЕ РОЛИ
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+  29. MANAGING DIRECTOR / ГЕНЕРАЛЬНЫЙ ДИРЕКТОР ПОДРАЗДЕЛЕНИЯ
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PAEi  |  Подчинение: CEO / Group CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Full P&L Management                |  5/5  | Revenue, EBITDA, cash flow ownership
+Strategy (BU-level)                |  5/5  | Business unit strategy within group
+Team Building & Leadership         |  5/5  | Full functional team management
+Market / Customer Ownership        |  5/5  | Revenue growth, market share
+Cross-BU Collaboration             |  4/5  | Synergies with other business units
+Board / Group Reporting            |  4/5  | Monthly/quarterly business reviews
+Operational Excellence             |  4/5  | Efficiency, quality, delivery
+Culture & Talent Development       |  3/5  | Sub-culture within group culture
+
+────────────────────────────────────────────────────────────────────────────────
+  30. COUNTRY MANAGER / ГЕНЕРАЛЬНЫЙ ДИРЕКТОР ПО СТРАНЕ
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PAEI  |  Подчинение: Regional VP / CEO
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Local Market Knowledge             |  5/5  | Culture, competition, regulation
+P&L Management (local)             |  5/5  | Revenue, costs, profitability
+Government Relations               |  5/5  | Regulatory bodies, local authorities
+Local Team Building                |  5/5  | Hiring, developing local talent
+HQ Alignment                       |  4/5  | Global strategy + local execution
+Partnership Development            |  4/5  | Local distributors, JV partners
+Brand Localization                 |  4/5  | Adapting global brand to local market
+Compliance (local)                 |  4/5  | Local legal, tax, labor requirements
+Crisis Management (local)         |  3/5  | Country-specific risks
+
+────────────────────────────────────────────────────────────────────────────────
+  31. PLANT DIRECTOR / ДИРЕКТОР ПРОИЗВОДСТВА
+────────────────────────────────────────────────────────────────────────────────
+
+PAEI: PAei  |  Подчинение: COO / VP Manufacturing
+
+КОМПЕТЕНЦИЯ                        | ВАЖН. | ОПИСАНИЕ
+-----------------------------------|-------|------------------------------------------
+Production Management              |  5/5  | Output, quality, OEE, cycle time
+Safety & HSE                       |  5/5  | Zero harm culture, compliance
+Lean / Continuous Improvement      |  5/5  | Kaizen, 5S, Six Sigma, TPM
+Quality Management                 |  5/5  | ISO, TQM, defect reduction
+Team Management (blue-collar)      |  5/5  | Shift management, labor relations
+Maintenance & Engineering          |  4/5  | Equipment reliability, CapEx planning
+Supply Chain Coordination          |  4/5  | Materials, inventory, logistics
+Cost Management                    |  4/5  | Cost per unit, waste reduction
+Automation & Industry 4.0          |  3/5  | IoT, digital manufacturing
+Environmental Compliance           |  3/5  | Emissions, waste management
+
+================================================================================
+  ЧАСТЬ VI: СВОДНАЯ МАТРИЦА ВСЕХ РОЛЕЙ
+================================================================================
+
+30 КОМПЕТЕНЦИЙ x 15 КЛЮЧЕВЫХ РОЛЕЙ (шкала 1-5)
+
+Компетенция           |CEO|COO|CFO|CTO|CMO|CHRO|CRO|CSO|CPO|CDO|CIO|CISO|CLO|MD |CM
+----------------------|---|---|---|---|---|----|----|---|---|---|---|----|----|---|---
+Стратег. мышление     | 5 | 4 | 4 | 4 | 4 | 4  | 4 | 5 | 4 | 4 | 3 | 3  | 3 | 5 | 4
+Визион. лидерство     | 5 | 3 | 2 | 4 | 4 | 3  | 3 | 3 | 5 | 5 | 2 | 2  | 2 | 4 | 3
+Операц. дисциплина    | 3 | 5 | 5 | 4 | 3 | 3  | 4 | 2 | 3 | 3 | 5 | 5  | 4 | 4 | 4
+Аналитич. мышление    | 4 | 4 | 5 | 5 | 5 | 4  | 4 | 5 | 5 | 4 | 4 | 5  | 4 | 4 | 3
+Управление людьми     | 5 | 4 | 3 | 4 | 3 | 5  | 4 | 2 | 3 | 3 | 3 | 2  | 3 | 5 | 5
+Инновационность       | 4 | 3 | 2 | 5 | 5 | 3  | 3 | 4 | 5 | 5 | 3 | 3  | 2 | 3 | 3
+Коммуникация          | 5 | 3 | 4 | 3 | 5 | 4  | 5 | 4 | 4 | 4 | 3 | 3  | 4 | 4 | 5
+Управление рисками    | 4 | 4 | 5 | 4 | 3 | 4  | 3 | 4 | 3 | 3 | 4 | 5  | 5 | 4 | 4
+Change Management     | 4 | 4 | 3 | 4 | 3 | 5  | 3 | 3 | 3 | 5 | 4 | 3  | 3 | 4 | 4
+Кросс-функц.          | 5 | 5 | 4 | 3 | 4 | 4  | 5 | 4 | 4 | 5 | 4 | 3  | 3 | 4 | 5
+P&L ответственность   | 5 | 4 | 5 | 3 | 3 | 2  | 5 | 3 | 3 | 3 | 3 | 2  | 2 | 5 | 5
+Customer Focus        | 4 | 3 | 2 | 3 | 5 | 3  | 5 | 3 | 5 | 4 | 2 | 2  | 2 | 4 | 5
+Tech Savviness        | 3 | 3 | 3 | 5 | 4 | 3  | 3 | 3 | 4 | 5 | 5 | 5  | 2 | 3 | 3
+Data-Driven           | 3 | 4 | 5 | 5 | 5 | 4  | 4 | 5 | 5 | 5 | 4 | 4  | 3 | 4 | 3
+Построение команды    | 5 | 4 | 3 | 5 | 3 | 5  | 4 | 2 | 4 | 3 | 3 | 3  | 3 | 5 | 5
+Culture Stewardship   | 5 | 3 | 2 | 3 | 3 | 5  | 2 | 2 | 3 | 3 | 2 | 2  | 3 | 4 | 4
+Compliance/Ethics     | 4 | 3 | 5 | 3 | 2 | 4  | 3 | 3 | 2 | 3 | 4 | 5  | 5 | 3 | 4
+Influence w/o Auth.   | 4 | 3 | 3 | 3 | 4 | 4  | 4 | 5 | 4 | 5 | 3 | 3  | 4 | 3 | 4
+Delegation            | 5 | 5 | 4 | 4 | 4 | 4  | 4 | 3 | 4 | 4 | 4 | 3  | 3 | 5 | 5
+Resilience            | 5 | 4 | 4 | 4 | 4 | 4  | 5 | 3 | 4 | 4 | 3 | 4  | 4 | 5 | 5
+
+Обозначения: MD = Managing Director, CM = Country Manager
+
+================================================================================
+  ЧАСТЬ VII: ADIZES PAEI ПРОФИЛИ ВСЕХ РОЛЕЙ
+================================================================================
+
+Роль                      | P | A | E | I | Код   | Тип лидерства
+--------------------------|---|---|---|---|-------|---------------------
+CEO (стартап)             | 5 | 2 | 4 | 3 | PaEi  | Предприниматель
+CEO (масштабирование)     | 3 | 4 | 4 | 5 | pAEI  | Интегратор-стратег
+CEO (зрелая компания)     | 3 | 4 | 3 | 5 | pAeI  | Администратор-интегр.
+COO                       | 5 | 5 | 2 | 3 | PAei  | Execution-machine
+CFO                       | 3 | 5 | 2 | 3 | pAei  | Системный контролёр
+CTO (innovation)          | 4 | 3 | 5 | 3 | PaEi  | Технологический визионер
+CTO (scale)               | 4 | 4 | 4 | 3 | PAEi  | Инженерный лидер
+CMO (brand)               | 3 | 2 | 5 | 4 | paEI  | Креативный лидер
+CMO (growth)              | 4 | 3 | 4 | 3 | PaEi  | Growth-хакер
+CHRO                      | 2 | 3 | 3 | 5 | paEI  | People Champion
+CRO                       | 5 | 4 | 3 | 3 | PAei  | Revenue Machine
+CSO                       | 3 | 2 | 5 | 3 | paEi  | Стратег-аналитик
+CPO                       | 4 | 2 | 5 | 3 | PaEi  | Product визионер
+CDO                       | 4 | 3 | 4 | 4 | PaEI  | Digital трансформатор
+CIO                       | 3 | 5 | 2 | 3 | pAei  | IT-администратор
+CISO                      | 3 | 5 | 2 | 3 | pAei  | Страж безопасности
+CLO                       | 2 | 5 | 2 | 4 | pAeI  | Правовой советник
+CCO                       | 3 | 2 | 4 | 5 | paEI  | Коммуникатор
+CXO                       | 3 | 3 | 4 | 5 | paEI  | Адвокат клиента
+CECO                      | 2 | 5 | 2 | 4 | pAeI  | Compliance лидер
+VP Sales                  | 5 | 4 | 3 | 3 | PAei  | Продавец-лидер
+VP Engineering            | 4 | 4 | 3 | 3 | PAei  | Инженерный менеджер
+VP Product                | 4 | 2 | 5 | 3 | PaEi  | Product builder
+VP Finance                | 3 | 5 | 2 | 3 | pAei  | Финансовый оператор
+VP People / HR Dir.       | 3 | 4 | 2 | 5 | pAeI  | HR-оператор
+VP Customer Success       | 4 | 3 | 2 | 5 | PaeI  | Клиентский защитник
+VP Supply Chain           | 5 | 5 | 2 | 3 | PAei  | Цепочка поставок
+VP Business Development   | 4 | 2 | 5 | 3 | PaEi  | Deal-maker
+Managing Director         | 4 | 4 | 4 | 3 | PAEi  | Мини-CEO
+Country Manager           | 4 | 4 | 3 | 5 | PAEI  | Локальный CEO
+Plant Director            | 5 | 5 | 2 | 3 | PAei  | Производственник
+
+================================================================================
+  ЧАСТЬ VIII: EGON ZEHNDER ПОТЕНЦИАЛ — ПРИОРИТЕТЫ ПО РОЛЯМ
+================================================================================
+
+Роль        | Curiosity | Insight | Engagement | Determination | Приоритет #1
+------------|-----------|---------|------------|---------------|-------------
+CEO         |     4     |    5    |     5      |      5        | Engagement
+COO         |     3     |    4    |     4      |      5        | Determination
+CFO         |     4     |    5    |     3      |      4        | Insight
+CTO         |     5     |    5    |     3      |      4        | Curiosity
+CMO         |     5     |    4    |     5      |      4        | Curiosity
+CHRO        |     4     |    4    |     5      |      4        | Engagement
+CRO         |     3     |    4    |     5      |      5        | Determination
+CSO         |     5     |    5    |     3      |      3        | Insight
+CPO         |     5     |    5    |     4      |      4        | Curiosity
+CDO         |     5     |    4    |     5      |      4        | Curiosity
+CLO         |     3     |    5    |     3      |      4        | Insight
+CISO        |     4     |    5    |     3      |      4        | Insight
+
+================================================================================
+  ЧАСТЬ IX: HOGAN ДЕСТРУКТОРЫ — КРИТИЧНОСТЬ ПО РОЛЯМ
+================================================================================
+
+Деструктор    |CEO|COO|CFO|CTO|CMO|CHRO|CRO|CSO|CPO|CLO|CISO
+--------------|---|---|---|---|---|----|----|---|---|---|----
+Excitable     | C | H | H | M | M | C  | H | M | M | H | M
+Skeptical     | C | H | M | M | M | C  | M | M | M | H | H
+Cautious      | C | H | M | M | H | M  | H | H | H | L | M
+Reserved      | H | M | L | M | H | C  | H | L | M | L | L
+Leisurely     | H | C | H | H | M | H  | H | M | M | H | H
+Bold          | C | M | M | M | M | H  | M | M | M | M | M
+Mischievous   | C | H | C | M | M | H  | H | M | M | C | C
+Colorful      | M | M | H | M | L | H  | L | M | M | H | M
+Imaginative   | M | H | H | L | L | M  | M | H | L | H | H
+Diligent      | H | H | M | H | M | M  | M | M | M | L | M
+Dutiful       | H | M | C | M | M | C  | M | M | M | H | H
+
+C = CRITICAL (дисквалификация)
+H = HIGH (серьёзный риск, митигация возможна)
+M = MEDIUM (наблюдение)
+L = LOW (не критично для данной роли)
+
+================================================================================
+  КАК ИСПОЛЬЗОВАТЬ ЭТУ МАТРИЦУ
+================================================================================
+
+1. ПОСТРОЕНИЕ ПРОФИЛЯ:
+   → Найдите роль → используйте компетенции с важностью 4-5
+   → Адаптируйте под стадию компании (PAEI меняется)
+   → Добавьте отраслевые специфические требования
+
+2. КАЛИБРОВКА ИНТЕРВЬЮ:
+   → Важность 5 → минимум 2 STAR-вопроса + reference check
+   → Важность 4 → минимум 1 STAR-вопрос
+   → Важность 3 → можно проверить через reference
+
+3. СРАВНЕНИЕ КАНДИДАТОВ:
+   → Используйте сводную матрицу как benchmark
+   → Взвешивайте оценки по важности компетенций
+   → Сравните PAEI-профиль кандидата с ожидаемым
+
+4. GAP-АНАЛИЗ ДЕЙСТВУЮЩИХ ЛИДЕРОВ:
+   → Текущий уровень vs требуемый → development plan
+   → Используйте для succession planning
+   → Определите coaching focus areas
+
+5. КОМАНДНЫЙ БАЛАНС:
+   → Проверьте PAEI-баланс топ-команды
+   → Избыток одного типа = organizational blind spot
+   → Идеально: команда покрывает все 4 функции PAEI
+
+================================================================================

@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% set active_page = 'i18n' %}
+
+{% block title %}PT_Standart — i18n целевого проекта{% endblock %}
+
+{% block content %}
+<h1>Интернационализация целевого проекта</h1>
+<p class="text-muted mb-16">
+    Покрытие переводами и валидация проекта: <strong>{{ target_project or 'не указан' }}</strong>
+</p>
+
+{% if stats and not stats.get('error') %}
+<div class="card mb-16" data-testid="i18n-stats">
+    <h2>Статистика по локалям</h2>
+    <table data-testid="translations-table">
+        <thead>
+            <tr>
+                <th>Локаль</th>
+                <th>Всего строк</th>
+                <th>Переведено</th>
+                <th>Ожидает</th>
+                <th>Покрытие</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loc, st in stats.items() %}
+            {% if st is mapping %}
+            <tr>
+                <td><strong>{{ loc }}</strong></td>
+                <td>{{ st.get('total', 0) }}</td>
+                <td>{{ st.get('translated', 0) }}</td>
+                <td>{{ st.get('pending', 0) }}</td>
+                <td>
+                    {% set cov = st.get('coverage', 0) %}
+                    <div class="flex" style="gap:8px;">
+                        <div class="progress" style="flex:1;">
+                            <div class="progress-fill {% if cov >= 80 %}progress-green{% elif cov >= 50 %}progress-yellow{% else %}progress-red{% endif %}"
+                                 style="width:{{ cov }}%;" data-testid="coverage-bar"></div>
+                        </div>
+                        <span>{{ cov }}%</span>
+                    </div>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% elif stats.get('error') %}
+<div class="alert alert-error">{{ stats.error }}</div>
+{% endif %}
+
+<div class="card mb-16">
+    <h2>Валидация переводов</h2>
+    <form method="post" action="/i18n/validate" data-testid="form-validate">
+        <div class="grid-2 mb-8">
+            <div>
+                <label class="text-muted">Исходный язык:</label>
+                <select name="source" data-testid="select-source">
+                    <option value="en" selected>English</option>
+                    <option value="ru">Русский</option>
+                </select>
+            </div>
+            <div>
+                <label class="text-muted">Целевой язык:</label>
+                <select name="target" data-testid="select-target">
+                    <option value="ru" selected>Русский</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn" data-testid="btn-validate">Validate</button>
+    </form>
+</div>
+
+{% if report %}
+<div class="card" data-testid="validation-report">
+    <h2>Результаты валидации</h2>
+
+    {% if report.get('error') %}
+    <div class="alert alert-error">{{ report.error }}</div>
+    {% else %}
+    <div class="summary">
+        <div class="summary-card">
+            <div class="value" style="color:#58a6ff;">{{ report.get('total', 0) }}</div>
+            <div class="label">Всего строк</div>
+        </div>
+        <div class="summary-card">
+            <div class="value" style="color:#3fb950;">{{ report.get('translated', 0) }}</div>
+            <div class="label">Переведено</div>
+        </div>
+        <div class="summary-card">
+            <div class="value" style="color:#f85149;">{{ report.get('missing', 0) }}</div>
+            <div class="label">Не переведено</div>
+        </div>
+        <div class="summary-card">
+            {% set cov = report.get('coverage', 0) %}
+            <div class="value" style="color:{% if cov >= 80 %}#3fb950{% elif cov >= 50 %}#d29922{% else %}#f85149{% endif %};">
+                {{ cov }}%
+            </div>
+            <div class="label">Покрытие</div>
+        </div>
+        <div class="summary-card">
+            <div class="value" style="color:#d29922;">{{ report.get('issues_count', 0) }}</div>
+            <div class="label">Проблем</div>
+        </div>
+    </div>
+
+    {% if report.get('is_complete') %}
+    <div class="alert alert-success mt-8">Все строки переведены, критических проблем нет</div>
+    {% else %}
+    <div class="alert alert-error mt-8">Найдены непереведённые строки или критические проблемы</div>
+    {% endif %}
+
+    {% if report.get('by_category') %}
+    <h2 class="mt-16">По категориям</h2>
+    <table class="mt-8">
+        <thead><tr><th>Категория</th><th>Всего</th><th>Переведено</th><th>Покрытие</th></tr></thead>
+        <tbody>
+        {% for cat, data in report.by_category.items() %}
+        <tr>
+            <td>{{ cat }}</td>
+            <td>{{ data.get('total', 0) }}</td>
+            <td>{{ data.get('translated', 0) }}</td>
+            <td>{{ data.get('coverage', 0) }}%</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

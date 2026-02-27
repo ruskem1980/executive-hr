@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% set active_page = 'reports' %}
+
+{% block title %}PT_Standart — Отчёты{% endblock %}
+
+{% block content %}
+<h1>Отчёты по токенам</h1>
+<p class="text-muted mb-16">Расход токенов LLM моделей и экономия за счёт маршрутизации</p>
+
+{% if daily_stats.get('error') %}
+<div class="alert alert-error">{{ daily_stats.error }}</div>
+{% endif %}
+
+<div class="summary" data-testid="daily-summary">
+    <div class="summary-card">
+        <div class="value" style="color:#58a6ff;">{{ daily_stats.get('cnt', 0) }}</div>
+        <div class="label">Задач сегодня</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:#d29922;">{{ '{:,}'.format(daily_stats.get('tokens', 0)) }}</div>
+        <div class="label">Токенов сегодня</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:#f85149;">${{ '%.4f' % daily_stats.get('cost', 0) }}</div>
+        <div class="label">Стоимость</div>
+    </div>
+    <div class="summary-card">
+        <div class="value" style="color:#3fb950;">{{ daily_stats.get('saving_pct', 0) }}%</div>
+        <div class="label">Экономия</div>
+    </div>
+</div>
+
+{% if total_stats %}
+<div class="card mb-16">
+    <h2>Общая статистика</h2>
+    <div class="grid-3 mt-8">
+        <div>
+            <span class="text-muted">Всего задач:</span>
+            <strong>{{ total_stats.get('cnt', 0) }}</strong>
+        </div>
+        <div>
+            <span class="text-muted">Всего токенов:</span>
+            <strong>{{ '{:,}'.format(total_stats.get('tokens', 0)) }}</strong>
+        </div>
+        <div>
+            <span class="text-muted">Общая стоимость:</span>
+            <strong>${{ '%.4f' % total_stats.get('cost', 0) }}</strong>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <h2>Последние задачи</h2>
+    <table data-testid="tasks-table">
+        <thead>
+            <tr>
+                <th>Задача</th>
+                <th>Сложность</th>
+                <th>Токены</th>
+                <th>Стоимость</th>
+                <th>Opus-only</th>
+                <th>Экономия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.get('query', '-')[:50] }}{% if task.get('query', '')|length > 50 %}...{% endif %}</td>
+                <td>
+                    {% set cx = task.get('complexity', '?') %}
+                    <span class="badge {% if cx == 'COMPLEX' %}badge-critical{% elif cx == 'MEDIUM' %}badge-high{% else %}badge-low{% endif %}">
+                        {{ cx }}
+                    </span>
+                </td>
+                <td>{{ '{:,}'.format((task.get('total_input_tokens', 0) or 0) + (task.get('total_output_tokens', 0) or 0)) }}</td>
+                <td>${{ '%.4f' % (task.get('total_cost_usd', 0) or 0) }}</td>
+                <td class="text-muted">${{ '%.4f' % (task.get('opus_only_cost_usd', 0) or 0) }}</td>
+                <td>
+                    {% set opus = task.get('opus_only_cost_usd', 0) or 0 %}
+                    {% set real = task.get('total_cost_usd', 0) or 0 %}
+                    {% if opus > 0 %}
+                    <span style="color:#3fb950;">{{ '%.0f' % ((1 - real / opus) * 100) }}%</span>
+                    {% else %}-{% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+            {% if not tasks %}
+            <tr><td colspan="6" class="text-muted" style="text-align:center;padding:24px;">Нет данных</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

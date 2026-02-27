@@ -1,0 +1,165 @@
+# Конфигурация инструментов статического анализа
+
+# Параметры классификатора
+classifier:
+  confidence_threshold: 0.7  # Порог для LLM fallback
+  max_tests_per_request: 20  # Ограничение количества тестов
+  default_scope: "src/"
+
+# Конфигурация инструментов
+tools:
+  bandit:
+    enabled: true
+    timeout: 60  # seconds
+    severity_levels:
+      - MEDIUM
+      - HIGH
+    options:
+      recursive: true
+      format: json
+      exclude_dirs:
+        - tests/
+        - .venv/
+        - node_modules/
+
+  safety:
+    enabled: true
+    timeout: 30
+    options:
+      db_update: false  # Не обновлять БД при каждом запуске
+      json_output: true
+
+  pylint:
+    enabled: true
+    timeout: 120
+    options:
+      output_format: json
+      max_line_length: 120
+      disable:
+        - C0103  # invalid-name (слишком шумный)
+        - R0903  # too-few-public-methods
+      enable:
+        - useless-suppression
+
+  radon:
+    enabled: true
+    timeout: 30
+    cyclomatic_complexity:
+      min_rank: C  # Только C и выше (complexity >= 11)
+      threshold: 10
+    maintainability_index:
+      threshold: 65  # Ниже этого значения = плохая maintainability
+      ranks:
+        A: [85, 100]
+        B: [65, 85]
+        C: [50, 65]
+        F: [0, 50]
+
+  coverage:
+    enabled: true
+    timeout: 30
+    options:
+      branch_coverage: true
+      omit:
+        - "*/tests/*"
+        - "*/venv/*"
+        - "*/__pycache__/*"
+      critical_threshold: 80  # Файлы ниже этого порога = critical gap
+
+  pydeps:
+    enabled: false  # Опционально, медленный
+    timeout: 60
+    options:
+      max_bacon: 2  # Глубина зависимостей
+
+  semgrep:
+    enabled: false  # Опционально, требует установки
+    timeout: 120
+    options:
+      config: "auto"
+
+# Маппинг типов запросов на инструменты
+request_type_tools:
+  SECURITY:
+    - bandit
+    - safety
+    # - semgrep  # если установлен
+
+  PERFORMANCE:
+    - cProfile
+    - memory_profiler
+    - py-spy
+
+  QUALITY:
+    - pylint
+    - radon
+    - flake8
+
+  COVERAGE:
+    - coverage
+    - pytest-cov
+
+  ARCHITECTURE:
+    - pydeps
+    - pyreverse
+    - vulture
+
+  DOCUMENTATION:
+    - interrogate
+    - pydocstyle
+    - darglint
+
+# Приоритеты файлов для coverage
+coverage_priority:
+  critical_patterns:
+    - "*/auth/*"
+    - "*/payment/*"
+    - "*/billing/*"
+    - "*/security/*"
+    - "*/admin/*"
+
+  critical_threshold: 90  # Критичные файлы должны иметь >= 90% coverage
+  high_threshold: 80
+  medium_threshold: 70
+
+# Parallel execution
+execution:
+  max_workers: 4  # Макс. параллельных инструментов
+  enable_pytest: true
+  enable_static_analysis: true
+  enable_dynamic_analysis: false  # Только для PERFORMANCE типа
+
+# LLM integration
+llm:
+  gemini_bridge_path: ".claude/helpers/gemini-bridge.sh"
+  models:
+    flash: "gemini-3-flash-preview"
+    pro: "gemini-3-pro-preview"
+    opus: "claude-opus-4.6"
+
+  complexity_routing:
+    simple_threshold: 3  # <= 3 issues
+    medium_threshold: 10  # <= 10 issues
+    # > 10 issues = complex
+
+# Reporting
+reporting:
+  max_report_tokens: 500  # Целевой размер отчета
+  max_issues_per_tool: 10  # Топ N issues
+  include_code_snippets: true
+  snippet_max_length: 60
+
+  summary_format: "compact"  # compact | detailed
+  recommendations_max: 5  # Топ N рекомендаций
+
+# Caching
+caching:
+  enabled: false  # TODO: Реализовать в Phase 2
+  ttl: 3600  # 1 hour
+  cache_dir: ".cache/analysis_results"
+
+# Logging
+logging:
+  level: INFO  # DEBUG | INFO | WARNING | ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  output: "logs/analysis.log"

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% set active_page = 'home' %}
+
+{% block title %}PT_Standart — Анализ проекта{% endblock %}
+
+{% block content %}
+<h1>Анализ целевого проекта</h1>
+<p class="text-muted mb-16">Укажите путь к проекту и запрос для интеллектуального анализа</p>
+
+{% if error %}
+<div class="alert alert-error" data-testid="error-message">{{ error }}</div>
+{% endif %}
+
+<div class="card">
+    <form method="post" action="/analyze" data-testid="form-query">
+        <div class="mb-8">
+            <label for="target_project" class="text-muted" style="display:block;">Путь к целевому проекту:</label>
+            <input type="text" name="target_project" id="target_project"
+                   value="{{ target_project or '' }}"
+                   placeholder="/path/to/your/project"
+                   data-testid="input-project-path">
+        </div>
+        <div class="mb-8">
+            <label for="query" class="text-muted" style="display:block;">Запрос на анализ:</label>
+            <textarea name="query" id="query" data-testid="input-query"
+                      placeholder="Например: Проверь безопасность auth модуля">{{ query or '' }}</textarea>
+        </div>
+        <button type="submit" class="btn" data-testid="btn-analyze">Анализировать</button>
+    </form>
+</div>
+
+{% if result %}
+<div class="card mt-16" data-testid="analysis-result">
+    <h2>Результат анализа проекта</h2>
+
+    {% if metrics %}
+    <div class="summary">
+        <div class="summary-card">
+            <div class="value" style="color:#58a6ff;">{{ metrics.get('complexity', '?') }}</div>
+            <div class="label">Сложность</div>
+        </div>
+        <div class="summary-card">
+            <div class="value" style="color:#d29922;">{{ metrics.get('model', '?') }}</div>
+            <div class="label">Модель</div>
+        </div>
+        <div class="summary-card">
+            <div class="value" style="color:#3fb950;">{{ metrics.get('total_tokens', 0) }}</div>
+            <div class="label">Токенов</div>
+        </div>
+        <div class="summary-card">
+            <div class="value" style="color:#a371f7;">{{ metrics.get('total_time_seconds', 0) }}с</div>
+            <div class="label">Время</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <pre style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:16px;
+                white-space:pre-wrap;color:#c9d1d9;font-size:0.9em;margin-top:12px;max-height:500px;overflow-y:auto;"
+         data-testid="result-text">{{ result }}</pre>
+</div>
+{% endif %}
+{% endblock %}

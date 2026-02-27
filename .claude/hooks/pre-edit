@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# pre-edit — Блокирует Edit/Write без активного workflow.
+# Проверяет ФАЙЛ .claude/tracking/current_task (не ENV vars — они теряются между Bash вызовами).
+# Возвращает JSON {"decision":"block"} для корректной блокировки через Claude Code hooks.
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+CURRENT_TASK_FILE="$PROJECT_ROOT/.claude/tracking/current_task"
+
+# Проверка: файл current_task существует и не пустой
+if [[ -f "$CURRENT_TASK_FILE" ]] && [[ -s "$CURRENT_TASK_FILE" ]]; then
+  echo '{"decision":"allow"}'
+  exit 0
+fi
+
+# Workflow НЕ активен — блокируем
+echo '{"decision":"block","reason":"ENFORCEMENT: Edit/Write заблокирована — нет активного workflow. Запусти: bash .claude/helpers/workflow-start.sh \"описание задачи\""}'
+exit 1

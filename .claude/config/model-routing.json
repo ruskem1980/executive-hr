@@ -1,0 +1,34 @@
+{
+  "_comment": "Конфигурация маршрутизации моделей для разных уровней сложности",
+  "routing": {
+    "program": {
+      "description": "Задача решается программой/скриптом",
+      "llm_usage": "minimal",
+      "pipeline": ["opus:validator"],
+      "expected_savings": "99%"
+    },
+    "simple": {
+      "description": "1-2 файла, <50 строк кода",
+      "llm_usage": "delegated",
+      "pipeline": ["opus:classifier", "flash:executor", "opus:validator"],
+      "expected_savings": "95%"
+    },
+    "medium": {
+      "description": "3-5 файлов, новая фича, API endpoint",
+      "llm_usage": "delegated",
+      "pipeline": ["opus:classifier", "flash:executor", "pro:reviewer", "opus:validator"],
+      "expected_savings": "90%"
+    },
+    "complex": {
+      "description": "6+ файлов, архитектура, безопасность",
+      "llm_usage": "direct",
+      "pipeline": ["opus:direct"],
+      "expected_savings": "0%"
+    }
+  },
+  "thresholds": {
+    "auto_apply_similarity": 0.9,
+    "show_suggestions_similarity": 0.7,
+    "min_confidence": 0.5
+  }
+}

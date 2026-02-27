@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% set active_page = 'settings' %}
+
+{% block title %}PT_Standart — Настройки{% endblock %}
+
+{% block content %}
+<h1>Настройки анализа</h1>
+<p class="text-muted mb-16">Конфигурация параметров анализа целевого проекта</p>
+
+{% if saved %}
+<div class="alert alert-success" data-testid="save-success">Настройки сохранены</div>
+{% endif %}
+
+<form method="post" action="/settings" data-testid="form-settings">
+    <div class="card mb-16">
+        <h2>Целевой проект</h2>
+        <div class="mt-8">
+            <label class="text-muted" for="target_project">Путь к проекту:</label>
+            <input type="text" name="target_project" id="target_project"
+                   value="{{ settings.get('target_project', '') }}"
+                   placeholder="/path/to/your/project"
+                   data-testid="input-target-project">
+        </div>
+    </div>
+
+    <div class="card mb-16">
+        <h2>Классификатор</h2>
+        <div class="grid-2 mt-8">
+            <div>
+                <label class="text-muted" for="confidence_threshold">Порог confidence (0.0–1.0):</label>
+                <input type="number" name="confidence_threshold" id="confidence_threshold"
+                       value="{{ settings.get('confidence_threshold', 0.7) }}"
+                       min="0" max="1" step="0.05"
+                       data-testid="input-threshold">
+            </div>
+            <div>
+                <label class="text-muted" for="model">Модель LLM:</label>
+                <select name="model" id="model" data-testid="select-model">
+                    <option value="flash" {% if settings.get('model') == 'flash' %}selected{% endif %}>
+                        Gemini Flash ($0.50/$3.00)
+                    </option>
+                    <option value="pro" {% if settings.get('model') == 'pro' %}selected{% endif %}>
+                        Gemini Pro ($2.00/$12.00)
+                    </option>
+                    <option value="opus" {% if settings.get('model') == 'opus' %}selected{% endif %}>
+                        Claude Opus ($15/$75)
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-16">
+        <h2>Инструменты анализа</h2>
+        <div class="mt-8" style="display:flex;flex-direction:column;gap:8px;">
+            <label class="flex" style="cursor:pointer;">
+                <input type="checkbox" name="tools_bandit" value="true"
+                       {% if settings.get('tools_bandit') %}checked{% endif %}
+                       data-testid="check-bandit">
+                <span>Bandit — сканер безопасности Python</span>
+            </label>
+            <label class="flex" style="cursor:pointer;">
+                <input type="checkbox" name="tools_pylint" value="true"
+                       {% if settings.get('tools_pylint') %}checked{% endif %}
+                       data-testid="check-pylint">
+                <span>Pylint — анализ качества кода</span>
+            </label>
+            <label class="flex" style="cursor:pointer;">
+                <input type="checkbox" name="tools_radon" value="true"
+                       {% if settings.get('tools_radon') %}checked{% endif %}
+                       data-testid="check-radon">
+                <span>Radon — метрики сложности</span>
+            </label>
+            <label class="flex" style="cursor:pointer;">
+                <input type="checkbox" name="tools_safety" value="true"
+                       {% if settings.get('tools_safety') %}checked{% endif %}
+                       data-testid="check-safety">
+                <span>Safety — проверка зависимостей</span>
+            </label>
+            <label class="flex" style="cursor:pointer;">
+                <input type="checkbox" name="tools_coverage" value="true"
+                       {% if settings.get('tools_coverage') %}checked{% endif %}
+                       data-testid="check-coverage">
+                <span>Coverage — покрытие тестами</span>
+            </label>
+        </div>
+    </div>
+
+    {% if config %}
+    <div class="card mb-16">
+        <h2>Конфигурация из tools_config.yaml</h2>
+        <table class="mt-8">
+            <thead><tr><th>Инструмент</th><th>Включён</th><th>Таймаут</th></tr></thead>
+            <tbody>
+            {% for tool_name, tool_cfg in config.get('tools', {}).items() %}
+            <tr>
+                <td>{{ tool_name }}</td>
+                <td>
+                    {% if tool_cfg.get('enabled') %}
+                    <span class="badge badge-pass">Да</span>
+                    {% else %}
+                    <span class="badge badge-fail">Нет</span>
+                    {% endif %}
+                </td>
+                <td class="text-muted">{{ tool_cfg.get('timeout', '-') }}с</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <button type="submit" class="btn" data-testid="btn-save">Сохранить настройки</button>
+</form>
+{% endblock %}

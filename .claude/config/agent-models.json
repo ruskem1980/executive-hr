@@ -1,0 +1,16 @@
+{
+  "_comment": "Override для моделей агентов. Если не указано - используются hardcoded defaults из agent-model-router.js",
+  "_defaults_info": {
+    "researcher": "haiku",
+    "coder": "sonnet",
+    "system-architect": "opus",
+    "security-architect": "opus",
+    "tester": "haiku",
+    "reviewer": "sonnet"
+  },
+  "_example_overrides": {
+    "_comment": "Раскомментируйте и измените при необходимости",
+    "coder": "sonnet",
+    "security-architect": "opus"
+  }
+}

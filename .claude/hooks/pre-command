@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# pre-command — Блокирует опасные Bash команды без активного workflow.
+# Читает команду из TOOL_INPUT_command (env) или $* (аргументы).
+# Возвращает JSON {"decision":"block"} для корректной блокировки через Claude Code hooks.
+
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+CURRENT_TASK_FILE="$PROJECT_ROOT/.claude/tracking/current_task"
+
+# Читаем команду из env (Claude Code передаёт TOOL_INPUT_command) или аргументов
+FULL_COMMAND="${TOOL_INPUT_command:-$*}"
+
+# Безопасные команды — всегда разрешены
+is_safe() {
+  local cmd="$1"
+  # Чтение, анализ, тесты, workflow-скрипты, node/python для классификации
+  [[ "$cmd" =~ ^[[:space:]]*(ls|cat|less|head|tail|grep|rg|find|wc|file|stat|which|echo|printf)[[:space:]] ]] && return 0
+  [[ "$cmd" =~ ^[[:space:]]*(ls|cat|less|head|tail|grep|rg|find|wc|file|stat|which|echo|printf)$ ]] && return 0
+  [[ "$cmd" =~ ^[[:space:]]*(git[[:space:]]+(status|diff|log|show|branch[[:space:]]*$)) ]] && return 0
+  [[ "$cmd" =~ ^[[:space:]]*(pytest|python3?[[:space:]]+-[cm]|node[[:space:]]) ]] && return 0
+  [[ "$cmd" =~ ^[[:space:]]*(npx[[:space:]]) ]] && return 0
+  [[ "$cmd" =~ workflow-(start|finish|record)\.sh ]] && return 0
+  [[ "$cmd" =~ token-tracker\.py ]] && return 0
+  [[ "$cmd" =~ router\.js ]] && return 0
+  [[ "$cmd" =~ mkdir[[:space:]]+-p[[:space:]]+.*\.claude/tracking ]] && return 0
+  [[ "$cmd" =~ source[[:space:]] ]] && return 0
+  [[ "$cmd" =~ bash[[:space:]]+\.claude/helpers/ ]] && return 0
+  [[ "$cmd" =~ bash[[:space:]]+\"?\$PROJECT_DIR/\.claude/helpers/ ]] && return 0
+  [[ "$cmd" =~ ^[[:space:]]*python3?[[:space:]]+.*git_auto_save\.py ]] && return 0
+  [[ "$cmd" =~ ^[[:space:]]*python3?[[:space:]]+scripts/ ]] && return 0
+  return 1
+}
+
+# Безопасная команда — всегда разрешена
+if is_safe "$FULL_COMMAND"; then
+  echo '{"decision":"allow"}'
+  exit 0
+fi
+
+# Проверка workflow для опасных команд
+if [[ -f "$CURRENT_TASK_FILE" ]] && [[ -s "$CURRENT_TASK_FILE" ]]; then
+  echo '{"decision":"allow"}'
+  exit 0
+fi
+
+# Блокируем
+MSG="ENFORCEMENT: Bash команда заблокирована — нет активного workflow. Команда: ${FULL_COMMAND:0:80}. Запусти: bash .claude/helpers/workflow-start.sh \"описание\""
+echo "{\"decision\":\"block\",\"reason\":\"$MSG\"}"
+exit 1

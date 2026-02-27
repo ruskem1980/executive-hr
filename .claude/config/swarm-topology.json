@@ -1,0 +1,24 @@
+{
+  "_comment": "Конфигурация swarm topology (anti-drift defaults)",
+  "topology": "hierarchical",
+  "max_agents": 8,
+  "strategy": "specialized",
+  "consensus": "raft",
+  "memory_backend": "hybrid",
+  "hnsw_enabled": true,
+  "neural_enabled": true,
+  "coordinator": {
+    "auto_spawn": true,
+    "min_agents_threshold": 4,
+    "model": "sonnet"
+  },
+  "load_balancing": {
+    "enabled": true,
+    "strategy": "adaptive"
+  },
+  "monitoring": {
+    "heartbeat_interval": 30,
+    "max_silence": 600,
+    "auto_restart_hung": false
+  }
+}

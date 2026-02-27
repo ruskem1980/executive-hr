@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# user-prompt-start — UserPromptSubmit хук.
+# Читает JSON из stdin, извлекает prompt, автостартует workflow если нет current_task.
+#
+# UserPromptSubmit передаёт: {"prompt": "...", "session_id": "...", ...}
+# stdout этого хука добавляется как контекст в разговор.
+
+PROJ="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
+CT="$PROJ/.claude/tracking/current_task"
+
+# Читаем JSON из stdin
+INPUT=$(cat 2>/dev/null || echo "{}")
+
+# Извлекаем prompt
+PROMPT=$(echo "$INPUT" | python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)
+    print(d.get('prompt', ''))
+except:
+    print('')
+" 2>/dev/null || echo "")
+
+# MAKE NO MISTAKES — обязательная директива для каждого промпта
+# Вывод в stdout добавляется как контекст в разговор
+if [[ -n "$PROMPT" ]]; then
+  echo "<user-prompt-submit-hook>MAKE NO MISTAKES. Перепроверяй все факты, вычисления, код и рассуждения. При неуверенности — указывай явно. Точность важнее скорости.</user-prompt-submit-hook>"
+fi
+
+# Если workflow уже активен или prompt пустой — ничего не делаем
+if [[ -f "$CT" ]] || [[ -z "$PROMPT" ]]; then
+  exit 0
+fi
+
+# Запускаем workflow-start.sh тихо (stdout в контекст — не нужен шум)
+PDESC=$(echo "$PROMPT" | head -c 80 | tr '\n' ' ' | sed 's/["\]//g')
+bash "$PROJ/.claude/helpers/workflow-start.sh" "$PDESC" > /dev/null 2>&1 || true

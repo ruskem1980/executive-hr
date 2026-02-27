@@ -1,0 +1,62 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Daemon state
+.claude-flow/daemon.pid
+.claude-flow/daemon.log
+
+# Databases (runtime)
+.claude/memory.db
+.swarm/memory.db
+
+# Node
+node_modules/
+package-lock.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+__pycache__/
+*.pyc
+
+# ML models (too large for git)
+data/models/*.pkl
+data/chroma_db/
+
+# Sentence transformers cache
+.cache/
+~/.cache/torch/sentence_transformers/
+
+# Secrets & credentials
+.env
+.env.*
+credentials.*
+*.key
+*.pem
+
+# Runtime data
+data/token_usage.db
+data/traces.db
+data/routing_history.db
+data/semantic_cache/
+
+# Candidate data (PII — NEVER commit)
+data/candidates/
+data/assessments/
+data/reports/private/
+
+# Python
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Logs
+logs/
+*.log
+
+# Tracking (runtime)
+.claude/tracking/

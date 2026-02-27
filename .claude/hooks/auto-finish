@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# auto-finish — Stop-хук: требует завершения workflow перед окончанием ответа.
+#
+# Если current_task СУЩЕСТВУЕТ → возвращает {"decision": "block", "reason": "..."}
+# Claude получает reason → ОБЯЗАН вызвать bash .claude/helpers/workflow-finish.sh
+# workflow-finish.sh удаляет current_task → следующий Stop возвращает {"ok": true}
+
+PROJ="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
+CURRENT_TASK="$PROJ/.claude/tracking/current_task"
+
+if [[ ! -f "$CURRENT_TASK" ]]; then
+  printf '{"ok": true}'
+  exit 0
+fi
+
+# Читаем описание задачи
+TASK_DESC=$(python3 -c "
+import json
+try:
+    d = json.load(open('$CURRENT_TASK'))
+    print(d.get('description', '?')[:60])
+except:
+    print('?')
+" 2>/dev/null || echo "?")
+
+TASK_ID=$(python3 -c "
+import json
+try:
+    print(json.load(open('$CURRENT_TASK'))['task_id'])
+except:
+    print('')
+" 2>/dev/null || echo "")
+
+# Короткое однострочное reason — json.dumps не нужен, нет многострочного текста
+MSG="WORKFLOW НЕ ЗАВЕРШЕН. Задача: ${TASK_DESC} (${TASK_ID}). НЕМЕДЛЕННО вызови: bash .claude/helpers/workflow-finish.sh — это ОБЯЗАТЕЛЬНО для вывода отчёта по токенам."
+
+# Экранируем через python3 для корректного JSON
+python3 -c "import json, sys; print(json.dumps({'decision': 'block', 'reason': sys.argv[1]}))" "$MSG"

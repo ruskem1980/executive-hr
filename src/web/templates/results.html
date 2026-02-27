@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% set active_page = 'results' %}
+
+{% block title %}PT_Standart — Результаты анализа{% endblock %}
+
+{% block content %}
+<h1>Проблемы целевого проекта</h1>
+<p class="text-muted mb-16">
+    Найденные проблемы в проекте: <strong>{{ target_project or 'не указан' }}</strong>
+</p>
+
+<div class="flex-between mb-16">
+    <div class="flex">
+        <span class="text-muted">Фильтр:</span>
+        <a href="/results" class="btn btn-secondary {% if not severity_filter %}badge-pass{% endif %}"
+           data-testid="filter-all">Все ({{ total }})</a>
+        {% for sev in severities %}
+        <a href="/results?severity={{ sev }}"
+           class="btn btn-secondary {% if severity_filter == sev %}badge-pass{% endif %}"
+           data-testid="filter-{{ sev|lower }}">{{ sev }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="card">
+    <table data-testid="results-table">
+        <thead>
+            <tr>
+                <th>Тип</th>
+                <th>Severity</th>
+                <th>Сообщение</th>
+                <th>Файл</th>
+                <th>Строка</th>
+            </tr>
+        </thead>
+        <tbody data-testid="issues-list">
+            {% for issue in issues %}
+            <tr data-testid="issue-row">
+                <td>
+                    {% set itype = issue.get('type', 'UNKNOWN')|upper %}
+                    {% if 'SQL' in itype or 'SECURITY' in itype or 'PASSWORD' in itype or 'XSS' in itype %}
+                    <span class="badge badge-security">SECURITY</span>
+                    {% elif 'PERF' in itype or 'MEMORY' in itype or 'LOOP' in itype %}
+                    <span class="badge badge-performance">PERFORMANCE</span>
+                    {% elif 'STYLE' in itype or 'QUALITY' in itype or 'COMPLEX' in itype %}
+                    <span class="badge badge-quality">QUALITY</span>
+                    {% elif 'COVERAGE' in itype or 'TEST' in itype %}
+                    <span class="badge badge-coverage">COVERAGE</span>
+                    {% else %}
+                    <span class="badge badge-medium">{{ itype[:15] }}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% set sev = issue.get('severity', 'MEDIUM') %}
+                    <span class="badge badge-{{ sev|lower }}">{{ sev }}</span>
+                </td>
+                <td>{{ issue.get('message', '-') }}</td>
+                <td class="text-muted">{{ issue.get('file', '-') }}</td>
+                <td class="text-muted">{{ issue.get('line', '-') }}</td>
+            </tr>
+            {% endfor %}
+            {% if not issues %}
+            <tr><td colspan="5" class="text-muted" style="text-align:center;padding:24px;">
+                Нет проблем — запустите анализ на главной странице
+            </td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

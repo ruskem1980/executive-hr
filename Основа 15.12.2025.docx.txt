@@ -1,0 +1,140 @@
+﻿AXIOMA EXECUTIVE PLATFORM v8.2
+(MASTER PRODUCT CONCEPT)
+Статус: Глобальный AI-партнер в Executive Search.
+Тип системы: Гибридная AI-платформа для глубинного аудита и оценки лидеров (Коммерческий сектор, Госслужба и Оборонный комплекс).
+Охват: 10 Ролей (C-Suite). 3 Языка (Russian / English / Chinese).
+Миссия: "АХІОМА АI — ДЕЛАТЬ ТОЧНЫМИ РЕШЕНИЯ ВЫБОРА ЛУЧШИХ".
+Философия: "Context First" (Сначала Контекст — Потом Кандидат).
+________________
+I. ТЕХНОЛОГИЧЕСКАЯ АРХИТЕКТУРА (TECH STACK)
+Система построена как Гибридная (Hybrid), с поддержкой адаптивной методологии под любой профиль. Архитектура позволяет переключать "мозги" системы без остановки сервиса.
+1. Ядро Искусственного Интеллекта (AI Core)
+Реализован принцип BYOK (Bring Your Own Key). Пользователь подключает любую модель:
+* Режим "GLOBAL CLOUD": GPT-4o (OpenAI) / Claude 3.5 Sonnet. Максимальная точность и мультимодальность.
+* Режим "ENTERPRISE CUSTOM": Ввод собственного API Endpoint (Azure, AWS, Sber).
+* Режим "SECURE BUNKER": Qwen 3 (32B/72B) / Llama 3 (70B) (Local Inference). Работает на локальных GPU (RTX 4090/5090/A100). Данные не покидают контур.
+2. Аудио-Движок (Audio Engine)
+* Технология: OpenAI Whisper v3 Large + Diarization.
+* Функции: Разделение спикеров, анализ тональности, детекция микро-стресса и лжи.
+3. Backend & Infrastructure
+* Backend: Python 3.10+ (FastAPI). Асинхронная архитектура.
+4. Storage (Хранение Данных)
+* Технология: SQLite (Локально) / PostgreSQL (Prod).
+* Функция: Хранение векторов профилей, истории отчетов и логов аудита.
+5. Generation (Генерация Отчетов)
+* Технология: WeasyPrint (HTML to PDF) с CSS3 версткой "Black Power Edition".
+* Результат: Типографически идеальные PDF-отчеты.
+________________
+II. МЕТОДОЛОГИЧЕСКИЙ ФУНДАМЕНТ (GLOBAL KNOWLEDGE BASE)
+Система использует RAG (Retrieval-Augmented Generation). При каждом запросе AI обращается к 22 специализированным файлам знаний.
+1. Матрица Ролей (The C-Suite 10)
+Система не оценивает абстрактного "руководителя". Она использует 4 кластера профилей:
+* CORE (Стратегия): CEO (Visionary), COO (Integrator), CSO (Architect).
+* ASSETS (Активы): CFO (Value Creator), CLO (Guardian).
+* GROWTH (Рынок): CRO (Rainmaker), CMO (Brand Builder), CPO (Innovator).
+* ENABLERS (Ресурс): CTO (Tech Visionary), CHRO (Talent Magnet).
+2. "Золотой Стандарт" Методик (Best Global Practices)
+* Korn Ferry Leadership Architect: Комплексная оценка по 4 факторам (Thought, Results, People, Self).
+* Elliot Jaques (Stratified Systems Theory): Оценка когнитивного горизонта (Time Span: 3-5-10 лет).
+* Hogan Assessments (Dark Side): Выявление деструкторов (Нарциссизм, Микроменеджмент, Скептицизм).
+* Ichak Adizes (PAEI): Управленческий код (P, A, E, I).
+* Topgrading: Глубинная верификация фактов (Truth Seeker).
+________________
+III. ПОЛЬЗОВАТЕЛЬСКИЕ ИНТЕРФЕЙСЫ (UX)
+1. TELEGRAM VERSION ("Pocket Partner")
+* ЭТАП 0: INITIALIZATION. Выбор языка (RU/EN/CN).
+* ЭТАП 1: MANIFESTO. Демонстрация методологии и предупреждение о "Context First".
+* ЭТАП 2: MISSION CONTROL (Меню).
+   * Role Select: Выбор из 10 ролей.
+   * Mode Select: New Search, Blitz Check, Interview Mode, Compare Candidates.
+   * Config: API Settings (BYOK).
+* ЭТАП 3: OUTPUT. PDF-отчет + Voice Summary (голосовое резюме).
+2. WEB DASHBOARD ("Mission Control")
+Для HRD и Консультантов. Разделы: Project Pipeline, Comparative Analytics, Candidate 360, API Gateway.
+________________
+IV. СТРУКТУРА ОТЧЕТА (BLACK POWER REPORT)
+Отчет генерируется модульно, включая:
+1. VERDICT: Светофор риска (Go/No-Go).
+2. GAP ANALYSIS: Оценка разрывов между профилем и вакансией.
+3. BENCHMARKING: Калибровка относительно глобального рынка.
+4. COMPETENCY MATRIX: Глубокий аудит Hard/Soft Skills (Korn Ferry).
+5. PSYCHOMETRICS: Риски и деструкторы (Hogan HDS).
+6. STRATEGIC PROFILE: Горизонт мышления (Elliot Jaques).
+7. SHAREHOLDER MANUAL: Инструкция по управлению активом.
+________________
+V. ЧЕТЫРЕХСТУПЕНЧАТЫЙ КОНВЕЙЕР ОЦЕНКИ (PIPELINE)
+ЭТАП 0: CONTEXT VALIDATION (Валидация Входа)
+Цель: Исключение галлюцинаций и ошибок ввода до начала анализа.
+* Вход: Role ID (выбор кнопки) + User File (Вакансия) + User File (Резюме).
+* Процесс:
+   1. Check 1 (Sequence): Файл 1 — это точно Вакансия? (Если Резюме -> Ошибка последовательности "Context First").
+   2. Check 2 (Integrity): Role ID == Vacancy Content? (Если конфликт -> Активация Exception Handling или Pivot Matrix).
+   3. Check 3 (Relevance): Vacancy Level vs Candidate Level.
+* Выход: Чистые данные для RAG-генерации.
+ЭТАП 1: SCREENING (Бумажная Истина)
+* Вход: Резюме + Вакансия.
+* Метод: Gap Analysis (или Transferable Skills Analysis для Pivot-треков).
+* Результат: Отчет "Screening Report" с первичным скорингом.
+ЭТАП 2: INTERVIEW GUIDE (Генерация Интервью)
+* Вход: Выявленные "Разрывы" (Gaps) и "Риски" (Hogan).
+* Суть: Генерация уникального скрипта вопросов для проверки "слепых зон".
+ЭТАП 3: AUDIO FORENSICS (Комплексный Аудит)
+* Вход: Аудиозапись собеседования.
+* Анализ: Say-Do Gap (сравнение резюме и речи), STAR Verification, Psycholinguistics.
+* Результат: "Ultimate Truth Report".
+________________
+VI. СРАВНИТЕЛЬНАЯ АНАЛИТИКА (COMPARATIVE ANALYTICS)
+Построение Decision Matrix для финалистов:
+* Hard Skills Score (%).
+* Agility / Potential (KF Learning Agility).
+* Risk Factor (Hogan).
+* ROI Forecast (Прогноз возврата инвестиций).
+________________
+VII. КОНКУРЕНТНЫЙ АНАЛИЗ (MARKET BATTLEFIELD)
+AXIOMA vs Традиционный подбор:
+* Скорость: Мгновенно (vs 6-12 недель).
+* Предвзятость: Нулевая (Temperature = 0.0) (vs Высокая).
+* Стоимость: Лицензия (vs 30% годового оклада).
+* Глубина: Научная Forensic-методология (vs Интуиция).
+________________
+VIII. ПРОТОКОЛЫ ОБРАБОТКИ ИСКЛЮЧЕНИЙ (EXCEPTION HANDLING)
+Система работает по принципу "Zero Hallucination Tolerance".
+1. ПРОТОКОЛ "SEQUENCE BREAK"
+Ситуация: Пользователь загрузил Резюме ДО Вакансии.
+* Действие: Блокировка сравнения.
+* Ответ: "⚠️ Нарушена последовательность. Загрузите вакансию для Gap-анализа или перейдите в Blitz Check."
+2. ПРОТОКОЛ "ROLE MISMATCH"
+Ситуация: Выбрана кнопка CEO, загружена вакансия Marketing Director.
+* Действие: Warning о конфликте методологий.
+* Ответ: "⚠️ Конфликт Контекста. Я не могу оценивать Маркетолога по матрице Гендиректора. Смените роль или подтвердите действие."
+3. ПРОТОКОЛ "CRITICAL SCALE MISMATCH"
+Ситуация: Junior кандидат на C-Level позицию.
+* Действие: Auto-Reject на основе Elliot Jaques Level.
+* Ответ: "⛔ Критическое несоответствие масштаба (Level 2 vs Level 5)."
+________________
+IX. МАТРИЦА ФУНКЦИОНАЛЬНЫХ ПЕРЕХОДОВ (THE PIVOT MATRIX) [НОВОЕ]
+Система использует "Transferable Skills Analysis" (Анализ переносимых навыков) для оценки кандидатов, меняющих функцию (Pivot). Оценка производится с изменением весов компетенций (фокус на Agility и Vision, а не Hard Skills).
+1. SCENARIO "THE VALUE CREATOR" (CFO ➔ CEO)
+Ситуация: Финансовый директор претендует на роль CEO.
+* Зеленые флаги: Business Partnership, участие в M&A, видение бизнеса как системы метрик.
+* Красные флаги (Hogan): Risk Aversion (Боязнь риска), Lack of Empathy, Micromanagement.
+* Действие системы: Активация трека "Value Creator". Проверка способности принимать решения в условиях неопределенности (без точных данных).
+2. SCENARIO "THE INTEGRATOR" (COO ➔ CEO)
+Ситуация: Операционный директор претендует на роль CEO.
+* Зеленые флаги: Умение делегировать операционку, фокус на культуре и внешнем рынке.
+* Красные флаги: Застревание в "тушении пожаров", отсутствие опыта с инвесторами (IR).
+3. SCENARIO "THE TECH VISIONARY" (CTO/CPO ➔ CEO)
+Ситуация: Технический лидер претендует на роль CEO.
+* Зеленые флаги: Понимание Unit-экономики, готовность продавать "недоделанный" продукт ради Time-to-Market.
+* Красные флаги: Перфекционизм, презрение к продажам, интроверсия.
+________________
+ВЫГОДЫ ДЛЯ СТЕЙКХОЛДЕРОВ (VALUE PROPOSITION)
+ДЛЯ АКЦИОНЕРА (THE OWNER):
+1. Снижение риска: Ошибка найма сведена к статистической погрешности.
+2. Shareholder Manual: Инструкция по эксплуатации топа.
+3. Независимость: Второе мнение, независимое от HR.
+ДЛЯ HR-ДИРЕКТОРА (THE PARTNER):
+1. Augmentation: Эффективность целого департамента.
+2. Защита репутации: Фильтрация фейков на входе.
+3. Цифровая аргументация: Решения, обоснованные данными и матрицами.
+ИТОГ: АХIOMA v8.2 — это конец эпохи интуитивного найма. Это начало эпохи Инженерного Расчета в управлении человеческим капиталом.
