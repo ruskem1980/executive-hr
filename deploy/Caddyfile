@@ -1,0 +1,6 @@
+# Добавить в /etc/caddy/Caddyfile на сервере 5.42.101.207
+# (owner на 3000, axioma-site на 3001, execvision на 8081)
+
+hr.axioma-ai.ru {
+    reverse_proxy localhost:8081
+}

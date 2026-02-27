@@ -1,0 +1,105 @@
+name: Deploy ExecVision AI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  DEPLOY_DIR: /var/www/hr.axioma-ai.ru
+  SITE_URL: https://hr.axioma-ai.ru
+  HEALTH_URL: https://hr.axioma-ai.ru/health
+  SERVICE: execvision
+
+jobs:
+  deploy:
+    name: Deploy to Timeweb Cloud
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: production
+      url: ${{ env.SITE_URL }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          command_timeout: 8m
+          script: |
+            set -euo pipefail
+
+            DEPLOY_DIR="/var/www/hr.axioma-ai.ru"
+            echo "ExecVision AI — деплой: $(date)"
+
+            # Создаём директорию если нет
+            mkdir -p "$DEPLOY_DIR"
+            cd "$DEPLOY_DIR"
+
+            # Первый деплой: клонируем репо
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }}.git .
+            else
+              git fetch origin main
+              git reset --hard origin/main
+            fi
+
+            # Python venv и зависимости
+            python3 -m venv .venv
+            .venv/bin/pip install --quiet --upgrade pip
+            .venv/bin/pip install --quiet fastapi "uvicorn[standard]" httpx python-dotenv
+
+            # Лог директория
+            mkdir -p /var/log/execvision
+            chown www-data:www-data /var/log/execvision 2>/dev/null || true
+
+            # systemd сервис
+            cp "$DEPLOY_DIR/deploy/execvision.service" /etc/systemd/system/execvision.service
+            systemctl daemon-reload
+            systemctl enable execvision
+
+            # Caddy: добавить hr.axioma-ai.ru если ещё нет
+            if ! grep -q "hr.axioma-ai.ru" /etc/caddy/Caddyfile; then
+              echo "" >> /etc/caddy/Caddyfile
+              cat "$DEPLOY_DIR/deploy/Caddyfile" >> /etc/caddy/Caddyfile
+              caddy reload --config /etc/caddy/Caddyfile
+              echo "Caddy: hr.axioma-ai.ru добавлен"
+            fi
+
+            # Перезапуск сервиса
+            systemctl restart execvision
+            sleep 3
+            systemctl is-active execvision && echo "Сервис запущен" || (journalctl -u execvision -n 20 --no-pager && exit 1)
+
+            echo "Деплой завершён: $(date)"
+
+      - name: Health check
+        run: |
+          for i in 1 2 3 4 5; do
+            echo "Попытка $i/5..."
+            if curl -sf --max-time 10 "${{ env.HEALTH_URL }}" > /dev/null; then
+              echo "OK — сервис отвечает"
+              exit 0
+            fi
+            sleep 8
+          done
+          echo "ОШИБКА: health check не прошёл"
+          exit 1
+
+      - name: Rollback при неудаче
+        if: failure()
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            systemctl stop execvision || true
+            echo "Сервис остановлен. Требуется ручное вмешательство."

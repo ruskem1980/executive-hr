@@ -1,0 +1,17 @@
+[Unit]
+Description=ExecVision AI — HR кокпит + TTS (hr.axioma-ai.ru)
+After=network.target
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/hr.axioma-ai.ru
+Environment="PYTHONPATH=/var/www/hr.axioma-ai.ru"
+EnvironmentFile=/var/www/hr.axioma-ai.ru/.env
+ExecStart=/var/www/hr.axioma-ai.ru/.venv/bin/uvicorn src.web.tts_server:app --host 127.0.0.1 --port 8081 --workers 2
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/execvision/out.log
+StandardError=append:/var/log/execvision/error.log
+
+[Install]
+WantedBy=multi-user.target

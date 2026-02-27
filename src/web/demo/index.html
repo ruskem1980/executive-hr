@@ -195,6 +195,133 @@
     body.light-mode .nav-item:hover { background: rgba(200,164,92,0.1); color: #1e293b; }
     body.light-mode .nav-item.active { color: #c8a45c; }
 
+    /* ===== VOICE PLAYER ===== */
+    .voice-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10,14,26,0.85); backdrop-filter: blur(16px);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .voice-card {
+      background: linear-gradient(135deg, #0d1220, #111827);
+      border: 1px solid rgba(200,164,92,0.3);
+      border-radius: 20px; padding: 36px 40px;
+      width: 520px; max-width: 94vw;
+      box-shadow: 0 0 60px rgba(200,164,92,0.15), 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .voice-waves {
+      display: flex; align-items: center; justify-content: center;
+      gap: 4px; height: 48px; margin: 20px 0;
+    }
+    .voice-bar {
+      width: 4px; border-radius: 2px; background: #c8a45c;
+      transition: height 0.15s ease;
+    }
+    @keyframes wave1 { 0%,100%{height:8px} 50%{height:36px} }
+    @keyframes wave2 { 0%,100%{height:14px} 40%{height:44px} }
+    @keyframes wave3 { 0%,100%{height:20px} 30%{height:48px} }
+    @keyframes wave4 { 0%,100%{height:10px} 60%{height:38px} }
+    .voice-bar.playing:nth-child(1)  { animation: wave1 0.9s infinite; }
+    .voice-bar.playing:nth-child(2)  { animation: wave2 0.7s infinite 0.1s; }
+    .voice-bar.playing:nth-child(3)  { animation: wave3 0.8s infinite 0.05s; }
+    .voice-bar.playing:nth-child(4)  { animation: wave1 0.6s infinite 0.2s; }
+    .voice-bar.playing:nth-child(5)  { animation: wave2 0.9s infinite 0.15s; }
+    .voice-bar.playing:nth-child(6)  { animation: wave3 0.7s infinite; }
+    .voice-bar.playing:nth-child(7)  { animation: wave4 0.8s infinite 0.1s; }
+    .voice-bar.playing:nth-child(8)  { animation: wave1 0.9s infinite 0.25s; }
+    .voice-bar.playing:nth-child(9)  { animation: wave2 0.6s infinite 0.05s; }
+    .voice-bar.playing:nth-child(10) { animation: wave3 0.8s infinite 0.3s; }
+    .voice-bar.playing:nth-child(11) { animation: wave4 0.7s infinite; }
+    .voice-bar.playing:nth-child(12) { animation: wave1 0.9s infinite 0.2s; }
+    .voice-section-tag {
+      display: inline-block; padding: 3px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+      background: rgba(200,164,92,0.12); color: #c8a45c;
+      border: 1px solid rgba(200,164,92,0.25); margin-bottom: 8px;
+    }
+    .voice-progress-bar {
+      height: 3px; border-radius: 2px; background: rgba(200,164,92,0.15);
+      overflow: hidden; margin: 16px 0;
+    }
+    .voice-progress-fill {
+      height: 100%; background: linear-gradient(90deg, #c8a45c, #e8c47c);
+      border-radius: 2px; transition: width 0.3s linear;
+    }
+    .voice-control {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s ease; border: none;
+    }
+    .voice-control-play {
+      background: linear-gradient(135deg, #c8a45c, #a8843c);
+      box-shadow: 0 4px 15px rgba(200,164,92,0.4);
+      width: 52px; height: 52px;
+    }
+    .voice-control-play:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(200,164,92,0.5); }
+    .voice-control-sec {
+      background: rgba(200,164,92,0.1);
+      border: 1px solid rgba(200,164,92,0.2); color: #c8a45c;
+    }
+    .voice-control-sec:hover { background: rgba(200,164,92,0.18); }
+    .voice-select {
+      background: rgba(15,23,42,0.8); border: 1px solid rgba(200,164,92,0.2);
+      color: #e2e8f0; border-radius: 8px; padding: 6px 10px;
+      font-size: 12px; cursor: pointer; font-family: 'Inter', sans-serif;
+    }
+    .voice-select:focus { outline: none; border-color: rgba(200,164,92,0.4); }
+    .voice-btn-trigger {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 8px; cursor: pointer;
+      font-size: 12px; font-weight: 600; transition: all 0.2s ease;
+      background: rgba(200,164,92,0.1); color: #c8a45c;
+      border: 1px solid rgba(200,164,92,0.2);
+    }
+    .voice-btn-trigger:hover { background: rgba(200,164,92,0.18); transform: translateY(-1px); }
+
+    /* ===== Morning Briefing Bar ===== */
+    .briefing-bar {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+      z-index: 300;
+      background: rgba(10,14,26,0.97);
+      border: 1px solid rgba(200,164,92,0.35);
+      border-radius: 40px;
+      padding: 10px 18px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: 0 8px 40px rgba(200,164,92,0.18), 0 0 0 1px rgba(200,164,92,0.06);
+      backdrop-filter: blur(16px);
+      min-width: 460px; max-width: 660px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .briefing-bar:hover {
+      border-color: rgba(200,164,92,0.6);
+      box-shadow: 0 8px 50px rgba(200,164,92,0.28);
+      transform: translateX(-50%) translateY(-2px);
+    }
+    .briefing-mic {
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(200,164,92,0.15);
+      border: 1px solid rgba(200,164,92,0.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .briefing-waves {
+      display: flex; align-items: center; gap: 2px; height: 18px;
+    }
+    .briefing-wave {
+      width: 3px; background: #c8a45c; border-radius: 2px;
+      animation: wave 0.8s ease-in-out infinite;
+    }
+    .briefing-wave:nth-child(1) { animation-delay: 0s;    height: 6px; }
+    .briefing-wave:nth-child(2) { animation-delay: 0.15s; height: 14px; }
+    .briefing-wave:nth-child(3) { animation-delay: 0.3s;  height: 10px; }
+    .briefing-wave:nth-child(4) { animation-delay: 0.45s; height: 16px; }
+    .briefing-wave:nth-child(5) { animation-delay: 0.6s;  height: 8px; }
+    .briefing-ctrl {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+
     @media print {
       body { background: white !important; color: #1e293b !important; }
       aside, header, .copilot-bubble, [x-show="copilotOpen"], button { display: none !important; }
@@ -508,6 +635,10 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Глубинный анализ кандидата · CFO · ПАО МегаГрупп</p>
               </div>
               <div class="flex gap-2">
+                <button class="voice-btn-trigger" @click="openVoice('candidate')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  Озвучить
+                </button>
                 <button class="btn-outline text-sm" @click="view='compare'">Сравнить с финалистами →</button>
                 <button class="btn-outline text-sm" @click="view='reference'">Reference Check →</button>
                 <button class="btn-gold text-sm" @click="view='verdict'">The Verdict →</button>
@@ -677,7 +808,13 @@
                 <h1 class="text-2xl font-bold text-text">The Battle — Compare Matrix</h1>
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Сравнение 3 финалистов · CFO · ПАО МегаГрупп</p>
               </div>
-              <button class="btn-gold text-sm" @click="view='verdict'">Смотреть Вердикт →</button>
+              <div class="flex gap-2">
+                <button class="voice-btn-trigger" @click="openVoice('compare')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  Озвучить
+                </button>
+                <button class="btn-gold text-sm" @click="view='verdict'">Смотреть Вердикт →</button>
+              </div>
             </div>
 
             <!-- Шапка с кандидатами -->
@@ -877,6 +1014,10 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Финальная оценка · Андрей Волков · CFO · 28 февраля 2026</p>
               </div>
               <div class="flex gap-2">
+                <button class="voice-btn-trigger" @click="openVoice('verdict')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  Озвучить
+                </button>
                 <button class="btn-outline text-sm">↗ Поделиться с CEO</button>
                 <button class="btn-outline text-sm" @click="view='onboard'">Onboard Plan →</button>
                 <button class="btn-gold text-sm" @click="window.print()">⬇ Экспорт PDF</button>
@@ -985,11 +1126,15 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Topgrading THREAT · Андрей Волков · CFO</p>
               </div>
               <div class="flex gap-2">
+                <button class="voice-btn-trigger" @click="openVoice('reference')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  Озвучить
+                </button>
                 <button class="btn-outline text-sm" @click="view='verdict'">← Вернуться к Вердикту</button>
                 <button class="btn-gold text-sm">Завершить проверку</button>
               </div>
             </div>
-          
+
             <!-- СЕКЦИЯ 1: Три референса -->
             <div class="grid grid-cols-3 gap-4 mb-5">
           
@@ -1348,6 +1493,10 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">План 30-60-90-180 дней · Андрей Волков · CFO · STaRS: Turnaround</p>
               </div>
               <div class="flex gap-2">
+                <button class="voice-btn-trigger" @click="openVoice('onboard')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  Озвучить
+                </button>
                 <button class="btn-outline text-sm" @click="view='verdict'">← Verdict</button>
                 <button class="btn-gold text-sm">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -2803,6 +2952,183 @@
 
   </div><!-- /flex layout -->
 
+  <!-- ===== MORNING BRIEFING BAR ===== -->
+  <div class="briefing-bar"
+       x-show="briefingBar && !voiceOpen"
+       x-transition:enter="transition ease-out duration-400"
+       x-transition:enter-start="opacity-0 translate-y-6"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 translate-y-4"
+       @click="voiceOpen = true; briefingBar = false">
+
+    <!-- Mic icon -->
+    <div class="briefing-mic">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+    </div>
+
+    <!-- Label + current section -->
+    <div style="flex:1;min-width:0;overflow:hidden">
+      <div style="font-size:10px;color:#c8a45c;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">AI Брифинг · 28 фев 2026</div>
+      <div style="font-size:13px;color:#e2e8f0;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"
+           x-text="voiceCurrentSection || 'Подготовка...'"></div>
+    </div>
+
+    <!-- Waveform when playing -->
+    <div class="briefing-waves" x-show="voicePlaying && !voicePaused">
+      <div class="briefing-wave"></div><div class="briefing-wave"></div>
+      <div class="briefing-wave"></div><div class="briefing-wave"></div>
+      <div class="briefing-wave"></div>
+    </div>
+
+    <!-- Pause icon when paused -->
+    <div x-show="voicePaused" style="color:#c8a45c;font-size:12px;padding:0 4px">⏸</div>
+
+    <!-- Controls (stop propagation so bar-click doesn't trigger) -->
+    <div style="display:flex;gap:6px;flex-shrink:0" @click.stop>
+      <button class="briefing-ctrl"
+              style="background:rgba(200,164,92,0.12);color:#c8a45c;"
+              @click="toggleVoicePause()"
+              :title="voicePaused ? 'Продолжить' : 'Пауза'">
+        <svg x-show="!voicePaused" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+        <svg x-show="voicePaused"  width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </button>
+      <button class="briefing-ctrl"
+              style="background:rgba(239,68,68,0.1);color:#ef4444;"
+              @click="stopVoice(); briefingBar = false"
+              title="Закрыть">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Expand hint -->
+    <div style="font-size:10px;color:#334155;flex-shrink:0;padding-left:2px">↑</div>
+  </div>
+
+  <!-- ===== VOICE PLAYER OVERLAY ===== -->
+  <div class="voice-overlay" x-show="voiceOpen" x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
+    @keydown.escape.window="stopVoice()">
+
+    <div class="voice-card">
+
+      <!-- Шапка -->
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:16px; font-weight:800; color:#e2e8f0;">Голосовой отчёт</div>
+            <div style="font-size:11px; color:#94a3b8;" x-text="voiceReportTitle">ExecVision AI · Яндекс SpeechKit</div>
+          </div>
+        </div>
+        <button @click="stopVoice()" style="color:#64748b; cursor:pointer; font-size:18px; background:none; border:none;">✕</button>
+      </div>
+
+      <!-- Текущая секция -->
+      <div class="text-center mb-2">
+        <span class="voice-section-tag" x-text="voiceCurrentSection">Инициализация...</span>
+      </div>
+
+      <!-- Текущий текст -->
+      <div style="min-height:52px; text-align:center;">
+        <p style="font-size:13px; color:#94a3b8; line-height:1.6; font-style:italic;" x-text="voiceCurrentText">Подготовка отчёта...</p>
+      </div>
+
+      <!-- Волны -->
+      <div class="voice-waves">
+        <template x-for="i in 12">
+          <div class="voice-bar" :class="voicePlaying ? 'playing' : ''" style="height:8px;"></div>
+        </template>
+      </div>
+
+      <!-- Прогресс -->
+      <div class="voice-progress-bar">
+        <div class="voice-progress-fill" :style="'width:' + voiceProgress + '%'"></div>
+      </div>
+      <div class="flex justify-between mb-4" style="font-size:11px; color:#64748b; font-family:'JetBrains Mono',monospace;">
+        <span x-text="voiceTimeElapsed">0:00</span>
+        <span x-text="Math.round(voiceProgress) + '%'">0%</span>
+        <span x-text="voiceTotalSections > 0 ? 'Блок ' + voiceChunkIdx + ' / ' + voiceTotalSections : '—'">—</span>
+      </div>
+
+      <!-- Управление -->
+      <div class="flex items-center justify-center gap-4 mb-6">
+
+        <!-- Предыдущая секция -->
+        <button class="voice-control voice-control-sec" @click="voicePrev()" title="Предыдущий блок">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
+          </svg>
+        </button>
+
+        <!-- Стоп -->
+        <button class="voice-control voice-control-sec" @click="stopVoice()" title="Стоп">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+        </button>
+
+        <!-- Пауза / Плей -->
+        <button class="voice-control voice-control-play" @click="toggleVoicePause()" :title="voicePaused ? 'Продолжить' : 'Пауза'">
+          <template x-if="!voicePaused">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0e1a"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </template>
+          <template x-if="voicePaused">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0e1a"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </template>
+        </button>
+
+        <!-- Следующая секция -->
+        <button class="voice-control voice-control-sec" @click="voiceNext()" title="Следующий блок">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
+          </svg>
+        </button>
+
+        <!-- Скорость -->
+        <select class="voice-select" x-model="voiceSpeed" @change="changeVoiceSpeed()">
+          <option value="0.8">0.8×</option>
+          <option value="1.0" selected>1.0×</option>
+          <option value="1.2">1.2×</option>
+          <option value="1.5">1.5×</option>
+        </select>
+
+      </div>
+
+      <!-- Голос -->
+      <div class="flex items-center gap-3">
+        <span style="font-size:12px; color:#64748b; white-space:nowrap;">Голос:</span>
+        <select class="voice-select flex-1" x-model="voiceId">
+          <option value="filipp">Филипп (нейронный, муж.)</option>
+          <option value="alena">Алёна (нейронная, жен.)</option>
+          <option value="zahar">Захар (стандартный, муж.)</option>
+          <option value="ermil">Ермил (стандартный, муж.)</option>
+          <option value="jane">Джейн (стандартная, жен.)</option>
+        </select>
+
+        <!-- Статус сервера -->
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)">
+          <div class="w-2 h-2 rounded-full" style="background:#10b981"></div>
+          <span style="font-size:10px; font-weight:600; color:#10b981">Яндекс</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- ===== /VOICE PLAYER ===== -->
+
   <script>
     function app() {
       return {
@@ -3183,7 +3509,346 @@
 
           // Инициализировать радар если начинаем с verdict
           if (this.view === 'verdict') this.initRadar();
-        }
+
+          // Проверить TTS сервер при старте
+          this.checkTTSServer();
+
+          // Автоматический утренний брифинг через 1.5 сек
+          setTimeout(() => this.startMorningBriefing(), 1500);
+        },
+
+        // ========== VOICE TTS ENGINE ==========
+        voiceOpen:          false,
+        voicePlaying:       false,
+        voicePaused:        false,
+        voiceProgress:      0,
+        voiceChunkIdx:      0,
+        voiceTotalSections: 0,
+        voiceCurrentSection:'',
+        voiceCurrentText:   '',
+        voiceReportTitle:   '',
+        voiceTimeElapsed:   '0:00',
+        voiceStartTime:     null,
+        voiceTimerInterval: null,
+        voiceId:            'filipp',
+        voiceSpeed:         '1.0',
+        ttsServerOk:        false,
+        ttsServerUrl:       '',  // пустая строка = текущий origin
+        voiceAudio:         null,    // HTMLAudioElement
+        voiceChunks:        [],      // массив {section, text} для очереди
+        briefingBar:        false,   // компактный баннер брифинга
+        briefingShown:      false,   // запустить только один раз
+
+        async checkTTSServer() {
+          try {
+            const r = await fetch(this.ttsServerUrl + '/health', { signal: AbortSignal.timeout(2000) });
+            this.ttsServerOk = r.ok;
+          } catch { this.ttsServerOk = false; }
+        },
+
+        // Генерация текста отчёта по текущему экрану
+        buildReportChunks(screenView) {
+          const c = this.candidates?.[0];   // Волков — главный финалист
+          const name  = 'Андрей Волков';
+          const role  = 'Финансовый директор';
+          const score = '4.2 из 5';
+
+          const reports = {
+            verdict: [
+              { section: 'Общий вывод',
+                text: `Вердикт ExecVision AI по кандидату ${name} на позицию ${role}. Итоговый Composite Score — ${score}. Рекомендация: HIRE. Нанять.` },
+              { section: 'Topgrading',
+                text: `По методологии Topgrading кандидат получил грейд A-минус. Это A-Player уровень. Карьерная хронология соответствует требованиям. Опыт IPO подтверждён. P&L ответственность — 62 миллиарда рублей.` },
+              { section: 'Egon Zehnder — Потенциал',
+                text: `Потенциал по модели Egon Zehnder — высокий, 3.8 из 5. Curiosity — 4.0. Insight — 3.8. Engagement — 4.2. Determination — 3.5. Профиль соответствует категории High Potential.` },
+              { section: 'Hogan — Риски',
+                text: `Профиль рисков по Hogan — низкий. Нет критических деструкторов. Умеренный уровень Bold — 5 из 10 — трактуется как уверенность, а не нарциссизм. Комбинации Bold плюс Mischievous не выявлено.` },
+              { section: 'Adizes PAEI',
+                text: `PAEI профиль кандидата — P-A-e-i: сильный Producer и Administrator. Производительность и дисциплина. Полное соответствие ожидаемому профилю CFO в Turnaround сценарии.` },
+              { section: 'Уровень Жака',
+                text: `По модели Elliot Jaques — Stratified Systems Theory — кандидат соответствует четвёртому уровню работы, Strategic. Горизонт планирования от двух до пяти лет. Это точное совпадение с требованиями позиции CFO публичной компании.` },
+              { section: 'Predictive Analytics',
+                text: `Вероятность успеха в первый год — 78 процентов. Риск деструктивного поведения — низкий, 18 процентов. Риск ухода в течение двух лет — умеренный, 35 процентов. Основной фактор удержания — наличие акционерного капитала в пакете.` },
+              { section: 'Следующие шаги',
+                text: `Рекомендуемые шаги. Первое: финальное интервью с CEO, 30 минут, фокус на стратегических приоритетах. Второе: reference check по двум рекомендателям. Третье: подготовка компенсационного оффера. Ориентир — 6.8 миллиона рублей в месяц плюс 2 процента акционерного пула. Четвёртое: запуск Onboard Plan на 30-60-90 дней.` },
+            ],
+            compare: [
+              { section: 'Сравнительный анализ',
+                text: `Compare Matrix по позиции ${role}. Три финалиста. Андрей Волков — Composite 4.2. Ирина Белова — Composite 3.8. Дмитрий Козлов — Composite 3.3.` },
+              { section: 'Лидер — Андрей Волков',
+                text: `Волков — единственный кандидат с полным Must-Have соответствием. Опыт IPO подтверждён. P&L ответственность — 62 миллиарда рублей. Topgrading: A-минус. Hogan: Low Risk. PAEI: Full Fit. Вердикт: HIRE.` },
+              { section: 'Кандидат №2 — Ирина Белова',
+                text: `Белова сильна в операционных компетенциях — 4.2 из 5. Однако отсутствует критический опыт IPO, который является обязательным требованием Board. Culture Fit высокий — 4.0. Hogan: Medium Risk. Рекомендация: HOLD. Рассмотреть при расширении поиска.` },
+              { section: 'Кандидат №3 — Дмитрий Козлов',
+                text: `Козлов имеет опыт управления финансами, однако профиль соответствует B-Player уровню по Topgrading. Критический риск: Hogan HIGH — выявлена комбинация Bold и Mischievous. Данная комбинация под давлением Board может привести к манипулятивному поведению. Вердикт: NO HIRE.` },
+              { section: 'AI Рекомендация',
+                text: `Финальная рекомендация ExecVision AI: нанять Андрея Волкова. Кандидат закрывает все обязательные требования, имеет подтверждённый track record IPO и минимальный профиль риска по Hogan.` },
+            ],
+            candidate: [
+              { section: 'Профиль кандидата',
+                text: `X-Ray анализ кандидата ${name}. Текущая позиция: CFO в ПАО Металлинвест. Опыт в роли CFO — 14 лет. Последний P&L — 62.4 миллиарда рублей. Образование: MBA, INSEAD, 2010 год.` },
+              { section: 'Ключевые достижения',
+                text: `Проведение IPO на Московской бирже в 2022 году. Три сделки Mergers and Acquisitions в роли CFO. Оптимизация EBITDA плюс 18 процентов в ГК Сталь. Сертификат ACCA по МСФО.` },
+              { section: 'Hogan профиль',
+                text: `Профиль рисков Hogan — Low Risk. Умеренный Bold — 5 из 10. Diligent — 4 из 10. Критических деструкторов не выявлено. Рекомендация: контролировать склонность к детализации при сжатых дедлайнах.` },
+              { section: 'Gap Analysis',
+                text: `Соответствие профилю позиции CFO. Опыт в публичной компании — подтверждён. P&L более 30 миллиардов — подтверждён. Опыт IPO — подтверждён. МСФО, ACCA — подтверждён. Уровень английского C1 — требует проверки на переговорах. Опыт M&A — подтверждён, три сделки.` },
+            ],
+            reference: [
+              { section: 'Reference Check — Итог',
+                text: `Верификация рекомендаций по кандидату ${name}. Convergence Score — 8.7 из 10, уровень HIGH. Получены ответы от двух из трёх рекомендателей.` },
+              { section: 'Рекомендатели',
+                text: `Первый рекомендатель: Михаил Борисов, CEO ПАО Металлинвест — экс-руководитель. Would Rehire: Да, 10 из 10. Второй рекомендатель: Ольга Семёнова, CFO СтальГрупп — коллега. Would Rehire: Да, 8 из 10. Третий рекомендатель: Антон Крылов, VP Finance — ожидание ответа.` },
+              { section: 'Ключевые паттерны',
+                text: `Три позитивных темы из референсов: исключительная финансовая дисциплина, умение работать с неопределённостью, построение доверия с Board. Два наблюдения: склонность к детальному контролю в стрессе, высокие стандарты могут давить на команду.` },
+              { section: 'THREAT оценка',
+                text: `По методологии Topgrading THREAT: общий скор 4.3 из 5. Правдивость высокая. Честность высокая. Реалистичность умеренная. Точность высокая. Прозрачность умеренная. Вывод: A-Player подтверждён референсами.` },
+            ],
+            onboard: [
+              { section: 'STaRS сценарий',
+                text: `Onboard Plan для ${name}, CFO. STaRS модель определила сценарий: Turnaround на 85 процентов. Компании необходим новый финансовый лидер для IPO-2 и M&A стратегии.` },
+              { section: 'Первые 30 дней',
+                text: `Фаза один — Аудит и ориентация. Ключевые задачи: аудит финансовых систем и команды, семь встреч один-на-один с топ-менеджерами, изучение P&L последних трёх лет, встречи с аудитором и банками, знакомство с членами Board, первый CFO-отчёт для CEO.` },
+              { section: 'Дни 31–60',
+                text: `Фаза два — Диагностика и стратегия. Презентация финансовой диагностики Board. Оптимизация Treasury. Пересмотр ковенантов с банками. Разработка трёхлетней финансовой модели, первая версия. Формирование IR стратегии для IPO-2.` },
+              { section: 'Дни 61–90',
+                text: `Фаза три — Первые Quick Wins. Цель: снижение стоимости долга на 15 процентов. Внедрение cash flow forecasting. Автоматизация двух ключевых репортингов. Согласование KPI команды финансов.` },
+              { section: 'Дни 91–180 и мониторинг',
+                text: `Фаза четыре — Трансформация. Запуск подготовки IPO-2. Улучшение EBITDA плюс 12 процентов к плану. Формирование команды — три новых найма. По Hogan: мониторировать Bold в стрессовых ситуациях с Board. Первые 90 дней: weekly check-in с CEO.` },
+            ],
+          };
+
+          reports.briefing = [
+            { section: 'Доброе утро',
+              text: `Доброе утро, Елена. Сегодня двадцать восьмое февраля две тысячи двадцать шестого года. ExecVision AI готов. Ваш ежедневный брифинг по найму топ-менеджеров.` },
+            { section: 'Общий пульс найма',
+              text: `Активных позиций — семь. В пайплайне — двадцать три кандидата. Среднее время закрытия — сорок пять дней. Quality Score — четыре целых одна из пяти. По сравнению с прошлой неделей: скорость выросла на восемь процентов.` },
+            { section: 'Приоритет 1 — CFO: готов к офферу',
+              text: `Позиция CFO. В работе — тридцать два дня. Четыре финалиста прошли все этапы. Топ-кандидат — Андрей Волков. Composite Score четыре целых две из пяти. Topgrading A минус. Hogan Low Risk. Reference Convergence — восемь целых семь из десяти. Статус: HIRE. Кандидат готов к офферу.` },
+            { section: 'Внимание! COO под угрозой',
+              text: `Критическая ситуация по позиции COO. В работе — сорок пять дней. Это максимальный срок в вашем пайплайне. Пять кандидатов, но ни один не завершил оценку. Риск срыва дедлайна через десять дней. Рекомендую: провести экстренный Compare Matrix сегодня.` },
+            { section: 'CTO и VP Sales',
+              text: `CTO: восемнадцать дней, три финалиста — всё идёт по плану. VP Sales: семь дней, один кандидат в пайплайне — критически узкий охват. Необходимо немедленно активировать два дополнительных источника кандидатов.` },
+            { section: 'AI Инсайты на сегодня',
+              text: `Три ключевых инсайта. Первый: у Волкова два конкурирующих оффера — нельзя затягивать. Второй: Hogan деструктор Bold у Козлова подтверждён тремя рекомендателями — правильное решение исключить. Третий: Onboard Plan для CFO должен стартовать одновременно с оффером.` },
+            { section: 'Рекомендации на сегодня',
+              text: `Три действия на сегодня. Первое: оффер Волкову — шесть целых восемь миллиона рублей в месяц плюс два процента акционерного пула. Второе: Compare Matrix по COO — выбрать финалиста из пяти. Третье: расширить воронку VP Sales — подключить два агентства. Нажмите на баннер для деталей. Хорошего дня, Елена.` },
+          ];
+
+          return reports[screenView] || reports['verdict'];
+        },
+
+        // Автоматический утренний брифинг
+        async startMorningBriefing() {
+          if (this.briefingShown) return;
+          this.briefingShown = true;
+          await this.checkTTSServer();
+          if (!this.ttsServerOk) return;  // Яндекс недоступен — молчим
+          this.voiceChunks        = this.buildReportChunks('briefing');
+          this.voiceTotalSections = this.voiceChunks.length;
+          this.voiceChunkIdx      = 0;
+          this.voiceProgress      = 0;
+          this.voicePaused        = false;
+          this.voicePlaying       = false;
+          this.voiceReportTitle   = 'AI Брифинг · 28 февраля 2026';
+          this.briefingBar        = true;
+          this.startVoiceTimer();
+          await this.playChunk(0);
+        },
+
+        // Открыть плеер и начать воспроизведение
+        async openVoice(screen) {
+          await this.checkTTSServer();
+          this.voiceChunks     = this.buildReportChunks(screen || this.view);
+          this.voiceTotalSections = this.voiceChunks.length;
+          this.voiceChunkIdx   = 0;
+          this.voiceProgress   = 0;
+          this.voicePaused     = false;
+          this.voicePlaying    = false;
+          this.voiceOpen       = true;
+
+          const titles = {
+            verdict: 'The Verdict · Андрей Волков · CFO',
+            compare: 'Compare Matrix · CFO · 3 финалиста',
+            candidate: 'X-Ray Engine · Андрей Волков',
+            reference: 'Reference Verifier · Андрей Волков',
+            onboard: 'Onboard Planner · 30-60-90-180 дней',
+          };
+          this.voiceReportTitle = titles[screen || this.view] || 'ExecVision AI · Отчёт';
+          this.startVoiceTimer();
+          await this.playChunk(0);
+        },
+
+        startVoiceTimer() {
+          this.voiceStartTime = Date.now();
+          clearInterval(this.voiceTimerInterval);
+          this.voiceTimerInterval = setInterval(() => {
+            const s = Math.floor((Date.now() - this.voiceStartTime) / 1000);
+            const m = Math.floor(s / 60);
+            this.voiceTimeElapsed = m + ':' + String(s % 60).padStart(2, '0');
+          }, 1000);
+        },
+
+        async playChunk(idx) {
+          if (idx >= this.voiceChunks.length) {
+            this.voicePlaying = false;
+            this.voiceProgress = 100;
+            this.voiceCurrentSection = 'Отчёт завершён ✓';
+            this.voiceCurrentText = '';
+            clearInterval(this.voiceTimerInterval);
+            return;
+          }
+
+          const chunk = this.voiceChunks[idx];
+          this.voiceChunkIdx      = idx + 1;
+          this.voiceCurrentSection = chunk.section;
+          this.voiceCurrentText    = chunk.text;
+          this.voiceProgress       = Math.round((idx / this.voiceChunks.length) * 100);
+          this.voicePlaying        = true;
+          this.voicePaused         = false;
+
+          if (!this.ttsServerOk) {
+            // Яндекс недоступен — останавливаем без fallback
+            this.voicePlaying = false;
+            this.voiceOpen    = false;
+            this.briefingBar  = false;
+            return;
+          }
+          await this.playYandex(chunk.text, idx);
+        },
+
+        async playYandex(text, idx) {
+          try {
+            const resp = await fetch(this.ttsServerUrl + '/tts', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                text: text,
+                voice: this.voiceId,
+                speed: parseFloat(this.voiceSpeed),
+                format: 'mp3',
+              }),
+            });
+            if (!resp.ok) throw new Error('TTS error: ' + resp.status);
+
+            const blob = await resp.blob();
+            const url  = URL.createObjectURL(blob);
+
+            if (this.voiceAudio) {
+              this.voiceAudio.pause();
+              this.voiceAudio.src = '';
+            }
+            this.voiceAudio = new Audio(url);
+            this.voiceAudio.playbackRate = parseFloat(this.voiceSpeed);
+
+            await this.voiceAudio.play();
+
+            await new Promise((resolve) => {
+              this.voiceAudio.onended = resolve;
+              this.voiceAudio.onerror = resolve;
+            });
+
+            URL.revokeObjectURL(url);
+
+            if (this.voicePlaying && !this.voicePaused) {
+              await this.playChunk(idx + 1);
+            }
+          } catch (e) {
+            console.warn('Яндекс TTS ошибка:', e);
+            this.ttsServerOk = false;
+            this.voicePlaying = false;
+            this.voiceOpen    = false;
+            this.briefingBar  = false;
+          }
+        },
+
+        async playBrowser(text, idx) {
+          return new Promise((resolve) => {
+            if (!('speechSynthesis' in window)) {
+              resolve();
+              this.playChunk(idx + 1);
+              return;
+            }
+
+            window.speechSynthesis.cancel();
+            const utt = new SpeechSynthesisUtterance(text);
+            utt.lang = 'ru-RU';
+            utt.rate  = parseFloat(this.voiceSpeed);
+
+            // Выбрать русский голос если есть
+            const voices = window.speechSynthesis.getVoices();
+            const ruVoice = voices.find(v => v.lang.startsWith('ru'));
+            if (ruVoice) utt.voice = ruVoice;
+
+            utt.onend = () => {
+              resolve();
+              if (this.voicePlaying && !this.voicePaused) {
+                this.playChunk(idx + 1);
+              }
+            };
+            utt.onerror = () => { resolve(); };
+
+            window.speechSynthesis.speak(utt);
+          });
+        },
+
+        toggleVoicePause() {
+          if (!this.voicePlaying) return;
+          if (this.voicePaused) {
+            this.voicePaused = false;
+            if (this.voiceAudio) {
+              this.voiceAudio.play();
+            } else {
+              window.speechSynthesis.resume();
+            }
+          } else {
+            this.voicePaused = true;
+            if (this.voiceAudio) {
+              this.voiceAudio.pause();
+            } else {
+              window.speechSynthesis.pause();
+            }
+          }
+        },
+
+        stopVoice() {
+          this.voicePlaying = false;
+          this.voicePaused  = false;
+          this.voiceOpen    = false;
+          this.briefingBar  = false;
+          clearInterval(this.voiceTimerInterval);
+          if (this.voiceAudio) {
+            this.voiceAudio.pause();
+            this.voiceAudio = null;
+          }
+          window.speechSynthesis.cancel();
+        },
+
+        voiceNext() {
+          const nextIdx = this.voiceChunkIdx;
+          if (nextIdx < this.voiceChunks.length) {
+            if (this.voiceAudio) { this.voiceAudio.pause(); this.voiceAudio = null; }
+            window.speechSynthesis.cancel();
+            this.voicePlaying = false;
+            this.playChunk(nextIdx);
+          }
+        },
+
+        voicePrev() {
+          const prevIdx = Math.max(0, this.voiceChunkIdx - 2);
+          if (this.voiceAudio) { this.voiceAudio.pause(); this.voiceAudio = null; }
+          window.speechSynthesis.cancel();
+          this.voicePlaying = false;
+          this.playChunk(prevIdx);
+        },
+
+        changeVoiceSpeed() {
+          if (this.voiceAudio) {
+            this.voiceAudio.playbackRate = parseFloat(this.voiceSpeed);
+          }
+        },
+        // ========== /VOICE TTS ENGINE ==========
+
       }
     }
   </script>
