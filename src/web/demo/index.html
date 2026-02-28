@@ -187,140 +187,99 @@
 
     /* Light Mode */
     body.light-mode { background: #f8fafc; color: #1e293b; }
-    body.light-mode .glass-card { background: rgba(255,255,255,0.9); border-color: rgba(200,164,92,0.2); }
+    body.light-mode .glass-card { background: rgba(255,255,255,0.9); border-color: rgba(200,164,92,0.2); color: #1e293b; }
+    body.light-mode .glass-card:hover { border-color: rgba(200,164,92,0.4); box-shadow: 0 8px 30px rgba(200,164,92,0.12); }
     body.light-mode aside { background: #f1f5f9 !important; border-color: rgba(200,164,92,0.2) !important; }
-    body.light-mode header { background: rgba(248,250,252,0.95) !important; }
-    body.light-mode .metric-card { background: white; }
+    body.light-mode header { background: rgba(248,250,252,0.95) !important; border-color: rgba(200,164,92,0.15) !important; }
+    body.light-mode .metric-card { background: linear-gradient(135deg, #ffffff, #f8fafc); border-color: rgba(200,164,92,0.2); color: #1e293b; }
     body.light-mode .nav-item { color: #475569; }
     body.light-mode .nav-item:hover { background: rgba(200,164,92,0.1); color: #1e293b; }
-    body.light-mode .nav-item.active { color: #c8a45c; }
+    body.light-mode .nav-item.active { color: #c8a45c; background: rgba(200,164,92,0.12); }
+    /* Текст — вторичный и третичный */
+    body.light-mode .text-slate-400,
+    body.light-mode .text-slate-500 { color: #64748b !important; }
+    body.light-mode .text-slate-300 { color: #475569 !important; }
+    body.light-mode .text-muted,
+    body.light-mode [class*="text-gray-4"],
+    body.light-mode [class*="text-gray-5"] { color: #64748b !important; }
+    /* Карточки таблицы сравнения */
+    body.light-mode .compare-table th { background: #e2e8f0; color: #475569; }
+    body.light-mode .compare-table td { color: #1e293b; border-top-color: rgba(200,164,92,0.1); }
+    body.light-mode .compare-table tr:hover td { background: rgba(200,164,92,0.05); }
+    /* Пузырьки copilot */
+    body.light-mode .copilot-bubble { background: #ffffff; border-color: rgba(200,164,92,0.25); color: #1e293b; }
+    body.light-mode .user-bubble { background: rgba(200,164,92,0.08); color: #92700d; }
+    /* Карточки вопросов интервью */
+    body.light-mode .interview-q-card { background: #ffffff; border-color: rgba(200,164,92,0.18); color: #1e293b; }
+    body.light-mode .interview-q-card:hover { border-color: rgba(200,164,92,0.35); }
+    /* Скроллбар */
+    body.light-mode ::-webkit-scrollbar-track { background: #e2e8f0; }
+    body.light-mode ::-webkit-scrollbar-thumb { background: rgba(200,164,92,0.4); }
+    /* Инпуты и textarea */
+    body.light-mode input, body.light-mode textarea, body.light-mode select {
+      background: #ffffff !important; color: #1e293b !important;
+      border-color: rgba(200,164,92,0.3) !important;
+    }
+    body.light-mode input::placeholder, body.light-mode textarea::placeholder { color: #94a3b8 !important; }
+    /* Кнопки outline */
+    body.light-mode .btn-outline { border-color: rgba(200,164,92,0.4); color: #92700d; }
+    body.light-mode .btn-outline:hover { background: rgba(200,164,92,0.1); }
+    /* Общие цвета текста для элементов с inline-стилями */
+    body.light-mode p, body.light-mode span, body.light-mode div,
+    body.light-mode h1, body.light-mode h2, body.light-mode h3,
+    body.light-mode h4, body.light-mode h5, body.light-mode h6,
+    body.light-mode label, body.light-mode td, body.light-mode th { color: inherit; }
 
-    /* ===== VOICE PLAYER ===== */
-    .voice-overlay {
-      position: fixed; inset: 0; z-index: 1000;
-      background: rgba(10,14,26,0.85); backdrop-filter: blur(16px);
+    /* ===== Переопределение inline-стилей с тёмными цветами ===== */
+    /* Почти белый текст → тёмный */
+    body.light-mode [style*="color:#e2e8f0"] { color: #1e293b !important; }
+    body.light-mode [style*="color: #e2e8f0"] { color: #1e293b !important; }
+    body.light-mode [style*="color:#cbd5e1"] { color: #334155 !important; }
+    body.light-mode [style*="color: #cbd5e1"] { color: #334155 !important; }
+    body.light-mode [style*="color:#f1f5f9"] { color: #1e293b !important; }
+    body.light-mode [style*="color:#f8fafc"] { color: #1e293b !important; }
+    /* Серый muted текст → видимый серый */
+    body.light-mode [style*="color:#94a3b8"] { color: #64748b !important; }
+    body.light-mode [style*="color: #94a3b8"] { color: #64748b !important; }
+    body.light-mode [style*="color:#64748b"] { color: #475569 !important; }
+    /* Тёмные фоны блоков → светлые */
+    body.light-mode [style*="background:#0d1220"] { background: #f1f5f9 !important; color: #1e293b !important; }
+    body.light-mode [style*="background: #0d1220"] { background: #f1f5f9 !important; color: #1e293b !important; }
+    body.light-mode [style*="background:#0a0e1a"] { background: #f8fafc !important; color: #1e293b !important; }
+    body.light-mode [style*="background:#111827"] { background: #ffffff !important; color: #1e293b !important; }
+    body.light-mode [style*="background:#0f172a"] { background: #f1f5f9 !important; color: #1e293b !important; }
+    body.light-mode [style*="background:#1e293b"] { background: #e2e8f0 !important; color: #1e293b !important; }
+    /* rgba тёмные фоны */
+    body.light-mode [style*="background:rgba(17,24,39"] { background: rgba(255,255,255,0.95) !important; }
+    body.light-mode [style*="background: rgba(17,24,39"] { background: rgba(255,255,255,0.95) !important; }
+    body.light-mode [style*="background:rgba(15,23,42"] { background: rgba(248,250,252,0.95) !important; }
+    body.light-mode [style*="background: rgba(15,23,42"] { background: rgba(248,250,252,0.95) !important; }
+    body.light-mode [style*="background:rgba(13,18,32"] { background: rgba(241,245,249,0.95) !important; }
+    body.light-mode [style*="background: rgba(13,18,32"] { background: rgba(241,245,249,0.95) !important; }
+    body.light-mode [style*="background:rgba(10,14,26"] { background: rgba(248,250,252,0.97) !important; }
+
+
+    /* Voice icon в nav-item */
+    .nav-voice-btn {
+      margin-left: auto; flex-shrink: 0;
+      width: 22px; height: 22px; border-radius: 6px; border: none;
       display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #475569; background: transparent;
+      opacity: 0; transition: all 0.15s ease;
     }
-    .voice-card {
-      background: linear-gradient(135deg, #0d1220, #111827);
-      border: 1px solid rgba(200,164,92,0.3);
-      border-radius: 20px; padding: 36px 40px;
-      width: 520px; max-width: 94vw;
-      box-shadow: 0 0 60px rgba(200,164,92,0.15), 0 30px 80px rgba(0,0,0,0.5);
-    }
-    .voice-waves {
-      display: flex; align-items: center; justify-content: center;
-      gap: 4px; height: 48px; margin: 20px 0;
-    }
-    .voice-bar {
-      width: 4px; border-radius: 2px; background: #c8a45c;
-      transition: height 0.15s ease;
-    }
-    @keyframes wave1 { 0%,100%{height:8px} 50%{height:36px} }
-    @keyframes wave2 { 0%,100%{height:14px} 40%{height:44px} }
-    @keyframes wave3 { 0%,100%{height:20px} 30%{height:48px} }
-    @keyframes wave4 { 0%,100%{height:10px} 60%{height:38px} }
-    .voice-bar.playing:nth-child(1)  { animation: wave1 0.9s infinite; }
-    .voice-bar.playing:nth-child(2)  { animation: wave2 0.7s infinite 0.1s; }
-    .voice-bar.playing:nth-child(3)  { animation: wave3 0.8s infinite 0.05s; }
-    .voice-bar.playing:nth-child(4)  { animation: wave1 0.6s infinite 0.2s; }
-    .voice-bar.playing:nth-child(5)  { animation: wave2 0.9s infinite 0.15s; }
-    .voice-bar.playing:nth-child(6)  { animation: wave3 0.7s infinite; }
-    .voice-bar.playing:nth-child(7)  { animation: wave4 0.8s infinite 0.1s; }
-    .voice-bar.playing:nth-child(8)  { animation: wave1 0.9s infinite 0.25s; }
-    .voice-bar.playing:nth-child(9)  { animation: wave2 0.6s infinite 0.05s; }
-    .voice-bar.playing:nth-child(10) { animation: wave3 0.8s infinite 0.3s; }
-    .voice-bar.playing:nth-child(11) { animation: wave4 0.7s infinite; }
-    .voice-bar.playing:nth-child(12) { animation: wave1 0.9s infinite 0.2s; }
-    .voice-section-tag {
-      display: inline-block; padding: 3px 10px; border-radius: 20px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-      background: rgba(200,164,92,0.12); color: #c8a45c;
-      border: 1px solid rgba(200,164,92,0.25); margin-bottom: 8px;
-    }
-    .voice-progress-bar {
-      height: 3px; border-radius: 2px; background: rgba(200,164,92,0.15);
-      overflow: hidden; margin: 16px 0;
-    }
-    .voice-progress-fill {
-      height: 100%; background: linear-gradient(90deg, #c8a45c, #e8c47c);
-      border-radius: 2px; transition: width 0.3s linear;
-    }
-    .voice-control {
-      width: 44px; height: 44px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.2s ease; border: none;
-    }
-    .voice-control-play {
-      background: linear-gradient(135deg, #c8a45c, #a8843c);
-      box-shadow: 0 4px 15px rgba(200,164,92,0.4);
-      width: 52px; height: 52px;
-    }
-    .voice-control-play:hover { transform: scale(1.08); box-shadow: 0 6px 20px rgba(200,164,92,0.5); }
-    .voice-control-sec {
-      background: rgba(200,164,92,0.1);
-      border: 1px solid rgba(200,164,92,0.2); color: #c8a45c;
-    }
-    .voice-control-sec:hover { background: rgba(200,164,92,0.18); }
-    .voice-select {
-      background: rgba(15,23,42,0.8); border: 1px solid rgba(200,164,92,0.2);
-      color: #e2e8f0; border-radius: 8px; padding: 6px 10px;
-      font-size: 12px; cursor: pointer; font-family: 'Inter', sans-serif;
-    }
-    .voice-select:focus { outline: none; border-color: rgba(200,164,92,0.4); }
+    .nav-item:hover .nav-voice-btn { opacity: 1; color: #c8a45c; }
+    .nav-voice-btn:hover { background: rgba(200,164,92,0.15) !important; color: #c8a45c !important; }
+    .nav-voice-btn.playing { opacity: 1 !important; color: #c8a45c; background: rgba(200,164,92,0.12); box-shadow: 0 0 6px rgba(200,164,92,0.3); }
     .voice-btn-trigger {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 14px; border-radius: 8px; cursor: pointer;
-      font-size: 12px; font-weight: 600; transition: all 0.2s ease;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 8px; cursor: pointer;
+      flex-shrink: 0; transition: all 0.2s ease;
       background: rgba(200,164,92,0.1); color: #c8a45c;
       border: 1px solid rgba(200,164,92,0.2);
     }
-    .voice-btn-trigger:hover { background: rgba(200,164,92,0.18); transform: translateY(-1px); }
+    .voice-btn-trigger:hover { background: rgba(200,164,92,0.22); transform: scale(1.08); }
+    .voice-btn-trigger.playing { background: rgba(200,164,92,0.2); box-shadow: 0 0 8px rgba(200,164,92,0.35); }
 
-    /* ===== Morning Briefing Bar ===== */
-    .briefing-bar {
-      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
-      z-index: 300;
-      background: rgba(10,14,26,0.97);
-      border: 1px solid rgba(200,164,92,0.35);
-      border-radius: 40px;
-      padding: 10px 18px;
-      display: flex; align-items: center; gap: 12px;
-      box-shadow: 0 8px 40px rgba(200,164,92,0.18), 0 0 0 1px rgba(200,164,92,0.06);
-      backdrop-filter: blur(16px);
-      min-width: 460px; max-width: 660px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .briefing-bar:hover {
-      border-color: rgba(200,164,92,0.6);
-      box-shadow: 0 8px 50px rgba(200,164,92,0.28);
-      transform: translateX(-50%) translateY(-2px);
-    }
-    .briefing-mic {
-      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(200,164,92,0.15);
-      border: 1px solid rgba(200,164,92,0.3);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .briefing-waves {
-      display: flex; align-items: center; gap: 2px; height: 18px;
-    }
-    .briefing-wave {
-      width: 3px; background: #c8a45c; border-radius: 2px;
-      animation: wave 0.8s ease-in-out infinite;
-    }
-    .briefing-wave:nth-child(1) { animation-delay: 0s;    height: 6px; }
-    .briefing-wave:nth-child(2) { animation-delay: 0.15s; height: 14px; }
-    .briefing-wave:nth-child(3) { animation-delay: 0.3s;  height: 10px; }
-    .briefing-wave:nth-child(4) { animation-delay: 0.45s; height: 16px; }
-    .briefing-wave:nth-child(5) { animation-delay: 0.6s;  height: 8px; }
-    .briefing-ctrl {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-    }
 
     @media print {
       body { background: white !important; color: #1e293b !important; }
@@ -368,31 +327,55 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           Пульс Найма
           <span class="ml-auto text-xs font-mono" style="color:#c8a45c; background:rgba(200,164,92,0.1); padding:1px 6px; border-radius:4px;">7</span>
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='briefing' ? stopVoice() : openVoice('briefing')" :class="voicePlaying && voiceCurrentScreen==='briefing' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='briefing' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='profile'}" @click="view='profile'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           Profile Architect
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='candidate' ? stopVoice() : openVoice('candidate')" :class="voicePlaying && voiceCurrentScreen==='candidate' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='candidate' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='candidate'}" @click="view='candidate'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           X-Ray Engine
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='candidate' ? stopVoice() : openVoice('candidate')" :class="voicePlaying && voiceCurrentScreen==='candidate' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='candidate' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='compare'}" @click="view='compare'; initCompareRadar()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
           Compare Matrix
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='compare' ? stopVoice() : openVoice('compare')" :class="voicePlaying && voiceCurrentScreen==='compare' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='compare' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='interview'}" @click="view='interview'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 19-9-9 19-2-8-8-2z"/></svg>
           Interview Navigator
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='verdict' ? stopVoice() : openVoice('verdict')" :class="voicePlaying && voiceCurrentScreen==='verdict' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='verdict' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='verdict'}" @click="view='verdict'; initRadar()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           The Verdict
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='verdict' ? stopVoice() : openVoice('verdict')" :class="voicePlaying && voiceCurrentScreen==='verdict' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='verdict' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div style="font-size:10px; color:#64748b; font-weight:600; letter-spacing:0.1em; padding:12px 14px 4px;">УПРАВЛЕНИЕ</div>
@@ -400,16 +383,28 @@
         <div class="nav-item" :class="{active: view==='talent'}" @click="view='talent'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           Talent Pool
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='candidate' ? stopVoice() : openVoice('candidate')" :class="voicePlaying && voiceCurrentScreen==='candidate' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='candidate' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='reference'}" @click="view='reference'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           Reference Verifier
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='reference' ? stopVoice() : openVoice('reference')" :class="voicePlaying && voiceCurrentScreen==='reference' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='reference' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
 
         <div class="nav-item" :class="{active: view==='onboard'}" @click="view='onboard'">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           Onboard Planner
+          <button class="nav-voice-btn" @click.stop="voicePlaying && voiceCurrentScreen==='onboard' ? stopVoice() : openVoice('onboard')" :class="voicePlaying && voiceCurrentScreen==='onboard' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='onboard' ? 'Стоп' : 'Озвучить'">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </button>
         </div>
       </nav>
 
@@ -635,9 +630,9 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Глубинный анализ кандидата · CFO · ПАО МегаГрупп</p>
               </div>
               <div class="flex gap-2">
-                <button class="voice-btn-trigger" @click="openVoice('candidate')">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                  Озвучить
+                <button class="voice-btn-trigger" @click="voicePlaying && voiceCurrentScreen==='candidate' ? stopVoice() : openVoice('candidate')" :class="voicePlaying && voiceCurrentScreen==='candidate' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='candidate' ? 'Стоп' : 'Озвучить'">
+                  <svg x-show="!(voicePlaying && voiceCurrentScreen==='candidate')" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  <svg x-show="voicePlaying && voiceCurrentScreen==='candidate'" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </button>
                 <button class="btn-outline text-sm" @click="view='compare'">Сравнить с финалистами →</button>
                 <button class="btn-outline text-sm" @click="view='reference'">Reference Check →</button>
@@ -809,9 +804,9 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Сравнение 3 финалистов · CFO · ПАО МегаГрупп</p>
               </div>
               <div class="flex gap-2">
-                <button class="voice-btn-trigger" @click="openVoice('compare')">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                  Озвучить
+                <button class="voice-btn-trigger" @click="voicePlaying && voiceCurrentScreen==='compare' ? stopVoice() : openVoice('compare')" :class="voicePlaying && voiceCurrentScreen==='compare' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='compare' ? 'Стоп' : 'Озвучить'">
+                  <svg x-show="!(voicePlaying && voiceCurrentScreen==='compare')" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  <svg x-show="voicePlaying && voiceCurrentScreen==='compare'" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </button>
                 <button class="btn-gold text-sm" @click="view='verdict'">Смотреть Вердикт →</button>
               </div>
@@ -1014,9 +1009,9 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Финальная оценка · Андрей Волков · CFO · 28 февраля 2026</p>
               </div>
               <div class="flex gap-2">
-                <button class="voice-btn-trigger" @click="openVoice('verdict')">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                  Озвучить
+                <button class="voice-btn-trigger" @click="voicePlaying && voiceCurrentScreen==='verdict' ? stopVoice() : openVoice('verdict')" :class="voicePlaying && voiceCurrentScreen==='verdict' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='verdict' ? 'Стоп' : 'Озвучить'">
+                  <svg x-show="!(voicePlaying && voiceCurrentScreen==='verdict')" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  <svg x-show="voicePlaying && voiceCurrentScreen==='verdict'" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </button>
                 <button class="btn-outline text-sm">↗ Поделиться с CEO</button>
                 <button class="btn-outline text-sm" @click="view='onboard'">Onboard Plan →</button>
@@ -1126,9 +1121,9 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">Topgrading THREAT · Андрей Волков · CFO</p>
               </div>
               <div class="flex gap-2">
-                <button class="voice-btn-trigger" @click="openVoice('reference')">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                  Озвучить
+                <button class="voice-btn-trigger" @click="voicePlaying && voiceCurrentScreen==='reference' ? stopVoice() : openVoice('reference')" :class="voicePlaying && voiceCurrentScreen==='reference' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='reference' ? 'Стоп' : 'Озвучить'">
+                  <svg x-show="!(voicePlaying && voiceCurrentScreen==='reference')" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  <svg x-show="voicePlaying && voiceCurrentScreen==='reference'" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </button>
                 <button class="btn-outline text-sm" @click="view='verdict'">← Вернуться к Вердикту</button>
                 <button class="btn-gold text-sm">Завершить проверку</button>
@@ -1493,9 +1488,9 @@
                 <p style="color:#94a3b8; font-size:14px; margin-top:2px;">План 30-60-90-180 дней · Андрей Волков · CFO · STaRS: Turnaround</p>
               </div>
               <div class="flex gap-2">
-                <button class="voice-btn-trigger" @click="openVoice('onboard')">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-                  Озвучить
+                <button class="voice-btn-trigger" @click="voicePlaying && voiceCurrentScreen==='onboard' ? stopVoice() : openVoice('onboard')" :class="voicePlaying && voiceCurrentScreen==='onboard' ? 'playing' : ''" :title="voicePlaying && voiceCurrentScreen==='onboard' ? 'Стоп' : 'Озвучить'">
+                  <svg x-show="!(voicePlaying && voiceCurrentScreen==='onboard')" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  <svg x-show="voicePlaying && voiceCurrentScreen==='onboard'" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </button>
                 <button class="btn-outline text-sm" @click="view='verdict'">← Verdict</button>
                 <button class="btn-gold text-sm">
@@ -2952,182 +2947,6 @@
 
   </div><!-- /flex layout -->
 
-  <!-- ===== MORNING BRIEFING BAR ===== -->
-  <div class="briefing-bar"
-       x-show="briefingBar && !voiceOpen"
-       x-transition:enter="transition ease-out duration-400"
-       x-transition:enter-start="opacity-0 translate-y-6"
-       x-transition:enter-end="opacity-100 translate-y-0"
-       x-transition:leave="transition ease-in duration-200"
-       x-transition:leave-start="opacity-100 translate-y-0"
-       x-transition:leave-end="opacity-0 translate-y-4"
-       @click="voiceOpen = true; briefingBar = false">
-
-    <!-- Mic icon -->
-    <div class="briefing-mic">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2.5">
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-        <line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
-      </svg>
-    </div>
-
-    <!-- Label + current section -->
-    <div style="flex:1;min-width:0;overflow:hidden">
-      <div style="font-size:10px;color:#c8a45c;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px">AI Брифинг · 28 фев 2026</div>
-      <div style="font-size:13px;color:#e2e8f0;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"
-           x-text="voiceCurrentSection || 'Подготовка...'"></div>
-    </div>
-
-    <!-- Waveform when playing -->
-    <div class="briefing-waves" x-show="voicePlaying && !voicePaused">
-      <div class="briefing-wave"></div><div class="briefing-wave"></div>
-      <div class="briefing-wave"></div><div class="briefing-wave"></div>
-      <div class="briefing-wave"></div>
-    </div>
-
-    <!-- Pause icon when paused -->
-    <div x-show="voicePaused" style="color:#c8a45c;font-size:12px;padding:0 4px">⏸</div>
-
-    <!-- Controls (stop propagation so bar-click doesn't trigger) -->
-    <div style="display:flex;gap:6px;flex-shrink:0" @click.stop>
-      <button class="briefing-ctrl"
-              style="background:rgba(200,164,92,0.12);color:#c8a45c;"
-              @click="toggleVoicePause()"
-              :title="voicePaused ? 'Продолжить' : 'Пауза'">
-        <svg x-show="!voicePaused" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-        <svg x-show="voicePaused"  width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      </button>
-      <button class="briefing-ctrl"
-              style="background:rgba(239,68,68,0.1);color:#ef4444;"
-              @click="stopVoice(); briefingBar = false"
-              title="Закрыть">
-        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-
-    <!-- Expand hint -->
-    <div style="font-size:10px;color:#334155;flex-shrink:0;padding-left:2px">↑</div>
-  </div>
-
-  <!-- ===== VOICE PLAYER OVERLAY ===== -->
-  <div class="voice-overlay" x-show="voiceOpen" x-transition:enter="transition ease-out duration-200"
-    x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
-    x-transition:leave="transition ease-in duration-150"
-    x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
-    @keydown.escape.window="stopVoice()">
-
-    <div class="voice-card">
-
-      <!-- Шапка -->
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:rgba(200,164,92,0.15); border:1px solid rgba(200,164,92,0.3);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c8a45c" stroke-width="2">
-              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-              <line x1="12" y1="19" x2="12" y2="23"/>
-              <line x1="8" y1="23" x2="16" y2="23"/>
-            </svg>
-          </div>
-          <div>
-            <div style="font-size:16px; font-weight:800; color:#e2e8f0;">Голосовой отчёт</div>
-            <div style="font-size:11px; color:#94a3b8;" x-text="voiceReportTitle">ExecVision AI · Яндекс SpeechKit</div>
-          </div>
-        </div>
-        <button @click="stopVoice()" style="color:#64748b; cursor:pointer; font-size:18px; background:none; border:none;">✕</button>
-      </div>
-
-      <!-- Текущая секция -->
-      <div class="text-center mb-2">
-        <span class="voice-section-tag" x-text="voiceCurrentSection">Инициализация...</span>
-      </div>
-
-      <!-- Текущий текст -->
-      <div style="min-height:52px; text-align:center;">
-        <p style="font-size:13px; color:#94a3b8; line-height:1.6; font-style:italic;" x-text="voiceCurrentText">Подготовка отчёта...</p>
-      </div>
-
-      <!-- Волны -->
-      <div class="voice-waves">
-        <template x-for="i in 12">
-          <div class="voice-bar" :class="voicePlaying ? 'playing' : ''" style="height:8px;"></div>
-        </template>
-      </div>
-
-      <!-- Прогресс -->
-      <div class="voice-progress-bar">
-        <div class="voice-progress-fill" :style="'width:' + voiceProgress + '%'"></div>
-      </div>
-      <div class="flex justify-between mb-4" style="font-size:11px; color:#64748b; font-family:'JetBrains Mono',monospace;">
-        <span x-text="voiceTimeElapsed">0:00</span>
-        <span x-text="Math.round(voiceProgress) + '%'">0%</span>
-        <span x-text="voiceTotalSections > 0 ? 'Блок ' + voiceChunkIdx + ' / ' + voiceTotalSections : '—'">—</span>
-      </div>
-
-      <!-- Управление -->
-      <div class="flex items-center justify-center gap-4 mb-6">
-
-        <!-- Предыдущая секция -->
-        <button class="voice-control voice-control-sec" @click="voicePrev()" title="Предыдущий блок">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/>
-          </svg>
-        </button>
-
-        <!-- Стоп -->
-        <button class="voice-control voice-control-sec" @click="stopVoice()" title="Стоп">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-        </button>
-
-        <!-- Пауза / Плей -->
-        <button class="voice-control voice-control-play" @click="toggleVoicePause()" :title="voicePaused ? 'Продолжить' : 'Пауза'">
-          <template x-if="!voicePaused">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0e1a"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-          </template>
-          <template x-if="voicePaused">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0a0e1a"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </template>
-        </button>
-
-        <!-- Следующая секция -->
-        <button class="voice-control voice-control-sec" @click="voiceNext()" title="Следующий блок">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19"/>
-          </svg>
-        </button>
-
-        <!-- Скорость -->
-        <select class="voice-select" x-model="voiceSpeed" @change="changeVoiceSpeed()">
-          <option value="0.8">0.8×</option>
-          <option value="1.0" selected>1.0×</option>
-          <option value="1.2">1.2×</option>
-          <option value="1.5">1.5×</option>
-        </select>
-
-      </div>
-
-      <!-- Голос -->
-      <div class="flex items-center gap-3">
-        <span style="font-size:12px; color:#64748b; white-space:nowrap;">Голос:</span>
-        <select class="voice-select flex-1" x-model="voiceId">
-          <option value="filipp">Филипп (нейронный, муж.)</option>
-          <option value="alena">Алёна (нейронная, жен.)</option>
-          <option value="zahar">Захар (стандартный, муж.)</option>
-          <option value="ermil">Ермил (стандартный, муж.)</option>
-          <option value="jane">Джейн (стандартная, жен.)</option>
-        </select>
-
-        <!-- Статус сервера -->
-        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2)">
-          <div class="w-2 h-2 rounded-full" style="background:#10b981"></div>
-          <span style="font-size:10px; font-weight:600; color:#10b981">Яндекс</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <!-- ===== /VOICE PLAYER ===== -->
 
   <script>
     function app() {
@@ -3526,12 +3345,13 @@
         voiceTotalSections: 0,
         voiceCurrentSection:'',
         voiceCurrentText:   '',
+        voiceCurrentScreen: '',
         voiceReportTitle:   '',
         voiceTimeElapsed:   '0:00',
         voiceStartTime:     null,
         voiceTimerInterval: null,
         voiceId:            'filipp',
-        voiceSpeed:         '1.0',
+        voiceSpeed:         '1.2',
         ttsServerOk:        false,
         ttsServerUrl:       '',  // пустая строка = текущий origin
         voiceAudio:         null,    // HTMLAudioElement
@@ -3651,12 +3471,11 @@
           this.voicePaused        = false;
           this.voicePlaying       = false;
           this.voiceReportTitle   = 'AI Брифинг · 28 февраля 2026';
-          this.briefingBar        = true;
           this.startVoiceTimer();
           await this.playChunk(0);
         },
 
-        // Открыть плеер и начать воспроизведение
+        // Начать воспроизведение (без оверлея — только нижняя панель)
         async openVoice(screen) {
           await this.checkTTSServer();
           this.voiceChunks     = this.buildReportChunks(screen || this.view);
@@ -3665,7 +3484,7 @@
           this.voiceProgress   = 0;
           this.voicePaused     = false;
           this.voicePlaying    = false;
-          this.voiceOpen       = true;
+          this.voiceCurrentScreen = screen || this.view;
 
           const titles = {
             verdict: 'The Verdict · Андрей Волков · CFO',
@@ -3710,8 +3529,6 @@
           if (!this.ttsServerOk) {
             // Яндекс недоступен — останавливаем без fallback
             this.voicePlaying = false;
-            this.voiceOpen    = false;
-            this.briefingBar  = false;
             return;
           }
           await this.playYandex(chunk.text, idx);
@@ -3757,8 +3574,6 @@
             console.warn('Яндекс TTS ошибка:', e);
             this.ttsServerOk = false;
             this.voicePlaying = false;
-            this.voiceOpen    = false;
-            this.briefingBar  = false;
           }
         },
 
@@ -3814,8 +3629,7 @@
         stopVoice() {
           this.voicePlaying = false;
           this.voicePaused  = false;
-          this.voiceOpen    = false;
-          this.briefingBar  = false;
+          this.voiceCurrentScreen = '';
           clearInterval(this.voiceTimerInterval);
           if (this.voiceAudio) {
             this.voiceAudio.pause();
